@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AUC English A2B — Study System</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--bg:#0b1220;--card:#131c2e;--border:#22304a;--accent:#38bdf8;--accent-light:rgba(56,189,248,0.12);--pink:#f472b6;--green:#34d399;--blue:#60a5fa;--orange:#fb923c;--gold:#fbbf24;--text:#e2e8f0;--text-dim:#94a3b8;--shadow:0 4px 15px rgba(0,0,0,0.3)}
+  body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:20px}
+  .container{max-width:800px;margin:0 auto}
+  .hero{text-align:center;padding:50px 20px 40px;background:linear-gradient(135deg,#0c4a6e,#075985,#1e40af);border-radius:24px;margin-bottom:30px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(56,189,248,0.10)}
+  .hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;border-radius:50%;background:rgba(251,191,36,0.07)}
+  .hero h1{font-family:'Fredoka',sans-serif;font-size:2.4rem;font-weight:700;margin-bottom:8px;background:linear-gradient(135deg,#38bdf8,#fbbf24,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .hero p{color:#cbd5e1;font-size:1rem;margin-bottom:6px}
+  .hero .badge{display:inline-block;background:rgba(255,255,255,0.15);padding:6px 18px;border-radius:20px;font-size:0.82rem;font-weight:600;margin-top:12px;color:#7dd3fc}
+  .progress-overview{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 24px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .progress-overview .label{font-family:'Fredoka',sans-serif;font-size:0.9rem;color:var(--accent);white-space:nowrap}
+  .progress-bar-wrap{flex:1;min-width:200px}
+  .progress-bar{height:10px;background:#22304a;border-radius:5px;overflow:hidden}
+  .progress-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--accent),var(--gold))}
+  .progress-text{font-size:0.78rem;color:var(--text-dim);margin-top:4px;text-align:right}
+  .structure{text-align:center;margin-bottom:24px;padding:14px;background:var(--card);border-radius:14px;border:1px solid var(--border)}
+  .structure h3{font-family:'Fredoka',sans-serif;font-size:0.9rem;color:var(--accent);margin-bottom:8px}
+  .steps{display:flex;justify-content:center;flex-wrap:wrap;gap:6px}
+  .step{font-size:0.72rem;padding:4px 12px;border-radius:10px;background:var(--accent-light);color:var(--accent);font-weight:600}
+  .session-grid{display:grid;gap:16px}
+  .session-card{background:var(--card);border:2px solid var(--border);border-radius:18px;padding:24px 22px;color:var(--text);transition:all 0.3s;display:flex;align-items:flex-start;gap:18px;position:relative;overflow:hidden}
+  .session-card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 8px 30px rgba(56,189,248,0.18)}
+  .session-card.current{border-color:var(--green);box-shadow:0 0 20px rgba(52,211,153,0.15)}
+  .session-card.current::after{content:'CURRENT';position:absolute;top:12px;right:14px;font-size:0.6rem;font-weight:700;color:var(--green);background:rgba(52,211,153,0.12);padding:2px 8px;border-radius:6px;letter-spacing:1px}
+  .session-card.soon{opacity:0.55;border-style:dashed}
+  .session-card.soon::after{content:'COMING SOON';position:absolute;top:12px;right:14px;font-size:0.6rem;font-weight:700;color:var(--text-dim);background:rgba(148,163,184,0.12);padding:2px 8px;border-radius:6px;letter-spacing:1px}
+  .session-num{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;color:var(--accent);min-width:44px;text-align:center}
+  .session-info{flex:1}
+  .session-info h2{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:600;margin-bottom:3px}
+  .session-info .topic{font-size:0.82rem;color:var(--text-dim)}
+  .session-info .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+  .tag{font-size:0.68rem;padding:3px 10px;border-radius:12px;font-weight:600}
+  .tag-grammar{background:rgba(56,189,248,0.15);color:var(--accent)}
+  .tag-vocab{background:rgba(244,114,182,0.15);color:var(--pink)}
+  .tag-assess{background:rgba(52,211,153,0.15);color:var(--green)}
+  .tag-listen{background:rgba(96,165,250,0.15);color:var(--blue)}
+  .tag-idiom{background:rgba(251,191,36,0.15);color:var(--gold)}
+  .section-divider{text-align:center;margin:28px 0 16px;position:relative}
+  .section-divider::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border)}
+  .section-divider span{position:relative;background:var(--bg);padding:0 16px;font-family:'Fredoka',sans-serif;font-size:0.85rem;color:var(--text-dim);font-weight:600}
+  .btn-row{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
+  .btn-study{font-size:0.75rem;color:var(--green);font-weight:700;text-decoration:none;background:rgba(52,211,153,0.12);padding:5px 14px;border-radius:8px}
+  .btn-kahoot{font-size:0.75rem;color:#f87171;font-weight:700;text-decoration:none;background:rgba(226,27,60,0.12);padding:5px 14px;border-radius:8px}
+  .assess-banner{background:linear-gradient(135deg,rgba(52,211,153,0.08),rgba(56,189,248,0.08));border:1px solid rgba(52,211,153,0.25);border-radius:16px;padding:20px 24px;margin-bottom:24px}
+  .assess-banner h3{font-family:'Fredoka',sans-serif;font-size:0.95rem;color:var(--green);margin-bottom:10px}
+  .assess-table{width:100%;border-collapse:collapse;font-size:0.8rem}
+  .assess-table th{text-align:left;color:var(--text-dim);font-weight:600;padding:5px 8px;border-bottom:1px solid var(--border)}
+  .assess-table td{padding:5px 8px;border-bottom:1px solid rgba(34,48,74,0.5)}
+  .assess-table tr:last-child td{border-bottom:0;font-weight:700;color:var(--accent)}
+  .footer{text-align:center;margin-top:36px;padding:20px;color:var(--text-dim);font-size:0.78rem}
+  @media(max-width:600px){.hero h1{font-size:1.7rem}.session-card{padding:18px 14px;gap:12px}.session-num{font-size:1.4rem;min-width:38px}.progress-overview{flex-direction:column;gap:8px}.assess-table{font-size:0.72rem}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <h1>AUC English A2B</h1>
+  <p>Interactive Study System</p>
+  <p style="font-size:0.85rem;color:#94a3b8">Listen &bull; Read &bull; Speak &bull; Write &bull; Test &bull; Play</p>
+  <div class="badge">A2 Level &bull; 12 Sessions &bull; 290+ Questions</div>
+</div>
+
+<div class="progress-overview">
+  <div class="label">Course Progress</div>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar"><div class="progress-fill" style="width:41.6%"></div></div>
+    <div class="progress-text">5 of 12 sessions built</div>
+  </div>
+</div>
+
+<div class="structure">
+  <h3>Each Session Follows This Structure</h3>
+  <div class="steps">
+    <span class="step">Recap</span>
+    <span class="step">1. Listen</span>
+    <span class="step">2. Vocabulary</span>
+    <span class="step">3. Idioms</span>
+    <span class="step">4. Grammar</span>
+    <span class="step">5. Read</span>
+    <span class="step">6. Speak</span>
+    <span class="step">7. Roleplay</span>
+    <span class="step">8. Email</span>
+    <span class="step">9. Write</span>
+    <span class="step">10. Quiz</span>
+    <span class="step">Cheat Sheet</span>
+  </div>
+</div>
+
+<div class="assess-banner">
+  <h3>&#x1F4CB; Assessments &mdash; 100 points total (pass = 70%)</h3>
+  <table class="assess-table">
+    <tr><th>#</th><th>Type</th><th>Session</th><th>Points</th></tr>
+    <tr><td>1</td><td>Integrated Writing</td><td>4</td><td>20</td></tr>
+    <tr><td>2</td><td>Monologue</td><td>7</td><td>20</td></tr>
+    <tr><td>3</td><td>Independent Writing</td><td>9</td><td>25</td></tr>
+    <tr><td>4</td><td>Dialogue</td><td>12</td><td>25</td></tr>
+    <tr><td>&mdash;</td><td>Reading &amp; Listening activities</td><td>1&ndash;12</td><td>10</td></tr>
+    <tr><td></td><td>Total</td><td></td><td>100</td></tr>
+  </table>
+</div>
+
+<div class="section-divider"><span>Unit 1 &mdash; Work &amp; Well-being</span></div>
+
+<div class="session-grid">
+
+  <div class="session-card">
+    <div class="session-num">1</div>
+    <div class="session-info">
+      <h2><a href="session-1.html" style="color:inherit;text-decoration:none">Job Skills &amp; Qualifications</a></h2>
+      <div class="topic">Describe your skills, qualifications, and what you can do</div>
+      <div class="tags">
+        <span class="tag tag-grammar">can / can't / could / be able to</span>
+        <span class="tag tag-vocab">Job vocabulary</span>
+        <span class="tag tag-vocab">experience, CV, interview, reference</span>
+        <span class="tag tag-idiom">Idioms: land a job, go the extra mile</span>
+        <span class="tag tag-listen">2 Listening tasks</span>
+      </div>
+      <div class="btn-row">
+        <a href="session-1.html" class="btn-study">&#x1F4D6; Study Session</a>
+        <a href="kahoot-session1.html" class="btn-kahoot">&#x1F3AE; Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="session-card">
+    <div class="session-num">2</div>
+    <div class="session-info">
+      <h2><a href="session-2.html" style="color:inherit;text-decoration:none">What Do You Do at Work?</a></h2>
+      <div class="topic">Workplace verbs, job routines, and writing a cover letter</div>
+      <div class="tags">
+        <span class="tag tag-grammar">Gerunds &amp; Infinitives</span>
+        <span class="tag tag-vocab">Workplace verbs</span>
+        <span class="tag tag-vocab">lead, organize, prepare, explain</span>
+        <span class="tag tag-idiom">Idioms: call it a day, wear many hats</span>
+        <span class="tag tag-listen">6 Audio tracks</span>
+      </div>
+      <div class="btn-row">
+        <a href="session-2.html" class="btn-study">&#x1F4D6; Study Session</a>
+        <a href="kahoot-session2.html" class="btn-kahoot">&#x1F3AE; Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="session-card">
+    <div class="session-num">3</div>
+    <div class="session-info">
+      <h2><a href="session-3.html" style="color:inherit;text-decoration:none">A Healthy Mind</a></h2>
+      <div class="topic">Mental well-being, relaxation, and how to talk about it</div>
+      <div class="tags">
+        <span class="tag tag-grammar">Gerunds &amp; Infinitives (deep dive)</span>
+        <span class="tag tag-vocab">Well-being vocabulary</span>
+        <span class="tag tag-vocab">meditation, anxiety, cope with</span>
+        <span class="tag tag-idiom">Idioms: take it easy, clear your head</span>
+        <span class="tag tag-listen">2 Listening tasks</span>
+      </div>
+      <div class="btn-row">
+        <a href="session-3.html" class="btn-study">&#x1F4D6; Study Session</a>
+        <a href="kahoot-session3.html" class="btn-kahoot">&#x1F3AE; Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"><span>Unit 2 &mdash; The World Is Yours</span></div>
+
+<div class="session-grid">
+
+  <div class="session-card">
+    <div class="session-num">4</div>
+    <div class="session-info">
+      <h2><a href="session-4.html" style="color:inherit;text-decoration:none">The World Is Yours</a></h2>
+      <div class="topic">Describing places, locations, and dream destinations</div>
+      <div class="tags">
+        <span class="tag tag-grammar">Order of Adjectives (O-S-S-A-C)</span>
+        <span class="tag tag-vocab">Place adjectives</span>
+        <span class="tag tag-vocab">crowded, historical, breathtaking</span>
+        <span class="tag tag-idiom">Idioms: a hidden gem, picture-perfect</span>
+        <span class="tag tag-assess">Assessment 1 &mdash; Integrated Writing</span>
+        <span class="tag tag-listen">2 Listening tasks</span>
+      </div>
+      <div class="btn-row">
+        <a href="session-4.html" class="btn-study">&#x1F4D6; Study Session</a>
+        <a href="kahoot-session4.html" class="btn-kahoot">&#x1F3AE; Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="session-card current">
+    <div class="session-num">5</div>
+    <div class="session-info">
+      <h2><a href="session-5.html" style="color:inherit;text-decoration:none">Travel Essentials &amp; Future Plans</a></h2>
+      <div class="topic">Packing, travel items, and planning your trip</div>
+      <div class="tags">
+        <span class="tag tag-grammar">will / going to / present continuous</span>
+        <span class="tag tag-vocab">Travel vocabulary</span>
+        <span class="tag tag-vocab">carry-on, suitcase, passport, chargers</span>
+        <span class="tag tag-idiom">Idioms: hit the road, travel light</span>
+        <span class="tag tag-listen">Video + 3 Audio + Slides</span>
+      </div>
+      <div class="btn-row">
+        <a href="session-5.html" class="btn-study">&#x1F4D6; Study Session</a>
+        <a href="kahoot-session5.html" class="btn-kahoot">&#x1F3AE; Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"><span>Unit 3 &mdash; Telling Stories</span></div>
+
+<div class="session-grid">
+
+  <div class="session-card soon">
+    <div class="session-num">6</div>
+    <div class="session-info">
+      <h2>Telling Stories</h2>
+      <div class="topic">Elements of a story, personal stories, and fantasy writing</div>
+      <div class="tags">
+        <span class="tag tag-vocab">Storytelling vocabulary</span>
+        <span class="tag tag-grammar">Adjectives in narrative</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="session-card soon">
+    <div class="session-num">7</div>
+    <div class="session-info">
+      <h2>Stories from Around the World</h2>
+      <div class="topic">Fables, characters, setting, plot, and time connectives</div>
+      <div class="tags">
+        <span class="tag tag-vocab">Fables &amp; folk tales</span>
+        <span class="tag tag-grammar">Time connectives</span>
+        <span class="tag tag-assess">Assessment 2 &mdash; Monologue</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"><span>Unit 4 &mdash; Laws &amp; Success</span></div>
+
+<div class="session-grid">
+
+  <div class="session-card soon">
+    <div class="session-num">8</div>
+    <div class="session-info">
+      <h2>Unusual Laws</h2>
+      <div class="topic">Strange laws around the world and stories about breaking them</div>
+      <div class="tags">
+        <span class="tag tag-vocab">Law &amp; rules vocabulary</span>
+        <span class="tag tag-listen">Anna &amp; Mike dialogue</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="session-card soon">
+    <div class="session-num">9</div>
+    <div class="session-info">
+      <h2>Success Stories</h2>
+      <div class="topic">Describing character traits and what leads to success</div>
+      <div class="tags">
+        <span class="tag tag-vocab">Character traits</span>
+        <span class="tag tag-assess">Assessment 3 &mdash; Independent Writing</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="session-card soon">
+    <div class="session-num">10</div>
+    <div class="session-info">
+      <h2>Success Stories: Interviews</h2>
+      <div class="topic">Interviewing a young businessperson about their success path</div>
+      <div class="tags">
+        <span class="tag tag-vocab">Business &amp; career vocabulary</span>
+        <span class="tag tag-grammar">Interview questions</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"><span>Unit 5 &mdash; Moving Out</span></div>
+
+<div class="session-grid">
+
+  <div class="session-card soon">
+    <div class="session-num">11</div>
+    <div class="session-info">
+      <h2>Moving Out</h2>
+      <div class="topic">Rooms, houses, comparing homes, and writing an advertisement</div>
+      <div class="tags">
+        <span class="tag tag-vocab">House &amp; rooms vocabulary</span>
+        <span class="tag tag-grammar">Comparatives</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="session-card soon">
+    <div class="session-num">12</div>
+    <div class="session-info">
+      <h2>Moving Out: Renting</h2>
+      <div class="topic">Renting an apartment, asking questions, and writing to the owner</div>
+      <div class="tags">
+        <span class="tag tag-vocab">Renting vocabulary</span>
+        <span class="tag tag-assess">Assessment 4 &mdash; Dialogue</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>AUC English A2B &bull; English for Effective Communication (ENGG A2B)</p>
+  <p style="margin-top:6px">Built for self-study &mdash; prepare before class, review after class.</p>
+</div>
+
+</div>
+</body>
+</html>

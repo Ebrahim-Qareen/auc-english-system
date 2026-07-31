@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 2 - What Do You Do at Work? | AUC English A2B</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+:root{--bg:#fdf6ee;--card:#fff;--card-alt:#fefcf7;--accent:#e8a838;--accent-light:rgba(232,168,56,0.12);--green:#2d9d78;--green-light:#e6f7f1;--orange:#e8862a;--orange-light:#fff3e6;--red:#d94f4f;--red-light:#ffeaea;--pink:#c45ba1;--pink-light:#fce8f4;--blue:#5b6abf;--blue-light:#e8eaff;--yellow:#f0c929;--yellow-light:#fef9e7;--text:#2d3142;--text-dim:#6b7280;--border:#e5e2db;--shadow:0 2px 12px rgba(0,0,0,0.06);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+h1,h2,h3{font-family:'Fredoka',sans-serif}
+.hero{background:linear-gradient(135deg,#2563eb 0%,#0ea5e9 45%,#f5a623 100%);padding:50px 24px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.08)}
+.hero-emoji{font-size:3rem;margin-bottom:8px}
+.hero h1{font-size:2.2rem;font-weight:700;margin-bottom:4px}
+.hero .sub{opacity:0.9;font-size:1rem}
+.badge-row{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.badge{background:rgba(255,255,255,0.18);padding:4px 14px;border-radius:20px;font-size:0.78rem;font-weight:600}
+.method-banner{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin:20px auto 0;max-width:860px;box-shadow:var(--shadow)}
+.method-steps{display:flex;justify-content:center;align-items:center;gap:4px;flex-wrap:wrap;margin-top:10px}
+.method-step{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:10px;font-size:0.82rem;font-weight:600;white-space:nowrap}
+.method-arrow{color:var(--text-dim);font-size:1rem}
+.nav{position:sticky;top:0;z-index:100;background:rgba(253,246,238,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;overflow-x:auto;gap:2px;padding:8px 16px;-webkit-overflow-scrolling:touch}
+.nav-inner::-webkit-scrollbar{height:4px}
+.nav-inner::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+.nav a{color:var(--text-dim);text-decoration:none;font-size:0.8rem;font-weight:500;white-space:nowrap;padding:6px 12px;border-radius:8px;transition:all 0.2s}
+.nav a:hover{color:var(--accent);background:var(--accent-light)}
+.container{max-width:860px;margin:0 auto;padding:0 16px}
+.section{margin-top:40px;scroll-margin-top:60px}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-family:'Fredoka',sans-serif;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+.section h2{font-size:1.5rem;font-weight:700;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card h3{font-size:1.1rem;margin-bottom:10px}
+.progress-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin-top:16px;box-shadow:var(--shadow)}
+.progress-label{font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.95rem;margin-bottom:8px;display:flex;justify-content:space-between}
+.progress-bar{height:12px;background:#e8e6e0;border-radius:6px;overflow:hidden}
+.progress-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--green));transition:width 0.6s ease;width:0%}
+.recap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.recap-chip{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;box-shadow:var(--shadow);transition:transform 0.2s}
+.recap-chip:hover{transform:translateY(-2px)}
+.recap-chip .num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px}
+.recap-chip .topic{font-weight:700;font-size:0.95rem;margin:4px 0 2px}
+.recap-chip .detail{font-size:0.78rem;color:var(--text-dim)}
+.recap-current{border-color:var(--accent);background:var(--accent-light)}
+.fill-row{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:14px;margin:8px 0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fill-row select{padding:6px 10px;border-radius:8px;border:1.5px solid var(--border);font-size:0.85rem;font-family:inherit}
+.fill-row .result{font-size:0.85rem;font-weight:600;margin-left:auto}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.vocab-card{perspective:800px;height:190px;cursor:pointer}
+.vocab-inner{position:relative;width:100%;height:100%;transition:transform 0.5s;transform-style:preserve-3d}
+.vocab-card.flipped .vocab-inner{transform:rotateY(180deg)}
+.vocab-front,.vocab-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow)}
+.vocab-front{background:var(--card)}
+.vocab-front .word{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:700;color:var(--accent)}
+.vocab-front .pos{font-size:0.72rem;color:var(--text-dim);margin-top:2px}
+.vocab-front .hint{font-size:0.7rem;color:var(--pink);margin-top:8px;font-weight:500}
+.vocab-back{background:linear-gradient(135deg,var(--accent-light),#fef3c7);transform:rotateY(180deg)}
+.vocab-back .meaning{font-weight:600;font-size:0.86rem;margin-bottom:4px}
+.vocab-back .arabic{font-size:0.82rem;color:var(--pink);margin-bottom:4px}
+.vocab-back .example{font-size:0.8rem;color:var(--text-dim);font-style:italic}
+.tts-btn{background:none;border:none;cursor:pointer;font-size:1.1rem;padding:2px 4px;border-radius:6px;transition:all 0.2s;vertical-align:middle}
+.tts-btn:hover{background:var(--accent-light);transform:scale(1.15)}
+.tts-btn.playing{animation:pulse 0.8s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+.grammar-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;margin:12px 0;border:1px solid var(--border)}
+.grammar-table th{background:var(--accent);color:#fff;padding:10px 14px;font-weight:600;font-size:0.85rem;text-align:center}
+.grammar-table td{padding:10px 14px;text-align:center;font-size:0.88rem;border-bottom:1px solid var(--border)}
+.grammar-table tr:last-child td{border-bottom:0}
+.grammar-table tr:nth-child(even) td{background:#faf9f6}
+.demo-word{display:inline-block;background:var(--accent-light);color:var(--accent);font-weight:700;padding:2px 10px;border-radius:6px;font-size:0.85rem}
+.quiz-q{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}
+.quiz-q .q-num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.quiz-q .q-text{font-weight:600;font-size:0.93rem;margin-bottom:12px}
+.quiz-option{display:block;width:100%;text-align:left;padding:10px 14px;margin-bottom:6px;background:#faf9f6;border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:0.86rem;transition:all 0.2s;font-family:'Inter',sans-serif}
+.quiz-option:hover:not(:disabled){border-color:var(--accent);background:var(--accent-light)}
+.quiz-option.correct{border-color:var(--green);background:var(--green-light);color:var(--green);font-weight:600}
+.quiz-option.wrong{border-color:var(--red);background:var(--red-light);color:var(--red)}
+.quiz-option:disabled{cursor:default}
+.btn{display:inline-block;padding:8px 20px;border:none;border-radius:10px;font-weight:600;font-size:0.88rem;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
+.writing-area{width:100%;min-height:140px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe;transition:border-color 0.2s}
+.writing-area:focus{outline:none;border-color:var(--accent)}
+.word-count{font-size:0.78rem;color:var(--text-dim);margin-top:6px;text-align:right}
+.challenge-box{background:linear-gradient(135deg,#fef9e7,#e8eaff);border:2px dashed var(--accent);border-radius:var(--radius);padding:22px;text-align:center;margin:14px 0}
+.challenge-box h3{font-family:'Fredoka',sans-serif;color:var(--accent)}
+.tip-box{background:var(--green-light);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:12px 16px;margin:10px 0;font-size:0.85rem}
+.tip-box strong{color:var(--green)}
+.mistake-box{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 12px 12px 0;padding:12px 16px;margin:10px 0;font-size:0.85rem}
+.mistake-box strong{color:var(--red)}
+.checklist label{display:flex;align-items:flex-start;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}
+.checklist input[type=checkbox]{margin-top:4px;accent-color:var(--green);width:16px;height:16px}
+.cheat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cheat-cell{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+.cheat-cell h4{font-family:'Fredoka',sans-serif;font-size:0.9rem;margin-bottom:6px}
+.expression-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:12px}
+.expression-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;box-shadow:var(--shadow);transition:transform 0.2s}
+.expression-card:hover{transform:translateY(-2px)}
+.expression-card .phrase{font-family:'Fredoka',sans-serif;font-size:0.95rem;font-weight:600;color:var(--accent)}
+.expression-card .ex-meaning{font-size:0.82rem;color:var(--text-dim);margin-top:3px}
+.role-card{background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow);cursor:pointer;transition:all 0.3s}
+.role-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.1)}
+.role-card h4{font-family:'Fredoka',sans-serif;font-size:1.05rem;margin-bottom:8px}
+.role-card .role-points{list-style:none;padding:0}
+.role-card .role-points li{font-size:0.85rem;padding:3px 0;padding-left:18px;position:relative}
+.role-card .role-points li::before{content:'\2022';position:absolute;left:4px;color:var(--green);font-weight:700}
+.role-convo{display:none;background:#faf9f6;border-radius:12px;padding:16px;margin-top:12px;font-size:0.86rem;line-height:1.9}
+.role-convo.show{display:block}
+.highlight{background:transparent;transition:background 0.5s;border-radius:4px;padding:0 2px}
+.highlight.active{background:#fef08a}
+.mcq-feedback{display:none;padding:8px 14px;border-radius:8px;margin-top:8px;font-size:0.85rem;font-weight:600}
+.mcq-feedback.show{display:block}
+.quiz-meme{display:none;padding:12px;border-radius:10px;margin-top:8px;text-align:center;font-weight:700;font-size:0.95rem}
+.quiz-meme.show{display:block;animation:fadeIn 0.3s}
+.meme-correct{background:var(--green-light);color:var(--green)}
+.meme-wrong{background:var(--red-light);color:var(--red)}
+.meme-emoji{font-size:1.8rem;display:block;margin-bottom:4px}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.shake{animation:shake 0.4s}
+.confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confetti-fall 1.5s ease-out forwards;pointer-events:none}
+@keyframes confetti-fall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(200px) rotate(720deg);opacity:0}}
+.score-banner{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);padding:8px 16px;display:flex;justify-content:center;align-items:center;gap:18px;box-shadow:0 -2px 10px rgba(0,0,0,0.06);z-index:99;font-family:'Fredoka',sans-serif}
+.score-item{text-align:center}
+.score-item .label{font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}
+.score-item .val{font-size:1.1rem;font-weight:700}
+.pb-80{padding-bottom:80px}
+.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}
+.text-center{text-align:center}
+.hidden{display:none}
+.session-nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.session-nav a{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:10px;font-size:0.8rem;font-weight:600;text-decoration:none;border:2px solid var(--border);color:var(--text-dim);transition:all 0.2s}
+.session-nav a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.session-nav a.active{border-color:var(--accent);background:var(--accent);color:#fff}
+.session-nav a.disabled{opacity:0.4;pointer-events:none}
+.notes-area{width:100%;min-height:100px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe}
+.notes-area:focus{outline:none;border-color:var(--accent)}
+.section-check{display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}
+.section-check input{accent-color:var(--green);width:16px;height:16px}
+.slideshow{position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:14px 0}
+.slide-viewport{overflow:hidden}
+.slide-track{display:flex;transition:transform 0.4s ease}
+.slide{min-width:100%;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;text-align:center;background:var(--card)}
+.slide img{display:block;object-fit:contain;width:100%;height:auto}
+.slide-controls{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid var(--border);background:#faf9f6}
+.slide-btn{background:var(--accent);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-family:'Fredoka',sans-serif}
+.slide-btn:hover{background:#cf9430;transform:scale(1.1)}
+.slide-btn:disabled{background:var(--border);cursor:default;transform:none}
+.slide-counter{font-family:'Fredoka',sans-serif;font-size:0.85rem;color:var(--text-dim)}
+.slide-dots{display:flex;gap:6px;justify-content:center}
+.slide-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all 0.3s;cursor:pointer}
+.slide-dot.active{background:var(--accent);transform:scale(1.3)}
+@media(max-width:600px){.cheat-grid{grid-template-columns:1fr}.vocab-grid{grid-template-columns:1fr}.recap-grid{grid-template-columns:1fr 1fr}.expression-grid{grid-template-columns:1fr}.slide{padding:10px}}
+
+.nlm-slot{background:repeating-linear-gradient(45deg,#faf9f6,#faf9f6 10px,#f5f2ea 10px,#f5f2ea 20px);border:2px dashed var(--accent);border-radius:14px;padding:26px 20px;text-align:center;color:var(--text-dim);font-size:0.86rem;margin:8px 0}
+.nlm-slot .slot-title{font-family:'Fredoka',sans-serif;font-weight:600;color:var(--accent);font-size:0.95rem;margin-bottom:4px}
+.nlm-slot code{background:rgba(232,168,56,0.12);padding:2px 8px;border-radius:6px;font-size:0.78rem;color:var(--text)}
+.assessment-box{background:linear-gradient(135deg,var(--red-light),var(--yellow-light));border:2px solid var(--red);border-radius:var(--radius);padding:22px;margin:14px 0}
+.assessment-box h3{color:var(--red);font-family:'Fredoka',sans-serif;margin-bottom:8px}
+</style>
+</head>
+<body class="pb-80">
+
+<div class="hero" style="background:linear-gradient(135deg,#0891b2 0%,#06b6d4 45%,#e8a838 100%)">
+  <div class="hero-emoji">🏢</div>
+  <h1>Session 2: What Do You Do at Work?</h1>
+  <p class="sub">Describe Your Job Like a Pro</p>
+  <div class="badge-row"><span class="badge">🏢 Workplace Verbs</span><span class="badge">📝 Gerunds &amp; Infinitives</span><span class="badge">📧 Cover Letters</span><span class="badge">🎤 Job Interviews</span></div>
+</div>
+
+<div class="container">
+  <div class="session-nav" style="margin-top:16px"><a href="session-1.html">S1</a><a class="active">S2</a><a href="session-3.html">S3</a><a href="session-4.html">S4</a><a href="session-5.html">S5</a><a class="disabled">S6</a><a class="disabled">S7</a><a class="disabled">S8</a><a class="disabled">S9</a><a class="disabled">S10</a><a class="disabled">S11</a><a class="disabled">S12</a></div>
+
+  <div class="method-banner">
+    <div style="font-family:'Fredoka',sans-serif;font-weight:600;text-align:center">&#x1F3AF; Study Method</div>
+    <div class="method-steps">
+      <span class="method-step" style="background:var(--yellow-light);color:#b8860b">&#x1F501; Recap</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--blue-light);color:var(--blue)">&#x1F3A7; Listen</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--accent-light);color:var(--accent)">&#x1F4DA; Vocab</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--pink-light);color:var(--pink)">&#x1F4D6; Read</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--orange-light);color:var(--orange)">&#x1F5E3; Speak</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Quiz</span>
+    </div>
+  </div>
+
+  <nav class="nav" style="margin-top:16px;border-radius:var(--radius);border:1px solid var(--border)">
+    <div class="nav-inner">
+      <a href="#progress">Progress</a><a href="#recap">Recap</a><a href="#listen">Listen</a><a href="#vocab">Vocab</a><a href="#idioms">Idioms</a><a href="#grammar">Grammar</a><a href="#reading">Reading</a><a href="#speaking">Speaking</a><a href="#roleplay">Roleplay</a><a href="#email">Email</a><a href="#writing">Writing</a><a href="#quiz">Quiz</a><a href="#summary">Summary</a><a href="#notes">Notes</a>
+    </div>
+  </nav>
+
+  <div class="section" id="progress">
+    <div class="progress-wrap"><div class="progress-label"><span>&#x1F4C8; Overall Progress</span><span id="progress-pct">0%</span></div><div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div></div>
+  </div>
+
+
+  <div class="section" id="recap">
+    <span class="section-label" style="background:var(--yellow-light);color:#b8860b">&#x1F501; Review</span>
+    <h2>Grammar Recap: Sessions 1&ndash;1</h2>
+    <div class="recap-grid"><div class="recap-chip"><div class="num">S1</div><div class="topic">can / could</div><div class="detail">Modals of ability</div></div><div class="recap-chip recap-current"><div class="num">S2</div><div class="topic">-ing / to + inf</div><div class="detail">This session</div></div></div>
+    <div class="card">
+      <h3>&#x270F; Fill-in Recap Quiz</h3>
+      <div id="recap-exercises"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--accent);color:#fff" onclick="checkRecap()">Check Answers</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryRecap()">Retry</button>
+        <span id="recap-score" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="listen">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F3A7; Listen</span>
+    <h2>Listening Activities</h2>
+    <div class="card">
+      <h3>&#x1F399; Overview Video</h3>
+      <div class="nlm-slot"><div class="slot-title">Overview Video</div><div>Reserved for NotebookLM material &mdash; drop the .mp4 into the <code>Session 2</code> folder and it will appear here</div></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F3A7; Deep Dive Audio</h3>
+      <div class="nlm-slot"><div class="slot-title">Deep Dive Audio</div><div>Reserved for NotebookLM material &mdash; drop the .m4a into the <code>Session 2</code> folder and it will appear here</div></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F50A; Meet Four Workers</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">Listen to Maria (teacher), John (banker), Carlos (chef), and Emma (manager) describe what they do.</p>
+      <p style="font-size:0.82rem;margin:8px 0 2px"><strong>Maria &mdash; Teacher</strong></p>
+      <audio controls style="width:100%" preload="metadata"><source src="https://scemoodle.aucegypt.edu/pluginfile.php/3232128/mod_hvp/content/198193/audios/files-673bc1d872d65.mp3" type="audio/mpeg"></audio>
+      <p style="font-size:0.82rem;margin:8px 0 2px"><strong>John &mdash; Banker</strong></p>
+      <audio controls style="width:100%" preload="metadata"><source src="https://scemoodle.aucegypt.edu/pluginfile.php/3232128/mod_hvp/content/198193/audios/files-673bc2d5b9575.mp3" type="audio/mpeg"></audio>
+      <p style="font-size:0.82rem;margin:8px 0 2px"><strong>Carlos &mdash; Chef</strong></p>
+      <audio controls style="width:100%" preload="metadata"><source src="https://scemoodle.aucegypt.edu/pluginfile.php/3232128/mod_hvp/content/198193/audios/files-673bc4ac695d9.mp3" type="audio/mpeg"></audio>
+      <p style="font-size:0.82rem;margin:8px 0 2px"><strong>Emma &mdash; Manager</strong></p>
+      <audio controls style="width:100%" preload="metadata"><source src="https://scemoodle.aucegypt.edu/pluginfile.php/3232128/mod_hvp/content/198193/audios/files-673bc4be28040.mp3" type="audio/mpeg"></audio>
+      <div class="mt-12"><h4 style="font-size:0.85rem;margin-bottom:6px">&#x2753; True or False</h4><div id="listen1-tf"></div></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F3AC; Listening 1: What Is Your Job?</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">Different people describe their jobs and work routines.</p>
+      <div class="nlm-slot"><div class="slot-title">Jobs Video</div><div>Drop the downloaded .mp4 into the <code>Session 2</code> folder and it will appear here</div></div>
+      <div class="mt-12" id="listen1-questions"></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F3A7; Listening 2: A Bank Teller's Job Interview</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">Alex is interviewed by Mrs. Erika for a bank teller position.</p>
+      <audio controls style="width:100%" preload="metadata"><source src="https://scemoodle.aucegypt.edu/pluginfile.php/3232132/mod_hvp/content/198197/audios/files-673f03ae7ee0c.mp3" type="audio/mpeg"></audio>
+      <div class="mt-12" id="listen2-questions"></div>
+      <div class="mt-12"><h4 style="font-size:0.85rem;margin-bottom:6px">&#x2753; True or False</h4><div id="listen2-tf"></div></div>
+    </div>
+  </div>
+
+  <div class="section" id="vocab">
+    <span class="section-label" style="background:var(--accent-light);color:var(--accent)">&#x1F4DA; Vocabulary</span>
+    <h2>Workplace Verbs</h2>
+    <div class="nlm-slot"><div class="slot-title">Vocabulary Slides</div><div>Reserved for NotebookLM material &mdash; the slide JPGs will become an image carousel here</div></div>
+    <div class="tip-box">&#x1F9E0; <strong>Memory trick:</strong> Group the verbs by <strong>who does them</strong>: a teacher <em>teaches / explains / watches over</em>, a manager <em>leads / organizes / checks</em>, a chef <em>cooks / plans / gives tasks</em>. Attach each verb to a person and it sticks.</div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">👩‍🏫 Teaching &amp; Explaining</h3>
+    <div class="vocab-grid" id="vg-teach"></div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">👔 Managing &amp; Leading</h3>
+    <div class="vocab-grid" id="vg-manage"></div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">🍳 Doing &amp; Preparing</h3>
+    <div class="vocab-grid" id="vg-do"></div>
+    <div class="card mt-20">
+      <h3>&#x270F; Vocabulary Exercise</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Choose the correct word for each sentence.</p>
+      <div id="vocab-ex-rows"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--accent);color:#fff" onclick="checkVocabEx()">Check Answers</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryVocabEx()">Retry</button>
+        <span id="vocab-result" style="font-family:'Fredoka',sans-serif;font-weight:700"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="idioms">
+    <span class="section-label" style="background:rgba(251,191,36,0.15);color:#f59e0b">&#x1F4AC; Idioms</span>
+    <h2>Workplace Idioms</h2>
+    <p style="color:var(--text-dim);margin-bottom:18px">Seven idioms you can use in real conversations. Each includes meaning, example, and Arabic hint.</p>
+    <div style="display:grid;gap:14px">
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🏁 Call it a day</h3>
+        <p><strong>Meaning:</strong> Stop working for the day</p>
+        <p><strong>Example:</strong> "We’ve finished the report &mdash; let’s <em>call it a day</em>."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> يقفل الشغل للنهارده</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🕯️ Burn the midnight oil</h3>
+        <p><strong>Meaning:</strong> Work late into the night</p>
+        <p><strong>Example:</strong> "She <em>burned the midnight oil</em> to finish the presentation."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> يسهر لما يخلّص شغله</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🌨️ Be snowed under</h3>
+        <p><strong>Meaning:</strong> Have far too much work to do</p>
+        <p><strong>Example:</strong> "I’m <em>snowed under</em> this week &mdash; can we meet on Sunday?"</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> غرقان في الشغل</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🎩 Wear many hats</h3>
+        <p><strong>Meaning:</strong> Do several different jobs or roles</p>
+        <p><strong>Example:</strong> "In a small company you <em>wear many hats</em> &mdash; sales, support, and admin."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> بيشيل أكتر من دور</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">💼 Get down to business</h3>
+        <p><strong>Meaning:</strong> Start dealing with the important work</p>
+        <p><strong>Example:</strong> "Let’s <em>get down to business</em> and review the schedule."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> يدخل في صلب الموضوع</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">👞 Put your best foot forward</h3>
+        <p><strong>Meaning:</strong> Try to make the best possible impression</p>
+        <p><strong>Example:</strong> "It’s your first interview &mdash; <em>put your best foot forward</em>."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> يقدّم أحسن صورة لنفسه</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">📐 Back to the drawing board</h3>
+        <p><strong>Meaning:</strong> Start again because the plan did not work</p>
+        <p><strong>Example:</strong> "The client rejected the design, so it’s <em>back to the drawing board</em>."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> نرجع نبدأ من أول وجديد</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="grammar">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span>
+    <h2>Gerunds &amp; Infinitives</h2>
+    <div class="nlm-slot"><div class="slot-title">Grammar Slides</div><div>Reserved for NotebookLM material &mdash; the slide JPGs will become an image carousel here</div></div>
+    <div class="card">
+      <h3>&#x1F3AF; Gerund = verb + ing (used like a noun)</h3>
+      <p style="font-size:0.88rem">Use the <span class="demo-word">gerund</span> in these four situations:</p>
+      <table class="grammar-table">
+        <tr><th>Rule</th><th>Example</th></tr>
+        <tr><td>As the subject of a sentence</td><td><strong>Smoking</strong> is bad for your health.</td></tr>
+        <tr><td>After a preposition</td><td>I am responsible <strong>for organizing</strong> the meetings.</td></tr>
+        <tr><td>After certain expressions</td><td>I <strong>look forward to hearing</strong> from you.</td></tr>
+        <tr><td>After certain verbs</td><td>She <strong>enjoys working</strong> with numbers.</td></tr>
+      </table>
+      <div class="tip-box"><strong>Gerund expressions to memorize:</strong> can't stand &bull; can't help &bull; feel like &bull; be used to &bull; get used to &bull; look forward to &bull; there's no point in</div>
+    </div>
+    <div class="card">
+      <h3>&#x1F3AF; Infinitive = to + verb</h3>
+      <p style="font-size:0.88rem">Use the <span class="demo-word">infinitive</span> in these four situations:</p>
+      <table class="grammar-table">
+        <tr><th>Rule</th><th>Example</th></tr>
+        <tr><td>After adjectives</td><td>It is nice <strong>to eat</strong> outside in the spring.</td></tr>
+        <tr><td>To express purpose or reason</td><td>Magdy is learning English <strong>to visit</strong> London.</td></tr>
+        <tr><td>verb + object + infinitive</td><td>Habiba asked her mother <strong>to make</strong> her a sandwich.</td></tr>
+        <tr><td>After certain verbs</td><td>Siham <strong>plans to go</strong> to the interview tomorrow.</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>&#x1F4CB; The Verb Lists (memorize these!)</h3>
+      <table class="grammar-table">
+        <tr><th>Followed by GERUND</th><th>Followed by INFINITIVE</th></tr>
+        <tr><td>avoid, can't help, consider, discuss, dislike, don't mind, enjoy, imagine, involve, keep, miss, practice, suggest, understand, finish, recommend</td><td>agree, appear, ask, choose, decide, expect, fail, hope, learn, manage, offer, plan, refuse, seem, wait, arrange, would like, promise, want, invite</td></tr>
+      </table>
+      <div class="tip-box"><strong>Both forms are fine after:</strong> allow &bull; begin &bull; encourage &bull; finish &bull; forget &bull; need &bull; remember &bull; start &bull; stop &bull; try &bull; like &bull; love &bull; prefer</div>
+    </div>
+    <div class="card">
+      <h3>&#x270F; Spelling Tips for -ing</h3>
+      <table class="grammar-table">
+        <tr><th>Base</th><th>Gerund</th><th>Rule</th></tr>
+        <tr><td>make</td><td>mak<strong>ing</strong></td><td>drop the final -e</td></tr>
+        <tr><td>agree</td><td>agree<strong>ing</strong></td><td>keep -ee</td></tr>
+        <tr><td>run</td><td>ru<strong>nn</strong>ing</td><td>double the final consonant</td></tr>
+        <tr><td>die</td><td>d<strong>y</strong>ing</td><td>-ie becomes -y</td></tr>
+      </table>
+    </div>
+    <div class="card" style="border:2px solid var(--red)">
+      <h3 style="color:var(--red)">&#x1F6A8; THE BIG MISTAKE</h3>
+      <p style="font-size:0.9rem">After a <strong>preposition</strong> (for, at, in, about, to as a preposition), English always uses <strong>verb + ing</strong> &mdash; never "to + verb".</p>
+      <div class="mistake-box">&#x274C; <s>I am responsible for organize the meetings.</s><br>&#x274C; <s>I look forward to hear from you.</s><br>&#x2705; I am responsible for <strong>organizing</strong> the meetings.<br>&#x2705; I look forward to <strong>hearing</strong> from you.</div>
+      <p style="font-size:0.85rem;margin-top:8px"><strong>Watch out:</strong> "look forward <strong>to</strong>" and "be used <strong>to</strong>" &mdash; that "to" is a preposition, so a gerund follows it.</p>
+    </div>
+    <div class="card">
+      <h3>&#x270F; Grammar Exercises</h3>
+      <div id="grammar-exercises"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--green);color:#fff" onclick="checkGrammar()">Check Answers</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryGrammar()">Retry</button>
+        <span id="grammar-score" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="reading">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink)">&#x1F4D6; Reading</span>
+    <h2>A Day at the Office</h2>
+    <div class="card"><div style="font-size:0.9rem;line-height:1.9">
+      <p>Tom works at a busy office in the city. <span class="highlight" data-q="q1">He is responsible for managing the office supplies.</span> Every morning, he starts by checking the supply. Tom enjoys organizing the items and keeping everything in order. His coworker Anna helps him with this task. <span class="highlight" data-q="q2">Anna has her responsibilities, too. She plans meetings and sends invitations to everyone.</span> Anna also likes preparing for the meetings by setting up the room. Sometimes, she is responsible for arranging food and hot drinks. Together, Tom and Anna work well as a team.</p>
+      <p style="margin-top:12px"><span class="highlight" data-q="q3">Yesterday, their boss asked them to plan a big event.</span> It was exciting but difficult. Tom and Anna knew they needed to work together. <span class="highlight" data-q="q4">They began by choosing the location and making a list of guests.</span> They always enjoy helping each other. Tom was in charge of creating the schedule, and he spent the afternoon preparing for any changes. Anna's job was to call the food company and make the bookings.</p>
+      <p style="margin-top:12px">Working as a team, they made everything easier and more fun. In the end, they successfully managed the event. Their boss was happy and thanked them for their hard work. <span class="highlight" data-q="q5">Tom and Anna felt proud and enjoyed being part of the team.</span></p>
+      <p style="margin-top:12px;font-size:0.8rem;color:var(--text-dim)"><em>Office supplies = the things you use to do your work in an office (pens, paper, notebooks).</em></p>
+    </div></div>
+    <div class="card"><h3>&#x2753; True or False</h3><div id="reading-tf"></div></div>
+    <div class="card">
+      <h3>&#x2753; Reading Questions</h3>
+      <div id="reading-questions"></div>
+      <div id="readingMistakes" class="hidden mt-12" style="background:var(--red-light);border-radius:12px;padding:16px"><h4 style="color:var(--red);font-family:'Fredoka',sans-serif;margin-bottom:8px">Review These:</h4><div id="mistakesList"></div></div>
+    </div>
+  </div>
+
+  <div class="section" id="speaking">
+    <span class="section-label" style="background:var(--orange-light);color:var(--orange)">&#x1F5E3; Speaking</span>
+    <h2>Speaking Practice</h2>
+    <div class="challenge-box">
+      <h3>&#x23F1; 1-Minute Challenge</h3>
+      <p style="margin:8px 0;font-size:0.9rem">Talk for 1 minute about: <strong>"What do you do at work or in your studies? What do you enjoy doing, and what do you need to do?"</strong></p>
+      <p style="font-size:0.82rem;color:var(--text-dim)">Use: enjoy + ing, need to + verb, responsible for + ing, and 3 workplace verbs</p>
+    </div>
+    <div class="card">
+      <h3>&#x1F4AC; Useful Expressions</h3>
+      <div class="expression-grid"><div class="expression-card"><div class="phrase">I am responsible for…</div><div class="ex-meaning">Say which task is your job (+ verb-ing)</div></div><div class="expression-card"><div class="phrase">I am in charge of…</div><div class="ex-meaning">Say what you lead or control (+ verb-ing)</div></div><div class="expression-card"><div class="phrase">I look forward to…</div><div class="ex-meaning">Formal way to end an email (+ verb-ing)</div></div><div class="expression-card"><div class="phrase">I am attaching my résumé.</div><div class="ex-meaning">Say you added your CV to the email</div></div><div class="expression-card"><div class="phrase">I am skilled at…</div><div class="ex-meaning">Describe a strength (+ verb-ing)</div></div><div class="expression-card"><div class="phrase">I am writing in response to…</div><div class="ex-meaning">Formal opening for a cover letter</div></div><div class="expression-card"><div class="phrase">Thank you for your time.</div><div class="ex-meaning">Polite email closing</div></div><div class="expression-card"><div class="phrase">Yours sincerely,</div><div class="ex-meaning">Formal sign-off when you know the name</div></div></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F4AC; Daily Drill</h3>
+      <p style="font-size:0.88rem;margin-bottom:8px">Practice saying these sentences out loud:</p>
+      <div style="font-size:0.88rem;line-height:2"><p>1. I am responsible <strong>for organizing</strong> the weekly meetings.</p><p>2. She <strong>enjoys working</strong> with numbers, but she <strong>hates being</strong> late.</p><p>3. We <strong>decided to hire</strong> two new employees.</p><p>4. I <strong>look forward to hearing</strong> from you soon.</p><p>5. He <strong>keeps making</strong> the same mistake in the report.</p></div>
+    </div>
+  </div>
+
+  <div class="section" id="roleplay">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F3AD; Roleplay</span>
+    <h2>Roleplay Scenarios</h2>
+    <div class="role-card" onclick="toggleRole('r1')">
+      <h4>🎤 Scenario 1: The Job Interview (3 people)</h4>
+      <ul class="role-points"><li>Two people interview one candidate</li><li>Agree on the job first (HR, chef, teacher…)</li><li>Ask about education, experience, skills, and future plans</li><li>The candidate must ask 1–2 questions at the end</li></ul>
+      <div class="role-convo" id="r1-convo"><p><strong>Interviewer 1:</strong> Thank you for coming. Can you tell us about your education?</p><p><strong>Candidate:</strong> I studied business, and I finished a course in accounting last year.</p><p><strong>Interviewer 2:</strong> What do you enjoy doing at work?</p><p><strong>Candidate:</strong> I enjoy solving problems and I like working with a team.</p><p><strong>Interviewer 1:</strong> What are your future plans?</p><p><strong>Candidate:</strong> I hope to learn more about project management. I plan to take a course next year.</p><p><strong>Interviewer 2:</strong> Do you have any questions for us?</p><p><strong>Candidate:</strong> Yes &mdash; how will my performance be evaluated? And what do you like most about working here?</p></div>
+    </div>
+    <div class="role-card" onclick="toggleRole('r2')">
+      <h4>📅 Scenario 2: Planning an Event at Work</h4>
+      <ul class="role-points"><li>You and a colleague must plan a company event</li><li>Divide the tasks between you</li><li>Use: responsible for + ing, in charge of + ing</li></ul>
+      <div class="role-convo" id="r2-convo"><p><strong>You:</strong> The boss asked us to plan the event. Where should we start?</p><p><strong>Colleague:</strong> I suggest choosing the location first.</p><p><strong>You:</strong> Good idea. I’ll be in charge of creating the schedule.</p><p><strong>Colleague:</strong> Then I’m responsible for calling the food company and making the bookings.</p><p><strong>You:</strong> Don’t forget sending the invitations.</p><p><strong>Colleague:</strong> I won’t. I enjoy organizing this kind of thing!</p></div>
+    </div>
+    <div class="role-card" onclick="toggleRole('r3')">
+      <h4>👔 Scenario 3: Describing Your Job to a New Colleague</h4>
+      <ul class="role-points"><li>A new employee asks what you do all day</li><li>Describe your daily routine and tasks</li><li>Use workplace verbs: lead, organize, check, prepare, explain</li></ul>
+      <div class="role-convo" id="r3-convo"><p><strong>New colleague:</strong> So, what do you actually do here?</p><p><strong>You:</strong> I lead a small team. I organize our meetings and check that everyone finishes on time.</p><p><strong>New colleague:</strong> That sounds busy. What’s your morning like?</p><p><strong>You:</strong> I usually start by checking emails, then I prepare the day’s tasks.</p><p><strong>New colleague:</strong> Do you enjoy it?</p><p><strong>You:</strong> Yes! I enjoy helping people and I don’t mind working under pressure.</p></div>
+    </div>
+  </div>
+
+  <div class="section" id="email">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F4E7; Email</span>
+    <h2>Email Writing</h2>
+    <div class="card">
+      <h3>&#x2709; Write an email cover letter</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Write a cover letter email for a job you want. Start with a greeting, introduce yourself, say why you want the job, list your skills, and end politely. Keep it formal. (60&ndash;80 words)</p>
+      <textarea class="writing-area" id="email-area" placeholder="Dear Mr. / Ms. [Name],&#10;&#10;I am writing in response to your job advertisement for..." oninput="updateEmailWC()"></textarea>
+      <div class="word-count">Words: <span id="email-wc">0</span> / 60&ndash;80</div>
+      <div class="checklist mt-12" id="email-checklist"><label><input type="checkbox" onchange="updateEmailCheck()"> Started with a formal greeting</label><label><input type="checkbox" onchange="updateEmailCheck()"> Said which job you are applying for</label><label><input type="checkbox" onchange="updateEmailCheck()"> Listed your skills using "I can" or "I am skilled at + ing"</label><label><input type="checkbox" onchange="updateEmailCheck()"> Ended with "I look forward to hearing from you"</label><label><input type="checkbox" onchange="updateEmailCheck()"> Used a formal sign-off (Yours sincerely / Best regards)</label></div>
+      <p id="email-check-result" style="font-size:0.85rem;font-weight:600;margin-top:8px"></p>
+    </div>
+  </div>
+
+  <div class="section" id="writing">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink)">&#x270F; Writing</span>
+    <h2>Writing Practice</h2>
+    <div class="card">
+      <h3>&#x1F4DD; Describe a normal day at your work or study</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Write a short paragraph about your daily routine. What are you responsible for? What do you enjoy doing? What do you need to do every day? (60&ndash;80 words)</p>
+      <textarea class="writing-area" id="writing-area" placeholder="Every morning, I start by..." oninput="updateWritingWC()"></textarea>
+      <div class="word-count">Words: <span id="writing-wc">0</span> / 60&ndash;80</div>
+      <div class="checklist mt-12" id="writing-checklist"><label><input type="checkbox" onchange="updateWritingCheck()"> Described your morning routine</label><label><input type="checkbox" onchange="updateWritingCheck()"> Used "responsible for" or "in charge of" + verb-ing</label><label><input type="checkbox" onchange="updateWritingCheck()"> Used "enjoy" or "like" + verb-ing</label><label><input type="checkbox" onchange="updateWritingCheck()"> Used "need to" or "have to" + base verb</label><label><input type="checkbox" onchange="updateWritingCheck()"> 60&ndash;80 words</label></div>
+      <p id="writing-check-result" style="font-size:0.85rem;font-weight:600;margin-top:8px"></p>
+    </div>
+  </div>
+
+  <div class="section" id="quiz">
+    <span class="section-label" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Quiz</span>
+    <h2>Session 2 Quiz</h2>
+    <div id="quiz-container"></div>
+    <div style="text-align:center;margin-top:16px">
+      <button class="btn" style="background:var(--accent);color:#fff;font-size:1rem;padding:12px 30px" onclick="showQuizScore()">Show Final Score</button>
+      <button class="btn" style="background:#eee;color:var(--text);font-size:1rem;padding:12px 30px" onclick="retryQuiz()">Retry Quiz</button>
+      <a href="kahoot-session2.html" style="display:inline-block;margin-left:10px;padding:12px 30px;background:var(--red);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;font-size:1rem">Kahoot! &#x1F3AE;</a>
+    </div>
+    <div id="quiz-final" class="hidden card mt-16 text-center" style="border:3px solid var(--accent)"></div>
+  </div>
+
+  <div class="section" id="summary">
+    <span class="section-label" style="background:var(--yellow-light);color:#b8860b">&#x1F4CB; Summary</span>
+    <h2>Quick Cheat Sheet</h2>
+    <div class="cheat-grid"><div class="cheat-cell"><h4>🎯 Gerund (verb + ing)</h4><p style="font-size:0.82rem">Subject: <em>Smoking is bad.</em><br>After preposition: <em>good at working</em><br>After: enjoy, avoid, keep, suggest, practice</p></div><div class="cheat-cell"><h4>🎯 Infinitive (to + verb)</h4><p style="font-size:0.82rem">After adjectives: <em>nice to eat</em><br>For purpose: <em>learning English to travel</em><br>After: want, decide, plan, hope, learn</p></div><div class="cheat-cell"><h4>🔄 Both are OK after</h4><p style="font-size:0.82rem">start &bull; begin &bull; like &bull; love &bull; prefer &bull; continue &bull; need &bull; try</p></div><div class="cheat-cell"><h4>🚨 Big Mistake</h4><p style="font-size:0.82rem">After a preposition always use -ing.<br>&#x274C; look forward to hear<br>&#x2705; look forward to hear<strong>ing</strong></p></div></div>
+    <div class="cheat-grid mt-12"><div class="cheat-cell"><h4>🏢 Key Vocabulary</h4><p style="font-size:0.82rem">teach, prepare, explain, watch over, help, report, cook, plan, give tasks, lead, organize, check</p></div><div class="cheat-cell"><h4>🔁 Previous Grammar</h4><p style="font-size:0.82rem">S1: can / can't / could / be able to (modals of ability)</p></div></div>
+  </div>
+
+  <div class="section" id="notes">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Notes</span>
+    <h2>My Notes</h2>
+    <div class="card"><h3>&#x1F4D3; Class Notes</h3><textarea class="notes-area" id="classNotes" placeholder="Write notes during class..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x1F4D6; Difficult Words</h3><textarea class="notes-area" id="difficultWords" style="min-height:80px" placeholder="Words you need to review..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x2753; Questions for Teacher</h3><textarea class="notes-area" id="teacherQuestions" style="min-height:80px" placeholder="Write questions for your teacher..." oninput="saveNotes()"></textarea></div>
+  </div>
+
+  <div class="section" id="tracker">
+    <h2>&#x2705; Progress Tracker</h2>
+    <div class="card"><h3>Check off completed sections:</h3><div id="progressChecks">
+      <label class="section-check"><input type="checkbox" data-sec="listen" onchange="updateTracker()"> &#x1F3A7; Listened to audio &amp; watched videos</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocab" onchange="updateTracker()"> &#x1F4DA; Studied vocabulary flashcards</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocabex" onchange="updateTracker()"> &#x270F; Completed vocabulary exercise</label>
+      <label class="section-check"><input type="checkbox" data-sec="idioms" onchange="updateTracker()"> &#x1F4AC; Reviewed idioms</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammar" onchange="updateTracker()"> &#x1F4DD; Understood grammar rules</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammarex" onchange="updateTracker()"> &#x1F4DD; Completed grammar exercises</label>
+      <label class="section-check"><input type="checkbox" data-sec="read" onchange="updateTracker()"> &#x1F4D6; Read passage &amp; answered questions</label>
+      <label class="section-check"><input type="checkbox" data-sec="speak" onchange="updateTracker()"> &#x1F5E3; Did speaking challenge</label>
+      <label class="section-check"><input type="checkbox" data-sec="roleplay" onchange="updateTracker()"> &#x1F3AD; Practiced roleplay</label>
+      <label class="section-check"><input type="checkbox" data-sec="email" onchange="updateTracker()"> &#x1F4E7; Wrote email</label>
+      <label class="section-check"><input type="checkbox" data-sec="write" onchange="updateTracker()"> &#x270F; Completed writing task</label>
+      <label class="section-check"><input type="checkbox" data-sec="quiz" onchange="updateTracker()"> &#x1F3AF; Finished quiz</label>
+      <label class="section-check"><input type="checkbox" data-sec="review" onchange="updateTracker()"> &#x1F4CB; Reviewed cheat sheet</label>
+    </div><div style="margin-top:14px"><div style="background:#e8e6e0;border-radius:8px;height:12px;overflow:hidden"><div id="trackerFill" style="height:100%;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--green));width:0%;transition:width 0.5s"></div></div><p style="font-size:0.82rem;color:var(--text-dim);margin-top:6px;text-align:center" id="trackerText">0 of 13 completed</p></div></div>
+  </div>
+
+  <div class="section">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F52E; Coming Next</span>
+    <h2>Session 3: Preview</h2>
+    <div class="card" style="background:linear-gradient(135deg,var(--green-light),var(--blue-light))"><h4 style="font-family:'Fredoka',sans-serif;color:var(--blue);margin-bottom:6px">🧘 Session 3: A Healthy Mind</h4><p style="font-size:0.88rem">Mental well-being vocabulary and a deeper look at gerunds and infinitives.</p></div>
+  </div>
+
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:30px 0 20px">
+    <a href="session-1.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--blue);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">&#x2B05; Session 1</a>
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--accent);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">&#x1F3E0; Home</a>
+    <a href="session-3.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--green);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">Session 3 &#x27A1;</a>
+  </div>
+  <div style="text-align:center;padding:10px 20px 20px;color:var(--text-dim);font-size:0.78rem"><p>AUC English A2B &bull; Session 2: What Do You Do at Work?</p></div>
+</div>
+
+<div class="score-banner">
+  <div class="score-item"><div class="label">Cards</div><div class="val" id="sb-cards" style="color:var(--accent)">0</div></div>
+  <div class="score-item"><div class="label">Grammar</div><div class="val" id="sb-grammar" style="color:var(--green)">0</div></div>
+  <div class="score-item"><div class="label">Quiz</div><div class="val" id="sb-quiz" style="color:var(--red)">0/20</div></div>
+  <div class="score-item"><div class="label">Written</div><div class="val" id="sb-words" style="color:var(--orange)">0</div></div>
+</div>
+
+<script>
+function speak(w,b){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=0.85;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;if(b){b.classList.add('playing');u.onend=()=>b.classList.remove('playing')}speechSynthesis.speak(u)}
+if('speechSynthesis' in window)speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
+
+const teachVocab=[{"w":"teach","p":"verb","m":"Give lessons to students","ar":"يدرّس","ex":"Maria teaches students in a classroom."},{"w":"explain","p":"verb","m":"Make something clear so others understand","ar":"يشرح","ex":"Maria explains new topics to her students."},{"w":"watch over","p":"verb","m":"Supervise or look after someone","ar":"يراقب / يشرف على","ex":"She watches over students during activities."},{"w":"report (to)","p":"verb","m":"Tell your manager about something","ar":"يبلّغ","ex":"John reports any problems to the manager."}];
+const manageVocab=[{"w":"lead","p":"verb","m":"Be in charge of a team","ar":"يقود / يدير","ex":"Emma leads a team in the office."},{"w":"organize","p":"verb","m":"Arrange meetings or things","ar":"ينظّم","ex":"She organizes meetings to discuss our projects."},{"w":"check","p":"verb","m":"Make sure something is done correctly","ar":"يراجع / يتأكد","ex":"Emma checks that everyone finishes their tasks on time."},{"w":"give tasks","p":"phrase","m":"Assign work to other people","ar":"يوزّع المهام","ex":"Carlos gives tasks to the kitchen staff."}];
+const doVocab=[{"w":"prepare","p":"verb","m":"Get something ready","ar":"يجهّز","ex":"I prepare lessons for my students."},{"w":"plan","p":"verb","m":"Decide what to do in advance","ar":"يخطّط","ex":"Every day, Carlos plans the menu."},{"w":"cook","p":"verb","m":"Make food","ar":"يطبخ","ex":"Carlos cooks food in a restaurant."},{"w":"help","p":"verb","m":"Assist someone","ar":"يساعد","ex":"John helps customers with their money."},{"w":"office supplies","p":"noun","m":"The things you use to work in an office","ar":"أدوات مكتبية","ex":"Tom is responsible for managing the office supplies."}];
+const vocabExData=[{"q":"Maria ______ new topics to students.","opts":["arranges","explains","reports"],"ans":1},{"q":"John ______ any problems to the manager.","opts":["organizes","cooks","reports"],"ans":2},{"q":"Carlos ______ tasks to the kitchen staff.","opts":["gives","learns","checks"],"ans":0},{"q":"Emma ______ sure tasks are done on time.","opts":["mixes","makes","teaches"],"ans":1},{"q":"Emma ______ a team in the office.","opts":["reports","cooks","leads"],"ans":2},{"q":"Every day Carlos ______ the menu.","opts":["plans","explains","watches over"],"ans":0},{"q":"Maria ______ students during activities to help them learn.","opts":["reports","watches over","gives tasks"],"ans":1},{"q":"Tom manages the ______ &mdash; pens, paper, and notebooks.","opts":["office supplies","invitations","bookings"],"ans":0}];
+const grammarEx=[{"q":"Let’s go home. It started ______.","opts":["to raining","raining","rain"],"ans":1},{"q":"Would you like ______ dinner with us tonight?","opts":["having","to have","have"],"ans":1},{"q":"Why do you keep on ______ the same mistake?","opts":["to make","make","making"],"ans":2},{"q":"The new project may involve ______ new employees.","opts":["hiring","to hire","hire"],"ans":0},{"q":"We hope ______ Barcelona by the end of the month.","opts":["visiting","to visit","visit"],"ans":1},{"q":"Our professor advised us ______ before the final exam.","opts":["studying","study","to study"],"ans":2},{"q":"Habiba promised ______ the invitations by next week.","opts":["to send","sending","send"],"ans":0},{"q":"Salma and Zain enjoy ______ to the North Coast in summer.","opts":["to go","going","go"],"ans":1},{"q":"Most fitness trainers suggest ______ at least four times a week.","opts":["to exercise","exercise","exercising"],"ans":2},{"q":"My parents thought about ______ to Egypt.","opts":["traveling","to travel","travel"],"ans":0}];
+const recapEx=[{"q":"Zain ______ code in Python very well.","opts":["will","can","is"],"ans":1},{"q":"Before she took lessons, she ______ swim.","opts":["couldn't","doesn't","isn't"],"ans":0}];
+const listen1TF=[{"q":"Maria teaches students in a school.","a":true},{"q":"John helps customers with their food orders.","a":false},{"q":"Carlos plans the menu for the day in the kitchen.","a":true},{"q":"Emma organizes meetings with her team members.","a":true}];
+const listen1Data=[{"q":"What is the job of the person who visits sick people at home?","opts":["Lawyer","Nurse","Journalist"],"ans":1},{"q":"Who writes stories for a newspaper?","opts":["Marketing professional","Journalist","Snowboard instructor"],"ans":1},{"q":"What does the marketing specialist do every day?","opts":["Send emails and talk to people","Write stories","Serve food"],"ans":0},{"q":"What does the snowboard instructor do?","opts":["Check emails","Visit patients","Teach snowboarding"],"ans":2}];
+const listen2Data=[{"q":"Where did Alex grow up?","opts":["Korea","China","Japan"],"ans":1},{"q":"What are the working hours for this position?","opts":["9 a.m. – 5 p.m.","10 a.m. – 6 p.m.","8 a.m. – 4 p.m."],"ans":0},{"q":"When will Mrs. Erika make her final decision?","opts":["Within a day","Within a month","Within a week"],"ans":2}];
+const listen2TF=[{"q":"Alex is applying for a job as a bank manager.","a":false},{"q":"Alex cannot work under stress.","a":false},{"q":"His main goal is to start his own business.","a":false},{"q":"Alex studied accounting in China.","a":true},{"q":"Focusing on details is Alex’s greatest strength.","a":true}];
+const readingTF=[{"q":"Tom is responsible for managing the office supplies.","a":true},{"q":"Anna sends the invitations for meetings.","a":true},{"q":"Their boss asked them to clean the office.","a":false},{"q":"Anna called the food company and made the bookings.","a":true},{"q":"At the end, Tom and Anna felt tired and upset.","a":false}];
+const readingQ=[{"q":"What does Tom manage at the office?","opts":["The office supplies","The meetings","The guest list"],"ans":0,"hl":"q1"},{"q":"What does Anna do to help?","opts":["She checks the supplies","She plans meetings and sends invitations","She organizes the items"],"ans":1,"hl":"q2"},{"q":"What did their boss ask them to do yesterday?","opts":["To clean the office","To go on vacation","To plan a big event"],"ans":2,"hl":"q3"},{"q":"How did they begin planning the event?","opts":["By choosing the location and making a guest list","By arranging the furniture","By cleaning the office"],"ans":0,"hl":"q4"},{"q":"How did Tom and Anna feel at the end?","opts":["Tired and upset","Worried and lost","Proud and happy"],"ans":2,"hl":"q5"}];
+const quizData=[{"q":"Get something ready = ?","opts":["check","prepare","report"],"ans":1,"cat":"Vocab"},{"q":"Be in charge of a team = ?","opts":["lead","cook","explain"],"ans":0,"cat":"Vocab"},{"q":"Make something clear to others = ?","opts":["organize","plan","explain"],"ans":2,"cat":"Vocab"},{"q":"Supervise or look after someone = ?","opts":["watch over","give tasks","report"],"ans":0,"cat":"Vocab"},{"q":"Tell the manager about a problem = ?","opts":["check","report","teach"],"ans":1,"cat":"Vocab"},{"q":"Pens, paper, and notebooks at work = ?","opts":["bookings","invitations","office supplies"],"ans":2,"cat":"Vocab"},{"q":"I am responsible for ______ the meetings.","opts":["organize","organizing","to organize"],"ans":1,"cat":"Grammar"},{"q":"I look forward to ______ from you.","opts":["hear","hearing","to hear"],"ans":1,"cat":"Grammar"},{"q":"She decided ______ for the new position.","opts":["applying","to apply","apply"],"ans":1,"cat":"Grammar"},{"q":"They enjoy ______ as a team.","opts":["to work","work","working"],"ans":2,"cat":"Grammar"},{"q":"We hope ______ Barcelona this month.","opts":["to visit","visiting","visit"],"ans":0,"cat":"Grammar"},{"q":"Trainers suggest ______ four times a week.","opts":["to exercise","exercising","exercise"],"ans":1,"cat":"Grammar"},{"q":"He is good at ______ with computers.","opts":["work","to work","working"],"ans":2,"cat":"Grammar"},{"q":"After a preposition, always use ______.","opts":["to + verb","verb + ing","the base verb"],"ans":1,"cat":"Concepts"},{"q":"Which verb is followed by an infinitive?","opts":["enjoy","decide","avoid"],"ans":1,"cat":"Concepts"},{"q":"Where did Alex grow up?","opts":["Japan","China","Korea"],"ans":1,"cat":"Listening"},{"q":"What are the working hours for the bank job?","opts":["9 a.m. – 5 p.m.","8 a.m. – 4 p.m.","10 a.m. – 6 p.m."],"ans":0,"cat":"Listening"},{"q":"What does Carlos plan every day?","opts":["The meetings","The menu","The schedule"],"ans":1,"cat":"Listening"},{"q":"What does Tom manage at the office?","opts":["The office supplies","The guest list","The meetings"],"ans":0,"cat":"Reading"},{"q":"What did the boss ask Tom and Anna to do?","opts":["Clean the office","Plan a big event","Take a vacation"],"ans":1,"cat":"Reading"}];
+const readingMistakes=[];
+const memeWrong=[{"e":"😅","t":"Oops! Try again!"},{"e":"🤦","t":"Nice try! Check above!"},{"e":"😬","t":"Almost there!"},{"e":"🙈","t":"Not quite!"},{"e":"😭","t":"So close! Review it!"},{"e":"😵","t":"Confused? Scroll up!"},{"e":"🤡","t":"Clown answer detected!"},{"e":"🦥","t":"Slow down and think!"}];
+const memeRight=[{"e":"🎉","t":"YESSS! Nailed it!"},{"e":"🌟","t":"Star student right here!"},{"e":"🔥","t":"You're on FIRE!"},{"e":"💪","t":"Big brain energy!"},{"e":"🏆","t":"Champion move!"},{"e":"✨","t":"Absolutely brilliant!"},{"e":"🚀","t":"Unstoppable!"},{"e":"👑","t":"Crown this genius!"}];
+let quizScore=0,quizAnswered=0;
+
+function buildVocabCards(data,cid){const c=document.getElementById(cid);if(!c)return;data.forEach(v=>{const d=document.createElement('div');d.className='vocab-card';d.onclick=e=>{if(e.target.classList.contains('tts-btn'))return;d.classList.toggle('flipped');updateSB()};const sw=v.w.replace(/'/g,"\\'");d.innerHTML='<div class="vocab-inner"><div class="vocab-front"><div class="word">'+v.w+' <button class="tts-btn" onclick="event.stopPropagation();speak(\''+sw+'\',this)">\u{1F50A}</button></div><div class="pos">'+v.p+'</div><div class="hint">Tap to flip</div></div><div class="vocab-back"><div class="meaning">'+v.m+'</div><div class="arabic">'+v.ar+'</div><div class="example">"'+v.ex+'"</div></div></div>';c.appendChild(d)})}
+function buildVocabEx(){const c=document.getElementById('vocab-ex-rows');vocabExData.forEach((ex,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='vq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+ex.q+'</div>'+ex.opts.map((o,j)=>'<button class="quiz-option" onclick="checkVocabQ('+i+','+j+')">'+o+'</button>').join('');c.appendChild(d)})}
+function checkVocabQ(qi,oi){const d=document.getElementById('vq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);oi===vocabExData[qi].ans?b[oi].classList.add('correct'):(b[oi].classList.add('wrong'),b[vocabExData[qi].ans].classList.add('correct'))}
+function checkVocabEx(){let s=0;vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);if(d.querySelector('.correct')&&!d.querySelector('.wrong'))s++});const r=document.getElementById('vocab-result');r.innerHTML=(s===vocabExData.length?'Perfect! ':'Good effort! ')+s+'/'+vocabExData.length;r.style.color=s>=Math.ceil(vocabExData.length*0.7)?'var(--green)':'var(--red)'}
+function retryVocabEx(){vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false})});document.getElementById('vocab-result').innerHTML=''}
+function buildMCQ(data,containerId,prefix){const c=document.getElementById(containerId);if(!c)return;data.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id=prefix+'-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkMCQ(\''+prefix+'\','+i+','+j+')">'+o+'</button>').join('')+'<div class="mcq-feedback" id="'+prefix+'fb-'+i+'"></div>';c.appendChild(d)})}
+function getMCQData(p){if(p==='l1q')return listen1Data;if(p==='l2q')return listen2Data;if(p==='rq')return readingQ;return readingQ}
+function checkMCQ(prefix,qi,oi){const data=getMCQData(prefix);const d=document.getElementById(prefix+'-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const fb=document.getElementById(prefix+'fb-'+qi);if(oi===data[qi].ans){b[oi].classList.add('correct');fb.innerHTML='Correct!';fb.style.background='var(--green-light)';fb.style.color='var(--green)'}else{b[oi].classList.add('wrong');b[data[qi].ans].classList.add('correct');fb.innerHTML='Correct: <strong>'+data[qi].opts[data[qi].ans]+'</strong>';fb.style.background='var(--red-light)';fb.style.color='var(--red)';d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500);if(prefix==='rq'&&data[qi].hl){const hl=document.querySelector('.highlight[data-q="'+data[qi].hl+'"]');if(hl)hl.classList.add('active');readingMistakes.push({q:data[qi].q,c:data[qi].opts[data[qi].ans]});updateMistakes()}}fb.classList.add('show')}
+function buildTF(data,containerId,prefix){const c=document.getElementById(containerId);if(!c)return;data.forEach((item,i)=>{const d=document.createElement('div');d.className='fill-row';d.id=prefix+'-'+i;d.setAttribute('data-answered','false');d.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+item.q+'</span><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--green);color:#fff;margin-left:auto" onclick="checkTFG(\''+prefix+'\','+i+',true)">True</button><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--red);color:#fff" onclick="checkTFG(\''+prefix+'\','+i+',false)">False</button><span class="result" id="'+prefix+'r-'+i+'"></span>';c.appendChild(d)})}
+function getTFData(p){if(p==='l1tf')return listen1TF;if(p==='l2tf')return listen2TF;if(p==='rtf')return readingTF;return readingTF}
+function checkTFG(prefix,i,a){const data=getTFData(prefix);const r=document.getElementById(prefix+'-'+i);if(r.getAttribute('data-answered')==='true')return;r.setAttribute('data-answered','true');const res=document.getElementById(prefix+'r-'+i);if(a===data[i].a){res.textContent='Correct';res.style.color='var(--green)';r.style.borderColor='var(--green)';r.style.background='var(--green-light)'}else{res.textContent='Wrong: '+(data[i].a?'True':'False');res.style.color='var(--red)';r.style.borderColor='var(--red)';r.style.background='var(--red-light)';r.classList.add('shake');setTimeout(()=>r.classList.remove('shake'),500)}}
+function buildRecap(){const c=document.getElementById('recap-exercises');if(!c||typeof recapEx==='undefined')return;recapEx.forEach((ex,i)=>{const row=document.createElement('div');row.className='fill-row';row.id='rex-'+i;row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('______','<select id="rsel-'+i+'"><option value="">—</option>'+ex.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>')+'</span><span class="result" id="rres-'+i+'"></span>';c.appendChild(row)})}
+function checkRecap(){let n=0;recapEx.forEach((ex,i)=>{const s=document.getElementById('rsel-'+i),r=document.getElementById('rres-'+i),row=document.getElementById('rex-'+i);if(s.value===ex.opts[ex.ans]){n++;r.textContent='Correct';r.style.color='var(--green)';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}else{r.textContent='Wrong';r.style.color='var(--red)';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}});document.getElementById('recap-score').textContent=n+'/'+recapEx.length}
+function retryRecap(){recapEx.forEach((e,i)=>{document.getElementById('rsel-'+i).value='';document.getElementById('rres-'+i).textContent='';const r=document.getElementById('rex-'+i);r.style.borderColor='var(--border)';r.style.background=''});document.getElementById('recap-score').textContent=''}
+function buildGrammar(){const c=document.getElementById('grammar-exercises');grammarEx.forEach((ex,i)=>{const row=document.createElement('div');row.className='fill-row';row.id='gex-'+i;row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('______','<select id="gsel-'+i+'"><option value="">—</option>'+ex.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>')+'</span><span class="result" id="gres-'+i+'"></span>';c.appendChild(row)})}
+function checkGrammar(){let n=0;grammarEx.forEach((ex,i)=>{const s=document.getElementById('gsel-'+i),r=document.getElementById('gres-'+i),row=document.getElementById('gex-'+i);if(s.value===ex.opts[ex.ans]){n++;r.textContent='Correct';r.style.color='var(--green)';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}else{r.textContent='Wrong';r.style.color='var(--red)';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}});document.getElementById('grammar-score').textContent=n+'/'+grammarEx.length;document.getElementById('sb-grammar').textContent=n+'/'+grammarEx.length}
+function retryGrammar(){grammarEx.forEach((e,i)=>{document.getElementById('gsel-'+i).value='';document.getElementById('gres-'+i).textContent='';const r=document.getElementById('gex-'+i);r.style.borderColor='var(--border)';r.style.background=''});document.getElementById('grammar-score').textContent=''}
+function updateMistakes(){if(!readingMistakes.length)return;document.getElementById('readingMistakes').classList.remove('hidden');const l=document.getElementById('mistakesList');l.innerHTML='';readingMistakes.forEach((m,i)=>{l.innerHTML+='<div style="padding:8px 0;border-bottom:1px solid rgba(217,79,79,0.2);font-size:0.85rem"><strong>Q'+(i+1)+':</strong> '+m.q+'<br><span style="color:var(--green)">Correct: '+m.c+'</span></div>'})}
+function toggleRole(id){document.getElementById(id+'-convo').classList.toggle('show')}
+function buildQuiz(){const c=document.getElementById('quiz-container');quizData.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='qq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+' — '+q.cat+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkQuizQ('+i+','+j+')">'+o+'</button>').join('')+'<div class="quiz-meme" id="qm-'+i+'"></div>';c.appendChild(d)})}
+function checkQuizQ(qi,oi){const d=document.getElementById('qq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');quizAnswered++;const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const mm=document.getElementById('qm-'+qi);if(oi===quizData[qi].ans){b[oi].classList.add('correct');quizScore++;const m=memeRight[Math.floor(Math.random()*memeRight.length)];mm.className='quiz-meme meme-correct show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;createConfetti(d)}else{b[oi].classList.add('wrong');b[quizData[qi].ans].classList.add('correct');const m=memeWrong[Math.floor(Math.random()*memeWrong.length)];mm.className='quiz-meme meme-wrong show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500)}document.getElementById('sb-quiz').textContent=quizScore+'/'+quizData.length}
+function createConfetti(p){const colors=['#e8a838','#f472b6','#60a5fa','#2d9d78','#e74c3c','#a78bfa'];for(let i=0;i<10;i++){const c=document.createElement('div');c.className='confetti-piece';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.left=Math.random()*100+'%';c.style.top='-10px';c.style.animationDelay=Math.random()*0.3+'s';p.style.position='relative';p.appendChild(c);setTimeout(()=>c.remove(),2000)}}
+function showQuizScore(){const r=document.getElementById('quiz-final');r.classList.remove('hidden');const pct=Math.round(quizScore/quizData.length*100);let msg='',col='';if(pct>=90){msg="You're a WORKPLACE STAR!";col='var(--green)'}else if(pct>=70){msg='Great job!';col='var(--accent)'}else if(pct>=50){msg='Good effort! Review!';col='var(--blue)'}else{msg="Don't worry! Try again!";col='var(--red)'}r.innerHTML='<div style="font-family:Fredoka,sans-serif;font-size:2.5rem;font-weight:700;color:'+col+'">'+quizScore+'/'+quizData.length+'</div><div style="font-size:1.1rem;margin-top:6px">'+pct+'% — '+msg+'</div>';r.style.borderColor=col}
+function retryQuiz(){quizScore=0;quizAnswered=0;document.getElementById('sb-quiz').textContent='0/'+quizData.length;document.getElementById('quiz-final').classList.add('hidden');quizData.forEach((q,i)=>{const d=document.getElementById('qq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false});const m=document.getElementById('qm-'+i);m.className='quiz-meme';m.innerHTML=''})}
+function updateEmailWC(){const w=document.getElementById('email-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('email-wc').textContent=w;updateSB()}
+function updateWritingWC(){const w=document.getElementById('writing-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('writing-wc').textContent=w;updateSB()}
+function updateEmailCheck(){const ch=document.querySelectorAll('#email-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('email-check-result');r.innerHTML=n===ch.length?'All checked! Great email!':n+'/'+ch.length+' checked';r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+function updateWritingCheck(){const ch=document.querySelectorAll('#writing-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('writing-check-result');r.innerHTML=n===ch.length?'All checked!':n+'/'+ch.length+' checked';r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+function saveNotes(){try{localStorage.setItem('s2_classNotes',document.getElementById('classNotes').value);localStorage.setItem('s2_difficultWords',document.getElementById('difficultWords').value);localStorage.setItem('s2_teacherQuestions',document.getElementById('teacherQuestions').value)}catch(e){}}
+function loadNotes(){try{document.getElementById('classNotes').value=localStorage.getItem('s2_classNotes')||'';document.getElementById('difficultWords').value=localStorage.getItem('s2_difficultWords')||'';document.getElementById('teacherQuestions').value=localStorage.getItem('s2_teacherQuestions')||''}catch(e){}}
+function updateTracker(){const ch=document.querySelectorAll('#progressChecks input');let n=0;const st={};ch.forEach(c=>{if(c.checked)n++;st[c.dataset.sec]=c.checked});const pct=Math.round(n/ch.length*100);document.getElementById('trackerFill').style.width=pct+'%';document.getElementById('trackerText').textContent=n+' of '+ch.length+' completed';try{localStorage.setItem('s2_tracker',JSON.stringify(st))}catch(e){}}
+function loadTracker(){try{const st=JSON.parse(localStorage.getItem('s2_tracker')||'{}');document.querySelectorAll('#progressChecks input').forEach(c=>{if(st[c.dataset.sec])c.checked=true});updateTracker()}catch(e){}}
+function updateSB(){document.getElementById('sb-cards').textContent=document.querySelectorAll('.vocab-card.flipped').length;const ew=parseInt(document.getElementById('email-wc')?.textContent||0);const ww=parseInt(document.getElementById('writing-wc')?.textContent||0);document.getElementById('sb-words').textContent=ew+ww}
+window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;if(h>0){const p=Math.min(scrollY/h*100,100);document.getElementById('progress-fill').style.width=p+'%';document.getElementById('progress-pct').textContent=Math.round(p)+'%'}});
+document.addEventListener('DOMContentLoaded',()=>{buildRecap();buildVocabCards(teachVocab,'vg-teach');buildVocabCards(manageVocab,'vg-manage');buildVocabCards(doVocab,'vg-do');buildVocabEx();buildMCQ(listen1Data,'listen1-questions','l1q');buildMCQ(listen2Data,'listen2-questions','l2q');buildMCQ(readingQ,'reading-questions','rq');buildTF(listen1TF,'listen1-tf','l1tf');buildTF(listen2TF,'listen2-tf','l2tf');buildTF(readingTF,'reading-tf','rtf');buildGrammar();buildQuiz();loadNotes();loadTracker()});
+</script>
+</body>
+</html>

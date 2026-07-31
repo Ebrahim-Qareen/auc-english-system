@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 4 - The World Is Yours | AUC English A2B</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+:root{--bg:#fdf6ee;--card:#fff;--card-alt:#fefcf7;--accent:#e8a838;--accent-light:rgba(232,168,56,0.12);--green:#2d9d78;--green-light:#e6f7f1;--orange:#e8862a;--orange-light:#fff3e6;--red:#d94f4f;--red-light:#ffeaea;--pink:#c45ba1;--pink-light:#fce8f4;--blue:#5b6abf;--blue-light:#e8eaff;--yellow:#f0c929;--yellow-light:#fef9e7;--text:#2d3142;--text-dim:#6b7280;--border:#e5e2db;--shadow:0 2px 12px rgba(0,0,0,0.06);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+h1,h2,h3{font-family:'Fredoka',sans-serif}
+.hero{background:linear-gradient(135deg,#2563eb 0%,#0ea5e9 45%,#f5a623 100%);padding:50px 24px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.08)}
+.hero-emoji{font-size:3rem;margin-bottom:8px}
+.hero h1{font-size:2.2rem;font-weight:700;margin-bottom:4px}
+.hero .sub{opacity:0.9;font-size:1rem}
+.badge-row{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.badge{background:rgba(255,255,255,0.18);padding:4px 14px;border-radius:20px;font-size:0.78rem;font-weight:600}
+.method-banner{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin:20px auto 0;max-width:860px;box-shadow:var(--shadow)}
+.method-steps{display:flex;justify-content:center;align-items:center;gap:4px;flex-wrap:wrap;margin-top:10px}
+.method-step{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:10px;font-size:0.82rem;font-weight:600;white-space:nowrap}
+.method-arrow{color:var(--text-dim);font-size:1rem}
+.nav{position:sticky;top:0;z-index:100;background:rgba(253,246,238,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;overflow-x:auto;gap:2px;padding:8px 16px;-webkit-overflow-scrolling:touch}
+.nav-inner::-webkit-scrollbar{height:4px}
+.nav-inner::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+.nav a{color:var(--text-dim);text-decoration:none;font-size:0.8rem;font-weight:500;white-space:nowrap;padding:6px 12px;border-radius:8px;transition:all 0.2s}
+.nav a:hover{color:var(--accent);background:var(--accent-light)}
+.container{max-width:860px;margin:0 auto;padding:0 16px}
+.section{margin-top:40px;scroll-margin-top:60px}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-family:'Fredoka',sans-serif;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+.section h2{font-size:1.5rem;font-weight:700;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card h3{font-size:1.1rem;margin-bottom:10px}
+.progress-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin-top:16px;box-shadow:var(--shadow)}
+.progress-label{font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.95rem;margin-bottom:8px;display:flex;justify-content:space-between}
+.progress-bar{height:12px;background:#e8e6e0;border-radius:6px;overflow:hidden}
+.progress-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--green));transition:width 0.6s ease;width:0%}
+.recap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.recap-chip{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;box-shadow:var(--shadow);transition:transform 0.2s}
+.recap-chip:hover{transform:translateY(-2px)}
+.recap-chip .num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px}
+.recap-chip .topic{font-weight:700;font-size:0.95rem;margin:4px 0 2px}
+.recap-chip .detail{font-size:0.78rem;color:var(--text-dim)}
+.recap-current{border-color:var(--accent);background:var(--accent-light)}
+.fill-row{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:14px;margin:8px 0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fill-row select{padding:6px 10px;border-radius:8px;border:1.5px solid var(--border);font-size:0.85rem;font-family:inherit}
+.fill-row .result{font-size:0.85rem;font-weight:600;margin-left:auto}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.vocab-card{perspective:800px;height:190px;cursor:pointer}
+.vocab-inner{position:relative;width:100%;height:100%;transition:transform 0.5s;transform-style:preserve-3d}
+.vocab-card.flipped .vocab-inner{transform:rotateY(180deg)}
+.vocab-front,.vocab-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow)}
+.vocab-front{background:var(--card)}
+.vocab-front .word{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:700;color:var(--accent)}
+.vocab-front .pos{font-size:0.72rem;color:var(--text-dim);margin-top:2px}
+.vocab-front .hint{font-size:0.7rem;color:var(--pink);margin-top:8px;font-weight:500}
+.vocab-back{background:linear-gradient(135deg,var(--accent-light),#fef3c7);transform:rotateY(180deg)}
+.vocab-back .meaning{font-weight:600;font-size:0.86rem;margin-bottom:4px}
+.vocab-back .arabic{font-size:0.82rem;color:var(--pink);margin-bottom:4px}
+.vocab-back .example{font-size:0.8rem;color:var(--text-dim);font-style:italic}
+.tts-btn{background:none;border:none;cursor:pointer;font-size:1.1rem;padding:2px 4px;border-radius:6px;transition:all 0.2s;vertical-align:middle}
+.tts-btn:hover{background:var(--accent-light);transform:scale(1.15)}
+.tts-btn.playing{animation:pulse 0.8s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+.grammar-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;margin:12px 0;border:1px solid var(--border)}
+.grammar-table th{background:var(--accent);color:#fff;padding:10px 14px;font-weight:600;font-size:0.85rem;text-align:center}
+.grammar-table td{padding:10px 14px;text-align:center;font-size:0.88rem;border-bottom:1px solid var(--border)}
+.grammar-table tr:last-child td{border-bottom:0}
+.grammar-table tr:nth-child(even) td{background:#faf9f6}
+.demo-word{display:inline-block;background:var(--accent-light);color:var(--accent);font-weight:700;padding:2px 10px;border-radius:6px;font-size:0.85rem}
+.quiz-q{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}
+.quiz-q .q-num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.quiz-q .q-text{font-weight:600;font-size:0.93rem;margin-bottom:12px}
+.quiz-option{display:block;width:100%;text-align:left;padding:10px 14px;margin-bottom:6px;background:#faf9f6;border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:0.86rem;transition:all 0.2s;font-family:'Inter',sans-serif}
+.quiz-option:hover:not(:disabled){border-color:var(--accent);background:var(--accent-light)}
+.quiz-option.correct{border-color:var(--green);background:var(--green-light);color:var(--green);font-weight:600}
+.quiz-option.wrong{border-color:var(--red);background:var(--red-light);color:var(--red)}
+.quiz-option:disabled{cursor:default}
+.btn{display:inline-block;padding:8px 20px;border:none;border-radius:10px;font-weight:600;font-size:0.88rem;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
+.writing-area{width:100%;min-height:140px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe;transition:border-color 0.2s}
+.writing-area:focus{outline:none;border-color:var(--accent)}
+.word-count{font-size:0.78rem;color:var(--text-dim);margin-top:6px;text-align:right}
+.challenge-box{background:linear-gradient(135deg,#fef9e7,#e8eaff);border:2px dashed var(--accent);border-radius:var(--radius);padding:22px;text-align:center;margin:14px 0}
+.challenge-box h3{font-family:'Fredoka',sans-serif;color:var(--accent)}
+.tip-box{background:var(--green-light);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:12px 16px;margin:10px 0;font-size:0.85rem}
+.tip-box strong{color:var(--green)}
+.mistake-box{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 12px 12px 0;padding:12px 16px;margin:10px 0;font-size:0.85rem}
+.mistake-box strong{color:var(--red)}
+.checklist label{display:flex;align-items:flex-start;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}
+.checklist input[type=checkbox]{margin-top:4px;accent-color:var(--green);width:16px;height:16px}
+.cheat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cheat-cell{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+.cheat-cell h4{font-family:'Fredoka',sans-serif;font-size:0.9rem;margin-bottom:6px}
+.expression-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:12px}
+.expression-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;box-shadow:var(--shadow);transition:transform 0.2s}
+.expression-card:hover{transform:translateY(-2px)}
+.expression-card .phrase{font-family:'Fredoka',sans-serif;font-size:0.95rem;font-weight:600;color:var(--accent)}
+.expression-card .ex-meaning{font-size:0.82rem;color:var(--text-dim);margin-top:3px}
+.role-card{background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow);cursor:pointer;transition:all 0.3s}
+.role-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.1)}
+.role-card h4{font-family:'Fredoka',sans-serif;font-size:1.05rem;margin-bottom:8px}
+.role-card .role-points{list-style:none;padding:0}
+.role-card .role-points li{font-size:0.85rem;padding:3px 0;padding-left:18px;position:relative}
+.role-card .role-points li::before{content:'\2022';position:absolute;left:4px;color:var(--green);font-weight:700}
+.role-convo{display:none;background:#faf9f6;border-radius:12px;padding:16px;margin-top:12px;font-size:0.86rem;line-height:1.9}
+.role-convo.show{display:block}
+.highlight{background:transparent;transition:background 0.5s;border-radius:4px;padding:0 2px}
+.highlight.active{background:#fef08a}
+.mcq-feedback{display:none;padding:8px 14px;border-radius:8px;margin-top:8px;font-size:0.85rem;font-weight:600}
+.mcq-feedback.show{display:block}
+.quiz-meme{display:none;padding:12px;border-radius:10px;margin-top:8px;text-align:center;font-weight:700;font-size:0.95rem}
+.quiz-meme.show{display:block;animation:fadeIn 0.3s}
+.meme-correct{background:var(--green-light);color:var(--green)}
+.meme-wrong{background:var(--red-light);color:var(--red)}
+.meme-emoji{font-size:1.8rem;display:block;margin-bottom:4px}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.shake{animation:shake 0.4s}
+.confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confetti-fall 1.5s ease-out forwards;pointer-events:none}
+@keyframes confetti-fall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(200px) rotate(720deg);opacity:0}}
+.score-banner{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);padding:8px 16px;display:flex;justify-content:center;align-items:center;gap:18px;box-shadow:0 -2px 10px rgba(0,0,0,0.06);z-index:99;font-family:'Fredoka',sans-serif}
+.score-item{text-align:center}
+.score-item .label{font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}
+.score-item .val{font-size:1.1rem;font-weight:700}
+.pb-80{padding-bottom:80px}
+.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}
+.text-center{text-align:center}
+.hidden{display:none}
+.session-nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.session-nav a{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:10px;font-size:0.8rem;font-weight:600;text-decoration:none;border:2px solid var(--border);color:var(--text-dim);transition:all 0.2s}
+.session-nav a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.session-nav a.active{border-color:var(--accent);background:var(--accent);color:#fff}
+.session-nav a.disabled{opacity:0.4;pointer-events:none}
+.notes-area{width:100%;min-height:100px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe}
+.notes-area:focus{outline:none;border-color:var(--accent)}
+.section-check{display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}
+.section-check input{accent-color:var(--green);width:16px;height:16px}
+.slideshow{position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:14px 0}
+.slide-viewport{overflow:hidden}
+.slide-track{display:flex;transition:transform 0.4s ease}
+.slide{min-width:100%;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;text-align:center;background:var(--card)}
+.slide img{display:block;object-fit:contain;width:100%;height:auto}
+.slide-controls{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid var(--border);background:#faf9f6}
+.slide-btn{background:var(--accent);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-family:'Fredoka',sans-serif}
+.slide-btn:hover{background:#cf9430;transform:scale(1.1)}
+.slide-btn:disabled{background:var(--border);cursor:default;transform:none}
+.slide-counter{font-family:'Fredoka',sans-serif;font-size:0.85rem;color:var(--text-dim)}
+.slide-dots{display:flex;gap:6px;justify-content:center}
+.slide-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all 0.3s;cursor:pointer}
+.slide-dot.active{background:var(--accent);transform:scale(1.3)}
+@media(max-width:600px){.cheat-grid{grid-template-columns:1fr}.vocab-grid{grid-template-columns:1fr}.recap-grid{grid-template-columns:1fr 1fr}.expression-grid{grid-template-columns:1fr}.slide{padding:10px}}
+
+.nlm-slot{background:repeating-linear-gradient(45deg,#faf9f6,#faf9f6 10px,#f5f2ea 10px,#f5f2ea 20px);border:2px dashed var(--accent);border-radius:14px;padding:26px 20px;text-align:center;color:var(--text-dim);font-size:0.86rem;margin:8px 0}
+.nlm-slot .slot-title{font-family:'Fredoka',sans-serif;font-weight:600;color:var(--accent);font-size:0.95rem;margin-bottom:4px}
+.nlm-slot code{background:rgba(232,168,56,0.12);padding:2px 8px;border-radius:6px;font-size:0.78rem;color:var(--text)}
+.assessment-box{background:linear-gradient(135deg,var(--red-light),var(--yellow-light));border:2px solid var(--red);border-radius:var(--radius);padding:22px;margin:14px 0}
+.assessment-box h3{color:var(--red);font-family:'Fredoka',sans-serif;margin-bottom:8px}
+</style>
+</head>
+<body class="pb-80">
+
+<div class="hero" style="background:linear-gradient(135deg,#b45309 0%,#f59e0b 45%,#fcd34d 100%)">
+  <div class="hero-emoji">🌍</div>
+  <h1>Session 4: The World Is Yours</h1>
+  <p class="sub">Describe Any Place Like a Local</p>
+  <div class="badge-row"><span class="badge">🌍 Describing Places</span><span class="badge">🧭 Location Phrases</span><span class="badge">📝 Order of Adjectives</span><span class="badge">⚠️ Assessment 1</span></div>
+</div>
+
+<div class="container">
+  <div class="session-nav" style="margin-top:16px"><a href="session-1.html">S1</a><a href="session-2.html">S2</a><a href="session-3.html">S3</a><a class="active">S4</a><a href="session-5.html">S5</a><a class="disabled">S6</a><a class="disabled">S7</a><a class="disabled">S8</a><a class="disabled">S9</a><a class="disabled">S10</a><a class="disabled">S11</a><a class="disabled">S12</a></div>
+
+  <div class="method-banner">
+    <div style="font-family:'Fredoka',sans-serif;font-weight:600;text-align:center">&#x1F3AF; Study Method</div>
+    <div class="method-steps">
+      <span class="method-step" style="background:var(--yellow-light);color:#b8860b">&#x1F501; Recap</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--blue-light);color:var(--blue)">&#x1F3A7; Listen</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--accent-light);color:var(--accent)">&#x1F4DA; Vocab</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--pink-light);color:var(--pink)">&#x1F4D6; Read</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--orange-light);color:var(--orange)">&#x1F5E3; Speak</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Quiz</span>
+    </div>
+  </div>
+
+  <nav class="nav" style="margin-top:16px;border-radius:var(--radius);border:1px solid var(--border)">
+    <div class="nav-inner">
+      <a href="#progress">Progress</a><a href="#recap">Recap</a><a href="#listen">Listen</a><a href="#vocab">Vocab</a><a href="#idioms">Idioms</a><a href="#grammar">Grammar</a><a href="#reading">Reading</a><a href="#speaking">Speaking</a><a href="#roleplay">Roleplay</a><a href="#email">Email</a><a href="#writing">Writing</a><a href="#quiz">Quiz</a><a href="#summary">Summary</a><a href="#notes">Notes</a>
+    </div>
+  </nav>
+
+  <div class="section" id="progress">
+    <div class="progress-wrap"><div class="progress-label"><span>&#x1F4C8; Overall Progress</span><span id="progress-pct">0%</span></div><div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div></div>
+  </div>
+
+  <div class="section">
+    <div class="assessment-box">
+      <h3>&#x26A0;&#xFE0F; Assessment 1 &mdash; Integrated Writing (20 points)</h3>
+      <p style="font-size:0.88rem;margin-bottom:8px">This session carries your first graded assessment. Make sure these four things are automatic before class:</p>
+      <ul style="font-size:0.86rem;margin-left:18px;line-height:1.9">
+        <li>The 10 place adjectives + the 4 location phrases are active vocabulary</li>
+        <li>The order of adjectives (<strong>O-S-S-A-C</strong>) is automatic</li>
+        <li>The <em>and</em> rule for two adjectives after <em>be</em></li>
+        <li>The 80-word message structure: comment &rarr; where you are &rarr; location &rarr; activities &rarr; features</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="recap">
+    <span class="section-label" style="background:var(--yellow-light);color:#b8860b">&#x1F501; Review</span>
+    <h2>Grammar Recap: Sessions 1&ndash;3</h2>
+    <div class="recap-grid"><div class="recap-chip"><div class="num">S1</div><div class="topic">can / could</div><div class="detail">Modals of ability</div></div><div class="recap-chip"><div class="num">S2</div><div class="topic">-ing / to + inf</div><div class="detail">Verb patterns</div></div><div class="recap-chip"><div class="num">S3</div><div class="topic">-ing / to + inf</div><div class="detail">Deep dive</div></div><div class="recap-chip recap-current"><div class="num">S4</div><div class="topic">Order of adjectives</div><div class="detail">This session</div></div></div>
+    <div class="card">
+      <h3>&#x270F; Fill-in Recap Quiz</h3>
+      <div id="recap-exercises"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--accent);color:#fff" onclick="checkRecap()">Check Answers</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryRecap()">Retry</button>
+        <span id="recap-score" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="listen">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F3A7; Listen</span>
+    <h2>Listening Activities</h2>
+    <div class="card">
+      <h3>&#x1F399; Overview Video</h3>
+      <div class="nlm-slot"><div class="slot-title">Overview Video</div><div>Reserved for NotebookLM material &mdash; drop the .mp4 into the <code>Session 4</code> folder and it will appear here</div></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F3A7; Deep Dive Audio</h3>
+      <div class="nlm-slot"><div class="slot-title">Deep Dive Audio</div><div>Reserved for NotebookLM material &mdash; drop the .m4a into the <code>Session 4</code> folder and it will appear here</div></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F3A7; Listening 1: Describing Your Hometown</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">A speaker describes his small hometown, Arcadia.</p>
+      <div class="nlm-slot"><div class="slot-title">Hometown Audio</div><div>Drop the .mp3 into the <code>Session 4</code> folder and it will appear here</div></div>
+      <div class="mt-12" id="listen1-questions"></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F3A7; Listening 2: What's Your Dream Holiday Destination?</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">Four street interviews about dream holiday destinations.</p>
+      <audio controls style="width:100%" preload="metadata"><source src="https://scemoodle.aucegypt.edu/pluginfile.php/3232147/mod_hvp/content/198212/audios/files-67483f0665143.mp3" type="audio/mpeg"></audio>
+      <div class="mt-12" id="listen2-questions"></div>
+      <div class="mt-12"><h4 style="font-size:0.85rem;margin-bottom:6px">&#x2753; True or False</h4><div id="listen2-tf"></div></div>
+    </div>
+  </div>
+
+  <div class="section" id="vocab">
+    <span class="section-label" style="background:var(--accent-light);color:var(--accent)">&#x1F4DA; Vocabulary</span>
+    <h2>Describing Places</h2>
+    <div class="nlm-slot"><div class="slot-title">Vocabulary Slides</div><div>Reserved for NotebookLM material &mdash; the slide JPGs will become an image carousel here</div></div>
+    <div class="tip-box">&#x1F9E0; <strong>Memory trick:</strong> Learn the adjectives in <strong>opposite pairs</strong> &mdash; crowded/quiet, modern/historical, safe/dangerous. Pairs are twice as easy to remember as single words, and they give you something to say in a comparison.</div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">🏙️ Describing a City</h3>
+    <div class="vocab-grid" id="vg-city"></div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">🧭 Location Phrases</h3>
+    <div class="vocab-grid" id="vg-loc"></div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">✨ Upgrade Your Adjectives</h3>
+    <div class="vocab-grid" id="vg-upgrade"></div>
+    <div class="card mt-20">
+      <h3>&#x270F; Vocabulary Exercise</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Choose the correct word for each sentence.</p>
+      <div id="vocab-ex-rows"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--accent);color:#fff" onclick="checkVocabEx()">Check Answers</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryVocabEx()">Retry</button>
+        <span id="vocab-result" style="font-family:'Fredoka',sans-serif;font-weight:700"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="idioms">
+    <span class="section-label" style="background:rgba(251,191,36,0.15);color:#f59e0b">&#x1F4AC; Idioms</span>
+    <h2>Places &amp; Destination Idioms</h2>
+    <p style="color:var(--text-dim);margin-bottom:18px">Seven idioms you can use in real conversations. Each includes meaning, example, and Arabic hint.</p>
+    <div style="display:grid;gap:14px">
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🪨 A stone’s throw away</h3>
+        <p><strong>Meaning:</strong> Very close, a short distance away</p>
+        <p><strong>Example:</strong> "Our hotel was <em>a stone’s throw away</em> from the beach."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> قريب جدًا / على بعد خطوات</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🏜️ In the middle of nowhere</h3>
+        <p><strong>Meaning:</strong> Very far from any town or city</p>
+        <p><strong>Example:</strong> "The camp was <em>in the middle of nowhere</em> &mdash; no shops, no signal."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> في مكان بعيد خالص</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">❤️ The heart of the city</h3>
+        <p><strong>Meaning:</strong> The central, busiest part of a city</p>
+        <p><strong>Example:</strong> "Our flat is right in <em>the heart of the city</em>, near everything."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> قلب المدينة / وسط البلد</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">💎 A hidden gem</h3>
+        <p><strong>Meaning:</strong> A wonderful place that few people know about</p>
+        <p><strong>Example:</strong> "That small café in Alexandria is <em>a hidden gem</em>."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> مكان جميل مش مشهور</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🐝 The hustle and bustle</h3>
+        <p><strong>Meaning:</strong> The noisy, busy activity of a place</p>
+        <p><strong>Example:</strong> "I love Cairo, but sometimes I need a break from <em>the hustle and bustle</em>."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> زحمة ودوشة المدينة</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">📸 Picture-perfect</h3>
+        <p><strong>Meaning:</strong> So beautiful it looks like a photograph</p>
+        <p><strong>Example:</strong> "The blue streets of Chefchaouen are <em>picture-perfect</em>."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> جميل زي الصورة</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🗺️ Put a place on the map</h3>
+        <p><strong>Meaning:</strong> Make a place famous</p>
+        <p><strong>Example:</strong> "The new museum really <em>put the town on the map</em>."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> يخلي المكان مشهور</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="grammar">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span>
+    <h2>Order of Adjectives</h2>
+    <div class="nlm-slot"><div class="slot-title">Grammar Slides</div><div>Reserved for NotebookLM material &mdash; the slide JPGs will become an image carousel here</div></div>
+    <div class="card">
+      <h3>&#x2B50; The Basic Order: O-S-S-A-C</h3>
+      <p style="font-size:0.88rem">When you use more than one adjective before a noun, English follows a fixed order. Memorize <span class="demo-word">O-S-S-A-C</span>.</p>
+      <table class="grammar-table">
+        <tr><th>#</th><th>Category</th><th>What it describes</th><th>Examples</th></tr>
+        <tr><td>1</td><td><strong>O</strong>pinion</td><td>your personal feeling</td><td>beautiful, ugly, delicious, lovely</td></tr>
+        <tr><td>2</td><td><strong>S</strong>ize</td><td>how big or small</td><td>huge, tiny, big, small</td></tr>
+        <tr><td>3</td><td><strong>S</strong>hape</td><td>the form of it</td><td>round, square, long</td></tr>
+        <tr><td>4</td><td><strong>A</strong>ge</td><td>how old or new</td><td>ancient, new, old, young</td></tr>
+        <tr><td>5</td><td><strong>C</strong>olor</td><td>the color</td><td>blue, red, pink, black</td></tr>
+      </table>
+      <div class="tip-box"><strong>Example:</strong> "We took the <strong>big</strong> (size) <strong>old</strong> (age) <strong>black</strong> (color) train." &bull; <strong>Limit:</strong> use 2&ndash;3 adjectives before a noun, never more.</div>
+    </div>
+    <div class="card">
+      <h3>&#x1F517; The "and" Rule</h3>
+      <p style="font-size:0.88rem">When two adjectives come <strong>after</strong> the verb <em>be</em> (at the end of the sentence), put <strong>and</strong> between them.</p>
+      <table class="grammar-table">
+        <tr><th>Before the noun (NO "and")</th><th>After "be" (USE "and")</th></tr>
+        <tr><td>a big old black train</td><td>The house is small <strong>and</strong> old.</td></tr>
+        <tr><td>a lovely new red car</td><td>The house is large <strong>and</strong> white.</td></tr>
+        <tr><td>amazing new phones</td><td>The bookshop has old <strong>and</strong> new books.</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>&#x1F9ED; Describing Where a Place Is</h3>
+      <table class="grammar-table">
+        <tr><th>Phrase</th><th>Example</th></tr>
+        <tr><td><strong>located in</strong></td><td>Paris is <strong>located in</strong> France.</td></tr>
+        <tr><td><strong>on</strong></td><td>Giza is <strong>on</strong> the Nile River.</td></tr>
+        <tr><td><strong>in the north / south / east / west of</strong></td><td>Alexandria is <strong>in the north of</strong> Egypt.</td></tr>
+        <tr><td><strong>on the coast of</strong></td><td>Alexandria is <strong>on the coast of</strong> Egypt, on the Mediterranean Sea.</td></tr>
+      </table>
+    </div>
+    <div class="card" style="border:2px solid var(--red)">
+      <h3 style="color:var(--red)">&#x1F6A8; THE BIG MISTAKE</h3>
+      <p style="font-size:0.9rem">In Arabic, adjectives come <strong>after</strong> the noun and their order is flexible. In English the order is fixed and they come <strong>before</strong> the noun.</p>
+      <div class="mistake-box">&#x274C; <s>a red big car</s> &nbsp;&#x274C; <s>an Egyptian old beautiful city</s> &nbsp;&#x274C; <s>The house is small old.</s><br>&#x2705; a <strong>big red</strong> car &nbsp;&#x2705; a <strong>beautiful old Egyptian</strong> city &nbsp;&#x2705; The house is small <strong>and</strong> old.</div>
+      <p style="font-size:0.85rem;margin-top:8px"><strong>Quick check:</strong> Is the adjective before the noun? Then no "and", and follow O-S-S-A-C. Is it after <em>is / are / was</em>? Then use "and".</p>
+    </div>
+    <div class="card">
+      <h3>&#x270F; Grammar Exercises</h3>
+      <div id="grammar-exercises"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--green);color:#fff" onclick="checkGrammar()">Check Answers</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryGrammar()">Retry</button>
+        <span id="grammar-score" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="reading">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink)">&#x1F4D6; Reading</span>
+    <h2>Special Places to Visit</h2>
+    <div class="card"><div style="font-size:0.9rem;line-height:1.9">
+      <p style="font-size:0.86rem;color:var(--text-dim);margin-bottom:10px">Six cities from around the world, each special for a different reason.</p>
+      <p><strong>🇪🇪 Tallinn, Estonia</strong> &mdash; <span class="highlight" data-q="q3">a city on the Baltic Sea.</span> <span class="highlight" data-q="q7">It is the perfect place for people who enjoy historical places as well as modern tourist activities.</span></p>
+      <p style="margin-top:10px"><strong>🇱🇦 Luang Prabang, Laos</strong> &mdash; <span class="highlight" data-q="q1">located in the north of Laos.</span> It has beautiful temples and is known for its quiet atmosphere. <span class="highlight" data-q="q4">Tourists love it because it is quiet and has a relaxing atmosphere.</span></p>
+      <p style="margin-top:10px"><strong>🇺🇾 Colonia del Sacramento, Uruguay</strong> &mdash; this city is not big, but it has a rich history.</p>
+      <p style="margin-top:10px"><strong>🇲🇽 San Cristóbal de las Casas, Mexico</strong> &mdash; <span class="highlight" data-q="q5">a city in North America.</span> It is the best place for people who like to buy souvenirs and traditional outfits.</p>
+      <p style="margin-top:10px"><strong>🇲🇦 Chefchaouen, Morocco</strong> &mdash; a city in the middle of the mountains with <span class="highlight" data-q="q2">beautiful blue buildings.</span> <span class="highlight" data-q="q6">One feature that makes it attractive is the friendly people.</span></p>
+      <p style="margin-top:10px"><strong>🇳🇨 Nouméa, New Caledonia</strong> &mdash; this city has beautiful nature and oceans and is perfect for people who like water activities.</p>
+    </div></div>
+    <div class="card"><h3>&#x2753; True or False</h3><div id="reading-tf"></div></div>
+    <div class="card">
+      <h3>&#x2753; Reading Questions</h3>
+      <div id="reading-questions"></div>
+      <div id="readingMistakes" class="hidden mt-12" style="background:var(--red-light);border-radius:12px;padding:16px"><h4 style="color:var(--red);font-family:'Fredoka',sans-serif;margin-bottom:8px">Review These:</h4><div id="mistakesList"></div></div>
+    </div>
+  </div>
+
+  <div class="section" id="speaking">
+    <span class="section-label" style="background:var(--orange-light);color:var(--orange)">&#x1F5E3; Speaking</span>
+    <h2>Speaking Practice</h2>
+    <div class="challenge-box">
+      <h3>&#x23F1; 1-Minute Challenge</h3>
+      <p style="margin:8px 0;font-size:0.9rem">Talk for 1 minute about: <strong>"Describe your hometown or your dream destination: where is it, what is it like, and what can you do there?"</strong></p>
+      <p style="font-size:0.82rem;color:var(--text-dim)">Use: located in / on the coast of / in the north of + 3 place adjectives in the right order</p>
+    </div>
+    <div class="card">
+      <h3>&#x1F4AC; Useful Expressions</h3>
+      <div class="expression-grid"><div class="expression-card"><div class="phrase">It is located in…</div><div class="ex-meaning">Say which country or region a place is in</div></div><div class="expression-card"><div class="phrase">It is on the coast of…</div><div class="ex-meaning">Say a place is by the sea</div></div><div class="expression-card"><div class="phrase">It is famous for…</div><div class="ex-meaning">Say what a place is known for</div></div><div class="expression-card"><div class="phrase">It is worth visiting.</div><div class="ex-meaning">Say a place is good enough to go to</div></div><div class="expression-card"><div class="phrase">tourist attractions</div><div class="ex-meaning">The famous places tourists go to see</div></div><div class="expression-card"><div class="phrase">the natural scenes are breathtaking</div><div class="ex-meaning">Very strong way to praise scenery</div></div><div class="expression-card"><div class="phrase">a travel itinerary</div><div class="ex-meaning">The schedule of your trip</div></div><div class="expression-card"><div class="phrase">It has a relaxing atmosphere.</div><div class="ex-meaning">Describe the feeling of a place</div></div></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F4AC; Daily Drill</h3>
+      <p style="font-size:0.88rem;margin-bottom:8px">Practice saying these sentences out loud:</p>
+      <div style="font-size:0.88rem;line-height:2"><p>1. Cairo is a <strong>huge ancient</strong> city. (Size &rarr; Age)</p><p>2. My mom bought a <strong>lovely new red</strong> car. (Opinion &rarr; Age &rarr; Color)</p><p>3. The house is <strong>large and white</strong>. (two adjectives after "be" &rarr; use "and")</p><p>4. Alexandria is <strong>on the coast of</strong> Egypt, in the north.</p><p>5. We took the <strong>big old black</strong> train. (Size &rarr; Age &rarr; Color)</p></div>
+    </div>
+  </div>
+
+  <div class="section" id="roleplay">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F3AD; Roleplay</span>
+    <h2>Roleplay Scenarios</h2>
+    <div class="role-card" onclick="toggleRole('r1')">
+      <h4>📺 Scenario 1: The TV Commercial</h4>
+      <ul class="role-points"><li>In a group, advertise a destination like Hurghada or Sharm El-Sheikh</li><li>Describe the location, what makes it special, and the activities</li><li>You are the voice actors &mdash; 2 minutes</li></ul>
+      <div class="role-convo" id="r1-convo"><p><strong>Voice 1:</strong> Are you tired of the hustle and bustle of the city?</p><p><strong>Voice 2:</strong> Come to Hurghada! It is located on the coast of Egypt, on the beautiful Red Sea.</p><p><strong>Voice 1:</strong> Enjoy the warm sunny weather all year round.</p><p><strong>Voice 2:</strong> You can go diving, swimming, or just relax on the quiet golden beaches.</p><p><strong>Voice 1:</strong> Our hotels are modern and comfortable, and they are a stone’s throw away from the sea.</p><p><strong>Voice 2:</strong> Hurghada &mdash; your picture-perfect holiday. Call us today!</p></div>
+    </div>
+    <div class="role-card" onclick="toggleRole('r2')">
+      <h4>🏠 Scenario 2: Describing Your Hometown</h4>
+      <ul class="role-points"><li>A foreign friend asks about your hometown</li><li>Describe the size, the atmosphere, and the weather</li><li>Use the correct adjective order</li></ul>
+      <div class="role-convo" id="r2-convo"><p><strong>Friend:</strong> So, where are you from exactly?</p><p><strong>You:</strong> I’m from Alexandria. It’s located in the north of Egypt, on the coast of the Mediterranean Sea.</p><p><strong>Friend:</strong> What’s it like?</p><p><strong>You:</strong> It’s a big historical city, but it’s not as crowded as Cairo. The weather is warm and sunny most of the year.</p><p><strong>Friend:</strong> What can you do there?</p><p><strong>You:</strong> You can visit the Library of Alexandria, walk along the Corniche, and eat amazing fresh seafood.</p><p><strong>Friend:</strong> It sounds like a hidden gem!</p></div>
+    </div>
+    <div class="role-card" onclick="toggleRole('r3')">
+      <h4>✈️ Scenario 3: Dream Holiday Destination</h4>
+      <ul class="role-points"><li>A street interviewer asks about your dream destination</li><li>Say where it is and why you want to go</li><li>Use location phrases and at least 3 adjectives</li></ul>
+      <div class="role-convo" id="r3-convo"><p><strong>Interviewer:</strong> Excuse me, what’s your dream holiday destination?</p><p><strong>You:</strong> I’d love to visit Japan.</p><p><strong>Interviewer:</strong> Why Japan?</p><p><strong>You:</strong> Because I want to discover a completely different culture. Tokyo is a huge modern city, but Kyoto is quiet and historical.</p><p><strong>Interviewer:</strong> What would you do there?</p><p><strong>You:</strong> I’d visit the ancient temples and try the local food. The natural scenes there are breathtaking.</p></div>
+    </div>
+  </div>
+
+  <div class="section" id="email">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F4E7; Email</span>
+    <h2>Email Writing</h2>
+    <div class="card">
+      <h3>&#x2709; Reply to Sameer’s message (80 words)</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Sameer sent you a message about his holiday. Write back in about 80 words: comment on his message, tell him about YOUR vacation (you are NOT in Cairo!), mention the location of the place, the activities you are doing, and its beautiful features.</p>
+      <textarea class="writing-area" id="email-area" placeholder="Hi Sameer,&#10;&#10;Thanks for your message! It sounds like..." oninput="updateEmailWC()"></textarea>
+      <div class="word-count">Words: <span id="email-wc">0</span> / ~80</div>
+      <div class="checklist mt-12" id="email-checklist"><label><input type="checkbox" onchange="updateEmailCheck()"> Commented on Sameer’s message</label><label><input type="checkbox" onchange="updateEmailCheck()"> Said where you are (NOT Cairo)</label><label><input type="checkbox" onchange="updateEmailCheck()"> Described the location (located in / on the coast of / in the north of)</label><label><input type="checkbox" onchange="updateEmailCheck()"> Mentioned the activities you are doing</label><label><input type="checkbox" onchange="updateEmailCheck()"> Used 2–3 adjectives in the correct order</label></div>
+      <p id="email-check-result" style="font-size:0.85rem;font-weight:600;margin-top:8px"></p>
+    </div>
+  </div>
+
+  <div class="section" id="writing">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink)">&#x270F; Writing</span>
+    <h2>Writing Practice</h2>
+    <div class="card">
+      <h3>&#x1F4DD; Describe your dream travel destination</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Write a short paragraph: Where is it? Why did you choose it? What makes it special? What can you do there? Use the correct order of adjectives. (60&ndash;80 words)</p>
+      <textarea class="writing-area" id="writing-area" placeholder="My dream destination is..." oninput="updateWritingWC()"></textarea>
+      <div class="word-count">Words: <span id="writing-wc">0</span> / 60&ndash;80</div>
+      <div class="checklist mt-12" id="writing-checklist"><label><input type="checkbox" onchange="updateWritingCheck()"> Named the place and its location</label><label><input type="checkbox" onchange="updateWritingCheck()"> Said why you chose it</label><label><input type="checkbox" onchange="updateWritingCheck()"> Used at least 3 place adjectives</label><label><input type="checkbox" onchange="updateWritingCheck()"> Used the correct adjective order (O-S-S-A-C)</label><label><input type="checkbox" onchange="updateWritingCheck()"> Used one "and" between two adjectives after "be"</label></div>
+      <p id="writing-check-result" style="font-size:0.85rem;font-weight:600;margin-top:8px"></p>
+    </div>
+  </div>
+
+  <div class="section" id="quiz">
+    <span class="section-label" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Quiz</span>
+    <h2>Session 4 Quiz</h2>
+    <div id="quiz-container"></div>
+    <div style="text-align:center;margin-top:16px">
+      <button class="btn" style="background:var(--accent);color:#fff;font-size:1rem;padding:12px 30px" onclick="showQuizScore()">Show Final Score</button>
+      <button class="btn" style="background:#eee;color:var(--text);font-size:1rem;padding:12px 30px" onclick="retryQuiz()">Retry Quiz</button>
+      <a href="kahoot-session4.html" style="display:inline-block;margin-left:10px;padding:12px 30px;background:var(--red);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;font-size:1rem">Kahoot! &#x1F3AE;</a>
+    </div>
+    <div id="quiz-final" class="hidden card mt-16 text-center" style="border:3px solid var(--accent)"></div>
+  </div>
+
+  <div class="section" id="summary">
+    <span class="section-label" style="background:var(--yellow-light);color:#b8860b">&#x1F4CB; Summary</span>
+    <h2>Quick Cheat Sheet</h2>
+    <div class="cheat-grid"><div class="cheat-cell"><h4>⭐ O-S-S-A-C</h4><p style="font-size:0.82rem"><strong>O</strong>pinion &rarr; <strong>S</strong>ize &rarr; <strong>S</strong>hape &rarr; <strong>A</strong>ge &rarr; <strong>C</strong>olor<br><em>"a lovely new red car"</em></p></div><div class="cheat-cell"><h4>🔗 The "and" rule</h4><p style="font-size:0.82rem">Two adjectives after <em>be</em> &rarr; use "and"<br><em>"The house is large and white."</em></p></div><div class="cheat-cell"><h4>🧭 Location phrases</h4><p style="font-size:0.82rem">located in &bull; on (a river) &bull; in the north/south/east/west of &bull; on the coast of</p></div><div class="cheat-cell"><h4>🚨 Big Mistake</h4><p style="font-size:0.82rem">Adjectives go BEFORE the noun in a fixed order.<br>&#x274C; a red big car &nbsp;&#x2705; a big red car</p></div></div>
+    <div class="cheat-grid mt-12"><div class="cheat-cell"><h4>🌍 Key Vocabulary</h4><p style="font-size:0.82rem">crowded, quiet, historical, modern, safe, dangerous, famous, exciting, huge, expensive + breathtaking, bustling, tranquil, scenic</p></div><div class="cheat-cell"><h4>🔁 Previous Grammar</h4><p style="font-size:0.82rem">S1: can / could &bull; S2–S3: gerunds &amp; infinitives</p></div></div>
+  </div>
+
+  <div class="section" id="notes">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Notes</span>
+    <h2>My Notes</h2>
+    <div class="card"><h3>&#x1F4D3; Class Notes</h3><textarea class="notes-area" id="classNotes" placeholder="Write notes during class..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x1F4D6; Difficult Words</h3><textarea class="notes-area" id="difficultWords" style="min-height:80px" placeholder="Words you need to review..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x2753; Questions for Teacher</h3><textarea class="notes-area" id="teacherQuestions" style="min-height:80px" placeholder="Write questions for your teacher..." oninput="saveNotes()"></textarea></div>
+  </div>
+
+  <div class="section" id="tracker">
+    <h2>&#x2705; Progress Tracker</h2>
+    <div class="card"><h3>Check off completed sections:</h3><div id="progressChecks">
+      <label class="section-check"><input type="checkbox" data-sec="listen" onchange="updateTracker()"> &#x1F3A7; Listened to audio &amp; watched videos</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocab" onchange="updateTracker()"> &#x1F4DA; Studied vocabulary flashcards</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocabex" onchange="updateTracker()"> &#x270F; Completed vocabulary exercise</label>
+      <label class="section-check"><input type="checkbox" data-sec="idioms" onchange="updateTracker()"> &#x1F4AC; Reviewed idioms</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammar" onchange="updateTracker()"> &#x1F4DD; Understood grammar rules</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammarex" onchange="updateTracker()"> &#x1F4DD; Completed grammar exercises</label>
+      <label class="section-check"><input type="checkbox" data-sec="read" onchange="updateTracker()"> &#x1F4D6; Read passage &amp; answered questions</label>
+      <label class="section-check"><input type="checkbox" data-sec="speak" onchange="updateTracker()"> &#x1F5E3; Did speaking challenge</label>
+      <label class="section-check"><input type="checkbox" data-sec="roleplay" onchange="updateTracker()"> &#x1F3AD; Practiced roleplay</label>
+      <label class="section-check"><input type="checkbox" data-sec="email" onchange="updateTracker()"> &#x1F4E7; Wrote email</label>
+      <label class="section-check"><input type="checkbox" data-sec="write" onchange="updateTracker()"> &#x270F; Completed writing task</label>
+      <label class="section-check"><input type="checkbox" data-sec="quiz" onchange="updateTracker()"> &#x1F3AF; Finished quiz</label>
+      <label class="section-check"><input type="checkbox" data-sec="review" onchange="updateTracker()"> &#x1F4CB; Reviewed cheat sheet</label>
+    </div><div style="margin-top:14px"><div style="background:#e8e6e0;border-radius:8px;height:12px;overflow:hidden"><div id="trackerFill" style="height:100%;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--green));width:0%;transition:width 0.5s"></div></div><p style="font-size:0.82rem;color:var(--text-dim);margin-top:6px;text-align:center" id="trackerText">0 of 13 completed</p></div></div>
+  </div>
+
+  <div class="section">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F52E; Coming Next</span>
+    <h2>Session 5: Preview</h2>
+    <div class="card" style="background:linear-gradient(135deg,var(--green-light),var(--blue-light))"><h4 style="font-family:'Fredoka',sans-serif;color:var(--blue);margin-bottom:6px">✈️ Session 5: Travel Essentials &amp; Future Plans</h4><p style="font-size:0.88rem">Packing vocabulary and the three ways to talk about the future: will, going to, and present continuous.</p></div>
+  </div>
+
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:30px 0 20px">
+    <a href="session-3.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--blue);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">&#x2B05; Session 3</a>
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--accent);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">&#x1F3E0; Home</a>
+    <a href="session-5.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--green);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">Session 5 &#x27A1;</a>
+  </div>
+  <div style="text-align:center;padding:10px 20px 20px;color:var(--text-dim);font-size:0.78rem"><p>AUC English A2B &bull; Session 4: The World Is Yours</p></div>
+</div>
+
+<div class="score-banner">
+  <div class="score-item"><div class="label">Cards</div><div class="val" id="sb-cards" style="color:var(--accent)">0</div></div>
+  <div class="score-item"><div class="label">Grammar</div><div class="val" id="sb-grammar" style="color:var(--green)">0</div></div>
+  <div class="score-item"><div class="label">Quiz</div><div class="val" id="sb-quiz" style="color:var(--red)">0/20</div></div>
+  <div class="score-item"><div class="label">Written</div><div class="val" id="sb-words" style="color:var(--orange)">0</div></div>
+</div>
+
+<script>
+function speak(w,b){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=0.85;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;if(b){b.classList.add('playing');u.onend=()=>b.classList.remove('playing')}speechSynthesis.speak(u)}
+if('speechSynthesis' in window)speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
+
+const cityVocab=[{"w":"crowded","p":"adjective","m":"Full of people and activity","ar":"مزدحم","ex":"I love crowded places that are full of people."},{"w":"quiet","p":"adjective","m":"Calm, not noisy","ar":"هادئ","ex":"I want to go to a quiet place to relax."},{"w":"historical","p":"adjective","m":"Has places built a very long time ago","ar":"تاريخي","ex":"Luxor and Aswan are two historical cities."},{"w":"modern","p":"adjective","m":"Most of its buildings are new","ar":"حديث / عصري","ex":"Dubai is a very modern city."},{"w":"safe","p":"adjective","m":"Does not have a lot of crime","ar":"آمن","ex":"I never heard of any theft here, so it is a safe city."},{"w":"dangerous","p":"adjective","m":"Has a lot of crime and is not safe","ar":"خطر","ex":"Take care &mdash; that area is dangerous at night."},{"w":"famous","p":"adjective","m":"Well-known to many people","ar":"مشهور","ex":"Rome is a famous city because many tourists visit it."},{"w":"exciting","p":"adjective","m":"Has activities and fun things to do","ar":"ممتع / مثير","ex":"If a city has fun activities, it is exciting."},{"w":"huge","p":"adjective","m":"Very big","ar":"ضخم جدًا","ex":"The United States is a huge country."},{"w":"expensive","p":"adjective","m":"Costs a lot of money","ar":"غالي","ex":"London is expensive &mdash; you spend a lot just to eat."}];
+const locVocab=[{"w":"located in","p":"phrase","m":"Used to say which country or region a place is in","ar":"يقع في","ex":"Paris is located in France."},{"w":"on the coast of","p":"phrase","m":"Used when a place is next to the sea","ar":"على ساحل","ex":"Alexandria is on the coast of Egypt."},{"w":"in the north of","p":"phrase","m":"Used to give the direction inside a country","ar":"في شمال","ex":"Alexandria is in the north of Egypt."},{"w":"on (a river)","p":"phrase","m":"Used when a place is beside a river","ar":"على (نهر)","ex":"Giza is on the Nile River."}];
+const upgradeVocab=[{"w":"breathtaking","p":"adjective","m":"So beautiful it surprises you — stronger than \"beautiful\"","ar":"يخطف الأنفاس","ex":"The natural scenes there are breathtaking."},{"w":"bustling","p":"adjective","m":"Busy and full of energy — a positive way to say crowded","ar":"مزدحم وحيوي","ex":"Khan El-Khalili is a bustling market."},{"w":"tranquil","p":"adjective","m":"Very calm and peaceful — stronger than \"quiet\"","ar":"هادئ جدًا / ساكن","ex":"The temple garden was completely tranquil."},{"w":"tourist attractions","p":"noun","m":"The famous places tourists go to see","ar":"المعالم السياحية","ex":"I want to visit all the tourist attractions."},{"w":"worth visiting","p":"phrase","m":"Good enough that you should go","ar":"يستاهل الزيارة","ex":"The Pyramids are worth visiting at least once."}];
+const vocabExData=[{"q":"London is a very ______ city. You spend a lot just to eat and book a hotel.","opts":["quiet","expensive","safe"],"ans":1},{"q":"Whenever I travel, I go downtown because I love ______ places full of people.","opts":["crowded","dangerous","modern"],"ans":0},{"q":"I want to go to a ______ place to relax. Can you advise me where?","opts":["huge","exciting","quiet"],"ans":2},{"q":"Luxor and Aswan are two ______ cities with temples and very old buildings.","opts":["modern","historical","dangerous"],"ans":1},{"q":"Take care, this place is not ______. Last week my sister’s wallet was stolen.","opts":["safe","famous","huge"],"ans":0},{"q":"Alexandria is ______ Egypt, on the Mediterranean Sea.","opts":["located on","on the coast of","in the south of"],"ans":1},{"q":"Aswan is in the ______ of Egypt.","opts":["north","west","south"],"ans":2},{"q":"Giza is ______ the Nile River.","opts":["on","in","at"],"ans":0},{"q":"The natural scenes there are ______ &mdash; the strongest way to say beautiful.","opts":["tranquil","breathtaking","bustling"],"ans":1},{"q":"Khan El-Khalili is a ______ market, full of noise and energy.","opts":["bustling","tranquil","dangerous"],"ans":0}];
+const grammarEx=[{"q":"He is a ______ man.","opts":["young wonderful","wonderful young","wonderful and young"],"ans":1},{"q":"I played with a ______ dog.","opts":["funny big","big funny","big and funny"],"ans":0},{"q":"My mom bought a ______ car.","opts":["red new lovely","new lovely red","lovely new red"],"ans":2},{"q":"Can you give me the ______ ball?","opts":["big round","round big","round and big"],"ans":0},{"q":"Cairo is a ______ city.","opts":["ancient huge","huge ancient","huge and ancient"],"ans":1},{"q":"The house is ______.","opts":["large white","white large","large and white"],"ans":2},{"q":"Which sentence has the correct order?","opts":["We took the black big old train.","We took the big old black train.","We took the old black big train."],"ans":1},{"q":"This shop has ______.","opts":["new amazing phones","amazing new phones","amazing and new phones"],"ans":1},{"q":"I bought a pair of ______ shoes.","opts":["nice, big blue","blue nice big","big nice blue"],"ans":0},{"q":"My parents drive a car with ______ stripes.","opts":["black white","white black","black and white"],"ans":2}];
+const recapEx=[{"q":"Zain ______ code in Python very well.","opts":["will","can","is"],"ans":1},{"q":"Before she took lessons, she ______ swim.","opts":["couldn't","doesn't","isn't"],"ans":0},{"q":"Maria enjoys ______ new projects at work.","opts":["to manage","manage","managing"],"ans":2},{"q":"John decided ______ for the new position.","opts":["applying","to apply","apply"],"ans":1},{"q":"______ regularly helps reduce stress.","opts":["Exercising","To exercise","Exercise"],"ans":0},{"q":"She wants ______ more sleep every night.","opts":["getting","get","to get"],"ans":2}];
+const listen1Data=[{"q":"How big is Arcadia?","opts":["Huge","Very small","A bit big"],"ans":1},{"q":"How did the speaker describe his hometown?","opts":["Quiet","Busy","Historical"],"ans":0},{"q":"What activities is Arcadia famous for?","opts":["Swimming","Camping","Hiking"],"ans":2},{"q":"What is the weather like in Arcadia?","opts":["Rainy and windy","Sunny and warm","Snowy and cold"],"ans":1},{"q":"Based on the listening, Arcadia can be described as famous.","opts":["True","False"],"ans":1}];
+const listen2Data=[{"q":"Who wants to visit Japan?","opts":["Sarah","Maria","Tony"],"ans":0},{"q":"Who wants to visit Bali?","opts":["Tony","Maria","Jason"],"ans":1},{"q":"Who wants to visit New Zealand?","opts":["Jason","Sarah","Tony"],"ans":2},{"q":"Who wants to visit Italy?","opts":["Jason","Maria","Sarah"],"ans":0}];
+const listen2TF=[{"q":"In interview one, she wants to visit Japan to discover a different culture.","a":true},{"q":"The person in interview two is from Spain.","a":false},{"q":"The person in interview two wants to visit New Zealand because he likes nature.","a":true},{"q":"The third person thinks that Bali is a noisy place.","a":false},{"q":"The fourth person likes Italian food.","a":true}];
+const readingTF=[{"q":"Tallinn has both historical places and modern tourist activities.","a":true},{"q":"Luang Prabang is famous for being loud and busy.","a":false},{"q":"Colonia del Sacramento is a very big city.","a":false},{"q":"The buildings in Chefchaouen are blue.","a":true},{"q":"Nouméa is good for people who like water activities.","a":true}];
+const readingQ=[{"q":"Where is Luang Prabang?","opts":["South Laos","North Laos","East Laos"],"ans":1,"hl":"q1"},{"q":"What color are the buildings in Chefchaouen?","opts":["Red","Yellow","Blue"],"ans":2,"hl":"q2"},{"q":"Tallinn is a city in Estonia on ______.","opts":["the Baltic Sea","the Mekong River","the Pacific Ocean"],"ans":0,"hl":"q3"},{"q":"Tourists love Luang Prabang because ______.","opts":["it has beautiful beaches","it is quiet and relaxing","it is in Asia"],"ans":1,"hl":"q4"},{"q":"San Cristóbal de las Casas is in ______.","opts":["Asia","South America","North America"],"ans":2,"hl":"q5"},{"q":"What makes Chefchaouen attractive?","opts":["The quiet atmosphere","The friendly people","The photographers"],"ans":1,"hl":"q6"},{"q":"Why is Tallinn special?","opts":["It has both historical and modern attractions","It has beautiful beaches","It is located in Europe"],"ans":0,"hl":"q7"}];
+const quizData=[{"q":"Full of people and activity = ?","opts":["quiet","crowded","safe"],"ans":1,"cat":"Vocab"},{"q":"Has places built a very long time ago = ?","opts":["historical","modern","exciting"],"ans":0,"cat":"Vocab"},{"q":"Does not have a lot of crime = ?","opts":["dangerous","expensive","safe"],"ans":2,"cat":"Vocab"},{"q":"Very big = ?","opts":["huge","quiet","famous"],"ans":0,"cat":"Vocab"},{"q":"Alexandria is ______ Egypt.","opts":["in the south of","in the north of","in the east of"],"ans":1,"cat":"Vocab"},{"q":"Giza is ______ the Nile River.","opts":["on","in","at"],"ans":0,"cat":"Vocab"},{"q":"A stronger word than \"beautiful\" for scenery = ?","opts":["bustling","tranquil","breathtaking"],"ans":2,"cat":"Vocab"},{"q":"What does O-S-S-A-C stand for?","opts":["Opinion, Size, Shape, Age, Color","Order, Size, Style, Age, Color","Opinion, Shape, Size, Age, Color"],"ans":0,"cat":"Concepts"},{"q":"How many adjectives should you use before a noun?","opts":["2–3 maximum","as many as you want","only 1"],"ans":0,"cat":"Concepts"},{"q":"My mom bought a ______ car.","opts":["red new lovely","lovely new red","new red lovely"],"ans":1,"cat":"Grammar"},{"q":"Cairo is a ______ city.","opts":["ancient huge","huge ancient","huge and ancient"],"ans":1,"cat":"Grammar"},{"q":"The house is ______.","opts":["large white","large and white","white large"],"ans":1,"cat":"Grammar"},{"q":"We took the ______ train.","opts":["big old black","black big old","old black big"],"ans":0,"cat":"Grammar"},{"q":"This shop has ______.","opts":["new amazing phones","amazing new phones","amazing and new phones"],"ans":1,"cat":"Grammar"},{"q":"Can you give me the ______ ball?","opts":["big round","round big","round and big"],"ans":0,"cat":"Grammar"},{"q":"How big is Arcadia?","opts":["Huge","Very small","A bit big"],"ans":1,"cat":"Listening"},{"q":"What is Arcadia famous for?","opts":["Hiking","Swimming","Shopping"],"ans":0,"cat":"Listening"},{"q":"Who wants to visit New Zealand?","opts":["Sarah","Tony","Maria"],"ans":1,"cat":"Listening"},{"q":"What color are the buildings in Chefchaouen?","opts":["Blue","Red","White"],"ans":0,"cat":"Reading"},{"q":"Why is Tallinn special?","opts":["It has beaches","It has both historical and modern attractions","It is very cheap"],"ans":1,"cat":"Reading"}];
+const readingMistakes=[];
+const memeWrong=[{"e":"😅","t":"Oops! Try again!"},{"e":"🤦","t":"Nice try! Check above!"},{"e":"😬","t":"Almost there!"},{"e":"🙈","t":"Not quite!"},{"e":"😭","t":"So close! Review it!"},{"e":"😵","t":"Confused? Scroll up!"},{"e":"🤡","t":"Clown answer detected!"},{"e":"🦥","t":"Slow down and think!"}];
+const memeRight=[{"e":"🎉","t":"YESSS! Nailed it!"},{"e":"🌟","t":"Star student right here!"},{"e":"🔥","t":"You're on FIRE!"},{"e":"💪","t":"Big brain energy!"},{"e":"🏆","t":"Champion move!"},{"e":"✨","t":"Absolutely brilliant!"},{"e":"🚀","t":"Unstoppable!"},{"e":"👑","t":"Crown this genius!"}];
+let quizScore=0,quizAnswered=0;
+
+function buildVocabCards(data,cid){const c=document.getElementById(cid);if(!c)return;data.forEach(v=>{const d=document.createElement('div');d.className='vocab-card';d.onclick=e=>{if(e.target.classList.contains('tts-btn'))return;d.classList.toggle('flipped');updateSB()};const sw=v.w.replace(/'/g,"\\'");d.innerHTML='<div class="vocab-inner"><div class="vocab-front"><div class="word">'+v.w+' <button class="tts-btn" onclick="event.stopPropagation();speak(\''+sw+'\',this)">\u{1F50A}</button></div><div class="pos">'+v.p+'</div><div class="hint">Tap to flip</div></div><div class="vocab-back"><div class="meaning">'+v.m+'</div><div class="arabic">'+v.ar+'</div><div class="example">"'+v.ex+'"</div></div></div>';c.appendChild(d)})}
+function buildVocabEx(){const c=document.getElementById('vocab-ex-rows');vocabExData.forEach((ex,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='vq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+ex.q+'</div>'+ex.opts.map((o,j)=>'<button class="quiz-option" onclick="checkVocabQ('+i+','+j+')">'+o+'</button>').join('');c.appendChild(d)})}
+function checkVocabQ(qi,oi){const d=document.getElementById('vq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);oi===vocabExData[qi].ans?b[oi].classList.add('correct'):(b[oi].classList.add('wrong'),b[vocabExData[qi].ans].classList.add('correct'))}
+function checkVocabEx(){let s=0;vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);if(d.querySelector('.correct')&&!d.querySelector('.wrong'))s++});const r=document.getElementById('vocab-result');r.innerHTML=(s===vocabExData.length?'Perfect! ':'Good effort! ')+s+'/'+vocabExData.length;r.style.color=s>=Math.ceil(vocabExData.length*0.7)?'var(--green)':'var(--red)'}
+function retryVocabEx(){vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false})});document.getElementById('vocab-result').innerHTML=''}
+function buildMCQ(data,containerId,prefix){const c=document.getElementById(containerId);if(!c)return;data.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id=prefix+'-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkMCQ(\''+prefix+'\','+i+','+j+')">'+o+'</button>').join('')+'<div class="mcq-feedback" id="'+prefix+'fb-'+i+'"></div>';c.appendChild(d)})}
+function getMCQData(p){if(p==='l1q')return listen1Data;if(p==='l2q')return listen2Data;if(p==='rq')return readingQ;return readingQ}
+function checkMCQ(prefix,qi,oi){const data=getMCQData(prefix);const d=document.getElementById(prefix+'-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const fb=document.getElementById(prefix+'fb-'+qi);if(oi===data[qi].ans){b[oi].classList.add('correct');fb.innerHTML='Correct!';fb.style.background='var(--green-light)';fb.style.color='var(--green)'}else{b[oi].classList.add('wrong');b[data[qi].ans].classList.add('correct');fb.innerHTML='Correct: <strong>'+data[qi].opts[data[qi].ans]+'</strong>';fb.style.background='var(--red-light)';fb.style.color='var(--red)';d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500);if(prefix==='rq'&&data[qi].hl){const hl=document.querySelector('.highlight[data-q="'+data[qi].hl+'"]');if(hl)hl.classList.add('active');readingMistakes.push({q:data[qi].q,c:data[qi].opts[data[qi].ans]});updateMistakes()}}fb.classList.add('show')}
+function buildTF(data,containerId,prefix){const c=document.getElementById(containerId);if(!c)return;data.forEach((item,i)=>{const d=document.createElement('div');d.className='fill-row';d.id=prefix+'-'+i;d.setAttribute('data-answered','false');d.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+item.q+'</span><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--green);color:#fff;margin-left:auto" onclick="checkTFG(\''+prefix+'\','+i+',true)">True</button><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--red);color:#fff" onclick="checkTFG(\''+prefix+'\','+i+',false)">False</button><span class="result" id="'+prefix+'r-'+i+'"></span>';c.appendChild(d)})}
+function getTFData(p){if(p==='l2tf')return listen2TF;if(p==='rtf')return readingTF;return readingTF}
+function checkTFG(prefix,i,a){const data=getTFData(prefix);const r=document.getElementById(prefix+'-'+i);if(r.getAttribute('data-answered')==='true')return;r.setAttribute('data-answered','true');const res=document.getElementById(prefix+'r-'+i);if(a===data[i].a){res.textContent='Correct';res.style.color='var(--green)';r.style.borderColor='var(--green)';r.style.background='var(--green-light)'}else{res.textContent='Wrong: '+(data[i].a?'True':'False');res.style.color='var(--red)';r.style.borderColor='var(--red)';r.style.background='var(--red-light)';r.classList.add('shake');setTimeout(()=>r.classList.remove('shake'),500)}}
+function buildRecap(){const c=document.getElementById('recap-exercises');if(!c||typeof recapEx==='undefined')return;recapEx.forEach((ex,i)=>{const row=document.createElement('div');row.className='fill-row';row.id='rex-'+i;row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('______','<select id="rsel-'+i+'"><option value="">—</option>'+ex.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>')+'</span><span class="result" id="rres-'+i+'"></span>';c.appendChild(row)})}
+function checkRecap(){let n=0;recapEx.forEach((ex,i)=>{const s=document.getElementById('rsel-'+i),r=document.getElementById('rres-'+i),row=document.getElementById('rex-'+i);if(s.value===ex.opts[ex.ans]){n++;r.textContent='Correct';r.style.color='var(--green)';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}else{r.textContent='Wrong';r.style.color='var(--red)';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}});document.getElementById('recap-score').textContent=n+'/'+recapEx.length}
+function retryRecap(){recapEx.forEach((e,i)=>{document.getElementById('rsel-'+i).value='';document.getElementById('rres-'+i).textContent='';const r=document.getElementById('rex-'+i);r.style.borderColor='var(--border)';r.style.background=''});document.getElementById('recap-score').textContent=''}
+function buildGrammar(){const c=document.getElementById('grammar-exercises');grammarEx.forEach((ex,i)=>{const row=document.createElement('div');row.className='fill-row';row.id='gex-'+i;row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('______','<select id="gsel-'+i+'"><option value="">—</option>'+ex.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>')+'</span><span class="result" id="gres-'+i+'"></span>';c.appendChild(row)})}
+function checkGrammar(){let n=0;grammarEx.forEach((ex,i)=>{const s=document.getElementById('gsel-'+i),r=document.getElementById('gres-'+i),row=document.getElementById('gex-'+i);if(s.value===ex.opts[ex.ans]){n++;r.textContent='Correct';r.style.color='var(--green)';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}else{r.textContent='Wrong';r.style.color='var(--red)';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}});document.getElementById('grammar-score').textContent=n+'/'+grammarEx.length;document.getElementById('sb-grammar').textContent=n+'/'+grammarEx.length}
+function retryGrammar(){grammarEx.forEach((e,i)=>{document.getElementById('gsel-'+i).value='';document.getElementById('gres-'+i).textContent='';const r=document.getElementById('gex-'+i);r.style.borderColor='var(--border)';r.style.background=''});document.getElementById('grammar-score').textContent=''}
+function updateMistakes(){if(!readingMistakes.length)return;document.getElementById('readingMistakes').classList.remove('hidden');const l=document.getElementById('mistakesList');l.innerHTML='';readingMistakes.forEach((m,i)=>{l.innerHTML+='<div style="padding:8px 0;border-bottom:1px solid rgba(217,79,79,0.2);font-size:0.85rem"><strong>Q'+(i+1)+':</strong> '+m.q+'<br><span style="color:var(--green)">Correct: '+m.c+'</span></div>'})}
+function toggleRole(id){document.getElementById(id+'-convo').classList.toggle('show')}
+function buildQuiz(){const c=document.getElementById('quiz-container');quizData.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='qq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+' — '+q.cat+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkQuizQ('+i+','+j+')">'+o+'</button>').join('')+'<div class="quiz-meme" id="qm-'+i+'"></div>';c.appendChild(d)})}
+function checkQuizQ(qi,oi){const d=document.getElementById('qq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');quizAnswered++;const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const mm=document.getElementById('qm-'+qi);if(oi===quizData[qi].ans){b[oi].classList.add('correct');quizScore++;const m=memeRight[Math.floor(Math.random()*memeRight.length)];mm.className='quiz-meme meme-correct show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;createConfetti(d)}else{b[oi].classList.add('wrong');b[quizData[qi].ans].classList.add('correct');const m=memeWrong[Math.floor(Math.random()*memeWrong.length)];mm.className='quiz-meme meme-wrong show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500)}document.getElementById('sb-quiz').textContent=quizScore+'/'+quizData.length}
+function createConfetti(p){const colors=['#e8a838','#f472b6','#60a5fa','#2d9d78','#e74c3c','#a78bfa'];for(let i=0;i<10;i++){const c=document.createElement('div');c.className='confetti-piece';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.left=Math.random()*100+'%';c.style.top='-10px';c.style.animationDelay=Math.random()*0.3+'s';p.style.position='relative';p.appendChild(c);setTimeout(()=>c.remove(),2000)}}
+function showQuizScore(){const r=document.getElementById('quiz-final');r.classList.remove('hidden');const pct=Math.round(quizScore/quizData.length*100);let msg='',col='';if(pct>=90){msg="You're a WORLD EXPLORER!";col='var(--green)'}else if(pct>=70){msg='Great job!';col='var(--accent)'}else if(pct>=50){msg='Good effort! Review!';col='var(--blue)'}else{msg="Don't worry! Try again!";col='var(--red)'}r.innerHTML='<div style="font-family:Fredoka,sans-serif;font-size:2.5rem;font-weight:700;color:'+col+'">'+quizScore+'/'+quizData.length+'</div><div style="font-size:1.1rem;margin-top:6px">'+pct+'% — '+msg+'</div>';r.style.borderColor=col}
+function retryQuiz(){quizScore=0;quizAnswered=0;document.getElementById('sb-quiz').textContent='0/'+quizData.length;document.getElementById('quiz-final').classList.add('hidden');quizData.forEach((q,i)=>{const d=document.getElementById('qq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false});const m=document.getElementById('qm-'+i);m.className='quiz-meme';m.innerHTML=''})}
+function updateEmailWC(){const w=document.getElementById('email-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('email-wc').textContent=w;updateSB()}
+function updateWritingWC(){const w=document.getElementById('writing-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('writing-wc').textContent=w;updateSB()}
+function updateEmailCheck(){const ch=document.querySelectorAll('#email-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('email-check-result');r.innerHTML=n===ch.length?'All checked! Great email!':n+'/'+ch.length+' checked';r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+function updateWritingCheck(){const ch=document.querySelectorAll('#writing-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('writing-check-result');r.innerHTML=n===ch.length?'All checked!':n+'/'+ch.length+' checked';r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+function saveNotes(){try{localStorage.setItem('s4_classNotes',document.getElementById('classNotes').value);localStorage.setItem('s4_difficultWords',document.getElementById('difficultWords').value);localStorage.setItem('s4_teacherQuestions',document.getElementById('teacherQuestions').value)}catch(e){}}
+function loadNotes(){try{document.getElementById('classNotes').value=localStorage.getItem('s4_classNotes')||'';document.getElementById('difficultWords').value=localStorage.getItem('s4_difficultWords')||'';document.getElementById('teacherQuestions').value=localStorage.getItem('s4_teacherQuestions')||''}catch(e){}}
+function updateTracker(){const ch=document.querySelectorAll('#progressChecks input');let n=0;const st={};ch.forEach(c=>{if(c.checked)n++;st[c.dataset.sec]=c.checked});const pct=Math.round(n/ch.length*100);document.getElementById('trackerFill').style.width=pct+'%';document.getElementById('trackerText').textContent=n+' of '+ch.length+' completed';try{localStorage.setItem('s4_tracker',JSON.stringify(st))}catch(e){}}
+function loadTracker(){try{const st=JSON.parse(localStorage.getItem('s4_tracker')||'{}');document.querySelectorAll('#progressChecks input').forEach(c=>{if(st[c.dataset.sec])c.checked=true});updateTracker()}catch(e){}}
+function updateSB(){document.getElementById('sb-cards').textContent=document.querySelectorAll('.vocab-card.flipped').length;const ew=parseInt(document.getElementById('email-wc')?.textContent||0);const ww=parseInt(document.getElementById('writing-wc')?.textContent||0);document.getElementById('sb-words').textContent=ew+ww}
+window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;if(h>0){const p=Math.min(scrollY/h*100,100);document.getElementById('progress-fill').style.width=p+'%';document.getElementById('progress-pct').textContent=Math.round(p)+'%'}});
+document.addEventListener('DOMContentLoaded',()=>{buildRecap();buildVocabCards(cityVocab,'vg-city');buildVocabCards(locVocab,'vg-loc');buildVocabCards(upgradeVocab,'vg-upgrade');buildVocabEx();buildMCQ(listen1Data,'listen1-questions','l1q');buildMCQ(listen2Data,'listen2-questions','l2q');buildMCQ(readingQ,'reading-questions','rq');buildTF(listen2TF,'listen2-tf','l2tf');buildTF(readingTF,'reading-tf','rtf');buildGrammar();buildQuiz();loadNotes();loadTracker()});
+</script>
+</body>
+</html>

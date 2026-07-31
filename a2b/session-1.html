@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 1 - Job Skills &amp; Qualifications | AUC English A2B</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+:root{--bg:#fdf6ee;--card:#fff;--card-alt:#fefcf7;--accent:#e8a838;--accent-light:rgba(232,168,56,0.12);--green:#2d9d78;--green-light:#e6f7f1;--orange:#e8862a;--orange-light:#fff3e6;--red:#d94f4f;--red-light:#ffeaea;--pink:#c45ba1;--pink-light:#fce8f4;--blue:#5b6abf;--blue-light:#e8eaff;--yellow:#f0c929;--yellow-light:#fef9e7;--text:#2d3142;--text-dim:#6b7280;--border:#e5e2db;--shadow:0 2px 12px rgba(0,0,0,0.06);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+h1,h2,h3{font-family:'Fredoka',sans-serif}
+.hero{background:linear-gradient(135deg,#2563eb 0%,#0ea5e9 45%,#f5a623 100%);padding:50px 24px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.08)}
+.hero-emoji{font-size:3rem;margin-bottom:8px}
+.hero h1{font-size:2.2rem;font-weight:700;margin-bottom:4px}
+.hero .sub{opacity:0.9;font-size:1rem}
+.badge-row{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.badge{background:rgba(255,255,255,0.18);padding:4px 14px;border-radius:20px;font-size:0.78rem;font-weight:600}
+.method-banner{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin:20px auto 0;max-width:860px;box-shadow:var(--shadow)}
+.method-steps{display:flex;justify-content:center;align-items:center;gap:4px;flex-wrap:wrap;margin-top:10px}
+.method-step{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:10px;font-size:0.82rem;font-weight:600;white-space:nowrap}
+.method-arrow{color:var(--text-dim);font-size:1rem}
+.nav{position:sticky;top:0;z-index:100;background:rgba(253,246,238,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;overflow-x:auto;gap:2px;padding:8px 16px;-webkit-overflow-scrolling:touch}
+.nav-inner::-webkit-scrollbar{height:4px}
+.nav-inner::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+.nav a{color:var(--text-dim);text-decoration:none;font-size:0.8rem;font-weight:500;white-space:nowrap;padding:6px 12px;border-radius:8px;transition:all 0.2s}
+.nav a:hover{color:var(--accent);background:var(--accent-light)}
+.container{max-width:860px;margin:0 auto;padding:0 16px}
+.section{margin-top:40px;scroll-margin-top:60px}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-family:'Fredoka',sans-serif;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+.section h2{font-size:1.5rem;font-weight:700;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card h3{font-size:1.1rem;margin-bottom:10px}
+.progress-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin-top:16px;box-shadow:var(--shadow)}
+.progress-label{font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.95rem;margin-bottom:8px;display:flex;justify-content:space-between}
+.progress-bar{height:12px;background:#e8e6e0;border-radius:6px;overflow:hidden}
+.progress-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--green));transition:width 0.6s ease;width:0%}
+.recap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.recap-chip{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;box-shadow:var(--shadow);transition:transform 0.2s}
+.recap-chip:hover{transform:translateY(-2px)}
+.recap-chip .num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px}
+.recap-chip .topic{font-weight:700;font-size:0.95rem;margin:4px 0 2px}
+.recap-chip .detail{font-size:0.78rem;color:var(--text-dim)}
+.recap-current{border-color:var(--accent);background:var(--accent-light)}
+.fill-row{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:14px;margin:8px 0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fill-row select{padding:6px 10px;border-radius:8px;border:1.5px solid var(--border);font-size:0.85rem;font-family:inherit}
+.fill-row .result{font-size:0.85rem;font-weight:600;margin-left:auto}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.vocab-card{perspective:800px;height:190px;cursor:pointer}
+.vocab-inner{position:relative;width:100%;height:100%;transition:transform 0.5s;transform-style:preserve-3d}
+.vocab-card.flipped .vocab-inner{transform:rotateY(180deg)}
+.vocab-front,.vocab-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow)}
+.vocab-front{background:var(--card)}
+.vocab-front .word{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:700;color:var(--accent)}
+.vocab-front .pos{font-size:0.72rem;color:var(--text-dim);margin-top:2px}
+.vocab-front .hint{font-size:0.7rem;color:var(--pink);margin-top:8px;font-weight:500}
+.vocab-back{background:linear-gradient(135deg,var(--accent-light),#fef3c7);transform:rotateY(180deg)}
+.vocab-back .meaning{font-weight:600;font-size:0.86rem;margin-bottom:4px}
+.vocab-back .arabic{font-size:0.82rem;color:var(--pink);margin-bottom:4px}
+.vocab-back .example{font-size:0.8rem;color:var(--text-dim);font-style:italic}
+.tts-btn{background:none;border:none;cursor:pointer;font-size:1.1rem;padding:2px 4px;border-radius:6px;transition:all 0.2s;vertical-align:middle}
+.tts-btn:hover{background:var(--accent-light);transform:scale(1.15)}
+.tts-btn.playing{animation:pulse 0.8s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+.grammar-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;margin:12px 0;border:1px solid var(--border)}
+.grammar-table th{background:var(--accent);color:#fff;padding:10px 14px;font-weight:600;font-size:0.85rem;text-align:center}
+.grammar-table td{padding:10px 14px;text-align:center;font-size:0.88rem;border-bottom:1px solid var(--border)}
+.grammar-table tr:last-child td{border-bottom:0}
+.grammar-table tr:nth-child(even) td{background:#faf9f6}
+.demo-word{display:inline-block;background:var(--accent-light);color:var(--accent);font-weight:700;padding:2px 10px;border-radius:6px;font-size:0.85rem}
+.quiz-q{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}
+.quiz-q .q-num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.quiz-q .q-text{font-weight:600;font-size:0.93rem;margin-bottom:12px}
+.quiz-option{display:block;width:100%;text-align:left;padding:10px 14px;margin-bottom:6px;background:#faf9f6;border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:0.86rem;transition:all 0.2s;font-family:'Inter',sans-serif}
+.quiz-option:hover:not(:disabled){border-color:var(--accent);background:var(--accent-light)}
+.quiz-option.correct{border-color:var(--green);background:var(--green-light);color:var(--green);font-weight:600}
+.quiz-option.wrong{border-color:var(--red);background:var(--red-light);color:var(--red)}
+.quiz-option:disabled{cursor:default}
+.btn{display:inline-block;padding:8px 20px;border:none;border-radius:10px;font-weight:600;font-size:0.88rem;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
+.writing-area{width:100%;min-height:140px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe;transition:border-color 0.2s}
+.writing-area:focus{outline:none;border-color:var(--accent)}
+.word-count{font-size:0.78rem;color:var(--text-dim);margin-top:6px;text-align:right}
+.challenge-box{background:linear-gradient(135deg,#fef9e7,#e8eaff);border:2px dashed var(--accent);border-radius:var(--radius);padding:22px;text-align:center;margin:14px 0}
+.challenge-box h3{font-family:'Fredoka',sans-serif;color:var(--accent)}
+.tip-box{background:var(--green-light);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:12px 16px;margin:10px 0;font-size:0.85rem}
+.tip-box strong{color:var(--green)}
+.mistake-box{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 12px 12px 0;padding:12px 16px;margin:10px 0;font-size:0.85rem}
+.mistake-box strong{color:var(--red)}
+.checklist label{display:flex;align-items:flex-start;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}
+.checklist input[type=checkbox]{margin-top:4px;accent-color:var(--green);width:16px;height:16px}
+.cheat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cheat-cell{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+.cheat-cell h4{font-family:'Fredoka',sans-serif;font-size:0.9rem;margin-bottom:6px}
+.expression-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:12px}
+.expression-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;box-shadow:var(--shadow);transition:transform 0.2s}
+.expression-card:hover{transform:translateY(-2px)}
+.expression-card .phrase{font-family:'Fredoka',sans-serif;font-size:0.95rem;font-weight:600;color:var(--accent)}
+.expression-card .ex-meaning{font-size:0.82rem;color:var(--text-dim);margin-top:3px}
+.role-card{background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow);cursor:pointer;transition:all 0.3s}
+.role-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.1)}
+.role-card h4{font-family:'Fredoka',sans-serif;font-size:1.05rem;margin-bottom:8px}
+.role-card .role-points{list-style:none;padding:0}
+.role-card .role-points li{font-size:0.85rem;padding:3px 0;padding-left:18px;position:relative}
+.role-card .role-points li::before{content:'\2022';position:absolute;left:4px;color:var(--green);font-weight:700}
+.role-convo{display:none;background:#faf9f6;border-radius:12px;padding:16px;margin-top:12px;font-size:0.86rem;line-height:1.9}
+.role-convo.show{display:block}
+.highlight{background:transparent;transition:background 0.5s;border-radius:4px;padding:0 2px}
+.highlight.active{background:#fef08a}
+.mcq-feedback{display:none;padding:8px 14px;border-radius:8px;margin-top:8px;font-size:0.85rem;font-weight:600}
+.mcq-feedback.show{display:block}
+.quiz-meme{display:none;padding:12px;border-radius:10px;margin-top:8px;text-align:center;font-weight:700;font-size:0.95rem}
+.quiz-meme.show{display:block;animation:fadeIn 0.3s}
+.meme-correct{background:var(--green-light);color:var(--green)}
+.meme-wrong{background:var(--red-light);color:var(--red)}
+.meme-emoji{font-size:1.8rem;display:block;margin-bottom:4px}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.shake{animation:shake 0.4s}
+.confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confetti-fall 1.5s ease-out forwards;pointer-events:none}
+@keyframes confetti-fall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(200px) rotate(720deg);opacity:0}}
+.score-banner{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);padding:8px 16px;display:flex;justify-content:center;align-items:center;gap:18px;box-shadow:0 -2px 10px rgba(0,0,0,0.06);z-index:99;font-family:'Fredoka',sans-serif}
+.score-item{text-align:center}
+.score-item .label{font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}
+.score-item .val{font-size:1.1rem;font-weight:700}
+.pb-80{padding-bottom:80px}
+.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}
+.text-center{text-align:center}
+.hidden{display:none}
+.session-nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.session-nav a{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:10px;font-size:0.8rem;font-weight:600;text-decoration:none;border:2px solid var(--border);color:var(--text-dim);transition:all 0.2s}
+.session-nav a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.session-nav a.active{border-color:var(--accent);background:var(--accent);color:#fff}
+.session-nav a.disabled{opacity:0.4;pointer-events:none}
+.notes-area{width:100%;min-height:100px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe}
+.notes-area:focus{outline:none;border-color:var(--accent)}
+.section-check{display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}
+.section-check input{accent-color:var(--green);width:16px;height:16px}
+.slideshow{position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:14px 0}
+.slide-viewport{overflow:hidden}
+.slide-track{display:flex;transition:transform 0.4s ease}
+.slide{min-width:100%;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;text-align:center;background:var(--card)}
+.slide img{display:block;object-fit:contain;width:100%;height:auto}
+.slide-controls{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid var(--border);background:#faf9f6}
+.slide-btn{background:var(--accent);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-family:'Fredoka',sans-serif}
+.slide-btn:hover{background:#cf9430;transform:scale(1.1)}
+.slide-btn:disabled{background:var(--border);cursor:default;transform:none}
+.slide-counter{font-family:'Fredoka',sans-serif;font-size:0.85rem;color:var(--text-dim)}
+.slide-dots{display:flex;gap:6px;justify-content:center}
+.slide-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all 0.3s;cursor:pointer}
+.slide-dot.active{background:var(--accent);transform:scale(1.3)}
+@media(max-width:600px){.cheat-grid{grid-template-columns:1fr}.vocab-grid{grid-template-columns:1fr}.recap-grid{grid-template-columns:1fr 1fr}.expression-grid{grid-template-columns:1fr}.slide{padding:10px}}
+
+.nlm-slot{background:repeating-linear-gradient(45deg,#faf9f6,#faf9f6 10px,#f5f2ea 10px,#f5f2ea 20px);border:2px dashed var(--accent);border-radius:14px;padding:26px 20px;text-align:center;color:var(--text-dim);font-size:0.86rem;margin:8px 0}
+.nlm-slot .slot-title{font-family:'Fredoka',sans-serif;font-weight:600;color:var(--accent);font-size:0.95rem;margin-bottom:4px}
+.nlm-slot code{background:rgba(232,168,56,0.12);padding:2px 8px;border-radius:6px;font-size:0.78rem;color:var(--text)}
+.yt-wrap{position:relative;width:100%;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;background:#000}
+.yt-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.assessment-box{background:linear-gradient(135deg,var(--red-light),var(--yellow-light));border:2px solid var(--red);border-radius:var(--radius);padding:22px;margin:14px 0}
+.assessment-box h3{color:var(--red);font-family:'Fredoka',sans-serif;margin-bottom:8px}
+</style>
+</head>
+<body class="pb-80">
+
+<div class="hero" style="background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 45%,#e8a838 100%)">
+  <div class="hero-emoji">💼</div>
+  <h1>Session 1: Job Skills &amp; Qualifications</h1>
+  <p class="sub">Talk About What You Can Do</p>
+  <div class="badge-row"><span class="badge">💼 Job Vocabulary</span><span class="badge">📄 CV &amp; Interviews</span><span class="badge">📝 can / can't / could</span><span class="badge">🎧 Interview Listening</span></div>
+</div>
+
+<div class="container">
+  <div class="session-nav" style="margin-top:16px"><a class="active">S1</a><a href="session-2.html">S2</a><a href="session-3.html">S3</a><a href="session-4.html">S4</a><a href="session-5.html">S5</a><a class="disabled">S6</a><a class="disabled">S7</a><a class="disabled">S8</a><a class="disabled">S9</a><a class="disabled">S10</a><a class="disabled">S11</a><a class="disabled">S12</a></div>
+
+  <div class="method-banner">
+    <div style="font-family:'Fredoka',sans-serif;font-weight:600;text-align:center">&#x1F3AF; Study Method</div>
+    <div class="method-steps">
+      <span class="method-step" style="background:var(--yellow-light);color:#b8860b">&#x1F501; Recap</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--blue-light);color:var(--blue)">&#x1F3A7; Listen</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--accent-light);color:var(--accent)">&#x1F4DA; Vocab</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--pink-light);color:var(--pink)">&#x1F4D6; Read</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--orange-light);color:var(--orange)">&#x1F5E3; Speak</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Quiz</span>
+    </div>
+  </div>
+
+  <nav class="nav" style="margin-top:16px;border-radius:var(--radius);border:1px solid var(--border)">
+    <div class="nav-inner">
+      <a href="#progress">Progress</a><a href="#listen">Listen</a><a href="#vocab">Vocab</a><a href="#idioms">Idioms</a><a href="#grammar">Grammar</a><a href="#reading">Reading</a><a href="#speaking">Speaking</a><a href="#roleplay">Roleplay</a><a href="#email">Email</a><a href="#writing">Writing</a><a href="#quiz">Quiz</a><a href="#summary">Summary</a><a href="#notes">Notes</a>
+    </div>
+  </nav>
+
+  <div class="section" id="progress">
+    <div class="progress-wrap"><div class="progress-label"><span>&#x1F4C8; Overall Progress</span><span id="progress-pct">0%</span></div><div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div></div>
+  </div>
+
+
+
+  <div class="section" id="listen">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F3A7; Listen</span>
+    <h2>Listening Activities</h2>
+    <div class="card">
+      <h3>&#x1F399; Overview Video</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">A quick overview of everything in Session 1 &mdash; job vocabulary, skill words, and modals of ability.</p>
+      <video controls style="width:100%;border-radius:12px;background:#000" preload="metadata">
+        <source src="media/session-1/Job_Skills___Qualifications.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="card">
+      <h3>&#x1F3A7; Deep Dive Audio</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">A full deep dive into the vocabulary and the can / could / be able to grammar. Listen more than once.</p>
+      <audio controls style="width:100%" preload="metadata">
+        <source src="media/session-1/English_for_job_skills_and_qualifications.m4a" type="audio/mp4">
+      </audio>
+    </div>
+    <div class="card">
+      <h3>&#x1F3AC; Listening 1: A Job Interview (Mindy &amp; Tony)</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">Mindy is having a job interview with Tony and is talking about her skills and abilities.</p>
+      <div class="yt-wrap"><iframe src="https://www.youtube-nocookie.com/embed/naIkpQ_cIt0" title="Job interview: talking about skills and abilities" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+      <div class="mt-12"><h4 style="font-size:0.85rem;margin-bottom:6px">&#x2753; Comprehension Questions</h4><div id="listen1-questions"></div></div>
+      <div class="mt-12"><h4 style="font-size:0.85rem;margin-bottom:6px">&#x2753; True or False</h4><div id="listen1-tf"></div></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F3A7; Listening 2: "How's the New Job Going?"</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">David and Sarah talk about their new jobs, their skills, and their daily routines.</p>
+      <div class="nlm-slot"><div class="slot-title">Conversation Audio</div><div>Drop the .mp3 into the <code>Session 1</code> folder and it will appear here</div></div>
+      <div class="mt-12" id="listen2-questions"></div>
+    </div>
+  </div>
+
+  <div class="section" id="vocab">
+    <span class="section-label" style="background:var(--accent-light);color:var(--accent)">&#x1F4DA; Vocabulary</span>
+    <h2>Job Skills Vocabulary</h2>
+    <div class="slideshow">
+      <h3 style="padding:16px 16px 0;font-family:'Fredoka',sans-serif">&#x1F4CA; Vocabulary Slides</h3>
+      <div class="slide-viewport"><div class="slide-track" id="vocabTrack"></div></div>
+      <div class="slide-controls">
+        <button class="slide-btn" id="vocabPrev" onclick="slideNav('vocab',-1)">&larr;</button>
+        <div><span class="slide-counter" id="vocabCounter">1 / 1</span><div class="slide-dots" id="vocabDots"></div></div>
+        <button class="slide-btn" id="vocabNext" onclick="slideNav('vocab',1)">&rarr;</button>
+      </div>
+    </div>
+    <div class="tip-box">&#x1F9E0; <strong>Memory trick:</strong> Split the words into <strong>what you HAVE</strong> (experience, qualification, CV, reference) and <strong>what you CAN DO</strong> (communication, teamwork, problem-solving, organization, creativity). Employers ask about both.</div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">📄 Jobs &amp; Qualifications</h3>
+    <div class="vocab-grid" id="vg-jobs"></div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">⭐ Skill Words</h3>
+    <div class="vocab-grid" id="vg-skills"></div>
+    <div class="card mt-20">
+      <h3>&#x270F; Vocabulary Exercise</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Choose the correct word for each sentence.</p>
+      <div id="vocab-ex-rows"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--accent);color:#fff" onclick="checkVocabEx()">Check Answers</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryVocabEx()">Retry</button>
+        <span id="vocab-result" style="font-family:'Fredoka',sans-serif;font-weight:700"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="idioms">
+    <span class="section-label" style="background:rgba(251,191,36,0.15);color:#f59e0b">&#x1F4AC; Idioms</span>
+    <h2>Work &amp; Career Idioms</h2>
+    <p style="color:var(--text-dim);margin-bottom:18px">Seven idioms you can use in real conversations. Each includes meaning, example, and Arabic hint.</p>
+    <div style="display:grid;gap:14px">
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🚪 Get your foot in the door</h3>
+        <p><strong>Meaning:</strong> Get a small first job that can lead to a better one later</p>
+        <p><strong>Example:</strong> "I took an internship to <em>get my foot in the door</em> at that company."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> يبدأ بخطوة صغيرة عشان يدخل المجال</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🤗 A people person</h3>
+        <p><strong>Meaning:</strong> Someone who enjoys and is good at working with others</p>
+        <p><strong>Example:</strong> "She is <em>a people person</em>, so customer service suits her perfectly."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> شخص اجتماعي بيحب التعامل مع الناس</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🪜 Climb the career ladder</h3>
+        <p><strong>Meaning:</strong> Move up to better and higher positions at work</p>
+        <p><strong>Example:</strong> "He worked hard for five years to <em>climb the career ladder</em>."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> يترقّى ويطلع في السلّم الوظيفي</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🎯 Land a job</h3>
+        <p><strong>Meaning:</strong> Successfully get a job you applied for</p>
+        <p><strong>Example:</strong> "She <em>landed a job</em> at a big company after only two interviews."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> يجيب الشغل / يتقبل في الوظيفة</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">📖 Know something inside out</h3>
+        <p><strong>Meaning:</strong> Know a subject extremely well</p>
+        <p><strong>Example:</strong> "Zain <em>knows Python inside out</em> &mdash; he can solve any problem with it."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> فاهم الحاجة كويس جدًا</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">💪 Have what it takes</h3>
+        <p><strong>Meaning:</strong> Have the skills and qualities needed to succeed</p>
+        <p><strong>Example:</strong> "I think you <em>have what it takes</em> to be a great manager."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> عنده المؤهلات والقدرة اللازمة</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🏃 Go the extra mile</h3>
+        <p><strong>Meaning:</strong> Do more than what is expected of you</p>
+        <p><strong>Example:</strong> "Our best employees always <em>go the extra mile</em> for clients."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> يبذل مجهود زيادة عن المطلوب</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="grammar">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span>
+    <h2>Modals of Ability: can / can't / could / be able to</h2>
+    <div class="slideshow">
+      <h3 style="padding:16px 16px 0;font-family:'Fredoka',sans-serif">&#x1F4CA; Grammar Slides</h3>
+      <div class="slide-viewport"><div class="slide-track" id="grammarTrack"></div></div>
+      <div class="slide-controls">
+        <button class="slide-btn" id="grammarPrev" onclick="slideNav('grammar',-1)">&larr;</button>
+        <div><span class="slide-counter" id="grammarCounter">1 / 1</span><div class="slide-dots" id="grammarDots"></div></div>
+        <button class="slide-btn" id="grammarNext" onclick="slideNav('grammar',1)">&rarr;</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>&#x2705; can / can't &mdash; Present Ability</h3>
+      <p style="font-size:0.88rem">Use <span class="demo-word">can</span> for what you are able to do now, and <span class="demo-word">can't</span> for what you are not able to do.</p>
+      <table class="grammar-table">
+        <tr><th>Positive</th><th>Negative</th></tr>
+        <tr><td>I <strong>can</strong> ride a bike.</td><td>I <strong>can't</strong> ride a bike.</td></tr>
+        <tr><td>She <strong>can</strong> speak French.</td><td>She <strong>can't</strong> speak French.</td></tr>
+        <tr><td>I <strong>am able to</strong> work in a team.</td><td>I <strong>am not able to</strong> work late.</td></tr>
+      </table>
+      <div class="tip-box"><strong>Form:</strong> can / could + base verb (no "to"). &#x2705; "Adam can sing" &nbsp;&#x274C; "Adam can to sing"</div>
+    </div>
+    <div class="card">
+      <h3>&#x23EA; could / couldn't &mdash; Past Ability</h3>
+      <p style="font-size:0.88rem">Use <span class="demo-word">could</span> and <span class="demo-word">couldn't</span> for what you were able (or not able) to do in the past.</p>
+      <table class="grammar-table">
+        <tr><th>could</th><th>couldn't</th></tr>
+        <tr><td>She <strong>could paint</strong> before she started school.</td><td>I <strong>couldn't cook</strong> until I went to university.</td></tr>
+        <tr><td>He <strong>could read</strong> before he turned five.</td><td>I <strong>couldn't drive</strong> until I was 18.</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>&#x2753; Making Questions &amp; Short Answers</h3>
+      <p style="font-size:0.88rem">Switch the modal and the subject to make a question.</p>
+      <table class="grammar-table">
+        <tr><th>Statement</th><th>Question</th><th>Short answer</th></tr>
+        <tr><td>You <strong>can</strong> swim.</td><td><strong>Can you</strong> swim?</td><td>Yes, I can. / No, I can't.</td></tr>
+        <tr><td>She <strong>is able to</strong> speak French.</td><td><strong>Is she able to</strong> speak French?</td><td>Yes, she is. / No, she isn't.</td></tr>
+        <tr><td>He <strong>could</strong> ride a bike.</td><td><strong>Could he</strong> ride a bike?</td><td>Yes, he could. / No, he couldn't.</td></tr>
+      </table>
+    </div>
+    <div class="card" style="border:2px solid var(--red)">
+      <h3 style="color:var(--red)">&#x1F6A8; THE BIG MISTAKE</h3>
+      <p style="font-size:0.9rem">"can" and "could" <strong>never</strong> change and <strong>never</strong> take "to".</p>
+      <div class="mistake-box">&#x274C; <s>She cans speak English.</s> &nbsp;&#x274C; <s>Can you to speak French?</s> &nbsp;&#x274C; <s>He could to swim.</s><br>&#x2705; She <strong>can speak</strong> English. &nbsp;&#x2705; <strong>Can you speak</strong> French? &nbsp;&#x2705; He <strong>could swim</strong>.</div>
+      <p style="font-size:0.85rem;margin-top:8px"><strong>But</strong> "be able to" DOES take "to": "I am able <strong>to</strong> work in a team."</p>
+    </div>
+    <div class="card">
+      <h3>&#x270F; Grammar Exercises</h3>
+      <div id="grammar-exercises"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--green);color:#fff" onclick="checkGrammar()">Check Answers</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryGrammar()">Retry</button>
+        <span id="grammar-score" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="reading">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink)">&#x1F4D6; Reading</span>
+    <h2>Zain: The Programmer</h2>
+    <div class="card"><div style="font-size:0.9rem;line-height:1.9">
+      <p><span class="highlight" data-q="q2">Zain is a skilled programmer who went to a well-known university. He studied Computer Science and Artificial Intelligence.</span> He also has certificates in Web Development, Data Analysis, and Programming, and a diploma in Graphic Design.</p>
+      <p style="margin-top:12px"><span class="highlight" data-q="q1">Zain has many important job skills.</span> He is very organized, which helps him manage his time well. Zain says, "I can make software applications that help people." He also communicates well with his co-workers, making teamwork easy, and <span class="highlight" data-q="q3">they often say, "You are an amazing team player."</span></p>
+      <p style="margin-top:12px">With his experience in programming, Zain can solve problems fast. He likes working with others to find solutions. <span class="highlight" data-q="q4">Zain enjoys learning new technologies and getting better at his skills.</span> His education and abilities make him a strong choice for many jobs. <span class="highlight" data-q="q5">Zain's hard work and creativity will help him succeed as a programmer!</span></p>
+    </div></div>
+    <div class="card"><h3>&#x2753; True or False</h3><div id="reading-tf"></div></div>
+    <div class="card">
+      <h3>&#x2753; Reading Questions</h3>
+      <div id="reading-questions"></div>
+      <div id="readingMistakes" class="hidden mt-12" style="background:var(--red-light);border-radius:12px;padding:16px"><h4 style="color:var(--red);font-family:'Fredoka',sans-serif;margin-bottom:8px">Review These:</h4><div id="mistakesList"></div></div>
+    </div>
+  </div>
+
+  <div class="section" id="speaking">
+    <span class="section-label" style="background:var(--orange-light);color:var(--orange)">&#x1F5E3; Speaking</span>
+    <h2>Speaking Practice</h2>
+    <div class="challenge-box">
+      <h3>&#x23F1; 1-Minute Challenge</h3>
+      <p style="margin:8px 0;font-size:0.9rem">Talk for 1 minute about: <strong>"What can you do well? What could you NOT do 5 years ago that you can do now?"</strong></p>
+      <p style="font-size:0.82rem;color:var(--text-dim)">Use: can, can't, could, couldn't, be able to + 3 skill words</p>
+    </div>
+    <div class="card">
+      <h3>&#x1F4AC; Useful Expressions</h3>
+      <div class="expression-grid"><div class="expression-card"><div class="phrase">I have experience in…</div><div class="ex-meaning">Say how long you worked in a field</div></div><div class="expression-card"><div class="phrase">I'm good at…</div><div class="ex-meaning">Describe a strength</div></div><div class="expression-card"><div class="phrase">I'm able to…</div><div class="ex-meaning">A more formal way to say "I can"</div></div><div class="expression-card"><div class="phrase">apply for a job</div><div class="ex-meaning">Send an application for a position</div></div><div class="expression-card"><div class="phrase">have an interview</div><div class="ex-meaning">Meet an employer about a job</div></div><div class="expression-card"><div class="phrase">get a degree</div><div class="ex-meaning">Finish a university qualification</div></div><div class="expression-card"><div class="phrase">do a course</div><div class="ex-meaning">Study a short training program</div></div><div class="expression-card"><div class="phrase">work for (a company)</div><div class="ex-meaning">Be employed by that company</div></div></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F4AC; Daily Drill</h3>
+      <p style="font-size:0.88rem;margin-bottom:8px">Practice saying these sentences out loud:</p>
+      <div style="font-size:0.88rem;line-height:2"><p>1. I <strong>can</strong> use Excel very well, but I <strong>can't</strong> use Photoshop yet.</p><p>2. Two years ago I <strong>couldn't</strong> speak English in meetings. Now I <strong>can</strong>.</p><p>3. <strong>Can you</strong> work under pressure? Yes, I <strong>can</strong>.</p><p>4. I <strong>am able to</strong> manage a small team.</p><p>5. She <strong>could</strong> code before she went to university.</p></div>
+    </div>
+  </div>
+
+  <div class="section" id="roleplay">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F3AD; Roleplay</span>
+    <h2>Roleplay Scenarios</h2>
+    <div class="role-card" onclick="toggleRole('r1')">
+      <h4>💼 Scenario 1: Your First Job Interview</h4>
+      <ul class="role-points"><li>You are applying for a junior office job in Cairo</li><li>The interviewer asks about your skills and qualifications</li><li>Answer using can / can't / be able to</li></ul>
+      <div class="role-convo" id="r1-convo"><p><strong>Interviewer:</strong> Good morning! Please have a seat. Can you tell me about your qualifications?</p><p><strong>You:</strong> Good morning. I have a degree in business, and I did a course in office management last year.</p><p><strong>Interviewer:</strong> Great. Are you able to work in a team?</p><p><strong>You:</strong> Yes, I am. I have good teamwork and communication skills.</p><p><strong>Interviewer:</strong> Can you use Excel?</p><p><strong>You:</strong> Yes, I can. Two years ago I couldn't use it at all, but I practiced a lot and now I can build reports.</p><p><strong>Interviewer:</strong> Excellent. You're hired!</p></div>
+    </div>
+    <div class="role-card" onclick="toggleRole('r2')">
+      <h4>📄 Scenario 2: Helping a Friend With a CV</h4>
+      <ul class="role-points"><li>Your friend Mona is updating her CV</li><li>Ask about her education, experience, and references</li><li>Give advice about what to add</li></ul>
+      <div class="role-convo" id="r2-convo"><p><strong>You:</strong> I heard you are looking for a job. How is it going?</p><p><strong>Mona:</strong> I'm updating my CV with my skills and qualifications.</p><p><strong>You:</strong> What are your strongest skills?</p><p><strong>Mona:</strong> Teamwork and problem-solving. I can find solutions quickly.</p><p><strong>You:</strong> Do you have any work experience?</p><p><strong>Mona:</strong> Yes, two years of experience in marketing.</p><p><strong>You:</strong> Did you ask anyone for a reference?</p><p><strong>Mona:</strong> Yes, my old manager will be my reference. Good luck to me!</p></div>
+    </div>
+    <div class="role-card" onclick="toggleRole('r3')">
+      <h4>💭 Scenario 3: My Dream Job</h4>
+      <ul class="role-points"><li>Talk with a partner about your dream job</li><li>Say what skills you need and what qualifications you need</li><li>Take notes &mdash; you will present your partner's dream job</li></ul>
+      <div class="role-convo" id="r3-convo"><p><strong>You:</strong> What is your dream job?</p><p><strong>Partner:</strong> I want to be a teacher.</p><p><strong>You:</strong> Why do you want this job?</p><p><strong>Partner:</strong> Because I like working with children.</p><p><strong>You:</strong> What skills do you need for it?</p><p><strong>Partner:</strong> I need to be patient, and I need good communication skills.</p><p><strong>You:</strong> Do you need any special qualifications or training?</p><p><strong>Partner:</strong> Yes, I need a degree in education and some training in a school.</p></div>
+    </div>
+  </div>
+
+  <div class="section" id="email">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F4E7; Email</span>
+    <h2>Email Writing</h2>
+    <div class="card">
+      <h3>&#x2709; Write an email applying for a job</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Write a short email to an employer about a job you want. Say who you are, what qualifications you have, and what you can do. Use can / can't / be able to. (60&ndash;80 words)</p>
+      <textarea class="writing-area" id="email-area" placeholder="Dear Mr. / Ms. [Name],&#10;&#10;I am writing about the position of..." oninput="updateEmailWC()"></textarea>
+      <div class="word-count">Words: <span id="email-wc">0</span> / 60&ndash;80</div>
+      <div class="checklist mt-12" id="email-checklist"><label><input type="checkbox" onchange="updateEmailCheck()"> Introduced yourself and the job you want</label><label><input type="checkbox" onchange="updateEmailCheck()"> Mentioned your education or qualification</label><label><input type="checkbox" onchange="updateEmailCheck()"> Used "can" or "be able to" for your skills</label><label><input type="checkbox" onchange="updateEmailCheck()"> Used at least 3 job vocabulary words</label><label><input type="checkbox" onchange="updateEmailCheck()"> Included a greeting and a sign-off</label></div>
+      <p id="email-check-result" style="font-size:0.85rem;font-weight:600;margin-top:8px"></p>
+    </div>
+  </div>
+
+  <div class="section" id="writing">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink)">&#x270F; Writing</span>
+    <h2>Writing Practice</h2>
+    <div class="card">
+      <h3>&#x1F4DD; Describe your skills and abilities</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Write a short paragraph about what you can do well, what you can't do yet, and what you could not do a few years ago. (60&ndash;80 words)</p>
+      <textarea class="writing-area" id="writing-area" placeholder="I have good skills in..." oninput="updateWritingWC()"></textarea>
+      <div class="word-count">Words: <span id="writing-wc">0</span> / 60&ndash;80</div>
+      <div class="checklist mt-12" id="writing-checklist"><label><input type="checkbox" onchange="updateWritingCheck()"> Said what you CAN do</label><label><input type="checkbox" onchange="updateWritingCheck()"> Said what you CAN'T do yet</label><label><input type="checkbox" onchange="updateWritingCheck()"> Used "could" or "couldn't" about the past</label><label><input type="checkbox" onchange="updateWritingCheck()"> Used at least 3 skill words</label><label><input type="checkbox" onchange="updateWritingCheck()"> 60&ndash;80 words</label></div>
+      <p id="writing-check-result" style="font-size:0.85rem;font-weight:600;margin-top:8px"></p>
+    </div>
+  </div>
+
+  <div class="section" id="quiz">
+    <span class="section-label" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Quiz</span>
+    <h2>Session 1 Quiz</h2>
+    <div id="quiz-container"></div>
+    <div style="text-align:center;margin-top:16px">
+      <button class="btn" style="background:var(--accent);color:#fff;font-size:1rem;padding:12px 30px" onclick="showQuizScore()">Show Final Score</button>
+      <button class="btn" style="background:#eee;color:var(--text);font-size:1rem;padding:12px 30px" onclick="retryQuiz()">Retry Quiz</button>
+      <a href="kahoot-session1.html" style="display:inline-block;margin-left:10px;padding:12px 30px;background:var(--red);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;font-size:1rem">Kahoot! &#x1F3AE;</a>
+    </div>
+    <div id="quiz-final" class="hidden card mt-16 text-center" style="border:3px solid var(--accent)"></div>
+  </div>
+
+  <div class="section" id="summary">
+    <span class="section-label" style="background:var(--yellow-light);color:#b8860b">&#x1F4CB; Summary</span>
+    <h2>Quick Cheat Sheet</h2>
+    <div class="cheat-grid"><div class="cheat-cell"><h4>✅ can / can't</h4><p style="font-size:0.82rem">Subject + can + base verb<br><em>"I can use Excel."</em><br><em>"She can't drive."</em></p></div><div class="cheat-cell"><h4>⏪ could / couldn't</h4><p style="font-size:0.82rem">Past ability<br><em>"He could read before he was five."</em><br><em>"I couldn't swim until 2020."</em></p></div><div class="cheat-cell"><h4>🔄 be able to</h4><p style="font-size:0.82rem">am/is/are + able <strong>to</strong> + verb<br><em>"I am able to work in a team."</em></p></div><div class="cheat-cell"><h4>🚨 Big Mistake</h4><p style="font-size:0.82rem">Never "cans", never "can to".<br>&#x274C; She cans speak &nbsp;&#x274C; Can you to speak?</p></div></div>
+    <div class="cheat-grid mt-12"><div class="cheat-cell"><h4>💼 Key Vocabulary</h4><p style="font-size:0.82rem">experience, qualification, skill, education, training, CV, interview, reference, teamwork, problem-solving, organization, creativity</p></div><div class="cheat-cell"><h4>🔗 Useful Collocations</h4><p style="font-size:0.82rem">apply for a job &bull; have an interview &bull; get a degree &bull; do a course &bull; work for a company &bull; pass / fail an exam</p></div></div>
+  </div>
+
+  <div class="section" id="notes">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Notes</span>
+    <h2>My Notes</h2>
+    <div class="card"><h3>&#x1F4D3; Class Notes</h3><textarea class="notes-area" id="classNotes" placeholder="Write notes during class..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x1F4D6; Difficult Words</h3><textarea class="notes-area" id="difficultWords" style="min-height:80px" placeholder="Words you need to review..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x2753; Questions for Teacher</h3><textarea class="notes-area" id="teacherQuestions" style="min-height:80px" placeholder="Write questions for your teacher..." oninput="saveNotes()"></textarea></div>
+  </div>
+
+  <div class="section" id="tracker">
+    <h2>&#x2705; Progress Tracker</h2>
+    <div class="card"><h3>Check off completed sections:</h3><div id="progressChecks">
+      <label class="section-check"><input type="checkbox" data-sec="listen" onchange="updateTracker()"> &#x1F3A7; Listened to audio &amp; watched videos</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocab" onchange="updateTracker()"> &#x1F4DA; Studied vocabulary flashcards</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocabex" onchange="updateTracker()"> &#x270F; Completed vocabulary exercise</label>
+      <label class="section-check"><input type="checkbox" data-sec="idioms" onchange="updateTracker()"> &#x1F4AC; Reviewed idioms</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammar" onchange="updateTracker()"> &#x1F4DD; Understood grammar rules</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammarex" onchange="updateTracker()"> &#x1F4DD; Completed grammar exercises</label>
+      <label class="section-check"><input type="checkbox" data-sec="read" onchange="updateTracker()"> &#x1F4D6; Read passage &amp; answered questions</label>
+      <label class="section-check"><input type="checkbox" data-sec="speak" onchange="updateTracker()"> &#x1F5E3; Did speaking challenge</label>
+      <label class="section-check"><input type="checkbox" data-sec="roleplay" onchange="updateTracker()"> &#x1F3AD; Practiced roleplay</label>
+      <label class="section-check"><input type="checkbox" data-sec="email" onchange="updateTracker()"> &#x1F4E7; Wrote email</label>
+      <label class="section-check"><input type="checkbox" data-sec="write" onchange="updateTracker()"> &#x270F; Completed writing task</label>
+      <label class="section-check"><input type="checkbox" data-sec="quiz" onchange="updateTracker()"> &#x1F3AF; Finished quiz</label>
+      <label class="section-check"><input type="checkbox" data-sec="review" onchange="updateTracker()"> &#x1F4CB; Reviewed cheat sheet</label>
+    </div><div style="margin-top:14px"><div style="background:#e8e6e0;border-radius:8px;height:12px;overflow:hidden"><div id="trackerFill" style="height:100%;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--green));width:0%;transition:width 0.5s"></div></div><p style="font-size:0.82rem;color:var(--text-dim);margin-top:6px;text-align:center" id="trackerText">0 of 13 completed</p></div></div>
+  </div>
+
+  <div class="section">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F52E; Coming Next</span>
+    <h2>Session 2: Preview</h2>
+    <div class="card" style="background:linear-gradient(135deg,var(--green-light),var(--blue-light))"><h4 style="font-family:'Fredoka',sans-serif;color:var(--blue);margin-bottom:6px">🏢 Session 2: What Do You Do at Work?</h4><p style="font-size:0.88rem">Workplace verbs, gerunds &amp; infinitives, and how to write an email cover letter.</p></div>
+  </div>
+
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:30px 0 20px">
+    
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--accent);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">&#x1F3E0; Home</a>
+    <a href="session-2.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--green);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">Session 2 &#x27A1;</a>
+  </div>
+  <div style="text-align:center;padding:10px 20px 20px;color:var(--text-dim);font-size:0.78rem"><p>AUC English A2B &bull; Session 1: Job Skills &amp; Qualifications</p></div>
+</div>
+
+<div class="score-banner">
+  <div class="score-item"><div class="label">Cards</div><div class="val" id="sb-cards" style="color:var(--accent)">0</div></div>
+  <div class="score-item"><div class="label">Grammar</div><div class="val" id="sb-grammar" style="color:var(--green)">0</div></div>
+  <div class="score-item"><div class="label">Quiz</div><div class="val" id="sb-quiz" style="color:var(--red)">0/20</div></div>
+  <div class="score-item"><div class="label">Written</div><div class="val" id="sb-words" style="color:var(--orange)">0</div></div>
+</div>
+
+<script>
+function speak(w,b){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=0.85;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;if(b){b.classList.add('playing');u.onend=()=>b.classList.remove('playing')}speechSynthesis.speak(u)}
+if('speechSynthesis' in window)speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
+
+const jobsVocab=[{"w":"experience","p":"noun","m":"The knowledge or skills you get from doing a job for a period of time","ar":"خبرة","ex":"I started in 2022, so I have two years of experience."},{"w":"qualification","p":"noun","m":"A paper or certificate showing you finished training or have the skills for a job","ar":"مؤهل / شهادة","ex":"What qualifications do you need for this job?"},{"w":"skill","p":"noun","m":"The ability to do something well after learning and practicing","ar":"مهارة","ex":"He has good computer skills, so he can easily write documents."},{"w":"education","p":"noun","m":"The process of learning in a school or university","ar":"تعليم","ex":"She is getting her education at a public school."},{"w":"training","p":"noun","m":"Learning the skills you need for a job or task","ar":"تدريب","ex":"She completed her training as a nurse."},{"w":"CV","p":"noun","m":"A document that lists your education, work, and skills","ar":"السيرة الذاتية","ex":"He updated his CV before applying for the job."},{"w":"interview","p":"noun","m":"A meeting to see if you are right for a job","ar":"مقابلة عمل","ex":"She felt worried before her interview for the new job."},{"w":"reference","p":"noun","m":"A person who talks about your character and work to help you get a job","ar":"تزكية / معرّف","ex":"She gave a reference letter from her old boss."}];
+const skillsVocab=[{"w":"communication skills","p":"noun","m":"The ability to talk and listen to others","ar":"مهارات تواصل","ex":"I can share my ideas and understand others."},{"w":"teamwork","p":"noun","m":"Working well with other people","ar":"العمل الجماعي","ex":"He works well with others on group projects."},{"w":"problem-solving","p":"noun","m":"Finding solutions to problems","ar":"حل المشكلات","ex":"She is good at problem-solving, so she can fix issues at work."},{"w":"organization","p":"noun","m":"Keeping things in order and planning well","ar":"تنظيم","ex":"Ahmed makes sure the team’s tasks are planned well."},{"w":"creativity","p":"noun","m":"Using imagination to create new ideas","ar":"إبداع","ex":"Sarah comes up with new ideas for projects at work."}];
+const vocabExData=[{"q":"To work well with others in a group, Ahmed needs strong ______ skills.","opts":["creativity","teamwork","organization"],"ans":1},{"q":"Sara is good at finding solutions to hard problems because she has good ______ skills.","opts":["problem-solving","communication","teamwork"],"ans":0},{"q":"Maria talks and listens well to her classmates; she has good ______ skills.","opts":["teamwork","organization","communication"],"ans":2},{"q":"Michael shows his ______ by thinking of new and fun ideas for the project.","opts":["training","creativity","reference"],"ans":1},{"q":"Lisa plans her tasks well; she has great ______ skills.","opts":["organization","creativity","problem-solving"],"ans":0},{"q":"Some students have ______ in customer service.","opts":["reference","interview","training"],"ans":2},{"q":"He updated his ______ to add his new job before applying.","opts":["CV","interview","education"],"ans":0},{"q":"My old manager agreed to be my ______.","opts":["skill","reference","training"],"ans":1},{"q":"I started working in 2022, so I have two years of ______.","opts":["education","qualification","experience"],"ans":2},{"q":"She felt worried before her ______ for the new job.","opts":["reference","interview","training"],"ans":1}];
+const grammarEx=[{"q":"Birds ______ fly, but fish can't.","opts":["can't","can","could"],"ans":1},{"q":"I can speak English, but I ______ speak Chinese.","opts":["can","can't","couldn't"],"ans":1},{"q":"They ______ come to the party because they have other plans.","opts":["can","can't","could"],"ans":1},{"q":"When I was younger, I ______ run much faster than I can now.","opts":["can","could","am able to"],"ans":1},{"q":"I tried very hard, but I ______ solve the puzzle.","opts":["can't","couldn't","am not able"],"ans":1},{"q":"Dolphins ______ hold their breath for up to 15 minutes.","opts":["can","could","are able"],"ans":0},{"q":"Which is a correct question?","opts":["Can you to speak French?","Could drive a manual car?","Will you be able to attend the meeting?"],"ans":2},{"q":"Which is a correct question?","opts":["You can play soccer?","Can you play soccer?","Can play you soccer?"],"ans":1},{"q":"She ______ speak French. (formal, with \"be\")","opts":["is able to","can to","able to"],"ans":0},{"q":"Adam ______ very well.","opts":["can to sing","can sing","cans sing"],"ans":1}];
+const listen1Data=[{"q":"Which language does Mindy say she speaks fluently?","opts":["English","French","Spanish"],"ans":2},{"q":"How does Mindy describe her typing skills?","opts":["She types fast","She types slowly","She doesn't know how to type"],"ans":0},{"q":"What happens at the end of the conversation?","opts":["Tony turns Mindy down","They plan to meet again","Tony decides to hire Mindy"],"ans":2}];
+const listen1TF=[{"q":"Mindy Parks is often late to work.","a":false},{"q":"Mindy works really hard.","a":true},{"q":"She has good computer skills.","a":true},{"q":"Mindy is not a good driver.","a":false},{"q":"Mindy did not pass the job interview.","a":false}];
+const listen2Data=[{"q":"What job skill does David find most important?","opts":["Problem-solving","Communication","Technical skills"],"ans":1},{"q":"What degree does Sarah have?","opts":["Business","Marketing","Engineering"],"ans":1},{"q":"What does David want to take courses in?","opts":["Finance","Communication","Project management"],"ans":2},{"q":"What is Sarah’s usual morning routine at work?","opts":["Starting with emails","Checking social media","Going to meetings only"],"ans":0},{"q":"How does David organize his tasks?","opts":["He relies on his memory","He makes a list of his tasks","He waits for reminders"],"ans":1},{"q":"What do Sarah and David plan to do at the end?","opts":["Go to a meeting","Work on a project","Have lunch together"],"ans":2},{"q":"What skill does Sarah explain as important for her job?","opts":["Teamwork skills","Technical skills","Research skills"],"ans":0}];
+const readingTF=[{"q":"Zain studied Computer Science and Artificial Intelligence.","a":true},{"q":"Zain works alone and does not like teamwork.","a":false},{"q":"Zain has a diploma in Graphic Design.","a":true},{"q":"Zain is described as disorganized.","a":false},{"q":"Zain enjoys learning new technologies.","a":true}];
+const readingQ=[{"q":"What is the main idea of the passage?","opts":["Zain’s educational background","Zain’s job skills and abilities","Zain’s passion for programming"],"ans":1,"hl":"q1"},{"q":"What did Zain study at university?","opts":["Computer Science and Artificial Intelligence","Engineering and Programming","Graphic Design and Data Analysis"],"ans":0,"hl":"q2"},{"q":"What do Zain’s colleagues say about him?","opts":["He is very organized","He can create software applications","He is an amazing team player"],"ans":2,"hl":"q3"},{"q":"What does Zain enjoy doing?","opts":["Working alone","Changing his career","Learning new technologies"],"ans":2,"hl":"q4"},{"q":"What will help Zain succeed as a programmer?","opts":["His hard work and creativity","His university name","His free time"],"ans":0,"hl":"q5"}];
+const recapEx=[];
+const quizData=[{"q":"The knowledge you get from doing a job for years = ?","opts":["qualification","experience","training"],"ans":1,"cat":"Vocab"},{"q":"A document listing your education, work, and skills = ?","opts":["CV","reference","interview"],"ans":0,"cat":"Vocab"},{"q":"A person who talks about your work to help you get a job = ?","opts":["manager","reference","trainer"],"ans":1,"cat":"Vocab"},{"q":"Working well with other people = ?","opts":["creativity","organization","teamwork"],"ans":2,"cat":"Vocab"},{"q":"Using imagination to make new ideas = ?","opts":["creativity","training","education"],"ans":0,"cat":"Vocab"},{"q":"Finding solutions to difficult situations = ?","opts":["teamwork","problem-solving","communication"],"ans":1,"cat":"Vocab"},{"q":"A meeting to see if you are right for a job = ?","opts":["reference","training","interview"],"ans":2,"cat":"Vocab"},{"q":"I ______ use Excel very well.","opts":["can","cans","can to"],"ans":0,"cat":"Grammar"},{"q":"She ______ drive until she was 18.","opts":["can't","couldn't","isn't able"],"ans":1,"cat":"Grammar"},{"q":"Which question is correct?","opts":["Can you to swim?","Can you swim?","You can swim?"],"ans":1,"cat":"Grammar"},{"q":"I ______ work in a team. (with \"be\")","opts":["am able to","can to","able to"],"ans":0,"cat":"Grammar"},{"q":"Dolphins ______ hold their breath for 15 minutes.","opts":["could","can","cans"],"ans":1,"cat":"Grammar"},{"q":"Short answer: \"Can she play the piano?\"","opts":["Yes, she cans.","Yes, she can.","Yes, she is can."],"ans":1,"cat":"Grammar"},{"q":"can/could are followed by ______.","opts":["to + verb","the base verb","verb + ing"],"ans":1,"cat":"Concepts"},{"q":"\"be able to\" is used ______.","opts":["only in the past","as a more formal way to say \"can\"","only in questions"],"ans":1,"cat":"Concepts"},{"q":"Which language does Mindy speak fluently?","opts":["French","Spanish","German"],"ans":1,"cat":"Listening"},{"q":"What degree does Sarah have?","opts":["Marketing","Business","Engineering"],"ans":0,"cat":"Listening"},{"q":"What does David want to study next?","opts":["Finance","Project management","Design"],"ans":1,"cat":"Listening"},{"q":"What did Zain study at university?","opts":["Computer Science and AI","Business and Marketing","Graphic Design only"],"ans":0,"cat":"Reading"},{"q":"What do Zain’s colleagues call him?","opts":["An amazing team player","A fast typist","A quiet worker"],"ans":0,"cat":"Reading"}];
+const readingMistakes=[];
+const memeWrong=[{"e":"😅","t":"Oops! Try again!"},{"e":"🤦","t":"Nice try! Check above!"},{"e":"😬","t":"Almost there!"},{"e":"🙈","t":"Not quite!"},{"e":"😭","t":"So close! Review it!"},{"e":"😵","t":"Confused? Scroll up!"},{"e":"🤡","t":"Clown answer detected!"},{"e":"🦥","t":"Slow down and think!"}];
+const memeRight=[{"e":"🎉","t":"YESSS! Nailed it!"},{"e":"🌟","t":"Star student right here!"},{"e":"🔥","t":"You're on FIRE!"},{"e":"💪","t":"Big brain energy!"},{"e":"🏆","t":"Champion move!"},{"e":"✨","t":"Absolutely brilliant!"},{"e":"🚀","t":"Unstoppable!"},{"e":"👑","t":"Crown this genius!"}];
+let quizScore=0,quizAnswered=0;
+
+function buildVocabCards(data,cid){const c=document.getElementById(cid);if(!c)return;data.forEach(v=>{const d=document.createElement('div');d.className='vocab-card';d.onclick=e=>{if(e.target.classList.contains('tts-btn'))return;d.classList.toggle('flipped');updateSB()};const sw=v.w.replace(/'/g,"\\'");d.innerHTML='<div class="vocab-inner"><div class="vocab-front"><div class="word">'+v.w+' <button class="tts-btn" onclick="event.stopPropagation();speak(\''+sw+'\',this)">\u{1F50A}</button></div><div class="pos">'+v.p+'</div><div class="hint">Tap to flip</div></div><div class="vocab-back"><div class="meaning">'+v.m+'</div><div class="arabic">'+v.ar+'</div><div class="example">"'+v.ex+'"</div></div></div>';c.appendChild(d)})}
+function buildVocabEx(){const c=document.getElementById('vocab-ex-rows');vocabExData.forEach((ex,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='vq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+ex.q+'</div>'+ex.opts.map((o,j)=>'<button class="quiz-option" onclick="checkVocabQ('+i+','+j+')">'+o+'</button>').join('');c.appendChild(d)})}
+function checkVocabQ(qi,oi){const d=document.getElementById('vq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);oi===vocabExData[qi].ans?b[oi].classList.add('correct'):(b[oi].classList.add('wrong'),b[vocabExData[qi].ans].classList.add('correct'))}
+function checkVocabEx(){let s=0;vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);if(d.querySelector('.correct')&&!d.querySelector('.wrong'))s++});const r=document.getElementById('vocab-result');r.innerHTML=(s===vocabExData.length?'Perfect! ':'Good effort! ')+s+'/'+vocabExData.length;r.style.color=s>=Math.ceil(vocabExData.length*0.7)?'var(--green)':'var(--red)'}
+function retryVocabEx(){vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false})});document.getElementById('vocab-result').innerHTML=''}
+function buildMCQ(data,containerId,prefix){const c=document.getElementById(containerId);if(!c)return;data.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id=prefix+'-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkMCQ(\''+prefix+'\','+i+','+j+')">'+o+'</button>').join('')+'<div class="mcq-feedback" id="'+prefix+'fb-'+i+'"></div>';c.appendChild(d)})}
+function getMCQData(p){if(p==='l1q')return listen1Data;if(p==='l2q')return listen2Data;if(p==='rq')return readingQ;return readingQ}
+function checkMCQ(prefix,qi,oi){const data=getMCQData(prefix);const d=document.getElementById(prefix+'-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const fb=document.getElementById(prefix+'fb-'+qi);if(oi===data[qi].ans){b[oi].classList.add('correct');fb.innerHTML='Correct!';fb.style.background='var(--green-light)';fb.style.color='var(--green)'}else{b[oi].classList.add('wrong');b[data[qi].ans].classList.add('correct');fb.innerHTML='Correct: <strong>'+data[qi].opts[data[qi].ans]+'</strong>';fb.style.background='var(--red-light)';fb.style.color='var(--red)';d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500);if(prefix==='rq'&&data[qi].hl){const hl=document.querySelector('.highlight[data-q="'+data[qi].hl+'"]');if(hl)hl.classList.add('active');readingMistakes.push({q:data[qi].q,c:data[qi].opts[data[qi].ans]});updateMistakes()}}fb.classList.add('show')}
+function buildTF(data,containerId,prefix){const c=document.getElementById(containerId);if(!c)return;data.forEach((item,i)=>{const d=document.createElement('div');d.className='fill-row';d.id=prefix+'-'+i;d.setAttribute('data-answered','false');d.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+item.q+'</span><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--green);color:#fff;margin-left:auto" onclick="checkTFG(\''+prefix+'\','+i+',true)">True</button><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--red);color:#fff" onclick="checkTFG(\''+prefix+'\','+i+',false)">False</button><span class="result" id="'+prefix+'r-'+i+'"></span>';c.appendChild(d)})}
+function getTFData(p){if(p==='l1tf')return listen1TF;if(p==='rtf')return readingTF;return readingTF}
+function checkTFG(prefix,i,a){const data=getTFData(prefix);const r=document.getElementById(prefix+'-'+i);if(r.getAttribute('data-answered')==='true')return;r.setAttribute('data-answered','true');const res=document.getElementById(prefix+'r-'+i);if(a===data[i].a){res.textContent='Correct';res.style.color='var(--green)';r.style.borderColor='var(--green)';r.style.background='var(--green-light)'}else{res.textContent='Wrong: '+(data[i].a?'True':'False');res.style.color='var(--red)';r.style.borderColor='var(--red)';r.style.background='var(--red-light)';r.classList.add('shake');setTimeout(()=>r.classList.remove('shake'),500)}}
+function buildRecap(){const c=document.getElementById('recap-exercises');if(!c||typeof recapEx==='undefined')return;recapEx.forEach((ex,i)=>{const row=document.createElement('div');row.className='fill-row';row.id='rex-'+i;row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('______','<select id="rsel-'+i+'"><option value="">—</option>'+ex.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>')+'</span><span class="result" id="rres-'+i+'"></span>';c.appendChild(row)})}
+function checkRecap(){let n=0;recapEx.forEach((ex,i)=>{const s=document.getElementById('rsel-'+i),r=document.getElementById('rres-'+i),row=document.getElementById('rex-'+i);if(s.value===ex.opts[ex.ans]){n++;r.textContent='Correct';r.style.color='var(--green)';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}else{r.textContent='Wrong';r.style.color='var(--red)';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}});document.getElementById('recap-score').textContent=n+'/'+recapEx.length}
+function retryRecap(){recapEx.forEach((e,i)=>{document.getElementById('rsel-'+i).value='';document.getElementById('rres-'+i).textContent='';const r=document.getElementById('rex-'+i);r.style.borderColor='var(--border)';r.style.background=''});document.getElementById('recap-score').textContent=''}
+function buildGrammar(){const c=document.getElementById('grammar-exercises');grammarEx.forEach((ex,i)=>{const row=document.createElement('div');row.className='fill-row';row.id='gex-'+i;row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('______','<select id="gsel-'+i+'"><option value="">—</option>'+ex.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>')+'</span><span class="result" id="gres-'+i+'"></span>';c.appendChild(row)})}
+function checkGrammar(){let n=0;grammarEx.forEach((ex,i)=>{const s=document.getElementById('gsel-'+i),r=document.getElementById('gres-'+i),row=document.getElementById('gex-'+i);if(s.value===ex.opts[ex.ans]){n++;r.textContent='Correct';r.style.color='var(--green)';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}else{r.textContent='Wrong';r.style.color='var(--red)';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}});document.getElementById('grammar-score').textContent=n+'/'+grammarEx.length;document.getElementById('sb-grammar').textContent=n+'/'+grammarEx.length}
+function retryGrammar(){grammarEx.forEach((e,i)=>{document.getElementById('gsel-'+i).value='';document.getElementById('gres-'+i).textContent='';const r=document.getElementById('gex-'+i);r.style.borderColor='var(--border)';r.style.background=''});document.getElementById('grammar-score').textContent=''}
+function updateMistakes(){if(!readingMistakes.length)return;document.getElementById('readingMistakes').classList.remove('hidden');const l=document.getElementById('mistakesList');l.innerHTML='';readingMistakes.forEach((m,i)=>{l.innerHTML+='<div style="padding:8px 0;border-bottom:1px solid rgba(217,79,79,0.2);font-size:0.85rem"><strong>Q'+(i+1)+':</strong> '+m.q+'<br><span style="color:var(--green)">Correct: '+m.c+'</span></div>'})}
+function toggleRole(id){document.getElementById(id+'-convo').classList.toggle('show')}
+function buildQuiz(){const c=document.getElementById('quiz-container');quizData.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='qq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+' — '+q.cat+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkQuizQ('+i+','+j+')">'+o+'</button>').join('')+'<div class="quiz-meme" id="qm-'+i+'"></div>';c.appendChild(d)})}
+function checkQuizQ(qi,oi){const d=document.getElementById('qq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');quizAnswered++;const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const mm=document.getElementById('qm-'+qi);if(oi===quizData[qi].ans){b[oi].classList.add('correct');quizScore++;const m=memeRight[Math.floor(Math.random()*memeRight.length)];mm.className='quiz-meme meme-correct show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;createConfetti(d)}else{b[oi].classList.add('wrong');b[quizData[qi].ans].classList.add('correct');const m=memeWrong[Math.floor(Math.random()*memeWrong.length)];mm.className='quiz-meme meme-wrong show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500)}document.getElementById('sb-quiz').textContent=quizScore+'/'+quizData.length}
+function createConfetti(p){const colors=['#e8a838','#f472b6','#60a5fa','#2d9d78','#e74c3c','#a78bfa'];for(let i=0;i<10;i++){const c=document.createElement('div');c.className='confetti-piece';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.left=Math.random()*100+'%';c.style.top='-10px';c.style.animationDelay=Math.random()*0.3+'s';p.style.position='relative';p.appendChild(c);setTimeout(()=>c.remove(),2000)}}
+function showQuizScore(){const r=document.getElementById('quiz-final');r.classList.remove('hidden');const pct=Math.round(quizScore/quizData.length*100);let msg='',col='';if(pct>=90){msg="You're a JOB SKILLS PRO!";col='var(--green)'}else if(pct>=70){msg='Great job!';col='var(--accent)'}else if(pct>=50){msg='Good effort! Review!';col='var(--blue)'}else{msg="Don't worry! Try again!";col='var(--red)'}r.innerHTML='<div style="font-family:Fredoka,sans-serif;font-size:2.5rem;font-weight:700;color:'+col+'">'+quizScore+'/'+quizData.length+'</div><div style="font-size:1.1rem;margin-top:6px">'+pct+'% — '+msg+'</div>';r.style.borderColor=col}
+function retryQuiz(){quizScore=0;quizAnswered=0;document.getElementById('sb-quiz').textContent='0/'+quizData.length;document.getElementById('quiz-final').classList.add('hidden');quizData.forEach((q,i)=>{const d=document.getElementById('qq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false});const m=document.getElementById('qm-'+i);m.className='quiz-meme';m.innerHTML=''})}
+function updateEmailWC(){const w=document.getElementById('email-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('email-wc').textContent=w;updateSB()}
+function updateWritingWC(){const w=document.getElementById('writing-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('writing-wc').textContent=w;updateSB()}
+function updateEmailCheck(){const ch=document.querySelectorAll('#email-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('email-check-result');r.innerHTML=n===ch.length?'All checked! Great email!':n+'/'+ch.length+' checked';r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+function updateWritingCheck(){const ch=document.querySelectorAll('#writing-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('writing-check-result');r.innerHTML=n===ch.length?'All checked!':n+'/'+ch.length+' checked';r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+function saveNotes(){try{localStorage.setItem('s1_classNotes',document.getElementById('classNotes').value);localStorage.setItem('s1_difficultWords',document.getElementById('difficultWords').value);localStorage.setItem('s1_teacherQuestions',document.getElementById('teacherQuestions').value)}catch(e){}}
+function loadNotes(){try{document.getElementById('classNotes').value=localStorage.getItem('s1_classNotes')||'';document.getElementById('difficultWords').value=localStorage.getItem('s1_difficultWords')||'';document.getElementById('teacherQuestions').value=localStorage.getItem('s1_teacherQuestions')||''}catch(e){}}
+function updateTracker(){const ch=document.querySelectorAll('#progressChecks input');let n=0;const st={};ch.forEach(c=>{if(c.checked)n++;st[c.dataset.sec]=c.checked});const pct=Math.round(n/ch.length*100);document.getElementById('trackerFill').style.width=pct+'%';document.getElementById('trackerText').textContent=n+' of '+ch.length+' completed';try{localStorage.setItem('s1_tracker',JSON.stringify(st))}catch(e){}}
+function loadTracker(){try{const st=JSON.parse(localStorage.getItem('s1_tracker')||'{}');document.querySelectorAll('#progressChecks input').forEach(c=>{if(st[c.dataset.sec])c.checked=true});updateTracker()}catch(e){}}
+function updateSB(){document.getElementById('sb-cards').textContent=document.querySelectorAll('.vocab-card.flipped').length;const ew=parseInt(document.getElementById('email-wc')?.textContent||0);const ww=parseInt(document.getElementById('writing-wc')?.textContent||0);document.getElementById('sb-words').textContent=ew+ww}
+window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;if(h>0){const p=Math.min(scrollY/h*100,100);document.getElementById('progress-fill').style.width=p+'%';document.getElementById('progress-pct').textContent=Math.round(p)+'%'}});
+// ---- media slideshows ----
+const MEDIA_BASE='media/session-1/';   // change this one line if media ever moves to a CDN
+const SLIDES={vocab:{prefix:'Essential_Workplace_Vocabulary_page-',count:14},grammar:{prefix:'Professional_Ability_Modals_page-',count:13}};
+const slideState={grammar:{current:0,total:0},vocab:{current:0,total:0}};
+function buildSlides(){Object.keys(SLIDES).forEach(n=>{const t=document.getElementById(n+'Track');if(!t)return;const{prefix,count}=SLIDES[n];for(let i=1;i<=count;i++){const s=document.createElement('div');s.className='slide';s.innerHTML='<img src="'+MEDIA_BASE+prefix+String(i).padStart(4,'0')+'.jpg" alt="'+n+' slide '+i+'" loading="lazy" style="max-width:100%;max-height:500px;border-radius:8px">';t.appendChild(s)}})}
+function initSlideshow(n){const t=document.getElementById(n+'Track');if(!t)return;const sl=t.querySelectorAll('.slide');slideState[n].total=sl.length;const dc=document.getElementById(n+'Dots');dc.innerHTML='';for(let i=0;i<sl.length;i++){const d=document.createElement('span');d.className='slide-dot'+(i===0?' active':'');d.onclick=()=>{slideState[n].current=i;updateSlide(n)};dc.appendChild(d)}updateSlide(n)}
+function slideNav(n,dir){const s=slideState[n];s.current=Math.max(0,Math.min(s.total-1,s.current+dir));updateSlide(n)}
+function updateSlide(n){const s=slideState[n];document.getElementById(n+'Track').style.transform='translateX(-'+s.current*100+'%)';document.getElementById(n+'Counter').textContent=(s.current+1)+' / '+s.total;document.getElementById(n+'Prev').disabled=s.current===0;document.getElementById(n+'Next').disabled=s.current===s.total-1;document.getElementById(n+'Dots').querySelectorAll('.slide-dot').forEach((d,i)=>d.classList.toggle('active',i===s.current))}
+document.addEventListener('DOMContentLoaded',()=>{buildSlides();initSlideshow('vocab');initSlideshow('grammar');buildRecap();buildVocabCards(jobsVocab,'vg-jobs');buildVocabCards(skillsVocab,'vg-skills');buildVocabEx();buildMCQ(listen1Data,'listen1-questions','l1q');buildMCQ(listen2Data,'listen2-questions','l2q');buildMCQ(readingQ,'reading-questions','rq');buildTF(listen1TF,'listen1-tf','l1tf');buildTF(readingTF,'reading-tf','rtf');buildGrammar();buildQuiz();loadNotes();loadTracker()});
+</script>
+</body>
+</html>

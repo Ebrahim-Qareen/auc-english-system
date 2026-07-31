@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 3 - A Healthy Mind | AUC English A2B</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+:root{--bg:#fdf6ee;--card:#fff;--card-alt:#fefcf7;--accent:#e8a838;--accent-light:rgba(232,168,56,0.12);--green:#2d9d78;--green-light:#e6f7f1;--orange:#e8862a;--orange-light:#fff3e6;--red:#d94f4f;--red-light:#ffeaea;--pink:#c45ba1;--pink-light:#fce8f4;--blue:#5b6abf;--blue-light:#e8eaff;--yellow:#f0c929;--yellow-light:#fef9e7;--text:#2d3142;--text-dim:#6b7280;--border:#e5e2db;--shadow:0 2px 12px rgba(0,0,0,0.06);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+h1,h2,h3{font-family:'Fredoka',sans-serif}
+.hero{background:linear-gradient(135deg,#2563eb 0%,#0ea5e9 45%,#f5a623 100%);padding:50px 24px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.08)}
+.hero-emoji{font-size:3rem;margin-bottom:8px}
+.hero h1{font-size:2.2rem;font-weight:700;margin-bottom:4px}
+.hero .sub{opacity:0.9;font-size:1rem}
+.badge-row{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.badge{background:rgba(255,255,255,0.18);padding:4px 14px;border-radius:20px;font-size:0.78rem;font-weight:600}
+.method-banner{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin:20px auto 0;max-width:860px;box-shadow:var(--shadow)}
+.method-steps{display:flex;justify-content:center;align-items:center;gap:4px;flex-wrap:wrap;margin-top:10px}
+.method-step{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:10px;font-size:0.82rem;font-weight:600;white-space:nowrap}
+.method-arrow{color:var(--text-dim);font-size:1rem}
+.nav{position:sticky;top:0;z-index:100;background:rgba(253,246,238,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;overflow-x:auto;gap:2px;padding:8px 16px;-webkit-overflow-scrolling:touch}
+.nav-inner::-webkit-scrollbar{height:4px}
+.nav-inner::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+.nav a{color:var(--text-dim);text-decoration:none;font-size:0.8rem;font-weight:500;white-space:nowrap;padding:6px 12px;border-radius:8px;transition:all 0.2s}
+.nav a:hover{color:var(--accent);background:var(--accent-light)}
+.container{max-width:860px;margin:0 auto;padding:0 16px}
+.section{margin-top:40px;scroll-margin-top:60px}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-family:'Fredoka',sans-serif;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+.section h2{font-size:1.5rem;font-weight:700;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card h3{font-size:1.1rem;margin-bottom:10px}
+.progress-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin-top:16px;box-shadow:var(--shadow)}
+.progress-label{font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.95rem;margin-bottom:8px;display:flex;justify-content:space-between}
+.progress-bar{height:12px;background:#e8e6e0;border-radius:6px;overflow:hidden}
+.progress-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--green));transition:width 0.6s ease;width:0%}
+.recap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.recap-chip{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;box-shadow:var(--shadow);transition:transform 0.2s}
+.recap-chip:hover{transform:translateY(-2px)}
+.recap-chip .num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px}
+.recap-chip .topic{font-weight:700;font-size:0.95rem;margin:4px 0 2px}
+.recap-chip .detail{font-size:0.78rem;color:var(--text-dim)}
+.recap-current{border-color:var(--accent);background:var(--accent-light)}
+.fill-row{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:14px;margin:8px 0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fill-row select{padding:6px 10px;border-radius:8px;border:1.5px solid var(--border);font-size:0.85rem;font-family:inherit}
+.fill-row .result{font-size:0.85rem;font-weight:600;margin-left:auto}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.vocab-card{perspective:800px;height:190px;cursor:pointer}
+.vocab-inner{position:relative;width:100%;height:100%;transition:transform 0.5s;transform-style:preserve-3d}
+.vocab-card.flipped .vocab-inner{transform:rotateY(180deg)}
+.vocab-front,.vocab-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow)}
+.vocab-front{background:var(--card)}
+.vocab-front .word{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:700;color:var(--accent)}
+.vocab-front .pos{font-size:0.72rem;color:var(--text-dim);margin-top:2px}
+.vocab-front .hint{font-size:0.7rem;color:var(--pink);margin-top:8px;font-weight:500}
+.vocab-back{background:linear-gradient(135deg,var(--accent-light),#fef3c7);transform:rotateY(180deg)}
+.vocab-back .meaning{font-weight:600;font-size:0.86rem;margin-bottom:4px}
+.vocab-back .arabic{font-size:0.82rem;color:var(--pink);margin-bottom:4px}
+.vocab-back .example{font-size:0.8rem;color:var(--text-dim);font-style:italic}
+.tts-btn{background:none;border:none;cursor:pointer;font-size:1.1rem;padding:2px 4px;border-radius:6px;transition:all 0.2s;vertical-align:middle}
+.tts-btn:hover{background:var(--accent-light);transform:scale(1.15)}
+.tts-btn.playing{animation:pulse 0.8s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+.grammar-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;margin:12px 0;border:1px solid var(--border)}
+.grammar-table th{background:var(--accent);color:#fff;padding:10px 14px;font-weight:600;font-size:0.85rem;text-align:center}
+.grammar-table td{padding:10px 14px;text-align:center;font-size:0.88rem;border-bottom:1px solid var(--border)}
+.grammar-table tr:last-child td{border-bottom:0}
+.grammar-table tr:nth-child(even) td{background:#faf9f6}
+.demo-word{display:inline-block;background:var(--accent-light);color:var(--accent);font-weight:700;padding:2px 10px;border-radius:6px;font-size:0.85rem}
+.quiz-q{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}
+.quiz-q .q-num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.quiz-q .q-text{font-weight:600;font-size:0.93rem;margin-bottom:12px}
+.quiz-option{display:block;width:100%;text-align:left;padding:10px 14px;margin-bottom:6px;background:#faf9f6;border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:0.86rem;transition:all 0.2s;font-family:'Inter',sans-serif}
+.quiz-option:hover:not(:disabled){border-color:var(--accent);background:var(--accent-light)}
+.quiz-option.correct{border-color:var(--green);background:var(--green-light);color:var(--green);font-weight:600}
+.quiz-option.wrong{border-color:var(--red);background:var(--red-light);color:var(--red)}
+.quiz-option:disabled{cursor:default}
+.btn{display:inline-block;padding:8px 20px;border:none;border-radius:10px;font-weight:600;font-size:0.88rem;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
+.writing-area{width:100%;min-height:140px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe;transition:border-color 0.2s}
+.writing-area:focus{outline:none;border-color:var(--accent)}
+.word-count{font-size:0.78rem;color:var(--text-dim);margin-top:6px;text-align:right}
+.challenge-box{background:linear-gradient(135deg,#fef9e7,#e8eaff);border:2px dashed var(--accent);border-radius:var(--radius);padding:22px;text-align:center;margin:14px 0}
+.challenge-box h3{font-family:'Fredoka',sans-serif;color:var(--accent)}
+.tip-box{background:var(--green-light);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:12px 16px;margin:10px 0;font-size:0.85rem}
+.tip-box strong{color:var(--green)}
+.mistake-box{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 12px 12px 0;padding:12px 16px;margin:10px 0;font-size:0.85rem}
+.mistake-box strong{color:var(--red)}
+.checklist label{display:flex;align-items:flex-start;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}
+.checklist input[type=checkbox]{margin-top:4px;accent-color:var(--green);width:16px;height:16px}
+.cheat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cheat-cell{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+.cheat-cell h4{font-family:'Fredoka',sans-serif;font-size:0.9rem;margin-bottom:6px}
+.expression-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:12px}
+.expression-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;box-shadow:var(--shadow);transition:transform 0.2s}
+.expression-card:hover{transform:translateY(-2px)}
+.expression-card .phrase{font-family:'Fredoka',sans-serif;font-size:0.95rem;font-weight:600;color:var(--accent)}
+.expression-card .ex-meaning{font-size:0.82rem;color:var(--text-dim);margin-top:3px}
+.role-card{background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow);cursor:pointer;transition:all 0.3s}
+.role-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.1)}
+.role-card h4{font-family:'Fredoka',sans-serif;font-size:1.05rem;margin-bottom:8px}
+.role-card .role-points{list-style:none;padding:0}
+.role-card .role-points li{font-size:0.85rem;padding:3px 0;padding-left:18px;position:relative}
+.role-card .role-points li::before{content:'\2022';position:absolute;left:4px;color:var(--green);font-weight:700}
+.role-convo{display:none;background:#faf9f6;border-radius:12px;padding:16px;margin-top:12px;font-size:0.86rem;line-height:1.9}
+.role-convo.show{display:block}
+.highlight{background:transparent;transition:background 0.5s;border-radius:4px;padding:0 2px}
+.highlight.active{background:#fef08a}
+.mcq-feedback{display:none;padding:8px 14px;border-radius:8px;margin-top:8px;font-size:0.85rem;font-weight:600}
+.mcq-feedback.show{display:block}
+.quiz-meme{display:none;padding:12px;border-radius:10px;margin-top:8px;text-align:center;font-weight:700;font-size:0.95rem}
+.quiz-meme.show{display:block;animation:fadeIn 0.3s}
+.meme-correct{background:var(--green-light);color:var(--green)}
+.meme-wrong{background:var(--red-light);color:var(--red)}
+.meme-emoji{font-size:1.8rem;display:block;margin-bottom:4px}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.shake{animation:shake 0.4s}
+.confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confetti-fall 1.5s ease-out forwards;pointer-events:none}
+@keyframes confetti-fall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(200px) rotate(720deg);opacity:0}}
+.score-banner{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);padding:8px 16px;display:flex;justify-content:center;align-items:center;gap:18px;box-shadow:0 -2px 10px rgba(0,0,0,0.06);z-index:99;font-family:'Fredoka',sans-serif}
+.score-item{text-align:center}
+.score-item .label{font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}
+.score-item .val{font-size:1.1rem;font-weight:700}
+.pb-80{padding-bottom:80px}
+.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}
+.text-center{text-align:center}
+.hidden{display:none}
+.session-nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.session-nav a{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:10px;font-size:0.8rem;font-weight:600;text-decoration:none;border:2px solid var(--border);color:var(--text-dim);transition:all 0.2s}
+.session-nav a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.session-nav a.active{border-color:var(--accent);background:var(--accent);color:#fff}
+.session-nav a.disabled{opacity:0.4;pointer-events:none}
+.notes-area{width:100%;min-height:100px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe}
+.notes-area:focus{outline:none;border-color:var(--accent)}
+.section-check{display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}
+.section-check input{accent-color:var(--green);width:16px;height:16px}
+.slideshow{position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:14px 0}
+.slide-viewport{overflow:hidden}
+.slide-track{display:flex;transition:transform 0.4s ease}
+.slide{min-width:100%;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;text-align:center;background:var(--card)}
+.slide img{display:block;object-fit:contain;width:100%;height:auto}
+.slide-controls{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid var(--border);background:#faf9f6}
+.slide-btn{background:var(--accent);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-family:'Fredoka',sans-serif}
+.slide-btn:hover{background:#cf9430;transform:scale(1.1)}
+.slide-btn:disabled{background:var(--border);cursor:default;transform:none}
+.slide-counter{font-family:'Fredoka',sans-serif;font-size:0.85rem;color:var(--text-dim)}
+.slide-dots{display:flex;gap:6px;justify-content:center}
+.slide-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all 0.3s;cursor:pointer}
+.slide-dot.active{background:var(--accent);transform:scale(1.3)}
+@media(max-width:600px){.cheat-grid{grid-template-columns:1fr}.vocab-grid{grid-template-columns:1fr}.recap-grid{grid-template-columns:1fr 1fr}.expression-grid{grid-template-columns:1fr}.slide{padding:10px}}
+
+.nlm-slot{background:repeating-linear-gradient(45deg,#faf9f6,#faf9f6 10px,#f5f2ea 10px,#f5f2ea 20px);border:2px dashed var(--accent);border-radius:14px;padding:26px 20px;text-align:center;color:var(--text-dim);font-size:0.86rem;margin:8px 0}
+.nlm-slot .slot-title{font-family:'Fredoka',sans-serif;font-weight:600;color:var(--accent);font-size:0.95rem;margin-bottom:4px}
+.nlm-slot code{background:rgba(232,168,56,0.12);padding:2px 8px;border-radius:6px;font-size:0.78rem;color:var(--text)}
+.assessment-box{background:linear-gradient(135deg,var(--red-light),var(--yellow-light));border:2px solid var(--red);border-radius:var(--radius);padding:22px;margin:14px 0}
+.assessment-box h3{color:var(--red);font-family:'Fredoka',sans-serif;margin-bottom:8px}
+</style>
+</head>
+<body class="pb-80">
+
+<div class="hero" style="background:linear-gradient(135deg,#059669 0%,#10b981 45%,#a7f3d0 100%)">
+  <div class="hero-emoji">🧘</div>
+  <h1>Session 3: A Healthy Mind</h1>
+  <p class="sub">Relax, De-stress, Feel Good</p>
+  <div class="badge-row"><span class="badge">🧠 Mental Well-being</span><span class="badge">🧘 Relaxation Vocabulary</span><span class="badge">📝 Gerunds &amp; Infinitives</span><span class="badge">🎧 Expert Interview</span></div>
+</div>
+
+<div class="container">
+  <div class="session-nav" style="margin-top:16px"><a href="session-1.html">S1</a><a href="session-2.html">S2</a><a class="active">S3</a><a href="session-4.html">S4</a><a href="session-5.html">S5</a><a class="disabled">S6</a><a class="disabled">S7</a><a class="disabled">S8</a><a class="disabled">S9</a><a class="disabled">S10</a><a class="disabled">S11</a><a class="disabled">S12</a></div>
+
+  <div class="method-banner">
+    <div style="font-family:'Fredoka',sans-serif;font-weight:600;text-align:center">&#x1F3AF; Study Method</div>
+    <div class="method-steps">
+      <span class="method-step" style="background:var(--yellow-light);color:#b8860b">&#x1F501; Recap</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--blue-light);color:var(--blue)">&#x1F3A7; Listen</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--accent-light);color:var(--accent)">&#x1F4DA; Vocab</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--pink-light);color:var(--pink)">&#x1F4D6; Read</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--orange-light);color:var(--orange)">&#x1F5E3; Speak</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Quiz</span>
+    </div>
+  </div>
+
+  <nav class="nav" style="margin-top:16px;border-radius:var(--radius);border:1px solid var(--border)">
+    <div class="nav-inner">
+      <a href="#progress">Progress</a><a href="#recap">Recap</a><a href="#listen">Listen</a><a href="#vocab">Vocab</a><a href="#idioms">Idioms</a><a href="#grammar">Grammar</a><a href="#reading">Reading</a><a href="#speaking">Speaking</a><a href="#roleplay">Roleplay</a><a href="#email">Email</a><a href="#writing">Writing</a><a href="#quiz">Quiz</a><a href="#summary">Summary</a><a href="#notes">Notes</a>
+    </div>
+  </nav>
+
+  <div class="section" id="progress">
+    <div class="progress-wrap"><div class="progress-label"><span>&#x1F4C8; Overall Progress</span><span id="progress-pct">0%</span></div><div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div></div>
+  </div>
+
+
+  <div class="section" id="recap">
+    <span class="section-label" style="background:var(--yellow-light);color:#b8860b">&#x1F501; Review</span>
+    <h2>Grammar Recap: Sessions 1&ndash;2</h2>
+    <div class="recap-grid"><div class="recap-chip"><div class="num">S1</div><div class="topic">can / could</div><div class="detail">Modals of ability</div></div><div class="recap-chip"><div class="num">S2</div><div class="topic">-ing / to + inf</div><div class="detail">Verb patterns</div></div><div class="recap-chip recap-current"><div class="num">S3</div><div class="topic">-ing / to + inf</div><div class="detail">This session</div></div></div>
+    <div class="card">
+      <h3>&#x270F; Fill-in Recap Quiz</h3>
+      <div id="recap-exercises"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--accent);color:#fff" onclick="checkRecap()">Check Answers</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryRecap()">Retry</button>
+        <span id="recap-score" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="listen">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F3A7; Listen</span>
+    <h2>Listening Activities</h2>
+    <div class="card">
+      <h3>&#x1F399; Overview Video</h3>
+      <div class="nlm-slot"><div class="slot-title">Overview Video</div><div>Reserved for NotebookLM material &mdash; drop the .mp4 into the <code>Session 3</code> folder and it will appear here</div></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F3A7; Deep Dive Audio</h3>
+      <div class="nlm-slot"><div class="slot-title">Deep Dive Audio</div><div>Reserved for NotebookLM material &mdash; drop the .m4a into the <code>Session 3</code> folder and it will appear here</div></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F3AC; Listening 1: How to Relax &mdash; 8 Relaxation Tips</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">A video with eight practical relaxation tips for your mental health.</p>
+      <div class="nlm-slot"><div class="slot-title">Relaxation Tips Video</div><div>Drop the downloaded .mp4 into the <code>Session 3</code> folder and it will appear here</div></div>
+      <div class="mt-12" id="listen1-questions"></div>
+      <div class="mt-12"><h4 style="font-size:0.85rem;margin-bottom:6px">&#x2753; True or False</h4><div id="listen1-tf"></div></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F3A7; Listening 2: TV Interview with Dr. Lisa Jones</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">A therapist talks about activities that help maintain good mental health.</p>
+      <audio controls style="width:100%" preload="metadata"><source src="https://scemoodle.aucegypt.edu/pluginfile.php/3232139/mod_hvp/content/198204/audios/files-673f417e12137.mp3" type="audio/mpeg"></audio>
+      <div class="mt-12" id="listen2-questions"></div>
+    </div>
+  </div>
+
+  <div class="section" id="vocab">
+    <span class="section-label" style="background:var(--accent-light);color:var(--accent)">&#x1F4DA; Vocabulary</span>
+    <h2>Mental Well-being Vocabulary</h2>
+    <div class="nlm-slot"><div class="slot-title">Vocabulary Slides</div><div>Reserved for NotebookLM material &mdash; the slide JPGs will become an image carousel here</div></div>
+    <div class="tip-box">&#x1F9E0; <strong>Memory trick:</strong> Notice that most well-being words are <strong>gerunds</strong> &mdash; exercis<em>ing</em>, garden<em>ing</em>, breath<em>ing</em>, meditat<em>ing</em>. That is not a coincidence: this session’s grammar and vocabulary teach each other.</div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">🧠 Core Well-being Words</h3>
+    <div class="vocab-grid" id="vg-core"></div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">🌿 Relaxation Activities</h3>
+    <div class="vocab-grid" id="vg-relax"></div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">💬 Talking About Feelings</h3>
+    <div class="vocab-grid" id="vg-feel"></div>
+    <div class="card mt-20">
+      <h3>&#x270F; Vocabulary Exercise</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Choose the correct word for each sentence.</p>
+      <div id="vocab-ex-rows"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--accent);color:#fff" onclick="checkVocabEx()">Check Answers</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryVocabEx()">Retry</button>
+        <span id="vocab-result" style="font-family:'Fredoka',sans-serif;font-weight:700"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="idioms">
+    <span class="section-label" style="background:rgba(251,191,36,0.15);color:#f59e0b">&#x1F4AC; Idioms</span>
+    <h2>Well-being &amp; Relaxation Idioms</h2>
+    <p style="color:var(--text-dim);margin-bottom:18px">Seven idioms you can use in real conversations. Each includes meaning, example, and Arabic hint.</p>
+    <div style="display:grid;gap:14px">
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">😌 Take it easy</h3>
+        <p><strong>Meaning:</strong> Relax and not work too hard</p>
+        <p><strong>Example:</strong> "You look exhausted &mdash; <em>take it easy</em> this weekend."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> خفّف على نفسك / ارتاح</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🔋 Recharge your batteries</h3>
+        <p><strong>Meaning:</strong> Rest so you get your energy back</p>
+        <p><strong>Example:</strong> "I need a short holiday to <em>recharge my batteries</em>."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> يشحن طاقته تاني</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🌬️ Clear your head</h3>
+        <p><strong>Meaning:</strong> Stop worrying and think more calmly</p>
+        <p><strong>Example:</strong> "He goes for a walk to <em>clear his head</em> after work."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> يصفّي ذهنه</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">💨 Let off steam</h3>
+        <p><strong>Meaning:</strong> Release stress or anger in a healthy way</p>
+        <p><strong>Example:</strong> "Playing football helps me <em>let off steam</em>."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> يفضفض / يخرّج الطاقة السلبية</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🤒 Under the weather</h3>
+        <p><strong>Meaning:</strong> Feeling slightly ill or low</p>
+        <p><strong>Example:</strong> "She’s a bit <em>under the weather</em> today, so she stayed home."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> تعبان شوية / مش على بعضه</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">😴 Sleep on it</h3>
+        <p><strong>Meaning:</strong> Wait until tomorrow before making a decision</p>
+        <p><strong>Example:</strong> "Don’t decide now &mdash; <em>sleep on it</em> and tell me tomorrow."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> فكّر لحد بكرة قبل ما تقرر</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">🪶 Take a load off your mind</h3>
+        <p><strong>Meaning:</strong> Stop worrying about something</p>
+        <p><strong>Example:</strong> "Finishing the exam really <em>took a load off my mind</em>."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> ارتاح من همّ كان شايله</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="grammar">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span>
+    <h2>Gerunds &amp; Infinitives &mdash; Deep Dive</h2>
+    <div class="nlm-slot"><div class="slot-title">Grammar Slides</div><div>Reserved for NotebookLM material &mdash; the slide JPGs will become an image carousel here</div></div>
+    <div class="card">
+      <h3>&#x1F3AF; A gerund is a verb used as a noun</h3>
+      <p style="font-size:0.88rem">When you add <strong>-ing</strong> to a verb, it starts behaving like a noun.</p>
+      <table class="grammar-table">
+        <tr><th>Sentence</th><th>What the gerund does</th></tr>
+        <tr><td><strong>Reading</strong> is a great way to relax.</td><td>subject of the sentence</td></tr>
+        <tr><td><strong>Gardening</strong> is a good hobby.</td><td>subject of the sentence</td></tr>
+        <tr><td>Focus on your <strong>breathing</strong>.</td><td>after a preposition</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>&#x270F; The 4 Spelling Rules for -ing</h3>
+      <table class="grammar-table">
+        <tr><th>Rule</th><th>Examples</th></tr>
+        <tr><td>1. Most verbs: just add -ing</td><td>read &rarr; read<strong>ing</strong> &bull; talk &rarr; talk<strong>ing</strong></td></tr>
+        <tr><td>2. Ends in -e: remove the e</td><td>danc<s>e</s> &rarr; danc<strong>ing</strong> &bull; rid<s>e</s> &rarr; rid<strong>ing</strong></td></tr>
+        <tr><td>3. Ends in -ie: change to -y</td><td>l<strong>ie</strong> &rarr; l<strong>ying</strong> &bull; t<strong>ie</strong> &rarr; t<strong>ying</strong></td></tr>
+        <tr><td>4. Short verb (consonant-vowel-consonant): double the last letter</td><td>run &rarr; ru<strong>nn</strong>ing &bull; hit &rarr; hi<strong>tt</strong>ing &bull; sit &rarr; si<strong>tt</strong>ing</td></tr>
+      </table>
+      <div class="tip-box"><strong>But be careful:</strong> not every verb doubles. begin &rarr; begi<strong>nn</strong>ing, prefer &rarr; prefe<strong>rr</strong>ing, forget &rarr; forge<strong>tt</strong>ing &mdash; BUT listen &rarr; liste<strong>n</strong>ing, visit &rarr; visi<strong>t</strong>ing, enjoy &rarr; enjo<strong>y</strong>ing.</div>
+    </div>
+    <div class="card">
+      <h3>&#x1F3AF; Which verbs take which form?</h3>
+      <table class="grammar-table">
+        <tr><th>Always verb + ing</th><th>Always to + verb</th><th>Either form is fine</th></tr>
+        <tr><td>enjoy, avoid, practice, dislike, keep, suggest, consider</td><td>want, need, hope, decide, plan, learn, promise</td><td>start, like, love, prefer, begin, continue</td></tr>
+      </table>
+      <p style="font-size:0.85rem;margin-top:8px"><em>I enjoy <strong>watching</strong> TV. &bull; I need <strong>to start</strong> yoga classes. &bull; I like <strong>walking</strong> = I like <strong>to walk</strong>.</em></p>
+    </div>
+    <div class="card">
+      <h3>&#x274C; The Negative Infinitive</h3>
+      <p style="font-size:0.88rem">To make an infinitive negative, put <strong>not</strong> BEFORE <strong>to</strong>.</p>
+      <table class="grammar-table">
+        <tr><th>Positive</th><th>Negative</th></tr>
+        <tr><td>I decided <strong>to go</strong> to work.</td><td>I decided <strong>not to go</strong> to work.</td></tr>
+        <tr><td>Try <strong>to miss</strong> fewer classes.</td><td>Try <strong>not to miss</strong> your next yoga class.</td></tr>
+      </table>
+    </div>
+    <div class="card" style="border:2px solid var(--red)">
+      <h3 style="color:var(--red)">&#x1F6A8; THE BIG MISTAKE</h3>
+      <p style="font-size:0.9rem">Arabic speakers often put "to" after verbs that need <strong>-ing</strong>, because Arabic uses أن + verb almost everywhere.</p>
+      <div class="mistake-box">&#x274C; <s>I enjoy to read before bed.</s> &nbsp;&#x274C; <s>I avoid to eat late.</s> &nbsp;&#x274C; <s>I suggest to take a break.</s><br>&#x2705; I enjoy <strong>reading</strong> before bed. &nbsp;&#x2705; I avoid <strong>eating</strong> late. &nbsp;&#x2705; I suggest <strong>taking</strong> a break.</div>
+      <p style="font-size:0.85rem;margin-top:8px"><strong>Memory hook:</strong> <em>enjoy, avoid, practice, dislike, suggest</em> &mdash; these five NEVER take "to". Say them out loud until they sound wrong with "to".</p>
+    </div>
+    <div class="card">
+      <h3>&#x270F; Grammar Exercises</h3>
+      <div id="grammar-exercises"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--green);color:#fff" onclick="checkGrammar()">Check Answers</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryGrammar()">Retry</button>
+        <span id="grammar-score" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="reading">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink)">&#x1F4D6; Reading</span>
+    <h2>Keeping Your Mind Healthy</h2>
+    <div class="card"><div style="font-size:0.9rem;line-height:1.9">
+      <p><span class="highlight" data-q="q1">Having a healthy mind is important for feeling good. A good mind helps us think clearly, feel nice, and deal with stress better.</span> When we take care of our mental health, we enjoy life more and have better relationships with others. Here are some activities to keep your mind healthy:</p>
+      <p style="margin-top:12px"><strong>1. Exercise:</strong> Moving your body is a great way to feel better. You can do any activity you like, such as walking, yoga, or dancing. Exercise helps to reduce stress and makes you feel happy.</p>
+      <p style="margin-top:8px"><strong>2. Take a Bath:</strong> A hot bath is a nice way to relax after a long day. The warm water helps relax your muscles.</p>
+      <p style="margin-top:8px"><strong>3. Read a Book:</strong> Reading is a great way to relax. <span class="highlight" data-q="q3">Find a book you enjoy and read for at least 15 minutes a day.</span> Reading helps your mind relax and can make you focus better.</p>
+      <p style="margin-top:8px"><strong>4. Meditate:</strong> <span class="highlight" data-q="q4">Find a quiet place, close your eyes, and focus on your breathing. Try to meditate for 5 to 10 minutes each day.</span></p>
+      <p style="margin-top:8px"><strong>5. Do Puzzles:</strong> Puzzles like crosswords or Sudoku are fun and good for your brain.</p>
+      <p style="margin-top:8px"><strong>6. Garden:</strong> Gardening is a good hobby that can make you feel better. Spend time outside in the sun, growing flowers or vegetables.</p>
+      <p style="margin-top:8px"><strong>7. Be Thankful:</strong> Counting the things that make you happy can improve how you feel. Each day, write down three things that make you want to say "thank you."</p>
+      <p style="margin-top:8px"><strong>8. Write Your Ideas:</strong> Writing can help you understand your thoughts and feelings.</p>
+      <p style="margin-top:8px"><strong>9. Spend Time with Friends:</strong> <span class="highlight" data-q="q5">When you feel sad or alone, spending time with someone you trust can make you feel better.</span> If you want to meet new people, consider joining a new class.</p>
+      <p style="margin-top:8px"><strong>10. Clean and Organize:</strong> A clean and organized place makes you feel calm.</p>
+      <p style="margin-top:12px;font-size:0.8rem;color:var(--text-dim)"><em>Note for Q2: video games are never mentioned in this list.</em></p>
+    </div></div>
+    <div class="card"><h3>&#x2753; True or False</h3><div id="reading-tf"></div></div>
+    <div class="card">
+      <h3>&#x2753; Reading Questions</h3>
+      <div id="reading-questions"></div>
+      <div id="readingMistakes" class="hidden mt-12" style="background:var(--red-light);border-radius:12px;padding:16px"><h4 style="color:var(--red);font-family:'Fredoka',sans-serif;margin-bottom:8px">Review These:</h4><div id="mistakesList"></div></div>
+    </div>
+  </div>
+
+  <div class="section" id="speaking">
+    <span class="section-label" style="background:var(--orange-light);color:var(--orange)">&#x1F5E3; Speaking</span>
+    <h2>Speaking Practice</h2>
+    <div class="challenge-box">
+      <h3>&#x23F1; 1-Minute Challenge</h3>
+      <p style="margin:8px 0;font-size:0.9rem">Talk for 1 minute about: <strong>"What do you do to relax and de-stress? Why do those activities help you?"</strong></p>
+      <p style="font-size:0.82rem;color:var(--text-dim)">Use: enjoy + ing, need to + verb, a great way to + verb, and 3 well-being words</p>
+    </div>
+    <div class="card">
+      <h3>&#x1F4AC; Useful Expressions</h3>
+      <div class="expression-grid"><div class="expression-card"><div class="phrase">I find it relaxing to…</div><div class="ex-meaning">Say what calms you down</div></div><div class="expression-card"><div class="phrase">It helps me de-stress.</div><div class="ex-meaning">Say why an activity is good for you</div></div><div class="expression-card"><div class="phrase">I try not to…</div><div class="ex-meaning">Say what you avoid (negative infinitive)</div></div><div class="expression-card"><div class="phrase">cope with stress</div><div class="ex-meaning">Deal with pressure successfully</div></div><div class="expression-card"><div class="phrase">raise your self-esteem</div><div class="ex-meaning">Feel better about yourself</div></div><div class="expression-card"><div class="phrase">maintain good mental health</div><div class="ex-meaning">Keep your mind healthy over time</div></div><div class="expression-card"><div class="phrase">release negative energy</div><div class="ex-meaning">Let go of bad feelings</div></div><div class="expression-card"><div class="phrase">take a break</div><div class="ex-meaning">Stop working for a short time</div></div></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F4AC; Daily Drill</h3>
+      <p style="font-size:0.88rem;margin-bottom:8px">Practice saying these sentences out loud:</p>
+      <div style="font-size:0.88rem;line-height:2"><p>1. I enjoy <strong>reading</strong> before bed because it helps me relax.</p><p>2. I need <strong>to start</strong> exercising three times a week.</p><p>3. Walking in the park is a great way <strong>to clear</strong> my mind.</p><p>4. I try <strong>not to spend</strong> too much time on my phone.</p><p>5. I avoid <strong>drinking</strong> coffee late at night.</p></div>
+    </div>
+  </div>
+
+  <div class="section" id="roleplay">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F3AD; Roleplay</span>
+    <h2>Roleplay Scenarios</h2>
+    <div class="role-card" onclick="toggleRole('r1')">
+      <h4>🎤 Scenario 1: The Well-being Podcast</h4>
+      <ul class="role-points"><li>One student is the podcast host</li><li>The others are mental health experts</li><li>The host asks questions and comments on the advice</li><li>The experts suggest practical ways and explain why they work</li></ul>
+      <div class="role-convo" id="r1-convo"><p><strong>Host:</strong> Welcome to the show! Today we’re talking about mental health. What do you recommend?</p><p><strong>Expert 1:</strong> I always suggest starting with exercise. Walking for 20 minutes helps to reduce stress.</p><p><strong>Host:</strong> That’s interesting. Why walking specifically?</p><p><strong>Expert 1:</strong> Because it’s easy and free! You don’t need to join a gym.</p><p><strong>Host:</strong> And what about you?</p><p><strong>Expert 2:</strong> I recommend writing your thoughts every evening. It helps people understand their feelings.</p><p><strong>Host:</strong> Great advice. Thank you both for joining us today!</p></div>
+    </div>
+    <div class="role-card" onclick="toggleRole('r2')">
+      <h4>🧑‍🤝‍🧑 Scenario 2: Helping a Stressed Friend</h4>
+      <ul class="role-points"><li>Your friend is stressed about exams</li><li>Suggest relaxation activities and explain why they help</li><li>Use: suggest + ing, try + ing, need to + verb</li></ul>
+      <div class="role-convo" id="r2-convo"><p><strong>Friend:</strong> I’m so stressed. I can’t sleep and I can’t focus.</p><p><strong>You:</strong> That sounds hard. Have you tried taking short breaks while studying?</p><p><strong>Friend:</strong> Not really. I just study for six hours straight.</p><p><strong>You:</strong> I suggest studying for 45 minutes, then walking for 10. It really helps to clear your head.</p><p><strong>Friend:</strong> That might work. What else?</p><p><strong>You:</strong> Try not to use your phone before bed. And you need to sleep at least seven hours.</p><p><strong>Friend:</strong> Thanks &mdash; that takes a load off my mind.</p></div>
+    </div>
+    <div class="role-card" onclick="toggleRole('r3')">
+      <h4>🏥 Scenario 3: Asking a Doctor for Advice</h4>
+      <ul class="role-points"><li>You feel tired and stressed all the time</li><li>The doctor asks about your habits and gives advice</li><li>Practice gerunds after "avoid / suggest / recommend"</li></ul>
+      <div class="role-convo" id="r3-convo"><p><strong>Doctor:</strong> How have you been feeling lately?</p><p><strong>You:</strong> I feel under the weather. I’m tired all the time.</p><p><strong>Doctor:</strong> Do you exercise?</p><p><strong>You:</strong> Not really. I dislike going to the gym.</p><p><strong>Doctor:</strong> That’s fine. I recommend walking for 30 minutes a day instead.</p><p><strong>You:</strong> I can do that. Anything else?</p><p><strong>Doctor:</strong> Avoid drinking coffee after 6 p.m., and try to practice breathing techniques before bed.</p></div>
+    </div>
+  </div>
+
+  <div class="section" id="email">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F4E7; Email</span>
+    <h2>Email Writing</h2>
+    <div class="card">
+      <h3>&#x2709; Write an informal email about relaxation</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Your friend Reham told you about her trip and invited you to a yoga class. Write back informally: comment on her trip, respond to the invitation, and explain how yoga and meditation help mental health. (about 80 words)</p>
+      <textarea class="writing-area" id="email-area" placeholder="Hi Reham,&#10;&#10;Thanks for your message! Your trip sounds..." oninput="updateEmailWC()"></textarea>
+      <div class="word-count">Words: <span id="email-wc">0</span> / ~80</div>
+      <div class="checklist mt-12" id="email-checklist"><label><input type="checkbox" onchange="updateEmailCheck()"> Commented on her trip</label><label><input type="checkbox" onchange="updateEmailCheck()"> Responded to the invitation (accept or politely refuse)</label><label><input type="checkbox" onchange="updateEmailCheck()"> Explained how yoga or meditation helps</label><label><input type="checkbox" onchange="updateEmailCheck()"> Used gerunds after enjoy / suggest / avoid</label><label><input type="checkbox" onchange="updateEmailCheck()"> Kept the style informal (Hi… / Take care)</label></div>
+      <p id="email-check-result" style="font-size:0.85rem;font-weight:600;margin-top:8px"></p>
+    </div>
+  </div>
+
+  <div class="section" id="writing">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink)">&#x270F; Writing</span>
+    <h2>Writing Practice</h2>
+    <div class="card">
+      <h3>&#x1F4DD; Write 5 sentences about how you relax</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Write about the activities you do to relax and calm down. Use BOTH gerunds and infinitives in your sentences. (60&ndash;80 words)</p>
+      <textarea class="writing-area" id="writing-area" placeholder="I enjoy... / I need to... / A great way to relax is..." oninput="updateWritingWC()"></textarea>
+      <div class="word-count">Words: <span id="writing-wc">0</span> / 60&ndash;80</div>
+      <div class="checklist mt-12" id="writing-checklist"><label><input type="checkbox" onchange="updateWritingCheck()"> Used at least 2 gerunds (verb + ing)</label><label><input type="checkbox" onchange="updateWritingCheck()"> Used at least 2 infinitives (to + verb)</label><label><input type="checkbox" onchange="updateWritingCheck()"> Used one negative infinitive (not to + verb)</label><label><input type="checkbox" onchange="updateWritingCheck()"> Explained WHY each activity helps you</label><label><input type="checkbox" onchange="updateWritingCheck()"> 60&ndash;80 words</label></div>
+      <p id="writing-check-result" style="font-size:0.85rem;font-weight:600;margin-top:8px"></p>
+    </div>
+  </div>
+
+  <div class="section" id="quiz">
+    <span class="section-label" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Quiz</span>
+    <h2>Session 3 Quiz</h2>
+    <div id="quiz-container"></div>
+    <div style="text-align:center;margin-top:16px">
+      <button class="btn" style="background:var(--accent);color:#fff;font-size:1rem;padding:12px 30px" onclick="showQuizScore()">Show Final Score</button>
+      <button class="btn" style="background:#eee;color:var(--text);font-size:1rem;padding:12px 30px" onclick="retryQuiz()">Retry Quiz</button>
+      <a href="kahoot-session3.html" style="display:inline-block;margin-left:10px;padding:12px 30px;background:var(--red);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;font-size:1rem">Kahoot! &#x1F3AE;</a>
+    </div>
+    <div id="quiz-final" class="hidden card mt-16 text-center" style="border:3px solid var(--accent)"></div>
+  </div>
+
+  <div class="section" id="summary">
+    <span class="section-label" style="background:var(--yellow-light);color:#b8860b">&#x1F4CB; Summary</span>
+    <h2>Quick Cheat Sheet</h2>
+    <div class="cheat-grid"><div class="cheat-cell"><h4>🎯 Always verb + ing</h4><p style="font-size:0.82rem">enjoy &bull; avoid &bull; practice &bull; dislike &bull; suggest &bull; keep &bull; consider<br><em>"I enjoy reading."</em></p></div><div class="cheat-cell"><h4>🎯 Always to + verb</h4><p style="font-size:0.82rem">want &bull; need &bull; hope &bull; decide &bull; plan &bull; learn &bull; promise<br><em>"I need to sleep more."</em></p></div><div class="cheat-cell"><h4>🔄 Either form</h4><p style="font-size:0.82rem">start &bull; like &bull; love &bull; prefer &bull; begin &bull; continue<br><em>"I like walking = I like to walk."</em></p></div><div class="cheat-cell"><h4>❌ Negative infinitive</h4><p style="font-size:0.82rem"><strong>not</strong> comes BEFORE <strong>to</strong><br><em>"I try not to think about it."</em></p></div></div>
+    <div class="cheat-grid mt-12"><div class="cheat-cell"><h4>🧠 Key Vocabulary</h4><p style="font-size:0.82rem">mental health, meditation, well-being, exercising, gardening, breathing techniques, cope with, self-esteem, anxiety, maintain, release</p></div><div class="cheat-cell"><h4>🔁 Previous Grammar</h4><p style="font-size:0.82rem">S1: can / could / be able to &bull; S2: gerunds &amp; infinitives (introduction)</p></div></div>
+  </div>
+
+  <div class="section" id="notes">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Notes</span>
+    <h2>My Notes</h2>
+    <div class="card"><h3>&#x1F4D3; Class Notes</h3><textarea class="notes-area" id="classNotes" placeholder="Write notes during class..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x1F4D6; Difficult Words</h3><textarea class="notes-area" id="difficultWords" style="min-height:80px" placeholder="Words you need to review..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x2753; Questions for Teacher</h3><textarea class="notes-area" id="teacherQuestions" style="min-height:80px" placeholder="Write questions for your teacher..." oninput="saveNotes()"></textarea></div>
+  </div>
+
+  <div class="section" id="tracker">
+    <h2>&#x2705; Progress Tracker</h2>
+    <div class="card"><h3>Check off completed sections:</h3><div id="progressChecks">
+      <label class="section-check"><input type="checkbox" data-sec="listen" onchange="updateTracker()"> &#x1F3A7; Listened to audio &amp; watched videos</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocab" onchange="updateTracker()"> &#x1F4DA; Studied vocabulary flashcards</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocabex" onchange="updateTracker()"> &#x270F; Completed vocabulary exercise</label>
+      <label class="section-check"><input type="checkbox" data-sec="idioms" onchange="updateTracker()"> &#x1F4AC; Reviewed idioms</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammar" onchange="updateTracker()"> &#x1F4DD; Understood grammar rules</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammarex" onchange="updateTracker()"> &#x1F4DD; Completed grammar exercises</label>
+      <label class="section-check"><input type="checkbox" data-sec="read" onchange="updateTracker()"> &#x1F4D6; Read passage &amp; answered questions</label>
+      <label class="section-check"><input type="checkbox" data-sec="speak" onchange="updateTracker()"> &#x1F5E3; Did speaking challenge</label>
+      <label class="section-check"><input type="checkbox" data-sec="roleplay" onchange="updateTracker()"> &#x1F3AD; Practiced roleplay</label>
+      <label class="section-check"><input type="checkbox" data-sec="email" onchange="updateTracker()"> &#x1F4E7; Wrote email</label>
+      <label class="section-check"><input type="checkbox" data-sec="write" onchange="updateTracker()"> &#x270F; Completed writing task</label>
+      <label class="section-check"><input type="checkbox" data-sec="quiz" onchange="updateTracker()"> &#x1F3AF; Finished quiz</label>
+      <label class="section-check"><input type="checkbox" data-sec="review" onchange="updateTracker()"> &#x1F4CB; Reviewed cheat sheet</label>
+    </div><div style="margin-top:14px"><div style="background:#e8e6e0;border-radius:8px;height:12px;overflow:hidden"><div id="trackerFill" style="height:100%;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--green));width:0%;transition:width 0.5s"></div></div><p style="font-size:0.82rem;color:var(--text-dim);margin-top:6px;text-align:center" id="trackerText">0 of 13 completed</p></div></div>
+  </div>
+
+  <div class="section">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F52E; Coming Next</span>
+    <h2>Session 4: Preview</h2>
+    <div class="card" style="background:linear-gradient(135deg,var(--green-light),var(--blue-light))"><h4 style="font-family:'Fredoka',sans-serif;color:var(--blue);margin-bottom:6px">🌍 Session 4: The World Is Yours</h4><p style="font-size:0.88rem">Describing places, location phrases, and the order of adjectives. This is also Assessment 1!</p></div>
+  </div>
+
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:30px 0 20px">
+    <a href="session-2.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--blue);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">&#x2B05; Session 2</a>
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--accent);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">&#x1F3E0; Home</a>
+    <a href="session-4.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--green);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">Session 4 &#x27A1;</a>
+  </div>
+  <div style="text-align:center;padding:10px 20px 20px;color:var(--text-dim);font-size:0.78rem"><p>AUC English A2B &bull; Session 3: A Healthy Mind</p></div>
+</div>
+
+<div class="score-banner">
+  <div class="score-item"><div class="label">Cards</div><div class="val" id="sb-cards" style="color:var(--accent)">0</div></div>
+  <div class="score-item"><div class="label">Grammar</div><div class="val" id="sb-grammar" style="color:var(--green)">0</div></div>
+  <div class="score-item"><div class="label">Quiz</div><div class="val" id="sb-quiz" style="color:var(--red)">0/20</div></div>
+  <div class="score-item"><div class="label">Written</div><div class="val" id="sb-words" style="color:var(--orange)">0</div></div>
+</div>
+
+<script>
+function speak(w,b){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=0.85;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;if(b){b.classList.add('playing');u.onend=()=>b.classList.remove('playing')}speechSynthesis.speak(u)}
+if('speechSynthesis' in window)speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
+
+const coreVocab=[{"w":"mental health","p":"noun","m":"The health of our mind — how we feel, think, act, and deal with stress","ar":"الصحة النفسية","ex":"Taking care of your mental health is as important as your body."},{"w":"well-being","p":"noun","m":"Being happy and healthy in body and mind","ar":"الرفاهية / الإحساس بالراحة","ex":"I eat healthy food and stay happy for my well-being."},{"w":"anxiety","p":"noun","m":"The feeling of being worried and nervous","ar":"القلق","ex":"Deep breathing can reduce anxiety before an exam."},{"w":"self-esteem","p":"noun","m":"How much value you feel you have as a person","ar":"تقدير الذات","ex":"Learning a new skill can raise your self-esteem."}];
+const relaxVocab=[{"w":"meditation","p":"noun","m":"Sitting quietly and focusing your mind to feel relaxed","ar":"التأمل","ex":"I go to a yoga class to try some meditation."},{"w":"exercising","p":"noun","m":"Moving your body to stay healthy","ar":"ممارسة الرياضة","ex":"Running and dancing are my favorite exercising activities."},{"w":"gardening","p":"noun","m":"Growing plants, flowers, or vegetables","ar":"البستنة / زراعة النباتات","ex":"Gardening is the activity of growing flowers or plants."},{"w":"breathing techniques","p":"noun","m":"Ways of controlling your breathing to become calm","ar":"تمارين التنفس","ex":"Breathing techniques can help you become calm."}];
+const feelVocab=[{"w":"cope with","p":"verb","m":"Deal with a difficult situation successfully","ar":"يتعامل مع / يتحمل","ex":"Exercise helps me cope with stress at work."},{"w":"maintain","p":"verb","m":"Keep something at a good level over time","ar":"يحافظ على","ex":"These activities help you maintain good mental health."},{"w":"release","p":"verb","m":"Let go of something","ar":"يطلق / يتخلص من","ex":"We enjoy exercising because we release negative energy."},{"w":"conflicts","p":"noun","m":"Arguments or fights between people","ar":"خلافات / مشاجرات","ex":"Talking calmly can solve most conflicts at work."},{"w":"stigma","p":"noun","m":"Feeling bad because of other people’s negative comments","ar":"وصمة عار / نظرة مجتمع سلبية","ex":"There is still stigma around asking for mental health help."}];
+const vocabExData=[{"q":"______ is the activity of growing flowers or plants.","opts":["Gardening","Meditation","Exercising"],"ans":0},{"q":"______ can help you become calm by controlling your breathing.","opts":["Gardening","Breathing techniques","Well-being"],"ans":1},{"q":"Running and dancing are my favorite ______ activities.","opts":["meditation","gardening","exercising"],"ans":2},{"q":"I will go to the yoga class tomorrow to try some ______.","opts":["gardening","meditation","anxiety"],"ans":1},{"q":"I always try to eat healthy food and stay happy for my ______.","opts":["well-being","conflicts","stigma"],"ans":0},{"q":"Exercise helps me ______ stress at work.","opts":["maintain","release","cope with"],"ans":2},{"q":"Learning a new skill can raise your ______.","opts":["self-esteem","anxiety","stigma"],"ans":0},{"q":"Deep breathing can reduce ______ before an exam.","opts":["well-being","anxiety","meditation"],"ans":1}];
+const grammarEx=[{"q":"______ early helps me focus during the day.","opts":["To wake up","Waking up","Wake up"],"ans":1},{"q":"I love movies, but ______ novels is also very interesting.","opts":["to read","read","reading"],"ans":2},{"q":"Slow music is a nice way ______.","opts":["to relax","relaxing","relax"],"ans":0},{"q":"She needs to care more about ______ time with her family.","opts":["spend","spending","to spend"],"ans":1},{"q":"He always goes for a walk ______ his mind.","opts":["clearing","clear","to clear"],"ans":2},{"q":"I’m getting tired. I need ______ a break.","opts":["to take","taking","take"],"ans":0},{"q":"To avoid ______, I go out with my friends on the weekend.","opts":["to be alone","being alone","be alone"],"ans":1},{"q":"I try ______ a lot about exams as it makes me nervous.","opts":["to not think","not thinking","not to think"],"ans":2},{"q":"We enjoy ______ because we let out our negative energy.","opts":["exercising","to exercise","exercise"],"ans":0},{"q":"I hope ______ abroad this summer. I need the vacation.","opts":["traveling","to travel","travel"],"ans":1}];
+const recapEx=[{"q":"Zain ______ code in Python very well.","opts":["will","can","is"],"ans":1},{"q":"Before she took lessons, she ______ swim.","opts":["couldn't","doesn't","isn't"],"ans":0},{"q":"Maria enjoys ______ new projects at work.","opts":["to manage","manage","managing"],"ans":2},{"q":"John decided ______ for the new position.","opts":["applying","to apply","apply"],"ans":1}];
+const listen1Data=[{"q":"What is the first relaxation tip mentioned?","opts":["Take a break","Focus on your breathing","Listen to music"],"ans":0},{"q":"Which breathing method is suggested?","opts":["Breathing in through your mouth","Breathing in through your nose and out through your mouth","Holding your breath for ten seconds"],"ans":1},{"q":"Which activity helps you focus when listening to music?","opts":["Keeping the volume low","Doing something else while listening","Dancing or singing along"],"ans":2},{"q":"Which is NOT a suggested way to relax?","opts":["Guided relaxation exercises","Competitive sports","Spending time in nature"],"ans":1},{"q":"What should you focus on when you picture a relaxing place?","opts":["The details of the place","The people around you","Your to-do list"],"ans":0}];
+const listen1TF=[{"q":"Active relaxation involves sitting still and meditating.","a":false},{"q":"Listening to music can help distract you from stressful thoughts.","a":true},{"q":"It is important to worry about the finished product when getting creative.","a":false},{"q":"Spending time in nature has no effect on your well-being.","a":false},{"q":"You should keep trying different relaxation techniques if one does not work.","a":true}];
+const listen2Data=[{"q":"What made Dr. Jones want to become a therapist?","opts":["She had to study psychology at college","She saw the need for people to take care of their mental health","She liked going out for walks"],"ans":1},{"q":"According to Dr. Jones, how can reading help people?","opts":["It helps their minds stay active","It helps them relax only","It helps them speak better"],"ans":0},{"q":"Writing is useful because it helps people ______.","opts":["improve their spelling and grammar","become better at public speaking","understand their thoughts and feelings"],"ans":2},{"q":"Physical exercise helps us to ______.","opts":["get rid of stress","learn new things","make friends"],"ans":0},{"q":"Which physical activity does Dr. Jones suggest?","opts":["Running","Walking","Jogging"],"ans":1},{"q":"What other activity does Dr. Jones suggest at the end?","opts":["Taking regular breaks from work","Making new friendships","Practicing hobbies we like regularly"],"ans":2}];
+const readingTF=[{"q":"A hot bath can help you relax after a long day.","a":true},{"q":"Reading is not a good way to relax.","a":false},{"q":"Meditation should be done for at least 30 minutes every day.","a":false},{"q":"Cleaning your home has no effect on your mental health.","a":false},{"q":"Being thankful can help you have a better mood.","a":true}];
+const readingQ=[{"q":"What is one benefit of having a healthy mind?","opts":["It helps you become faster","It helps you think clearly","It helps you become richer"],"ans":1,"hl":"q1"},{"q":"Which activity is NOT mentioned as a way to keep your mind healthy?","opts":["Gardening","Reading a book","Playing video games"],"ans":2,"hl":"q2"},{"q":"How long should you try to read each day?","opts":["15 minutes","30 minutes","1 hour"],"ans":0,"hl":"q3"},{"q":"What should you do during meditation?","opts":["Talk to someone","Think about your problems","Focus on your breathing"],"ans":2,"hl":"q4"},{"q":"Why is spending time with friends important?","opts":["It can make you feel better","It helps you save money","It helps you study better"],"ans":0,"hl":"q5"}];
+const quizData=[{"q":"Sitting quietly and focusing your mind = ?","opts":["gardening","meditation","exercising"],"ans":1,"cat":"Vocab"},{"q":"Being happy and healthy in body and mind = ?","opts":["well-being","anxiety","stigma"],"ans":0,"cat":"Vocab"},{"q":"The feeling of being worried and nervous = ?","opts":["self-esteem","conflicts","anxiety"],"ans":2,"cat":"Vocab"},{"q":"Growing plants, flowers, or vegetables = ?","opts":["gardening","meditation","breathing"],"ans":0,"cat":"Vocab"},{"q":"Deal with a difficult situation successfully = ?","opts":["maintain","cope with","release"],"ans":1,"cat":"Vocab"},{"q":"Keep something at a good level over time = ?","opts":["release","cope with","maintain"],"ans":2,"cat":"Vocab"},{"q":"I enjoy ______ before bed.","opts":["reading","to read","read"],"ans":0,"cat":"Grammar"},{"q":"I need ______ a break.","opts":["taking","to take","take"],"ans":1,"cat":"Grammar"},{"q":"To avoid ______ alone, I go out with friends.","opts":["to be","be","being"],"ans":2,"cat":"Grammar"},{"q":"I try ______ about exams too much.","opts":["not to think","to not think","not thinking"],"ans":0,"cat":"Grammar"},{"q":"Slow music is a nice way ______.","opts":["relaxing","to relax","relax"],"ans":1,"cat":"Grammar"},{"q":"Which spelling is correct?","opts":["runing","runnning","running"],"ans":2,"cat":"Grammar"},{"q":"lie + ing = ?","opts":["lying","lieing","liing"],"ans":0,"cat":"Grammar"},{"q":"Which verb NEVER takes \"to\"?","opts":["decide","enjoy","hope"],"ans":1,"cat":"Concepts"},{"q":"In the negative infinitive, \"not\" goes ______.","opts":["after \"to\"","before \"to\"","at the end"],"ans":1,"cat":"Concepts"},{"q":"Which physical activity does Dr. Jones suggest?","opts":["Walking","Running","Swimming"],"ans":0,"cat":"Listening"},{"q":"According to Dr. Jones, reading helps ______.","opts":["your spelling","your mind stay active","you sleep"],"ans":1,"cat":"Listening"},{"q":"What is the first relaxation tip in the video?","opts":["Listen to music","Take a break","Meditate"],"ans":1,"cat":"Listening"},{"q":"How long should you read each day?","opts":["15 minutes","30 minutes","1 hour"],"ans":0,"cat":"Reading"},{"q":"How long should you meditate each day?","opts":["30 minutes","5 to 10 minutes","1 hour"],"ans":1,"cat":"Reading"}];
+const readingMistakes=[];
+const memeWrong=[{"e":"😅","t":"Oops! Try again!"},{"e":"🤦","t":"Nice try! Check above!"},{"e":"😬","t":"Almost there!"},{"e":"🙈","t":"Not quite!"},{"e":"😭","t":"So close! Review it!"},{"e":"😵","t":"Confused? Scroll up!"},{"e":"🤡","t":"Clown answer detected!"},{"e":"🦥","t":"Slow down and think!"}];
+const memeRight=[{"e":"🎉","t":"YESSS! Nailed it!"},{"e":"🌟","t":"Star student right here!"},{"e":"🔥","t":"You're on FIRE!"},{"e":"💪","t":"Big brain energy!"},{"e":"🏆","t":"Champion move!"},{"e":"✨","t":"Absolutely brilliant!"},{"e":"🚀","t":"Unstoppable!"},{"e":"👑","t":"Crown this genius!"}];
+let quizScore=0,quizAnswered=0;
+
+function buildVocabCards(data,cid){const c=document.getElementById(cid);if(!c)return;data.forEach(v=>{const d=document.createElement('div');d.className='vocab-card';d.onclick=e=>{if(e.target.classList.contains('tts-btn'))return;d.classList.toggle('flipped');updateSB()};const sw=v.w.replace(/'/g,"\\'");d.innerHTML='<div class="vocab-inner"><div class="vocab-front"><div class="word">'+v.w+' <button class="tts-btn" onclick="event.stopPropagation();speak(\''+sw+'\',this)">\u{1F50A}</button></div><div class="pos">'+v.p+'</div><div class="hint">Tap to flip</div></div><div class="vocab-back"><div class="meaning">'+v.m+'</div><div class="arabic">'+v.ar+'</div><div class="example">"'+v.ex+'"</div></div></div>';c.appendChild(d)})}
+function buildVocabEx(){const c=document.getElementById('vocab-ex-rows');vocabExData.forEach((ex,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='vq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+ex.q+'</div>'+ex.opts.map((o,j)=>'<button class="quiz-option" onclick="checkVocabQ('+i+','+j+')">'+o+'</button>').join('');c.appendChild(d)})}
+function checkVocabQ(qi,oi){const d=document.getElementById('vq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);oi===vocabExData[qi].ans?b[oi].classList.add('correct'):(b[oi].classList.add('wrong'),b[vocabExData[qi].ans].classList.add('correct'))}
+function checkVocabEx(){let s=0;vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);if(d.querySelector('.correct')&&!d.querySelector('.wrong'))s++});const r=document.getElementById('vocab-result');r.innerHTML=(s===vocabExData.length?'Perfect! ':'Good effort! ')+s+'/'+vocabExData.length;r.style.color=s>=Math.ceil(vocabExData.length*0.7)?'var(--green)':'var(--red)'}
+function retryVocabEx(){vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false})});document.getElementById('vocab-result').innerHTML=''}
+function buildMCQ(data,containerId,prefix){const c=document.getElementById(containerId);if(!c)return;data.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id=prefix+'-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkMCQ(\''+prefix+'\','+i+','+j+')">'+o+'</button>').join('')+'<div class="mcq-feedback" id="'+prefix+'fb-'+i+'"></div>';c.appendChild(d)})}
+function getMCQData(p){if(p==='l1q')return listen1Data;if(p==='l2q')return listen2Data;if(p==='rq')return readingQ;return readingQ}
+function checkMCQ(prefix,qi,oi){const data=getMCQData(prefix);const d=document.getElementById(prefix+'-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const fb=document.getElementById(prefix+'fb-'+qi);if(oi===data[qi].ans){b[oi].classList.add('correct');fb.innerHTML='Correct!';fb.style.background='var(--green-light)';fb.style.color='var(--green)'}else{b[oi].classList.add('wrong');b[data[qi].ans].classList.add('correct');fb.innerHTML='Correct: <strong>'+data[qi].opts[data[qi].ans]+'</strong>';fb.style.background='var(--red-light)';fb.style.color='var(--red)';d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500);if(prefix==='rq'&&data[qi].hl){const hl=document.querySelector('.highlight[data-q="'+data[qi].hl+'"]');if(hl)hl.classList.add('active');readingMistakes.push({q:data[qi].q,c:data[qi].opts[data[qi].ans]});updateMistakes()}}fb.classList.add('show')}
+function buildTF(data,containerId,prefix){const c=document.getElementById(containerId);if(!c)return;data.forEach((item,i)=>{const d=document.createElement('div');d.className='fill-row';d.id=prefix+'-'+i;d.setAttribute('data-answered','false');d.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+item.q+'</span><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--green);color:#fff;margin-left:auto" onclick="checkTFG(\''+prefix+'\','+i+',true)">True</button><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--red);color:#fff" onclick="checkTFG(\''+prefix+'\','+i+',false)">False</button><span class="result" id="'+prefix+'r-'+i+'"></span>';c.appendChild(d)})}
+function getTFData(p){if(p==='l1tf')return listen1TF;if(p==='rtf')return readingTF;return readingTF}
+function checkTFG(prefix,i,a){const data=getTFData(prefix);const r=document.getElementById(prefix+'-'+i);if(r.getAttribute('data-answered')==='true')return;r.setAttribute('data-answered','true');const res=document.getElementById(prefix+'r-'+i);if(a===data[i].a){res.textContent='Correct';res.style.color='var(--green)';r.style.borderColor='var(--green)';r.style.background='var(--green-light)'}else{res.textContent='Wrong: '+(data[i].a?'True':'False');res.style.color='var(--red)';r.style.borderColor='var(--red)';r.style.background='var(--red-light)';r.classList.add('shake');setTimeout(()=>r.classList.remove('shake'),500)}}
+function buildRecap(){const c=document.getElementById('recap-exercises');if(!c||typeof recapEx==='undefined')return;recapEx.forEach((ex,i)=>{const row=document.createElement('div');row.className='fill-row';row.id='rex-'+i;row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('______','<select id="rsel-'+i+'"><option value="">—</option>'+ex.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>')+'</span><span class="result" id="rres-'+i+'"></span>';c.appendChild(row)})}
+function checkRecap(){let n=0;recapEx.forEach((ex,i)=>{const s=document.getElementById('rsel-'+i),r=document.getElementById('rres-'+i),row=document.getElementById('rex-'+i);if(s.value===ex.opts[ex.ans]){n++;r.textContent='Correct';r.style.color='var(--green)';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}else{r.textContent='Wrong';r.style.color='var(--red)';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}});document.getElementById('recap-score').textContent=n+'/'+recapEx.length}
+function retryRecap(){recapEx.forEach((e,i)=>{document.getElementById('rsel-'+i).value='';document.getElementById('rres-'+i).textContent='';const r=document.getElementById('rex-'+i);r.style.borderColor='var(--border)';r.style.background=''});document.getElementById('recap-score').textContent=''}
+function buildGrammar(){const c=document.getElementById('grammar-exercises');grammarEx.forEach((ex,i)=>{const row=document.createElement('div');row.className='fill-row';row.id='gex-'+i;row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('______','<select id="gsel-'+i+'"><option value="">—</option>'+ex.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>')+'</span><span class="result" id="gres-'+i+'"></span>';c.appendChild(row)})}
+function checkGrammar(){let n=0;grammarEx.forEach((ex,i)=>{const s=document.getElementById('gsel-'+i),r=document.getElementById('gres-'+i),row=document.getElementById('gex-'+i);if(s.value===ex.opts[ex.ans]){n++;r.textContent='Correct';r.style.color='var(--green)';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}else{r.textContent='Wrong';r.style.color='var(--red)';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}});document.getElementById('grammar-score').textContent=n+'/'+grammarEx.length;document.getElementById('sb-grammar').textContent=n+'/'+grammarEx.length}
+function retryGrammar(){grammarEx.forEach((e,i)=>{document.getElementById('gsel-'+i).value='';document.getElementById('gres-'+i).textContent='';const r=document.getElementById('gex-'+i);r.style.borderColor='var(--border)';r.style.background=''});document.getElementById('grammar-score').textContent=''}
+function updateMistakes(){if(!readingMistakes.length)return;document.getElementById('readingMistakes').classList.remove('hidden');const l=document.getElementById('mistakesList');l.innerHTML='';readingMistakes.forEach((m,i)=>{l.innerHTML+='<div style="padding:8px 0;border-bottom:1px solid rgba(217,79,79,0.2);font-size:0.85rem"><strong>Q'+(i+1)+':</strong> '+m.q+'<br><span style="color:var(--green)">Correct: '+m.c+'</span></div>'})}
+function toggleRole(id){document.getElementById(id+'-convo').classList.toggle('show')}
+function buildQuiz(){const c=document.getElementById('quiz-container');quizData.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='qq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+' — '+q.cat+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkQuizQ('+i+','+j+')">'+o+'</button>').join('')+'<div class="quiz-meme" id="qm-'+i+'"></div>';c.appendChild(d)})}
+function checkQuizQ(qi,oi){const d=document.getElementById('qq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');quizAnswered++;const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const mm=document.getElementById('qm-'+qi);if(oi===quizData[qi].ans){b[oi].classList.add('correct');quizScore++;const m=memeRight[Math.floor(Math.random()*memeRight.length)];mm.className='quiz-meme meme-correct show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;createConfetti(d)}else{b[oi].classList.add('wrong');b[quizData[qi].ans].classList.add('correct');const m=memeWrong[Math.floor(Math.random()*memeWrong.length)];mm.className='quiz-meme meme-wrong show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500)}document.getElementById('sb-quiz').textContent=quizScore+'/'+quizData.length}
+function createConfetti(p){const colors=['#e8a838','#f472b6','#60a5fa','#2d9d78','#e74c3c','#a78bfa'];for(let i=0;i<10;i++){const c=document.createElement('div');c.className='confetti-piece';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.left=Math.random()*100+'%';c.style.top='-10px';c.style.animationDelay=Math.random()*0.3+'s';p.style.position='relative';p.appendChild(c);setTimeout(()=>c.remove(),2000)}}
+function showQuizScore(){const r=document.getElementById('quiz-final');r.classList.remove('hidden');const pct=Math.round(quizScore/quizData.length*100);let msg='',col='';if(pct>=90){msg="You're a WELL-BEING EXPERT!";col='var(--green)'}else if(pct>=70){msg='Great job!';col='var(--accent)'}else if(pct>=50){msg='Good effort! Review!';col='var(--blue)'}else{msg="Don't worry! Try again!";col='var(--red)'}r.innerHTML='<div style="font-family:Fredoka,sans-serif;font-size:2.5rem;font-weight:700;color:'+col+'">'+quizScore+'/'+quizData.length+'</div><div style="font-size:1.1rem;margin-top:6px">'+pct+'% — '+msg+'</div>';r.style.borderColor=col}
+function retryQuiz(){quizScore=0;quizAnswered=0;document.getElementById('sb-quiz').textContent='0/'+quizData.length;document.getElementById('quiz-final').classList.add('hidden');quizData.forEach((q,i)=>{const d=document.getElementById('qq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false});const m=document.getElementById('qm-'+i);m.className='quiz-meme';m.innerHTML=''})}
+function updateEmailWC(){const w=document.getElementById('email-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('email-wc').textContent=w;updateSB()}
+function updateWritingWC(){const w=document.getElementById('writing-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('writing-wc').textContent=w;updateSB()}
+function updateEmailCheck(){const ch=document.querySelectorAll('#email-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('email-check-result');r.innerHTML=n===ch.length?'All checked! Great email!':n+'/'+ch.length+' checked';r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+function updateWritingCheck(){const ch=document.querySelectorAll('#writing-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('writing-check-result');r.innerHTML=n===ch.length?'All checked!':n+'/'+ch.length+' checked';r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+function saveNotes(){try{localStorage.setItem('s3_classNotes',document.getElementById('classNotes').value);localStorage.setItem('s3_difficultWords',document.getElementById('difficultWords').value);localStorage.setItem('s3_teacherQuestions',document.getElementById('teacherQuestions').value)}catch(e){}}
+function loadNotes(){try{document.getElementById('classNotes').value=localStorage.getItem('s3_classNotes')||'';document.getElementById('difficultWords').value=localStorage.getItem('s3_difficultWords')||'';document.getElementById('teacherQuestions').value=localStorage.getItem('s3_teacherQuestions')||''}catch(e){}}
+function updateTracker(){const ch=document.querySelectorAll('#progressChecks input');let n=0;const st={};ch.forEach(c=>{if(c.checked)n++;st[c.dataset.sec]=c.checked});const pct=Math.round(n/ch.length*100);document.getElementById('trackerFill').style.width=pct+'%';document.getElementById('trackerText').textContent=n+' of '+ch.length+' completed';try{localStorage.setItem('s3_tracker',JSON.stringify(st))}catch(e){}}
+function loadTracker(){try{const st=JSON.parse(localStorage.getItem('s3_tracker')||'{}');document.querySelectorAll('#progressChecks input').forEach(c=>{if(st[c.dataset.sec])c.checked=true});updateTracker()}catch(e){}}
+function updateSB(){document.getElementById('sb-cards').textContent=document.querySelectorAll('.vocab-card.flipped').length;const ew=parseInt(document.getElementById('email-wc')?.textContent||0);const ww=parseInt(document.getElementById('writing-wc')?.textContent||0);document.getElementById('sb-words').textContent=ew+ww}
+window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;if(h>0){const p=Math.min(scrollY/h*100,100);document.getElementById('progress-fill').style.width=p+'%';document.getElementById('progress-pct').textContent=Math.round(p)+'%'}});
+document.addEventListener('DOMContentLoaded',()=>{buildRecap();buildVocabCards(coreVocab,'vg-core');buildVocabCards(relaxVocab,'vg-relax');buildVocabCards(feelVocab,'vg-feel');buildVocabEx();buildMCQ(listen1Data,'listen1-questions','l1q');buildMCQ(listen2Data,'listen2-questions','l2q');buildMCQ(readingQ,'reading-questions','rq');buildTF(listen1TF,'listen1-tf','l1tf');buildTF(readingTF,'reading-tf','rtf');buildGrammar();buildQuiz();loadNotes();loadTracker()});
+</script>
+</body>
+</html>
