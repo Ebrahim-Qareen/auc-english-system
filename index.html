@@ -22,7 +22,9 @@
   .level-a2a::before{background:linear-gradient(90deg,#a78bfa,#f472b6)}
   .level-a2b::before{background:linear-gradient(90deg,#38bdf8,#fbbf24)}
   .level:hover{transform:translateY(-5px)}
+  .level-a2a:hover{border-color:var(--a2a);box-shadow:0 12px 36px rgba(167,139,250,0.22)}
   .level-a2b:hover{border-color:var(--a2b);box-shadow:0 12px 36px rgba(56,189,248,0.22)}
+  .enter-a2a{background:rgba(167,139,250,0.14);color:var(--a2a)}
   .level.soon{opacity:0.55;border-style:dashed;cursor:default}
   .level.soon:hover{transform:none;box-shadow:none}
   .level.soon::after{content:'COMING SOON';position:absolute;top:14px;right:16px;font-size:0.6rem;font-weight:700;color:var(--text-dim);background:rgba(148,163,184,0.12);padding:3px 9px;border-radius:6px;letter-spacing:1px}
@@ -66,7 +68,7 @@
 
   <div class="levels">
 
-    <div class="level level-a2a soon">
+    <a href="a2a/index.html" class="level level-a2a">
       <span class="level-badge badge-a2a">LEVEL A2A</span>
       <h2>A2A</h2>
       <div class="desc">Birthdays, food, friendship, social media, emotions, money, and fashion.</div>
@@ -77,10 +79,10 @@
       </div>
       <div class="progress-mini">
         <div class="bar"><div class="fill fill-a2a"></div></div>
-        <div class="txt">12 of 12 &mdash; uploading next</div>
+        <div class="txt">12 of 12 &mdash; complete</div>
       </div>
-      <span class="enter enter-soon">Coming soon</span>
-    </div>
+      <span class="enter enter-a2a">Enter A2A &rarr;</span>
+    </a>
 
     <a href="a2b/index.html" class="level level-a2b">
       <span class="level-badge badge-a2b">LEVEL A2B</span>

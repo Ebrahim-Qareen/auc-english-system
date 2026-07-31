@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kahoot! — Session 1: Birthdays</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+  :root{--bg:#1a0a2e;--card:rgba(255,255,255,0.06);--red:#e21b3c;--blue:#1368ce;--gold:#d89e00;--green:#26890c;--text:#fff;--text-dim:rgba(255,255,255,0.6);--radius:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;overflow-x:hidden}
+  h1,h2,h3{font-family:'Fredoka',sans-serif}
+  .screen{display:none;width:100%;max-width:700px;padding:20px;flex-direction:column;align-items:center}
+  .screen.active{display:flex}
+  .logo{font-size:2.5rem;margin-bottom:6px}
+  .title{font-size:2rem;font-weight:700;background:linear-gradient(90deg,var(--red),var(--blue),var(--gold),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+  .subtitle{color:var(--text-dim);font-size:0.95rem;margin-bottom:20px}
+  .input-name{width:100%;max-width:400px;padding:14px 20px;border:2px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);border-radius:12px;color:#fff;font-size:1rem;font-family:'Inter',sans-serif;text-align:center;margin-bottom:16px}
+  .input-name::placeholder{color:rgba(255,255,255,0.3)}
+  .input-name:focus{outline:none;border-color:var(--blue)}
+  .diff-grid{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;justify-content:center}
+  .diff-btn{padding:14px 28px;border:2px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);border-radius:14px;color:#fff;font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.3s;text-align:center;min-width:140px}
+  .diff-btn:hover{transform:translateY(-3px);border-color:var(--blue)}
+  .diff-btn.selected{border-color:var(--gold);background:rgba(216,158,0,0.15)}
+  .diff-btn .qs{font-size:0.75rem;color:var(--text-dim);margin-top:2px;font-family:'Inter',sans-serif}
+  .start-btn{padding:16px 50px;border:none;border-radius:14px;font-family:'Fredoka',sans-serif;font-size:1.2rem;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--red),#ff6b6b);color:#fff;transition:all 0.3s;margin-top:8px}
+  .start-btn:hover{transform:scale(1.05)}
+  .start-btn:disabled{opacity:0.4;cursor:default;transform:none}
+  .top-bar{width:100%;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px}
+  .q-counter{font-family:'Fredoka',sans-serif;font-size:0.9rem;color:var(--text-dim)}
+  .score-display{font-family:'Fredoka',sans-serif;font-size:1rem;color:var(--gold)}
+  .streak-badge{font-size:0.78rem;padding:3px 10px;border-radius:8px;font-weight:600;margin-left:8px}
+  .timer-bar{width:100%;height:8px;background:rgba(255,255,255,0.1);border-radius:4px;overflow:hidden;margin-bottom:16px}
+  .timer-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--gold),var(--red));border-radius:4px;transition:width 0.1s linear;width:100%}
+  .timer-text{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;color:var(--gold);text-align:center;margin-bottom:8px}
+  .question-card{background:var(--card);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:28px 24px;text-align:center;width:100%;margin-bottom:16px}
+  .question-card h2{font-size:1.15rem;line-height:1.6}
+  .options-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+  .opt-btn{padding:18px 14px;border:none;border-radius:14px;font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:600;color:#fff;cursor:pointer;transition:all 0.2s;text-align:center;line-height:1.4}
+  .opt-btn:hover:not(:disabled){transform:scale(1.02);filter:brightness(1.1)}
+  .opt-btn:disabled{cursor:default;opacity:0.7}
+  .opt-btn.c0{background:var(--red)}.opt-btn.c1{background:var(--blue)}.opt-btn.c2{background:var(--gold)}.opt-btn.c3{background:var(--green)}
+  .opt-btn.correct-ans{box-shadow:0 0 0 4px #fff,0 0 20px rgba(38,137,12,0.5);transform:scale(1.05)}
+  .opt-btn.wrong-ans{opacity:0.4;transform:scale(0.95)}
+  .feedback{text-align:center;margin-top:12px;font-family:'Fredoka',sans-serif;font-size:1.1rem;min-height:30px}
+  .fb-correct{color:var(--green)}.fb-wrong{color:var(--red)}
+  .results-card{background:var(--card);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:30px 24px;text-align:center;width:100%;margin-bottom:16px}
+  .final-score{font-family:'Fredoka',sans-serif;font-size:3rem;font-weight:700;color:var(--gold);margin:12px 0}
+  .lb-table{width:100%;border-collapse:collapse;margin-top:12px}
+  .lb-table th{font-family:'Fredoka',sans-serif;font-size:0.78rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;padding:8px;border-bottom:1px solid rgba(255,255,255,0.1)}
+  .lb-table td{padding:8px;font-size:0.88rem;border-bottom:1px solid rgba(255,255,255,0.05)}
+  .lb-table tr.me td{color:var(--gold);font-weight:700}
+  .action-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+  .action-btn{padding:12px 28px;border:none;border-radius:12px;font-family:'Fredoka',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.2s}
+  .action-btn:hover{transform:scale(1.05)}
+  .btn-replay{background:var(--blue);color:#fff}.btn-back{background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.15)}
+  .confetti-piece{position:fixed;width:10px;height:10px;border-radius:2px;pointer-events:none;animation:confetti-fall 2s ease-out forwards;z-index:100}
+  @keyframes confetti-fall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}
+  .shake{animation:shake 0.4s}
+  @media(max-width:500px){.options-grid{grid-template-columns:1fr}.title{font-size:1.5rem}.opt-btn{padding:14px 10px;font-size:0.85rem}}
+</style>
+</head>
+<body>
+
+<!-- START SCREEN -->
+<div class="screen active" id="startScreen">
+  <div class="logo">&#x1F3AE;</div>
+  <div class="title">Kahoot! Session 1</div>
+  <div class="subtitle">Birthdays — will / won't &amp; going to</div>
+  <input class="input-name" id="playerName" placeholder="Enter your name..." maxlength="20">
+  <div class="diff-grid">
+    <div class="diff-btn" onclick="selectDiff('easy',this)"><div>&#x1F7E2; Easy</div><div class="qs">8 questions</div></div>
+    <div class="diff-btn" onclick="selectDiff('medium',this)"><div>&#x1F7E1; Medium</div><div class="qs">15 questions</div></div>
+    <div class="diff-btn" onclick="selectDiff('hard',this)"><div>&#x1F534; Hard</div><div class="qs">20 questions</div></div>
+  </div>
+  <button class="start-btn" id="startBtn" disabled onclick="startGame()">Play! &#x1F680;</button>
+</div>
+
+<!-- GAME SCREEN -->
+<div class="screen" id="gameScreen">
+  <div class="top-bar">
+    <div class="q-counter" id="qCounter">1 / 20</div>
+    <div><span class="score-display" id="scoreDisplay">0 pts</span><span class="streak-badge" id="streakBadge" style="display:none"></span></div>
+  </div>
+  <div class="timer-bar"><div class="timer-fill" id="timerFill"></div></div>
+  <div class="timer-text" id="timerText">15</div>
+  <div class="question-card"><h2 id="questionText"></h2></div>
+  <div class="options-grid" id="optionsGrid"></div>
+  <div class="feedback" id="feedback"></div>
+</div>
+
+<!-- RESULTS SCREEN -->
+<div class="screen" id="resultsScreen">
+  <div class="results-card">
+    <div class="logo">&#x1F3C6;</div>
+    <h2 id="resultTitle"></h2>
+    <div class="final-score" id="finalScore"></div>
+    <p id="resultDetail" style="color:var(--text-dim);font-size:0.9rem"></p>
+  </div>
+  <div class="results-card">
+    <h3 style="margin-bottom:8px">&#x1F3C5; Leaderboard — Top 10</h3>
+    <table class="lb-table"><thead><tr><th>#</th><th>Name</th><th>Score</th><th>Mode</th></tr></thead><tbody id="lbBody"></tbody></table>
+  </div>
+  <div class="action-btns">
+    <button class="action-btn btn-replay" onclick="location.reload()">Play Again &#x1F504;</button>
+    <a href="session-1.html" class="action-btn btn-back" style="text-decoration:none">&#x1F4D6; Back to Session 1</a>
+  </div>
+</div>
+
+<script>
+const ALL_Q=[
+  {q:"Which sentence uses 'will' correctly?",opts:["I will to go to the party.","She will goes tomorrow.","We will celebrate your birthday.","He will going to come."],ans:2},
+  {q:"Choose the correct 'going to' sentence:",opts:["I going to have a party.","She is going to bake a cake.","They going to dance.","He are going to come."],ans:1},
+  {q:"'I promise I ___ help you.'",opts:["going to","am going to","will","am will"],ans:2},
+  {q:"What does 'invitation' mean?",opts:["A type of cake","A request to come to an event","A decoration","A birthday song"],ans:1},
+  {q:"Which word means 'a person at your party'?",opts:["Host","Occasion","Guest","Surprise"],ans:2},
+  {q:"'We ___ going to decorate the room.'",opts:["will","is","am","are"],ans:3},
+  {q:"Which is INCORRECT?",opts:["I will help you.","She will go.","He will comes.","They won't be late."],ans:2},
+  {q:"'Blow out' means:",opts:["To eat quickly","Push air to stop candles","To throw a party","To open presents"],ans:1},
+  {q:"She ___ come. She is sick. (negative)",opts:["will","won't","isn't going","going to"],ans:1},
+  {q:"'Crash a party' means:",opts:["Break things","Come uninvited","End early","Plan a party"],ans:1},
+  {q:"Which month comes after March?",opts:["February","May","April","January"],ans:2},
+  {q:"'A whale of a time' means:",opts:["Seeing a whale","Having a great time","Being late","Swimming"],ans:1},
+  {q:"'I ___ going to have a party on Saturday.'",opts:["will","is","am","are"],ans:2},
+  {q:"A 'wallflower' at a party is:",opts:["A decoration","A type of cake","A shy person","The host"],ans:2},
+  {q:"Best response to 'Will you come?':",opts:["Yes, I will!","Yes, I going.","Yes, I will to come.","Yes, I am will."],ans:0},
+  {q:"'Let your hair down' means:",opts:["Cut your hair","Relax and enjoy","Leave the party","Feel sad"],ans:1},
+  {q:"'There ___ be music at the party.'",opts:["going","is going to","will","are"],ans:2},
+  {q:"What is a 'present'?",opts:["A type of music","The current time","A gift","A party game"],ans:2},
+  {q:"'___ you going to invite Sara?'",opts:["Will","Are","Is","Do"],ans:1},
+  {q:"Which uses 'won't' correctly?",opts:["I won't to go.","She won't comes.","He won't forget your birthday.","They won't going."],ans:2}
+];
+
+let difficulty='',gameQs=[],qi=0,score=0,streak=0,timer=null,timeLeft=15,playerN='';
+const DIFF_MAP={easy:8,medium:15,hard:20};
+const STREAK_MULT={2:2,5:3,8:5};
+const LB_KEY='s1_kahoot_lb';
+
+function selectDiff(d,el){
+  difficulty=d;
+  document.querySelectorAll('.diff-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  checkReady();
+}
+function checkReady(){
+  document.getElementById('startBtn').disabled=!(difficulty&&document.getElementById('playerName').value.trim());
+}
+document.getElementById('playerName').addEventListener('input',checkReady);
+
+function startGame(){
+  playerN=document.getElementById('playerName').value.trim()||'Player';
+  const n=DIFF_MAP[difficulty];
+  gameQs=[...ALL_Q].sort(()=>Math.random()-0.5).slice(0,n);
+  qi=0;score=0;streak=0;
+  showScreen('gameScreen');
+  showQuestion();
+}
+
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function showQuestion(){
+  if(qi>=gameQs.length){endGame();return;}
+  const q=gameQs[qi];
+  document.getElementById('qCounter').textContent=`${qi+1} / ${gameQs.length}`;
+  document.getElementById('scoreDisplay').textContent=score+' pts';
+  document.getElementById('questionText').textContent=q.q;
+  document.getElementById('feedback').textContent='';
+  updateStreakBadge();
+  const grid=document.getElementById('optionsGrid');grid.innerHTML='';
+  q.opts.forEach((o,j)=>{
+    const b=document.createElement('button');b.className=`opt-btn c${j}`;b.textContent=o;
+    b.onclick=()=>answer(j,b);grid.appendChild(b);
+  });
+  timeLeft=15;
+  document.getElementById('timerText').textContent='15';
+  document.getElementById('timerFill').style.width='100%';
+  clearInterval(timer);
+  timer=setInterval(()=>{
+    timeLeft-=0.1;
+    if(timeLeft<=0){clearInterval(timer);timeUp();}
+    else{
+      document.getElementById('timerFill').style.width=(timeLeft/15*100)+'%';
+      document.getElementById('timerText').textContent=Math.ceil(timeLeft);
+    }
+  },100);
+}
+
+function answer(ai,btn){
+  clearInterval(timer);
+  const q=gameQs[qi];
+  const btns=document.querySelectorAll('.opt-btn');
+  btns.forEach(b=>b.disabled=true);
+  if(ai===q.ans){
+    btn.classList.add('correct-ans');
+    streak++;
+    let mult=1;
+    if(streak>=8)mult=5;else if(streak>=5)mult=3;else if(streak>=2)mult=2;
+    const pts=Math.round((100+timeLeft*20)*mult);
+    score+=pts;
+    document.getElementById('feedback').innerHTML=`<span class="fb-correct">&#x2705; +${pts} pts${mult>1?' ('+mult+'x streak!)':''}</span>`;
+    miniConfetti();
+  }else{
+    btn.classList.add('wrong-ans');btn.classList.add('shake');
+    btns[q.ans].classList.add('correct-ans');
+    streak=0;
+    document.getElementById('feedback').innerHTML=`<span class="fb-wrong">&#x274C; Correct: ${q.opts[q.ans]}</span>`;
+  }
+  updateStreakBadge();
+  document.getElementById('scoreDisplay').textContent=score+' pts';
+  setTimeout(()=>{qi++;showQuestion();},1800);
+}
+
+function timeUp(){
+  const btns=document.querySelectorAll('.opt-btn');
+  btns.forEach(b=>b.disabled=true);
+  btns[gameQs[qi].ans].classList.add('correct-ans');
+  streak=0;updateStreakBadge();
+  document.getElementById('feedback').innerHTML=`<span class="fb-wrong">&#x23F0; Time's up! Answer: ${gameQs[qi].opts[gameQs[qi].ans]}</span>`;
+  setTimeout(()=>{qi++;showQuestion();},1800);
+}
+
+function updateStreakBadge(){
+  const b=document.getElementById('streakBadge');
+  if(streak>=8){b.style.display='inline';b.textContent='&#x1F525; 5x';b.style.background='rgba(226,27,60,0.2)';b.style.color='#ff6b6b';}
+  else if(streak>=5){b.style.display='inline';b.textContent='&#x26A1; 3x';b.style.background='rgba(216,158,0,0.2)';b.style.color='var(--gold)';}
+  else if(streak>=2){b.style.display='inline';b.textContent='&#x1F525; 2x';b.style.background='rgba(19,104,206,0.2)';b.style.color='var(--blue)';}
+  else{b.style.display='none';}
+}
+
+function endGame(){
+  showScreen('resultsScreen');
+  document.getElementById('finalScore').textContent=score+' pts';
+  const pct=Math.round(score/(gameQs.length*400)*100);
+  let title;
+  if(pct>=80)title='&#x1F389; Amazing!';else if(pct>=50)title='&#x1F31F; Great Job!';else title='&#x1F4AA; Keep Trying!';
+  document.getElementById('resultTitle').innerHTML=title;
+  document.getElementById('resultDetail').textContent=`${difficulty.toUpperCase()} mode — ${gameQs.length} questions`;
+  saveLB();renderLB();bigConfetti();
+}
+
+function saveLB(){
+  let lb=JSON.parse(localStorage.getItem(LB_KEY)||'[]');
+  lb.push({name:playerN,score:score,diff:difficulty,date:new Date().toLocaleDateString()});
+  lb.sort((a,b)=>b.score-a.score);lb=lb.slice(0,10);
+  localStorage.setItem(LB_KEY,JSON.stringify(lb));
+}
+function renderLB(){
+  const lb=JSON.parse(localStorage.getItem(LB_KEY)||'[]');
+  const body=document.getElementById('lbBody');body.innerHTML='';
+  lb.forEach((e,i)=>{
+    const tr=document.createElement('tr');
+    if(e.name===playerN&&e.score===score)tr.className='me';
+    tr.innerHTML=`<td>${i===0?'&#x1F947;':i===1?'&#x1F948;':i===2?'&#x1F949;':i+1}</td><td>${e.name}</td><td>${e.score}</td><td style="text-transform:capitalize">${e.diff}</td>`;
+    body.appendChild(tr);
+  });
+}
+
+function miniConfetti(){
+  const colors=['#e21b3c','#1368ce','#d89e00','#26890c','#ff6b6b','#60a5fa'];
+  for(let i=0;i<12;i++){
+    const p=document.createElement('div');p.className='confetti-piece';
+    p.style.left=Math.random()*window.innerWidth+'px';p.style.top='-10px';
+    p.style.background=colors[Math.floor(Math.random()*colors.length)];
+    p.style.animationDuration=1.5+Math.random()+'s';
+    document.body.appendChild(p);setTimeout(()=>p.remove(),2500);
+  }
+}
+function bigConfetti(){for(let i=0;i<40;i++)setTimeout(()=>miniConfetti(),i*50);}
+</script>
+</body>
+</html>

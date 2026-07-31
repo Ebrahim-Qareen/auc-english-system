@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AUC A2A Quiz Challenge</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0f0f1a;--card:#1a1a2e;--border:#2a2a4a;
+  --accent:#a78bfa;--accent-light:rgba(167,139,250,0.12);
+  --pink:#f472b6;--green:#34d399;--blue:#60a5fa;
+  --text:#e2e8f0;--text-dim:#94a3b8;
+  --shadow:0 4px 15px rgba(0,0,0,0.3);
+  --kahoot-red:#e21b3c;--kahoot-blue:#1368ce;
+  --kahoot-yellow:#d89e00;--kahoot-green:#26890c;
+}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px}
+.container{max-width:700px;width:100%;margin:0 auto}
+h1,h2,h3,.fredoka{font-family:'Fredoka',sans-serif}
+
+/* ===== SCREENS ===== */
+.screen{display:none;width:100%;animation:fadeIn .4s ease}
+.screen.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== WELCOME ===== */
+.welcome-hero{text-align:center;padding:44px 24px 36px;background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);border-radius:24px;margin-bottom:28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.welcome-hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(167,139,250,0.08) 0%,transparent 70%);animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.welcome-hero h1{font-size:2.4rem;font-weight:700;background:linear-gradient(135deg,#a78bfa,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.welcome-hero p{color:var(--text-dim);font-size:1rem}
+.welcome-hero .emoji-row{font-size:2rem;margin-top:10px;letter-spacing:8px}
+
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-weight:700;margin-bottom:6px;font-size:.92rem;color:var(--accent)}
+.form-group input,.form-group select{width:100%;padding:14px 16px;border-radius:14px;border:2px solid var(--border);background:var(--card);color:var(--text);font-family:'Nunito',sans-serif;font-size:1rem;outline:none;transition:border .3s}
+.form-group input:focus,.form-group select:focus{border-color:var(--accent)}
+.form-group select option{background:var(--card);color:var(--text)}
+
+.btn{display:block;width:100%;padding:16px;border:none;border-radius:16px;font-family:'Fredoka',sans-serif;font-size:1.2rem;font-weight:700;cursor:pointer;transition:all .25s;text-align:center;text-decoration:none}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:linear-gradient(135deg,#a78bfa,#8b5cf6);color:#fff;box-shadow:0 4px 20px rgba(139,92,246,0.4)}
+.btn-primary:hover{box-shadow:0 6px 28px rgba(139,92,246,0.55);transform:translateY(-2px)}
+.btn-secondary{background:var(--card);color:var(--accent);border:2px solid var(--border);font-size:1rem;padding:12px}
+.btn-secondary:hover{border-color:var(--accent)}
+.btn-small{width:auto;display:inline-block;padding:10px 22px;font-size:.95rem;border-radius:12px}
+
+.difficulty-row{display:flex;gap:10px;margin-bottom:18px}
+.diff-btn{flex:1;padding:12px 8px;border-radius:14px;border:2px solid var(--border);background:var(--card);color:var(--text-dim);font-family:'Fredoka',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;transition:all .25s;text-align:center}
+.diff-btn.active{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.diff-btn:hover{border-color:var(--accent)}
+
+/* Leaderboard preview */
+.lb-preview{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;margin-top:24px}
+.lb-preview h3{font-size:1rem;color:var(--accent);margin-bottom:12px;text-align:center}
+.lb-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--border)}
+.lb-row:last-child{border-bottom:none}
+.lb-medal{font-size:1.3rem;min-width:28px;text-align:center}
+.lb-name{flex:1;font-weight:600;font-size:.92rem}
+.lb-score{font-weight:700;color:var(--accent);font-size:.92rem}
+.lb-empty{text-align:center;color:var(--text-dim);font-size:.88rem;padding:16px 0}
+
+.nav-row{display:flex;gap:12px;margin-top:14px}
+.nav-row .btn{flex:1}
+
+/* ===== GAME SCREEN ===== */
+.game-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:8px}
+.game-stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:8px 16px;font-size:.85rem;font-weight:600}
+.game-stat span{color:var(--accent)}
+.streak-badge{background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;border:none;animation:glow 1s ease-in-out infinite alternate}
+@keyframes glow{from{box-shadow:0 0 8px rgba(245,158,11,0.4)}to{box-shadow:0 0 18px rgba(245,158,11,0.7)}}
+
+.timer-bar-container{width:100%;height:8px;background:var(--border);border-radius:8px;margin-bottom:20px;overflow:hidden}
+.timer-bar{height:100%;background:linear-gradient(90deg,var(--green),var(--accent),var(--pink),var(--kahoot-red));border-radius:8px;transition:width .1s linear;width:100%}
+.timer-bar.danger{animation:timerPulse .5s ease-in-out infinite}
+@keyframes timerPulse{0%,100%{opacity:1}50%{opacity:.5}}
+
+.question-card{background:var(--card);border:2px solid var(--border);border-radius:20px;padding:32px 24px;text-align:center;margin-bottom:20px;min-height:120px;display:flex;align-items:center;justify-content:center}
+.question-card h2{font-size:1.3rem;line-height:1.6}
+
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:550px){.options-grid{grid-template-columns:1fr}}
+
+.option-btn{padding:18px 16px;border-radius:16px;border:none;color:#fff;font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:12px;text-align:left;position:relative;overflow:hidden}
+.option-btn:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,0.3)}
+.option-btn:active{transform:scale(.97)}
+.option-btn.disabled{pointer-events:none;opacity:.6}
+.option-btn .option-icon{font-size:1.4rem;min-width:32px;text-align:center}
+.opt-a{background:var(--kahoot-red)}.opt-b{background:var(--kahoot-blue)}
+.opt-c{background:var(--kahoot-yellow)}.opt-d{background:var(--kahoot-green)}
+
+.option-btn.correct{animation:correctPop .5s ease;box-shadow:0 0 30px rgba(52,211,153,0.5)!important;border:3px solid var(--green)}
+.option-btn.wrong{animation:wrongShake .5s ease;opacity:.7}
+@keyframes correctPop{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}
+@keyframes wrongShake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+
+.feedback-card{background:var(--card);border-radius:16px;padding:24px;margin-top:16px;text-align:center;animation:fadeIn .3s ease;border:2px solid var(--border)}
+.feedback-card.correct-fb{border-color:var(--green)}
+.feedback-card.wrong-fb{border-color:var(--kahoot-red)}
+.feedback-card .fb-emoji{font-size:2.8rem;margin-bottom:8px}
+.feedback-card .fb-title{font-family:'Fredoka',sans-serif;font-size:1.2rem;margin-bottom:4px}
+.feedback-card .fb-text{font-size:.9rem;color:var(--text-dim);margin-bottom:6px}
+.feedback-card .fb-points{font-size:1rem;font-weight:700;color:var(--accent)}
+.next-btn{margin-top:16px}
+
+/* ===== RESULTS ===== */
+.results-card{background:var(--card);border:2px solid var(--border);border-radius:24px;padding:36px 24px;text-align:center;margin-bottom:20px}
+.results-card h2{font-size:1.6rem;margin-bottom:8px}
+.results-score{font-size:3rem;font-weight:700;color:var(--accent);font-family:'Fredoka',sans-serif}
+.stars{font-size:2rem;margin:12px 0;letter-spacing:6px}
+.results-breakdown{display:flex;justify-content:center;gap:24px;margin:20px 0;flex-wrap:wrap}
+.breakdown-item{text-align:center}
+.breakdown-num{font-size:1.8rem;font-weight:700;font-family:'Fredoka',sans-serif}
+.breakdown-label{font-size:.8rem;color:var(--text-dim);margin-top:2px}
+.breakdown-correct .breakdown-num{color:var(--green)}
+.breakdown-wrong .breakdown-num{color:var(--kahoot-red)}
+.breakdown-skipped .breakdown-num{color:var(--text-dim)}
+.rank-badge{display:inline-block;background:linear-gradient(135deg,#a78bfa,#f472b6);color:#fff;padding:8px 24px;border-radius:20px;font-weight:700;font-size:.95rem;margin:12px 0}
+
+/* ===== LEADERBOARD ===== */
+.lb-table{width:100%;border-collapse:collapse;margin-top:16px}
+.lb-table th{font-family:'Fredoka',sans-serif;font-size:.85rem;color:var(--accent);padding:10px 8px;text-align:left;border-bottom:2px solid var(--border)}
+.lb-table td{padding:10px 8px;border-bottom:1px solid var(--border);font-size:.88rem}
+.lb-table tr:hover td{background:rgba(167,139,250,0.05)}
+.lb-filter{display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.lb-filter label{font-weight:600;font-size:.9rem;color:var(--text-dim)}
+.lb-filter select{padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:.88rem}
+
+/* ===== CONFETTI ===== */
+.confetti-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;overflow:hidden}
+.confetti-piece{position:absolute;width:10px;height:10px;top:-20px;animation:confettiFall linear forwards}
+@keyframes confettiFall{
+  0%{transform:translateY(0) rotate(0deg);opacity:1}
+  100%{transform:translateY(100vh) rotate(720deg);opacity:0}
+}
+
+/* ===== MISC ===== */
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--text-dim);text-decoration:none;font-size:.88rem;font-weight:600;margin-bottom:16px;transition:color .2s}
+.back-link:hover{color:var(--accent)}
+.home-link{display:inline-flex;align-items:center;gap:6px;color:var(--text-dim);text-decoration:none;font-size:.85rem;margin-bottom:20px;transition:color .2s}
+.home-link:hover{color:var(--accent)}
+
+@media(max-width:600px){
+  .welcome-hero h1{font-size:1.7rem}
+  .welcome-hero{padding:32px 18px 28px}
+  .question-card{padding:24px 16px}
+  .question-card h2{font-size:1.1rem}
+  .option-btn{padding:14px 12px;font-size:.95rem}
+  .results-score{font-size:2.4rem}
+  .game-header{justify-content:center}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="index.html" class="home-link">&#8592; Back to Study System</a>
+
+<!-- ===== WELCOME SCREEN ===== -->
+<div id="welcomeScreen" class="screen active">
+  <div class="welcome-hero">
+    <h1>AUC A2A Quiz Challenge</h1>
+    <p>Test your English knowledge Kahoot-style!</p>
+    <div class="emoji-row">&#127891; &#127942; &#9889;</div>
+  </div>
+
+  <div class="form-group">
+    <label>Your Name</label>
+    <input type="text" id="playerName" placeholder="Enter your name..." maxlength="20" autocomplete="off">
+  </div>
+
+  <div class="form-group">
+    <label>Session</label>
+    <select id="sessionSelect">
+      <option value="all">All Sessions (Mix)</option>
+      <option value="1">Session 1 - Birthdays</option>
+      <option value="2">Session 2 - Birthday Parties</option>
+      <option value="3">Session 3 - Street Food</option>
+      <option value="4">Session 4 - Friendship</option>
+      <option value="5">Session 5 - Friendship Stories</option>
+      <option value="6">Session 6 - Feelings (Positive)</option>
+      <option value="7">Session 7 - Feelings (Negative)</option>
+      <option value="8">Session 8 - Money & Budgeting</option>
+      <option value="9">Session 9 - Deserted Island</option>
+      <option value="10">Session 10 - Island Survival</option>
+      <option value="11">Session 11 - Clothes & Fashion</option>
+      <option value="12">Session 12 - Describing Clothes</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Difficulty</label>
+    <div class="difficulty-row">
+      <button class="diff-btn" data-diff="easy" onclick="setDifficulty('easy')">Easy</button>
+      <button class="diff-btn active" data-diff="medium" onclick="setDifficulty('medium')">Medium</button>
+      <button class="diff-btn" data-diff="hard" onclick="setDifficulty('hard')">Hard</button>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" onclick="startGame()" style="margin-top:8px">START GAME</button>
+
+  <div class="nav-row" style="margin-top:14px">
+    <button class="btn btn-secondary" onclick="showScreen('leaderboardScreen')">Leaderboard</button>
+  </div>
+
+  <div class="lb-preview" id="lbPreview">
+    <h3>Top Players</h3>
+    <div id="lbPreviewContent"></div>
+  </div>
+</div>
+
+<!-- ===== GAME SCREEN ===== -->
+<div id="gameScreen" class="screen">
+  <div class="game-header">
+    <div class="game-stat" id="questionCounter">Question <span>1</span> of <span>10</span></div>
+    <div class="game-stat" id="streakBadge" style="display:none">Streak <span id="streakNum">0</span></div>
+    <div class="game-stat">Score: <span id="scoreDisplay">0</span></div>
+  </div>
+
+  <div class="timer-bar-container">
+    <div class="timer-bar" id="timerBar"></div>
+  </div>
+
+  <div class="question-card">
+    <h2 id="questionText">Loading...</h2>
+  </div>
+
+  <div class="options-grid" id="optionsGrid"></div>
+
+  <div id="feedbackArea"></div>
+</div>
+
+<!-- ===== RESULTS SCREEN ===== -->
+<div id="resultsScreen" class="screen">
+  <div class="results-card">
+    <h2>Game Over!</h2>
+    <div class="results-score" id="finalScore">0</div>
+    <div class="stars" id="starRating"></div>
+    <div class="results-breakdown">
+      <div class="breakdown-item breakdown-correct">
+        <div class="breakdown-num" id="correctCount">0</div>
+        <div class="breakdown-label">Correct</div>
+      </div>
+      <div class="breakdown-item breakdown-wrong">
+        <div class="breakdown-num" id="wrongCount">0</div>
+        <div class="breakdown-label">Wrong</div>
+      </div>
+      <div class="breakdown-item breakdown-skipped">
+        <div class="breakdown-num" id="skippedCount">0</div>
+        <div class="breakdown-label">Skipped</div>
+      </div>
+    </div>
+    <div class="rank-badge" id="rankBadge">Your Rank: #1</div>
+  </div>
+
+  <button class="btn btn-primary" onclick="shareScore()" style="margin-bottom:12px">Share Score</button>
+  <div class="nav-row">
+    <button class="btn btn-secondary" onclick="playAgain()">Play Again</button>
+    <button class="btn btn-secondary" onclick="showScreen('welcomeScreen');refreshPreview()">Home</button>
+  </div>
+</div>
+
+<!-- ===== LEADERBOARD SCREEN ===== -->
+<div id="leaderboardScreen" class="screen">
+  <a href="#" class="back-link" onclick="event.preventDefault();showScreen('welcomeScreen')">&#8592; Back</a>
+  <h2 class="fredoka" style="margin-bottom:16px;color:var(--accent)">Leaderboard</h2>
+
+  <div class="lb-filter">
+    <label>Filter:</label>
+    <select id="lbFilterSelect" onchange="renderLeaderboard()">
+      <option value="all">All Sessions</option>
+      <option value="1">Session 1</option>
+      <option value="2">Session 2</option>
+      <option value="3">Session 3</option>
+      <option value="4">Session 4</option>
+      <option value="5">Session 5</option>
+      <option value="6">Session 6</option>
+      <option value="7">Session 7</option>
+      <option value="8">Session 8</option>
+      <option value="9">Session 9</option>
+      <option value="10">Session 10</option>
+      <option value="11">Session 11</option>
+      <option value="12">Session 12</option>
+    </select>
+    <button class="btn btn-secondary btn-small" onclick="clearLeaderboard()" style="margin-left:auto;font-size:.82rem;padding:8px 14px">Clear All</button>
+  </div>
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;overflow-x:auto">
+    <table class="lb-table" id="lbTable">
+      <thead><tr><th>#</th><th>Player</th><th>Score</th><th>Session</th><th>Date</th></tr></thead>
+      <tbody id="lbBody"></tbody>
+    </table>
+    <div id="lbEmpty" class="lb-empty" style="display:none">No scores yet. Play a game!</div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<div class="confetti-container" id="confettiContainer"></div>
+
+<script>
+// ===================== QUESTION BANK =====================
+const questionBank = {
+  1: [
+    {q: '"I _____ go to the party tomorrow."', options: ['will','can','am','do'], answer: 0, explanation: 'We use "will" for future plans and decisions.'},
+    {q: '"She _____ come to school. She is sick."', options: ["won't","don't","isn't","can"], answer: 0, explanation: '"Won\'t" is the negative of "will" for future.'},
+    {q: 'What month comes after March?', options: ['April','May','February','June'], answer: 0, explanation: 'The months go: January, February, March, April...'},
+    {q: '"We will _____ a cake for the party."', options: ['make','making','made','makes'], answer: 0, explanation: 'After "will" we use the base form of the verb.'},
+    {q: 'Choose the correct sentence:', options: ['I will help you','I will helping you','I will helped you','I will helps you'], answer: 0, explanation: 'After "will", always use the base verb form (help).'},
+    {q: 'What does "celebrate" mean?', options: ['To do something special for a happy event','To cook food','To go to sleep','To clean the house'], answer: 0, explanation: 'Celebrate = do something special for a happy occasion.'},
+    {q: '"Will you come?" "Yes, I _____."', options: ['will','do','am','can'], answer: 0, explanation: 'Short answer with "will": "Yes, I will."'},
+    {q: 'What is a "candle"?', options: ['A stick of wax that gives light when burned','A type of cake','A birthday song','A paper decoration'], answer: 0, explanation: 'A candle is made of wax with a wick that burns.'},
+  ],
+  2: [
+    {q: '"I enjoy _____."', options: ['dancing','dance','to dance','danced'], answer: 0, explanation: 'After "enjoy" we use the -ing form (gerund).'},
+    {q: '"She likes _____ music."', options: ['listening to','listen to','listened to','listens to'], answer: 0, explanation: 'After "like" we can use the -ing form.'},
+    {q: 'What does "decorate" mean?', options: ['To make something look nice','To break something','To buy something','To eat something'], answer: 0, explanation: 'Decorate = make something look attractive.'},
+    {q: '"Would you like _____ help?"', options: ['some','any','a','many'], answer: 0, explanation: 'We use "some" in polite offers and requests.'},
+    {q: '"I don\'t mind _____ the dishes."', options: ['doing','do','to do','did'], answer: 0, explanation: 'After "don\'t mind" we use the -ing form.'},
+    {q: 'What is a "balloon"?', options: ['A rubber bag filled with air','A type of cake','A musical instrument','A kind of hat'], answer: 0, explanation: 'Balloons are rubber bags inflated with air for decoration.'},
+    {q: '"Let\'s go _____!"', options: ['shopping','shop','to shop','shopped'], answer: 0, explanation: '"Go + -ing" is used for activities: go shopping, go swimming.'},
+    {q: 'Choose the correct sentence:', options: ['I like swimming','I like swim','I like swam','I like to swam'], answer: 0, explanation: 'After "like" we use -ing form or "to + base verb".'},
+  ],
+  3: [
+    {q: '"Is there _____ milk in the fridge?"', options: ['any','some','a','many'], answer: 0, explanation: 'We use "any" in questions and negative sentences.'},
+    {q: '"I\'d like _____ water, please."', options: ['some','any','many','a'], answer: 0, explanation: 'We use "some" in polite requests.'},
+    {q: 'What does "spicy" mean?', options: ['Having a strong hot taste','Very sweet','Very cold','Very sour'], answer: 0, explanation: 'Spicy food has a strong, hot flavor (like chili).'},
+    {q: '"How _____ sugar do you want?"', options: ['much','many','any','some'], answer: 0, explanation: '"Much" is used with uncountable nouns (sugar, water).'},
+    {q: '"There aren\'t _____ eggs left."', options: ['any','some','much','a'], answer: 0, explanation: 'We use "any" in negative sentences.'},
+    {q: 'What does "grilled" mean?', options: ['Cooked over a fire or heat','Frozen food','Raw food','Boiled in water'], answer: 0, explanation: 'Grilled = cooked directly over fire or a grill.'},
+    {q: '"Can I have _____ rice?"', options: ['some','any','many','few'], answer: 0, explanation: 'We use "some" in polite requests.'},
+    {q: '"How _____ tomatoes do we need?"', options: ['many','much','some','any'], answer: 0, explanation: '"Many" is used with countable nouns (tomatoes).'},
+  ],
+  4: [
+    {q: '"_____ is my best friend." (pointing near)', options: ['This','That','These','Those'], answer: 0, explanation: '"This" is for one thing/person near you.'},
+    {q: '"Look at _____ birds in the sky." (far)', options: ['those','these','this','that'], answer: 0, explanation: '"Those" is for plural things far from you.'},
+    {q: 'What does "loyal" mean?', options: ['Always supporting someone','Very tall','Very funny','Very quiet'], answer: 0, explanation: 'Loyal = faithful, always supporting a friend.'},
+    {q: '"_____ books on the table are mine." (near)', options: ['These','Those','This','That'], answer: 0, explanation: '"These" is for plural things near you.'},
+    {q: 'A "generous" person likes to...', options: ['Give and share with others','Sleep all day','Argue with people','Work alone'], answer: 0, explanation: 'Generous = happy to give money, time, or help.'},
+    {q: '"Who is _____ man over there?"', options: ['that','this','these','those'], answer: 0, explanation: '"That" is for one thing/person far from you.'},
+    {q: 'What does "honest" mean?', options: ['Always telling the truth','Very strong','Very fast','Very rich'], answer: 0, explanation: 'Honest = truthful, not lying or cheating.'},
+    {q: '"_____ shoes are too small for me." (near)', options: ['These','Those','This','That'], answer: 0, explanation: '"These" is for plural things near you.'},
+  ],
+  5: [
+    {q: '"I _____ when it _____ to rain."', options: ['was walking / started','walked / was starting','walk / starts','walking / started'], answer: 0, explanation: 'Past continuous (longer action) + past simple (interruption).'},
+    {q: '"While she _____, her phone _____."', options: ['was studying / rang','studied / was ringing','studies / rings','is studying / rang'], answer: 0, explanation: 'Past continuous for the longer action, past simple for the interruption.'},
+    {q: '"They _____ football when the coach _____."', options: ['were playing / arrived','played / was arriving','play / arrives','are playing / arrived'], answer: 0, explanation: 'Plural subject = "were playing" (past continuous).'},
+    {q: 'Past continuous is used for...', options: ['A longer action in the past','A completed action','A future plan','A habit'], answer: 0, explanation: 'Past continuous describes an ongoing action in the past.'},
+    {q: '"We were eating when the lights _____ out."', options: ['went','were going','go','going'], answer: 0, explanation: 'The short interrupting action uses past simple (went).'},
+    {q: '"He _____ a book while she _____."', options: ['was reading / was cooking','read / cooked','reads / cooks','is reading / is cooking'], answer: 0, explanation: 'Two simultaneous long actions both use past continuous.'},
+    {q: '"While I _____, someone _____ on the door."', options: ['was sleeping / knocked','slept / was knocking','sleep / knocks','am sleeping / knocked'], answer: 0, explanation: 'Past continuous (long action) + past simple (interruption).'},
+    {q: 'Past simple is used for...', options: ['A short completed action','An ongoing action','A future event','A repeated habit'], answer: 0, explanation: 'Past simple = a finished action at a specific time in the past.'},
+  ],
+  6: [
+    {q: '"The bag is _____ heavy. I can\'t carry it."', options: ['too','very','really','so'], answer: 0, explanation: '"Too" means more than enough, usually with a negative result.'},
+    {q: '"This food is _____ delicious!"', options: ['very','too','enough','less'], answer: 0, explanation: '"Very" adds emphasis without implying a problem.'},
+    {q: 'What does "grateful" mean?', options: ['Thankful for something good','Very angry','Very tired','Very confused'], answer: 0, explanation: 'Grateful = feeling appreciation for something.'},
+    {q: '"I am _____ happy to see you!"', options: ['very','too','enough','less'], answer: 0, explanation: '"Very" is positive emphasis. "Too happy" implies a problem.'},
+    {q: 'Someone who always smiles is...', options: ['cheerful','anxious','depressed','ashamed'], answer: 0, explanation: 'Cheerful = happy and positive.'},
+    {q: '"She felt _____ after passing the exam."', options: ['proud','ashamed','anxious','depressed'], answer: 0, explanation: 'Proud = feeling good about your achievement.'},
+    {q: '"Too" is used when there is...', options: ['a problem','happiness','excitement','nothing special'], answer: 0, explanation: '"Too" signals an excessive/problematic amount.'},
+    {q: 'What does "peaceful" mean?', options: ['Very calm and quiet','Very loud','Very fast','Very angry'], answer: 0, explanation: 'Peaceful = calm, quiet, free from disturbance.'},
+    {q: '"The movie was too interesting" is...', options: ['Incorrect (interesting is positive)','Correct','Sometimes correct','A question'], answer: 0, explanation: '"Too" implies a problem, but "interesting" is positive. Use "very".'},
+    {q: 'Feeling sure about yourself means you are...', options: ['confident','ashamed','anxious','depressed'], answer: 0, explanation: 'Confident = believing in yourself and your abilities.'},
+  ],
+  7: [
+    {q: '"I feel tired. I _____ a break."', options: ['need to take','want taking','needing','needs take'], answer: 0, explanation: '"Need to + base verb" expresses necessity.'},
+    {q: '"She _____ to study harder."', options: ['needs','need','needing','needed to'], answer: 0, explanation: 'Third person (she) = "needs" (with s).'},
+    {q: 'What does "anxious" mean?', options: ['Very nervous about the future','Very happy','Very calm','Very sleepy'], answer: 0, explanation: 'Anxious = worried or nervous about what might happen.'},
+    {q: '"He _____ to make new friends."', options: ['wants','want','wanting','wantsing'], answer: 0, explanation: 'Third person (he) = "wants" (with s).'},
+    {q: 'Water, bread, and a house are examples of...', options: ['needs','wants','luxuries','hobbies'], answer: 0, explanation: 'Needs are things necessary for survival.'},
+    {q: '"She is _____ of her mistake."', options: ['ashamed','proud','confident','cheerful'], answer: 0, explanation: 'Ashamed = embarrassed or guilty about something.'},
+    {q: '"We _____ to find a better service."', options: ['need','needs','needing','needed to'], answer: 0, explanation: '"We" = plural subject, so no "s" on the verb.'},
+    {q: 'What does "depressed" mean?', options: ['Very sad for a long time','Very excited','Very energetic','Very hungry'], answer: 0, explanation: 'Depressed = deeply sad over a long period.'},
+    {q: 'TV, ice cream, and vacation are examples of...', options: ['wants','needs','requirements','necessities'], answer: 0, explanation: 'Wants are things we desire but don\'t need to survive.'},
+    {q: 'Negative thoughts are like...', options: ['ants at a picnic','stars in the sky','fish in the sea','birds in a tree'], answer: 0, explanation: 'ANTs = Automatic Negative Thoughts (they ruin good things like ants at a picnic!).'},
+  ],
+  8: [
+    {q: 'Money you keep for future use = ?', options: ['savings','income','fees','budget'], answer: 0, explanation: 'Savings = money you keep and don\'t spend.'},
+    {q: 'A plan for how to spend and save = ?', options: ['budget','loan','cost','salary'], answer: 0, explanation: 'A budget is a plan for managing your money.'},
+    {q: 'Money you owe to someone = ?', options: ['debt','bills','savings','fees'], answer: 0, explanation: 'Debt = money you owe and must pay back.'},
+    {q: 'Money borrowed that you pay back = ?', options: ['loan','expenses','income','salary'], answer: 0, explanation: 'A loan is borrowed money repaid over time.'},
+    {q: 'Payments for water and electricity = ?', options: ['bills','fees','cost','debt'], answer: 0, explanation: 'Bills are regular payments for services.'},
+    {q: 'To put money into something to make it grow = ?', options: ['invest','track','save','budget'], answer: 0, explanation: 'Invest = put money in to earn more money.'},
+    {q: '"You ______ save money every month."', options: ['should','have to','shouldn\'t','has to'], answer: 0, explanation: '"Should" gives advice (it\'s a good idea).'},
+    {q: '"We ______ pay taxes. It\'s the law."', options: ['have to','should','don\'t have to','shouldn\'t'], answer: 0, explanation: '"Have to" = obligation, it\'s required.'},
+    {q: '"You ______ spend all your salary."', options: ['shouldn\'t','should','have to','has to'], answer: 0, explanation: '"Shouldn\'t" = it\'s not a good idea.'},
+    {q: '"She ______ pay for parking. It\'s free."', options: ['doesn\'t have to','shouldn\'t','has to','should'], answer: 0, explanation: '"Doesn\'t have to" = not necessary.'},
+  ],
+  9: [
+    {q: 'A person left alone on an island = ?', options: ['castaway','crew','sailor','explorer'], answer: 0, explanation: 'A castaway is stranded alone, usually after a shipwreck.'},
+    {q: 'A place that protects you from weather = ?', options: ['shelter','raft','signal','shore'], answer: 0, explanation: 'Shelter protects you from rain, wind, and sun.'},
+    {q: 'When a ship is destroyed at sea = ?', options: ['shipwreck','adventure','rescue','escape'], answer: 0, explanation: 'A shipwreck is the destruction of a ship.'},
+    {q: 'To save someone from danger = ?', options: ['rescue','strand','hunt','signal'], answer: 0, explanation: 'Rescue = save from a dangerous situation.'},
+    {q: 'A flat structure that floats on water = ?', options: ['raft','shelter','shore','cave'], answer: 0, explanation: 'A raft is a simple floating platform.'},
+    {q: '"______ a beautiful island!"', options: ['What','How','Which','Where'], answer: 0, explanation: '"What + a/an + adjective + noun!" for exclamations.'},
+    {q: '"How ______ the sunset is!"', options: ['beautiful','a beautiful','beauty','beautifully'], answer: 0, explanation: '"How + adjective" for exclamations.'},
+    {q: '"What ______ terrible weather!"', options: ['(nothing — uncountable)','a','the','an'], answer: 0, explanation: 'No article with uncountable nouns in exclamations.'},
+    {q: '\'In the same boat\' means ______', options: ['in the same situation','on a real boat','traveling together','going fishing'], answer: 0, explanation: 'Idiom: sharing the same difficult situation.'},
+    {q: '\'Sink or swim\' means ______', options: ['succeed or fail alone','learn to swim','go to the beach','take a boat'], answer: 0, explanation: 'Idiom: you must manage by yourself.'},
+  ],
+  10: [
+    {q: 'The leader of a ship = ?', options: ['captain','passenger','survivor','crew'], answer: 0, explanation: 'The captain commands the ship.'},
+    {q: 'People who stay alive after danger = ?', options: ['survivors','crew','passengers','captains'], answer: 0, explanation: 'Survivors live through dangerous events.'},
+    {q: 'A small river of fresh water = ?', options: ['stream','seawater','wave','storm'], answer: 0, explanation: 'A stream is a small natural flow of water.'},
+    {q: 'Working together as a group = ?', options: ['teamwork','danger','rescue','signal'], answer: 0, explanation: 'Teamwork = cooperating to achieve a goal.'},
+    {q: '"The floor is wet. ______ on the floor!"', options: ['Don\'t walk','Don\'t to walk','Not walk','Don\'t walks'], answer: 0, explanation: 'Negative imperative: Don\'t + base verb.'},
+    {q: '"The fire is dangerous. ______ it!"', options: ['Don\'t touch','Don\'t touches','Not touch','Don\'t touching'], answer: 0, explanation: 'Negative imperative: Don\'t + base verb.'},
+    {q: '"The river is deep. ______ there!"', options: ['Don\'t swim','Not swim','Don\'t swimming','Not swimming'], answer: 0, explanation: 'Negative imperative: Don\'t + base verb.'},
+    {q: '\'Learn the ropes\' means ______', options: ['learn something new','climb ropes','tie knots','be strong'], answer: 0, explanation: 'Idiom: learn the basics of a new task.'},
+    {q: '\'Out of the woods\' means ______', options: ['out of danger','in the forest','lost in nature','camping'], answer: 0, explanation: 'Idiom: no longer in a difficult situation.'},
+    {q: '\'Think outside the box\' means ______', options: ['be creative','open a box','think about boxes','escape'], answer: 0, explanation: 'Idiom: think in an original, creative way.'},
+  ],
+  11: [
+    {q: 'A formal set of jacket and trousers = ?', options: ['suit','jeans','sweater','shorts'], answer: 0, explanation: 'A suit is formal business clothing.'},
+    {q: 'Shoes with tall heels = ?', options: ['high heels','sneakers','boots','sandals'], answer: 0, explanation: 'High heels are elegant shoes with raised heels.'},
+    {q: 'Clothes worn for sleeping = ?', options: ['pajamas','shorts','dress','suit'], answer: 0, explanation: 'Pajamas are comfortable clothes for sleeping.'},
+    {q: 'Extra items like bags and belts = ?', options: ['accessories','outfits','occasions','materials'], answer: 0, explanation: 'Accessories complement your outfit (bags, belts, jewelry).'},
+    {q: '"The plural of \'dress\' is ______"', options: ['dresses','dresss','dressen','dress'], answer: 0, explanation: 'Words ending in -ss, -sh, -ch, -x add -es.'},
+    {q: '"The plural of \'scarf\' is ______"', options: ['scarves','scarfs','scarfes','scarfies'], answer: 0, explanation: 'Many -f/-fe words change to -ves.'},
+    {q: 'Which word is always plural?', options: ['scissors','hat','coat','boot'], answer: 0, explanation: 'Scissors, trousers, glasses are always plural.'},
+    {q: '\'Dressed to the nines\' means ______', options: ['wearing very fancy clothes','old clothes','nine items','cheap clothes'], answer: 0, explanation: 'Idiom: dressed very elegantly.'},
+    {q: '\'Fit like a glove\' means ______', options: ['fits perfectly','too tight','made of leather','uncomfortable'], answer: 0, explanation: 'Idiom: fits exactly right.'},
+    {q: '\'Roll up your sleeves\' means ______', options: ['work hard','fold shirt','feel cold','relax'], answer: 0, explanation: 'Idiom: prepare to do difficult work.'},
+  ],
+  12: [
+    {q: 'A pattern of lines = ?', options: ['striped','floral','checked','plain'], answer: 0, explanation: 'Striped = having parallel lines of color.'},
+    {q: 'Material made from animal skin = ?', options: ['leather','cotton','silk','wool'], answer: 0, explanation: 'Leather is made from animal hide.'},
+    {q: 'A smooth luxury fabric = ?', options: ['silk','denim','wool','linen'], answer: 0, explanation: 'Silk is a smooth, soft luxury fabric.'},
+    {q: 'Having no pattern = ?', options: ['plain','floral','striped','checked'], answer: 0, explanation: 'Plain = one solid color, no pattern.'},
+    {q: 'Which adjective order is correct?', options: ['a big red bag','a red big bag','a bag big red','red a big bag'], answer: 0, explanation: 'OSASCOMP: Size before Color.'},
+    {q: 'Which is correct?', options: ['blue cotton shirt','cotton blue shirt','shirt blue cotton','a cotton blue'], answer: 0, explanation: 'OSASCOMP: Color before Material.'},
+    {q: 'In OSASCOMP, what comes first?', options: ['Opinion','Size','Color','Material'], answer: 0, explanation: 'O = Opinion is always first in adjective order.'},
+    {q: '\'Shop till you drop\' means ______', options: ['shop until very tired','fall while shopping','drop items','window shopping'], answer: 0, explanation: 'Idiom: shop for a very long time.'},
+    {q: '\'Dress down\' means ______', options: ['wear casual clothes','feel sad','take off clothes','be rude'], answer: 0, explanation: 'Idiom: wear informal, casual clothes.'},
+    {q: '\'Knock someone\'s socks off\' means ______', options: ['impress very much','hurt someone','remove socks','surprise'], answer: 0, explanation: 'Idiom: amaze or greatly impress someone.'},
+  ]
+};
+
+// Shuffle helper — all answers currently at index 0, we must shuffle options
+function shuffleQuestion(q) {
+  const correctText = q.options[q.answer];
+  const shuffled = [...q.options];
+  // Fisher-Yates shuffle
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return { ...q, options: shuffled, answer: shuffled.indexOf(correctText) };
+}
+
+// ===================== GAME STATE =====================
+let currentDifficulty = 'medium';
+let gameState = {
+  playerName: '',
+  session: 'all',
+  questions: [],
+  currentIndex: 0,
+  score: 0,
+  correct: 0,
+  wrong: 0,
+  skipped: 0,
+  streak: 0,
+  maxStreak: 0,
+  timerInterval: null,
+  timeLeft: 15,
+  answered: false,
+};
+
+const QUESTION_COUNTS = { easy: 6, medium: 10, hard: 15 };
+const TIME_LIMITS = { easy: 20, medium: 15, hard: 10 };
+
+// ===================== AUDIO (Web Audio API) =====================
+let audioCtx;
+function getAudioCtx() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  return audioCtx;
+}
+
+function playBeep(freq, duration, type='sine') {
+  try {
+    const ctx = getAudioCtx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = type;
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0.15, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + duration);
+  } catch(e) {}
+}
+
+function playCorrectSound() { playBeep(880, 0.15); setTimeout(() => playBeep(1100, 0.2), 120); }
+function playWrongSound() { playBeep(200, 0.3, 'sawtooth'); }
+function playTickSound() { playBeep(1000, 0.05); }
+function playTimerWarning() { playBeep(600, 0.1); }
+function playGameOverSound() {
+  [0,100,200,300,400].forEach((d,i) => setTimeout(() => playBeep(440 + i*110, 0.15), d));
+}
+
+// ===================== DIFFICULTY =====================
+function setDifficulty(d) {
+  currentDifficulty = d;
+  document.querySelectorAll('.diff-btn').forEach(b => b.classList.toggle('active', b.dataset.diff === d));
+}
+
+// ===================== SCREEN MANAGEMENT =====================
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ===================== LEADERBOARD =====================
+function getLeaderboard() {
+  try { return JSON.parse(localStorage.getItem('auc_quiz_lb') || '[]'); } catch { return []; }
+}
+function saveLeaderboard(lb) {
+  localStorage.setItem('auc_quiz_lb', JSON.stringify(lb));
+}
+function addToLeaderboard(name, score, session) {
+  const lb = getLeaderboard();
+  const entry = { name, score, session, date: new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}) };
+  lb.push(entry);
+  lb.sort((a,b) => b.score - a.score);
+  if (lb.length > 50) lb.length = 50;
+  saveLeaderboard(lb);
+  return lb.findIndex(e => e === entry) + 1; // not reliable after sort, recalc below
+}
+function getRank(score) {
+  const lb = getLeaderboard();
+  let rank = 1;
+  for (const e of lb) { if (e.score > score) rank++; else break; }
+  return rank;
+}
+function clearLeaderboard() {
+  if (confirm('Clear all leaderboard data?')) {
+    localStorage.removeItem('auc_quiz_lb');
+    renderLeaderboard();
+  }
+}
+
+function refreshPreview() {
+  const lb = getLeaderboard();
+  const el = document.getElementById('lbPreviewContent');
+  if (!lb.length) { el.innerHTML = '<div class="lb-empty">No scores yet. Be the first!</div>'; return; }
+  const medals = ['&#129351;','&#129352;','&#129353;'];
+  let html = '';
+  lb.slice(0,3).forEach((e,i) => {
+    html += `<div class="lb-row"><div class="lb-medal">${medals[i]||''}</div><div class="lb-name">${esc(e.name)}</div><div class="lb-score">${e.score}</div></div>`;
+  });
+  el.innerHTML = html;
+}
+
+function renderLeaderboard() {
+  const filter = document.getElementById('lbFilterSelect').value;
+  let lb = getLeaderboard();
+  if (filter !== 'all') lb = lb.filter(e => String(e.session) === filter);
+  const body = document.getElementById('lbBody');
+  const empty = document.getElementById('lbEmpty');
+  if (!lb.length) { body.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  const medals = ['&#129351;','&#129352;','&#129353;'];
+  const sessionNames = {all:'All','1':'S1','2':'S2','3':'S3','4':'S4','5':'S5','6':'S6','7':'S7','8':'S8','9':'S9','10':'S10','11':'S11','12':'S12'};
+  body.innerHTML = lb.map((e,i) => `<tr><td>${medals[i]||i+1}</td><td>${esc(e.name)}</td><td style="color:var(--accent);font-weight:700">${e.score}</td><td>${sessionNames[e.session]||'All'}</td><td style="color:var(--text-dim)">${e.date}</td></tr>`).join('');
+}
+
+function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+// ===================== START GAME =====================
+function startGame() {
+  const name = document.getElementById('playerName').value.trim();
+  if (!name) { document.getElementById('playerName').style.borderColor='var(--kahoot-red)'; document.getElementById('playerName').focus(); return; }
+  document.getElementById('playerName').style.borderColor='';
+
+  const session = document.getElementById('sessionSelect').value;
+  const numQ = QUESTION_COUNTS[currentDifficulty];
+
+  // Gather questions
+  let pool = [];
+  if (session === 'all') {
+    Object.values(questionBank).forEach(qs => pool.push(...qs));
+  } else {
+    pool = [...(questionBank[session] || [])];
+  }
+
+  // Shuffle pool
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+
+  const questions = pool.slice(0, Math.min(numQ, pool.length)).map(shuffleQuestion);
+
+  gameState = {
+    playerName: name,
+    session,
+    questions,
+    currentIndex: 0,
+    score: 0,
+    correct: 0,
+    wrong: 0,
+    skipped: 0,
+    streak: 0,
+    maxStreak: 0,
+    timerInterval: null,
+    timeLeft: TIME_LIMITS[currentDifficulty],
+    answered: false,
+  };
+
+  showScreen('gameScreen');
+  showQuestion();
+}
+
+// ===================== SHOW QUESTION =====================
+function showQuestion() {
+  const gs = gameState;
+  const q = gs.questions[gs.currentIndex];
+  gs.answered = false;
+  gs.timeLeft = TIME_LIMITS[currentDifficulty];
+
+  // Update header
+  document.getElementById('questionCounter').innerHTML = `Question <span>${gs.currentIndex+1}</span> of <span>${gs.questions.length}</span>`;
+  document.getElementById('scoreDisplay').textContent = gs.score;
+
+  const streakBadge = document.getElementById('streakBadge');
+  if (gs.streak >= 3) {
+    streakBadge.style.display = '';
+    streakBadge.className = 'game-stat streak-badge';
+    document.getElementById('streakNum').textContent = gs.streak;
+  } else {
+    streakBadge.style.display = 'none';
+    streakBadge.className = 'game-stat';
+  }
+
+  // Question
+  document.getElementById('questionText').textContent = q.q;
+
+  // Options
+  const icons = ['▲','◆','●','■'];
+  const classes = ['opt-a','opt-b','opt-c','opt-d'];
+  const grid = document.getElementById('optionsGrid');
+  grid.innerHTML = q.options.map((opt, i) =>
+    `<button class="option-btn ${classes[i]}" onclick="selectAnswer(${i})"><span class="option-icon">${icons[i]}</span>${esc(opt)}</button>`
+  ).join('');
+
+  // Clear feedback
+  document.getElementById('feedbackArea').innerHTML = '';
+
+  // Timer
+  startTimer();
+}
+
+// ===================== TIMER =====================
+function startTimer() {
+  const bar = document.getElementById('timerBar');
+  const maxTime = TIME_LIMITS[currentDifficulty];
+  bar.style.width = '100%';
+  bar.classList.remove('danger');
+
+  clearInterval(gameState.timerInterval);
+  const startMs = Date.now();
+
+  gameState.timerInterval = setInterval(() => {
+    if (gameState.answered) return;
+    const elapsed = (Date.now() - startMs) / 1000;
+    const remaining = Math.max(0, maxTime - elapsed);
+    gameState.timeLeft = remaining;
+    const pct = (remaining / maxTime) * 100;
+    bar.style.width = pct + '%';
+
+    if (remaining <= 3 && remaining > 0) {
+      bar.classList.add('danger');
+      if (Math.floor(remaining) !== Math.floor(remaining + 0.1)) playTimerWarning();
+    }
+
+    if (remaining <= 0) {
+      clearInterval(gameState.timerInterval);
+      timeUp();
+    }
+  }, 50);
+}
+
+function timeUp() {
+  if (gameState.answered) return;
+  gameState.answered = true;
+  gameState.skipped++;
+  gameState.streak = 0;
+
+  const q = gameState.questions[gameState.currentIndex];
+  // Highlight correct
+  const btns = document.querySelectorAll('.option-btn');
+  btns.forEach((b,i) => {
+    b.classList.add('disabled');
+    if (i === q.answer) b.classList.add('correct');
+  });
+
+  playWrongSound();
+  showFeedback(false, q.explanation, 0, true);
+}
+
+// ===================== ANSWER =====================
+function selectAnswer(idx) {
+  if (gameState.answered) return;
+  gameState.answered = true;
+  clearInterval(gameState.timerInterval);
+
+  const q = gameState.questions[gameState.currentIndex];
+  const isCorrect = idx === q.answer;
+
+  const btns = document.querySelectorAll('.option-btn');
+  btns.forEach((b,i) => {
+    b.classList.add('disabled');
+    if (i === q.answer) b.classList.add('correct');
+    if (i === idx && !isCorrect) b.classList.add('wrong');
+  });
+
+  let points = 0;
+  if (isCorrect) {
+    const timeUsed = TIME_LIMITS[currentDifficulty] - gameState.timeLeft;
+    points = Math.max(100, Math.round(1000 - timeUsed * 50));
+    gameState.streak++;
+    if (gameState.streak > gameState.maxStreak) gameState.maxStreak = gameState.streak;
+    if (gameState.streak >= 3) points = Math.round(points * 2);
+    gameState.score += points;
+    gameState.correct++;
+    playCorrectSound();
+  } else {
+    gameState.streak = 0;
+    gameState.wrong++;
+    playWrongSound();
+  }
+
+  showFeedback(isCorrect, q.explanation, points, false);
+}
+
+function showFeedback(isCorrect, explanation, points, isTimeUp) {
+  const area = document.getElementById('feedbackArea');
+  const emoji = isTimeUp ? '⏰' : (isCorrect ? '🎉' : '😅');
+  const title = isTimeUp ? "Time's Up!" : (isCorrect ? 'Correct!' : 'Wrong!');
+  const cls = isCorrect ? 'correct-fb' : 'wrong-fb';
+  const streakText = (isCorrect && gameState.streak >= 3) ? `<div style="color:#f59e0b;font-weight:700;margin-top:4px">STREAK x${gameState.streak} (2x points!)</div>` : '';
+  const pointsText = isCorrect ? `+${points} points` : (isTimeUp ? 'No points' : '0 points');
+
+  area.innerHTML = `
+    <div class="feedback-card ${cls}">
+      <div class="fb-emoji">${emoji}</div>
+      <div class="fb-title">${title}</div>
+      <div class="fb-text">${esc(explanation)}</div>
+      <div class="fb-points">${pointsText}</div>
+      ${streakText}
+    </div>
+    <button class="btn btn-primary next-btn" onclick="nextQuestion()">${gameState.currentIndex < gameState.questions.length - 1 ? 'Next Question' : 'See Results'}</button>
+  `;
+}
+
+function nextQuestion() {
+  gameState.currentIndex++;
+  if (gameState.currentIndex >= gameState.questions.length) {
+    endGame();
+  } else {
+    showQuestion();
+  }
+}
+
+// ===================== END GAME =====================
+function endGame() {
+  clearInterval(gameState.timerInterval);
+  playGameOverSound();
+
+  const gs = gameState;
+  const total = gs.questions.length;
+  const pct = gs.correct / total;
+
+  // Stars
+  let starCount = 1;
+  if (pct >= 0.9) starCount = 5;
+  else if (pct >= 0.75) starCount = 4;
+  else if (pct >= 0.6) starCount = 3;
+  else if (pct >= 0.4) starCount = 2;
+
+  document.getElementById('finalScore').textContent = gs.score;
+  document.getElementById('starRating').textContent = '⭐'.repeat(starCount) + '☆'.repeat(5 - starCount);
+  document.getElementById('correctCount').textContent = gs.correct;
+  document.getElementById('wrongCount').textContent = gs.wrong;
+  document.getElementById('skippedCount').textContent = gs.skipped;
+
+  // Save to leaderboard
+  addToLeaderboard(gs.playerName, gs.score, gs.session);
+  const rank = getRank(gs.score);
+  document.getElementById('rankBadge').textContent = `Your Rank: #${rank}`;
+
+  showScreen('resultsScreen');
+
+  // Confetti for good scores
+  if (pct >= 0.6) launchConfetti();
+}
+
+// ===================== CONFETTI =====================
+function launchConfetti() {
+  const container = document.getElementById('confettiContainer');
+  container.innerHTML = '';
+  const colors = ['#a78bfa','#f472b6','#34d399','#60a5fa','#f59e0b','#e21b3c','#1368ce'];
+  for (let i = 0; i < 60; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + '%';
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.width = (Math.random() * 8 + 6) + 'px';
+    piece.style.height = (Math.random() * 8 + 6) + 'px';
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    piece.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
+    piece.style.animationDelay = (Math.random() * 1.5) + 's';
+    container.appendChild(piece);
+  }
+  setTimeout(() => container.innerHTML = '', 5000);
+}
+
+// ===================== SHARE / REPLAY =====================
+function shareScore() {
+  const gs = gameState;
+  const sessionName = gs.session === 'all' ? 'All Sessions' : `Session ${gs.session}`;
+  const text = `I scored ${gs.score} points on AUC A2A Quiz Challenge! (${gs.correct}/${gs.questions.length} correct, ${sessionName}, ${currentDifficulty} mode) Can you beat my score?`;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('#resultsScreen .btn-primary');
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.style.background = 'var(--green)';
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 2000);
+  }).catch(() => {
+    alert(text);
+  });
+}
+
+function playAgain() {
+  showScreen('welcomeScreen');
+  refreshPreview();
+}
+
+// ===================== INIT =====================
+refreshPreview();
+
+// Enter key starts game from name field
+document.getElementById('playerName').addEventListener('keydown', e => {
+  if (e.key === 'Enter') startGame();
+});
+</script>
+</body>
+</html>

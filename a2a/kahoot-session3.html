@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kahoot! Session 3 — Street Food</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#1a0a2e;--red:#e21b3c;--blue:#1368ce;--yellow:#d89e00;--green:#26890c;--white:#fff;--text:#fff;--shadow:0 4px 15px rgba(0,0,0,0.4)}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.screen{display:none;width:100%;max-width:700px;padding:20px;text-align:center}
+.screen.active{display:block;animation:fadeIn 0.4s}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-10px)}40%{transform:translateX(10px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes confetti{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(500px) rotate(720deg);opacity:0}}
+h1{font-family:'Fredoka',sans-serif;font-size:2.5rem;margin-bottom:10px;background:linear-gradient(90deg,var(--red),var(--yellow),var(--green),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.subtitle{font-size:1rem;color:rgba(255,255,255,0.7);margin-bottom:24px}
+.emoji-big{font-size:4rem;margin-bottom:16px;animation:pulse 2s infinite}
+.start-btn{padding:16px 40px;border:none;border-radius:30px;font-size:1.2rem;font-weight:700;color:#fff;cursor:pointer;transition:all 0.3s;font-family:'Fredoka',sans-serif}
+.start-btn:hover{transform:translateY(-3px)}
+.start-btn.easy{background:var(--green)}
+.start-btn.medium{background:var(--blue)}
+.start-btn.hard{background:var(--red)}
+.diff-grid{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.back-link{display:inline-block;margin-top:20px;color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.85rem}
+.back-link:hover{color:#fff}
+.game-hud{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding:10px 16px;background:rgba(255,255,255,0.08);border-radius:16px}
+.hud-item{text-align:center}
+.hud-item .label{font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase}
+.hud-item .value{font-family:'Fredoka',sans-serif;font-size:1.3rem;font-weight:700}
+.timer-bar{height:6px;background:rgba(255,255,255,0.15);border-radius:3px;margin-bottom:20px;overflow:hidden}
+.timer-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--yellow),var(--red));border-radius:3px;transition:width 0.1s linear}
+.q-card{background:rgba(255,255,255,0.1);border-radius:20px;padding:28px 24px;margin-bottom:20px;backdrop-filter:blur(5px)}
+.q-card .q-num{font-size:0.75rem;color:rgba(255,255,255,0.5);margin-bottom:6px}
+.q-card .q-text{font-family:'Fredoka',sans-serif;font-size:1.3rem;font-weight:600}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ans{padding:18px 14px;border-radius:16px;font-size:1rem;font-weight:700;cursor:pointer;border:none;color:#fff;transition:all 0.2s;text-align:center;min-height:60px;display:flex;align-items:center;justify-content:center}
+.ans:hover{transform:scale(1.03);filter:brightness(1.15)}
+.ans:nth-child(1){background:var(--red)}
+.ans:nth-child(2){background:var(--blue)}
+.ans:nth-child(3){background:var(--yellow)}
+.ans:nth-child(4){background:var(--green)}
+.ans.correct{animation:pulse 0.5s;box-shadow:0 0 30px rgba(255,255,255,0.4)}
+.ans.wrong{opacity:0.4;transform:scale(0.95)}
+.ans.disabled{pointer-events:none}
+.feedback{font-size:1.2rem;margin-top:14px;font-weight:700;min-height:40px}
+.streak{position:fixed;top:16px;right:16px;background:rgba(255,255,255,0.1);padding:8px 16px;border-radius:20px;font-family:'Fredoka',sans-serif;font-size:0.85rem}
+.streak.fire{background:linear-gradient(135deg,rgba(226,27,60,0.3),rgba(216,158,0,0.3));animation:pulse 0.5s}
+.result-card{background:rgba(255,255,255,0.08);border-radius:24px;padding:36px;margin:20px 0}
+.big-score{font-family:'Fredoka',sans-serif;font-size:4rem;font-weight:700}
+.result-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:20px 0}
+.stat{background:rgba(255,255,255,0.06);border-radius:14px;padding:14px}
+.stat .label{font-size:0.72rem;color:rgba(255,255,255,0.5)}
+.stat .value{font-family:'Fredoka',sans-serif;font-size:1.4rem}
+.leaderboard{margin-top:20px;text-align:left}
+.lb-row{display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:12px;margin-bottom:6px;background:rgba(255,255,255,0.05)}
+.lb-row .rank{font-family:'Fredoka',sans-serif;font-weight:700;min-width:30px;text-align:center}
+.lb-row .name{flex:1}
+.lb-row .pts{font-family:'Fredoka',sans-serif;color:var(--yellow)}
+.lb-row.gold{background:rgba(216,158,0,0.15);border:1px solid rgba(216,158,0,0.3)}
+.confetti-piece{position:fixed;width:10px;height:10px;border-radius:2px;animation:confetti 2s ease-out forwards;pointer-events:none;z-index:100}
+@media(max-width:600px){h1{font-size:1.6rem}.answers{grid-template-columns:1fr}.q-card .q-text{font-size:1.1rem}}
+</style>
+</head>
+<body>
+
+<div class="screen active" id="welcome">
+  <div class="emoji-big">🍜</div>
+  <h1>Street Food Kahoot!</h1>
+  <p class="subtitle">Session 3 — Street Food, Countable/Uncountable & Food Adjectives</p>
+  <div style="margin:20px 0">
+    <input id="playerName" type="text" placeholder="Enter your name..." style="padding:12px 20px;border-radius:20px;border:2px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;font-size:1rem;text-align:center;width:260px;font-family:'Nunito',sans-serif">
+  </div>
+  <p style="font-size:0.88rem;color:rgba(255,255,255,0.6);margin-bottom:12px">Choose difficulty:</p>
+  <div class="diff-grid">
+    <button class="start-btn easy" onclick="startGame(8)">Easy (8 Qs)</button>
+    <button class="start-btn medium" onclick="startGame(15)">Medium (15 Qs)</button>
+    <button class="start-btn hard" onclick="startGame(20)">Hard (20 Qs)</button>
+  </div>
+  <a href="session-3.html" class="back-link">&larr; Back to Session 3</a>
+</div>
+
+<div class="screen" id="game">
+  <div class="game-hud">
+    <div class="hud-item"><div class="label">Question</div><div class="value" id="qNum">1/15</div></div>
+    <div class="hud-item"><div class="label">Score</div><div class="value" id="gScore">0</div></div>
+    <div class="hud-item"><div class="label">Streak</div><div class="value" id="gStreak">0 🔥</div></div>
+  </div>
+  <div class="timer-bar"><div class="timer-fill" id="timerFill" style="width:100%"></div></div>
+  <div class="q-card"><div class="q-num" id="qLabel"></div><div class="q-text" id="qText"></div></div>
+  <div class="answers" id="ansGrid"></div>
+  <div class="feedback" id="feedback"></div>
+</div>
+
+<div class="screen" id="results">
+  <div class="emoji-big">🏆</div>
+  <h1>Game Over!</h1>
+  <div class="result-card">
+    <div class="big-score" id="rScore"></div>
+    <p id="rMsg" style="font-size:1.1rem;margin-top:8px"></p>
+    <div class="result-stats">
+      <div class="stat"><div class="label">Correct</div><div class="value" id="rCorrect"></div></div>
+      <div class="stat"><div class="label">Best Streak</div><div class="value" id="rStreak"></div></div>
+      <div class="stat"><div class="label">Accuracy</div><div class="value" id="rAcc"></div></div>
+    </div>
+  </div>
+  <h3 style="font-family:'Fredoka',sans-serif;margin:16px 0 10px">🏅 Leaderboard</h3>
+  <div class="leaderboard" id="leaderboard"></div>
+  <div style="margin-top:20px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <button class="start-btn medium" onclick="location.reload()">Play Again</button>
+    <a href="session-3.html" class="start-btn easy" style="text-decoration:none;display:inline-flex;align-items:center">Back to Session 3</a>
+  </div>
+</div>
+
+<script>
+const ALL_QUESTIONS=[
+  {q:"What is a 'samosa'?",a:["Grilled chicken","A fried pastry with potatoes & peas","A Greek sandwich","A type of noodle"],c:1,cat:"Vocab"},
+  {q:"'Having a strong taste from spices' = ?",a:["Salty","Crispy","Spicy","Fresh"],c:2,cat:"Vocab"},
+  {q:"What does 'crispy' mean?",a:["Very hot","Pleasantly hard and crunchy","Very sweet","Cooked in water"],c:1,cat:"Vocab"},
+  {q:"A person who sells food on the street is a ___.",a:["Chef","Vendor","Waiter","Manager"],c:1,cat:"Vocab"},
+  {q:"'Cooked over fire or hot coals' = ?",a:["Fried","Boiled","Grilled","Steamed"],c:2,cat:"Vocab"},
+  {q:"I had ___ falafel sandwich for lunch.",a:["a","the","some","any"],c:0,cat:"Grammar"},
+  {q:"We ordered ___ hummus to share.",a:["a","the","some","any"],c:2,cat:"Grammar"},
+  {q:"They didn't have ___ samosas left.",a:["some","a","any","the"],c:2,cat:"Grammar"},
+  {q:"How ___ rice do you want?",a:["many","much","some","any"],c:1,cat:"Grammar"},
+  {q:"How ___ eggs are in the fridge?",a:["much","many","some","any"],c:1,cat:"Grammar"},
+  {q:"She used too ___ sugar in the cake.",a:["many","enough","much","any"],c:2,cat:"Grammar"},
+  {q:"Is 'rice' countable or uncountable?",a:["Countable","Uncountable"],c:1,cat:"Grammar"},
+  {q:"What kind of tacos are found in Mexico?",a:["Sweet tacos","Crispy tacos","Spicy tacos","Salty tacos"],c:2,cat:"Listening"},
+  {q:"What is yakitori?",a:["A Greek dish","An Indian dish","A Japanese dish","A Mexican dish"],c:2,cat:"Listening"},
+  {q:"Which country is known for gyros?",a:["Japan","India","Greece","Mexico"],c:2,cat:"Listening"},
+  {q:"What are samosas filled with?",a:["Chicken and rice","Potatoes and peas","Cheese and tomato","Mango"],c:1,cat:"Reading"},
+  {q:"What sauce comes with Greek gyros?",a:["Chili sauce","Tahini","Tzatziki sauce","Ketchup"],c:2,cat:"Reading"},
+  {q:"The opposite of sweet is ___.",a:["Fresh","Spicy","Salty","Hot"],c:2,cat:"Food Adj"},
+  {q:"'Recently made — not old' = ?",a:["Hot","Fresh","Crispy","Grilled"],c:1,cat:"Food Adj"},
+  {q:"We love eating ___ street food. (general)",a:["a","the","Zero article","some"],c:2,cat:"Grammar"}
+];
+
+let questions=[],current=0,score=0,streak=0,bestStreak=0,correctCount=0,timer,timeLeft;
+const TIMER_SEC=15;
+
+function startGame(n){
+  const name=document.getElementById('playerName').value.trim()||'Player';
+  questions=shuffle([...ALL_QUESTIONS]).slice(0,Math.min(n,ALL_QUESTIONS.length));
+  current=0;score=0;streak=0;bestStreak=0;correctCount=0;
+  showScreen('game');showQuestion();
+}
+
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active')}
+
+function showQuestion(){
+  if(current>=questions.length){endGame();return}
+  const q=questions[current];
+  document.getElementById('qNum').textContent=(current+1)+'/'+questions.length;
+  document.getElementById('qLabel').textContent='Q'+(current+1)+' — '+q.cat;
+  document.getElementById('qText').textContent=q.q;
+  document.getElementById('feedback').textContent='';
+  const grid=document.getElementById('ansGrid');grid.innerHTML='';
+  q.a.forEach((a,i)=>{const btn=document.createElement('button');btn.className='ans';btn.textContent=a;btn.onclick=()=>selectAnswer(i);grid.appendChild(btn)});
+  startTimer();
+}
+
+function startTimer(){
+  timeLeft=TIMER_SEC*10;clearInterval(timer);
+  document.getElementById('timerFill').style.width='100%';
+  timer=setInterval(()=>{timeLeft--;document.getElementById('timerFill').style.width=(timeLeft/(TIMER_SEC*10)*100)+'%';if(timeLeft<=0){clearInterval(timer);autoWrong()}},100);
+}
+
+function autoWrong(){
+  const btns=document.querySelectorAll('.ans');btns.forEach(b=>b.classList.add('disabled'));
+  btns[questions[current].c].classList.add('correct');streak=0;
+  document.getElementById('gStreak').textContent=streak+' 🔥';
+  document.getElementById('feedback').innerHTML="⏰ Time's up! Answer: <strong>"+questions[current].a[questions[current].c]+"</strong>";
+  document.getElementById('feedback').style.color='var(--yellow)';
+  setTimeout(()=>{current++;showQuestion()},2000);
+}
+
+function selectAnswer(idx){
+  clearInterval(timer);const q=questions[current];
+  const btns=document.querySelectorAll('.ans');btns.forEach(b=>b.classList.add('disabled'));
+  if(idx===q.c){
+    btns[idx].classList.add('correct');
+    const bonus=Math.max(100,500-Math.floor((TIMER_SEC*10-timeLeft)*3));
+    const streakBonus=streak>=3?streak*50:0;
+    score+=bonus+streakBonus;streak++;correctCount++;
+    if(streak>bestStreak)bestStreak=streak;
+    document.getElementById('feedback').innerHTML='✅ Correct! +'+bonus+(streakBonus?' +'+streakBonus+' streak bonus!':'');
+    document.getElementById('feedback').style.color='#4ade80';createGameConfetti();
+  }else{
+    btns[idx].classList.add('wrong');btns[q.c].classList.add('correct');streak=0;
+    const memes=['😅 Oops!','🤦 Nice try!','😬 Almost!','🙈 Nope!','💀 Chai break!','🫠 Melted!'];
+    document.getElementById('feedback').innerHTML=memes[Math.floor(Math.random()*memes.length)]+' Answer: <strong>'+q.a[q.c]+'</strong>';
+    document.getElementById('feedback').style.color='#f87171';
+    document.getElementById('game').style.animation='shake 0.4s';setTimeout(()=>document.getElementById('game').style.animation='',500);
+  }
+  document.getElementById('gScore').textContent=score;
+  document.getElementById('gStreak').textContent=streak+(streak>=3?' 🔥🔥':' 🔥');
+  if(streak>=3)document.getElementById('gStreak').parentElement.classList.add('fire');
+  else document.getElementById('gStreak').parentElement.classList.remove('fire');
+  setTimeout(()=>{current++;showQuestion()},1800);
+}
+
+function createGameConfetti(){
+  const colors=['#e21b3c','#1368ce','#d89e00','#26890c','#f472b6','#a78bfa'];
+  for(let i=0;i<15;i++){const c=document.createElement('div');c.className='confetti-piece';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.left=Math.random()*100+'vw';c.style.top='-10px';c.style.animationDelay=Math.random()*0.5+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),2500)}
+}
+
+function endGame(){
+  showScreen('results');
+  const name=document.getElementById('playerName').value.trim()||'Player';
+  const pct=Math.round(correctCount/questions.length*100);
+  document.getElementById('rScore').textContent=score+' pts';
+  document.getElementById('rCorrect').textContent=correctCount+'/'+questions.length;
+  document.getElementById('rStreak').textContent=bestStreak+' 🔥';
+  document.getElementById('rAcc').textContent=pct+'%';
+  let msg='';
+  if(pct>=90)msg="You're a STREET FOOD MASTER! 🌟";
+  else if(pct>=70)msg='Great job! Almost there! 💪';
+  else if(pct>=50)msg='Good effort! Review Session 3! 📚';
+  else msg="Keep practicing! You'll get better! 🤗";
+  document.getElementById('rMsg').textContent=msg;
+  document.getElementById('rScore').style.color=pct>=70?'#4ade80':'#fbbf24';
+  let lb=[];
+  try{lb=JSON.parse(localStorage.getItem('kahoot_s3_lb')||'[]')}catch(e){}
+  lb.push({name,score,correct:correctCount,total:questions.length,date:new Date().toLocaleDateString()});
+  lb.sort((a,b)=>b.score-a.score);lb=lb.slice(0,10);
+  try{localStorage.setItem('kahoot_s3_lb',JSON.stringify(lb))}catch(e){}
+  const lbDiv=document.getElementById('leaderboard');lbDiv.innerHTML='';
+  lb.forEach((entry,i)=>{const medals=['👑','🥈','🥉'];lbDiv.innerHTML+='<div class="lb-row'+(i===0?' gold':'')+'"><span class="rank">'+(medals[i]||'#'+(i+1))+'</span><span class="name">'+entry.name+'</span><span class="pts">'+entry.score+' pts</span></div>'});
+  if(pct>=70)createGameConfetti();
+}
+</script>
+</body>
+</html>

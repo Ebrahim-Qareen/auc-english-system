@@ -228,11 +228,11 @@ h1,h2,h3{font-family:'Fredoka',sans-serif}
     <h2>Listening Activities</h2>
     <div class="card">
       <h3>&#x1F399; Overview Video</h3>
-      <div class="nlm-slot"><div class="slot-title">Overview Video</div><div>Reserved for NotebookLM material &mdash; drop the .mp4 into the <code>Session 4</code> folder and it will appear here</div></div>
+      <video controls style="width:100%;border-radius:12px;background:#000" preload="metadata"><source src="media/session-4/The_World_Is_Yours.mp4" type="video/mp4"></video>
     </div>
     <div class="card">
       <h3>&#x1F3A7; Deep Dive Audio</h3>
-      <div class="nlm-slot"><div class="slot-title">Deep Dive Audio</div><div>Reserved for NotebookLM material &mdash; drop the .m4a into the <code>Session 4</code> folder and it will appear here</div></div>
+      <audio controls style="width:100%" preload="metadata"><source src="media/session-4/Banish_nice_with_OSSAC_and_prepositions.m4a" type="audio/mp4"></audio>
     </div>
     <div class="card">
       <h3>&#x1F3A7; Listening 1: Describing Your Hometown</h3>
@@ -252,7 +252,7 @@ h1,h2,h3{font-family:'Fredoka',sans-serif}
   <div class="section" id="vocab">
     <span class="section-label" style="background:var(--accent-light);color:var(--accent)">&#x1F4DA; Vocabulary</span>
     <h2>Describing Places</h2>
-    <div class="nlm-slot"><div class="slot-title">Vocabulary Slides</div><div>Reserved for NotebookLM material &mdash; the slide JPGs will become an image carousel here</div></div>
+    <div class="slideshow"><h3 style="padding:16px 16px 0;font-family:'Fredoka',sans-serif">&#x1F4CA; Vocabulary Slides</h3><div class="slide-viewport"><div class="slide-track" id="vocabTrack"></div></div><div class="slide-controls"><button class="slide-btn" id="vocabPrev" onclick="slideNav('vocab',-1)">&larr;</button><div><span class="slide-counter" id="vocabCounter">1 / 1</span><div class="slide-dots" id="vocabDots"></div></div><button class="slide-btn" id="vocabNext" onclick="slideNav('vocab',1)">&rarr;</button></div></div>
     <div class="tip-box">&#x1F9E0; <strong>Memory trick:</strong> Learn the adjectives in <strong>opposite pairs</strong> &mdash; crowded/quiet, modern/historical, safe/dangerous. Pairs are twice as easy to remember as single words, and they give you something to say in a comparison.</div>
     <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">🏙️ Describing a City</h3>
     <div class="vocab-grid" id="vg-city"></div>
@@ -325,7 +325,7 @@ h1,h2,h3{font-family:'Fredoka',sans-serif}
   <div class="section" id="grammar">
     <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span>
     <h2>Order of Adjectives</h2>
-    <div class="nlm-slot"><div class="slot-title">Grammar Slides</div><div>Reserved for NotebookLM material &mdash; the slide JPGs will become an image carousel here</div></div>
+    <div class="slideshow"><h3 style="padding:16px 16px 0;font-family:'Fredoka',sans-serif">&#x1F4CA; Grammar Slides</h3><div class="slide-viewport"><div class="slide-track" id="grammarTrack"></div></div><div class="slide-controls"><button class="slide-btn" id="grammarPrev" onclick="slideNav('grammar',-1)">&larr;</button><div><span class="slide-counter" id="grammarCounter">1 / 1</span><div class="slide-dots" id="grammarDots"></div></div><button class="slide-btn" id="grammarNext" onclick="slideNav('grammar',1)">&rarr;</button></div></div>
     <div class="card">
       <h3>&#x2B50; The Basic Order: O-S-S-A-C</h3>
       <p style="font-size:0.88rem">When you use more than one adjective before a noun, English follows a fixed order. Memorize <span class="demo-word">O-S-S-A-C</span>.</p>
@@ -583,7 +583,14 @@ function updateTracker(){const ch=document.querySelectorAll('#progressChecks inp
 function loadTracker(){try{const st=JSON.parse(localStorage.getItem('s4_tracker')||'{}');document.querySelectorAll('#progressChecks input').forEach(c=>{if(st[c.dataset.sec])c.checked=true});updateTracker()}catch(e){}}
 function updateSB(){document.getElementById('sb-cards').textContent=document.querySelectorAll('.vocab-card.flipped').length;const ew=parseInt(document.getElementById('email-wc')?.textContent||0);const ww=parseInt(document.getElementById('writing-wc')?.textContent||0);document.getElementById('sb-words').textContent=ew+ww}
 window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;if(h>0){const p=Math.min(scrollY/h*100,100);document.getElementById('progress-fill').style.width=p+'%';document.getElementById('progress-pct').textContent=Math.round(p)+'%'}});
-document.addEventListener('DOMContentLoaded',()=>{buildRecap();buildVocabCards(cityVocab,'vg-city');buildVocabCards(locVocab,'vg-loc');buildVocabCards(upgradeVocab,'vg-upgrade');buildVocabEx();buildMCQ(listen1Data,'listen1-questions','l1q');buildMCQ(listen2Data,'listen2-questions','l2q');buildMCQ(readingQ,'reading-questions','rq');buildTF(listen2TF,'listen2-tf','l2tf');buildTF(readingTF,'reading-tf','rtf');buildGrammar();buildQuiz();loadNotes();loadTracker()});
+const MEDIA_BASE='media/session-4/';   // change this one line if media ever moves to a CDN
+const SLIDES={vocab:{prefix:'Describing_Places_page-',count:15},grammar:{prefix:'The_Adjective_Blueprint_page-',count:19}};
+const slideState={grammar:{current:0,total:0},vocab:{current:0,total:0}};
+function buildSlides(){Object.keys(SLIDES).forEach(n=>{const t=document.getElementById(n+'Track');if(!t)return;const{prefix,count}=SLIDES[n];for(let i=1;i<=count;i++){const s=document.createElement('div');s.className='slide';s.innerHTML='<img src="'+MEDIA_BASE+prefix+String(i).padStart(4,'0')+'.jpg" alt="'+n+' slide '+i+'" loading="lazy" style="max-width:100%;max-height:500px;border-radius:8px">';t.appendChild(s)}})}
+function initSlideshow(n){const t=document.getElementById(n+'Track');if(!t)return;const sl=t.querySelectorAll('.slide');slideState[n].total=sl.length;const dc=document.getElementById(n+'Dots');dc.innerHTML='';for(let i=0;i<sl.length;i++){const d=document.createElement('span');d.className='slide-dot'+(i===0?' active':'');d.onclick=()=>{slideState[n].current=i;updateSlide(n)};dc.appendChild(d)}updateSlide(n)}
+function slideNav(n,dir){const s=slideState[n];s.current=Math.max(0,Math.min(s.total-1,s.current+dir));updateSlide(n)}
+function updateSlide(n){const s=slideState[n];document.getElementById(n+'Track').style.transform='translateX(-'+s.current*100+'%)';document.getElementById(n+'Counter').textContent=(s.current+1)+' / '+s.total;document.getElementById(n+'Prev').disabled=s.current===0;document.getElementById(n+'Next').disabled=s.current===s.total-1;document.getElementById(n+'Dots').querySelectorAll('.slide-dot').forEach((d,i)=>d.classList.toggle('active',i===s.current))}
+document.addEventListener('DOMContentLoaded',()=>{buildSlides();initSlideshow('vocab');initSlideshow('grammar');buildRecap();buildVocabCards(cityVocab,'vg-city');buildVocabCards(locVocab,'vg-loc');buildVocabCards(upgradeVocab,'vg-upgrade');buildVocabEx();buildMCQ(listen1Data,'listen1-questions','l1q');buildMCQ(listen2Data,'listen2-questions','l2q');buildMCQ(readingQ,'reading-questions','rq');buildTF(listen2TF,'listen2-tf','l2tf');buildTF(readingTF,'reading-tf','rtf');buildGrammar();buildQuiz();loadNotes();loadTracker()});
 </script>
 </body>
 </html>

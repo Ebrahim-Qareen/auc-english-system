@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kahoot! Session 11 - Clothes &amp; Fashion</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;600;700&display=swap');
+:root{--bg:#1a0533;--card:rgba(255,255,255,0.07);--accent:#e8a838;--green:#2ecc71;--red:#e74c3c;--blue:#3498db;--purple:#9b59b6;--text:#fff;--text-dim:rgba(255,255,255,0.6)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 50%,rgba(155,89,182,0.15) 0%,transparent 50%),radial-gradient(ellipse at 80% 50%,rgba(232,168,56,0.1) 0%,transparent 50%);pointer-events:none;z-index:0}
+.container{max-width:700px;margin:0 auto;padding:20px;position:relative;z-index:1}
+.header{text-align:center;padding:30px 0 20px}
+.header h1{font-family:'Fredoka',sans-serif;font-size:2.2rem;background:linear-gradient(135deg,#e8a838,#f0c929);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header .sub{color:var(--text-dim);font-size:0.9rem;margin-top:4px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);text-decoration:none;font-size:0.85rem;font-weight:600;margin-bottom:16px;padding:6px 14px;border-radius:8px;border:1px solid rgba(232,168,56,0.3);transition:all 0.2s}
+.back-link:hover{background:rgba(232,168,56,0.1)}
+.setup{background:var(--card);border-radius:20px;padding:30px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1)}
+.diff-btn{display:block;width:100%;padding:16px;margin:8px 0;border:2px solid rgba(255,255,255,0.15);border-radius:14px;background:rgba(255,255,255,0.05);color:var(--text);font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all 0.3s}
+.diff-btn:hover{border-color:var(--accent);background:rgba(232,168,56,0.1);transform:translateY(-2px)}
+.diff-btn .detail{font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:400;color:var(--text-dim);margin-top:2px}
+.game-hud{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.hud-item{text-align:center}
+.hud-item .label{font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-dim)}
+.hud-item .val{font-family:'Fredoka',sans-serif;font-size:1.5rem;font-weight:700}
+.timer-ring{width:60px;height:60px;position:relative}
+.timer-ring svg{transform:rotate(-90deg)}
+.timer-ring circle{fill:none;stroke-width:4}
+.timer-ring .bg{stroke:rgba(255,255,255,0.1)}
+.timer-ring .fg{stroke:var(--accent);stroke-linecap:round;transition:stroke-dashoffset 1s linear}
+.timer-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fredoka',sans-serif;font-size:1.3rem;font-weight:700}
+.q-card{background:var(--card);border-radius:20px;padding:28px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);margin-bottom:16px}
+.q-cat{font-size:0.72rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);font-weight:600;margin-bottom:8px}
+.q-text{font-family:'Fredoka',sans-serif;font-size:1.2rem;font-weight:600;line-height:1.5;margin-bottom:20px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{padding:16px;border-radius:14px;border:2px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);color:var(--text);font-size:0.92rem;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif;text-align:center}
+.opt:hover:not(.locked){border-color:var(--accent);background:rgba(232,168,56,0.1);transform:scale(1.02)}
+.opt.correct{border-color:var(--green);background:rgba(46,204,113,0.2);color:var(--green)}
+.opt.wrong{border-color:var(--red);background:rgba(231,76,60,0.2);color:var(--red)}
+.opt.locked{cursor:default;opacity:0.7}
+.opt-label{display:inline-block;width:22px;height:22px;border-radius:6px;font-size:0.75rem;line-height:22px;text-align:center;font-weight:700;margin-right:6px}
+.streak-bar{text-align:center;padding:6px;font-family:'Fredoka',sans-serif;font-size:0.85rem;color:var(--accent)}
+.next-btn{display:block;width:100%;padding:14px;margin-top:12px;border:none;border-radius:14px;background:linear-gradient(135deg,var(--accent),#f0c929);color:#1a0533;font-family:'Fredoka',sans-serif;font-size:1.05rem;font-weight:700;cursor:pointer;transition:all 0.2s}
+.next-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,168,56,0.3)}
+.result{text-align:center;padding:40px 20px}
+.result .big{font-family:'Fredoka',sans-serif;font-size:3.5rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.result .msg{font-size:1.2rem;margin:10px 0;font-weight:600}
+.result .detail{color:var(--text-dim);font-size:0.9rem}
+.lb{margin-top:20px}
+.lb h3{font-family:'Fredoka',sans-serif;text-align:center;margin-bottom:12px;color:var(--accent)}
+.lb-row{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;margin:4px 0;background:rgba(255,255,255,0.05);font-size:0.88rem}
+.lb-row .rank{font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem;width:28px;text-align:center}
+.lb-row .name{flex:1;font-weight:600}
+.lb-row .pts{font-family:'Fredoka',sans-serif;color:var(--accent);font-weight:700}
+.lb-row.me{background:rgba(232,168,56,0.15);border:1px solid rgba(232,168,56,0.3)}
+.name-input{width:100%;padding:12px 16px;border:2px solid rgba(255,255,255,0.15);border-radius:12px;background:rgba(255,255,255,0.05);color:var(--text);font-family:'Inter',sans-serif;font-size:1rem;margin:12px 0;text-align:center}
+.name-input:focus{outline:none;border-color:var(--accent)}
+.name-input::placeholder{color:var(--text-dim)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp 0.4s ease}
+@keyframes pop{0%{transform:scale(0.8);opacity:0}50%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+.pop{animation:pop 0.4s ease}
+@media(max-width:500px){.opts{grid-template-columns:1fr}.header h1{font-size:1.6rem}.q-text{font-size:1rem}}
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="session-11.html" class="back-link">&larr; Back to Session 11</a>
+  <div class="header"><h1>&#x1F454; Fashion Kahoot!</h1><p class="sub">Session 11: Clothes &amp; Fashion</p></div>
+  <div id="app"></div>
+</div>
+<script>
+const allQ=[
+{q:"Formal clothes for a business meeting = ?",opts:["t-shirt and shorts","suit and tie","sneakers and jeans","pajamas"],ans:1,cat:"Vocab"},
+{q:"You wear these on your hands when it's cold = ?",opts:["sandals","scarves","mittens","boots"],ans:2,cat:"Vocab"},
+{q:"Comfortable shoes for running = ?",opts:["high heels","boots","sandals","sneakers"],ans:3,cat:"Vocab"},
+{q:"A warm piece of clothing you wrap around your neck = ?",opts:["hat","scarf","belt","tie"],ans:1,cat:"Vocab"},
+{q:"Clothes you sleep in = ?",opts:["suit","jeans","pajamas","blouse"],ans:2,cat:"Vocab"},
+{q:"A formal top for women = ?",opts:["t-shirt","sweater","blouse","jacket"],ans:2,cat:"Vocab"},
+{q:"Shoes with open toes for summer = ?",opts:["boots","sneakers","sandals","high heels"],ans:2,cat:"Vocab"},
+{q:"My new pants ______ very comfortable.",opts:["is","are","was","were"],ans:1,cat:"Grammar"},
+{q:"Sugar ______ used in many desserts.",opts:["are","were","is","have"],ans:2,cat:"Grammar"},
+{q:"______ is important when making decisions.",opts:["Information","Informations","An information","The informations"],ans:0,cat:"Grammar"},
+{q:"There ______ a lot of rice in the cupboard.",opts:["are","were","is","have"],ans:2,cat:"Grammar"},
+{q:"She bought two ______ yesterday.",opts:["pen","pens","pennes","a pen"],ans:1,cat:"Grammar"},
+{q:"These shoes ______ perfect for work.",opts:["is","was","are","has"],ans:2,cat:"Grammar"},
+{q:"What does Carl wear to work?",opts:["t-shirt and shorts","suit and tie","sweater and jeans","dress and sandals"],ans:1,cat:"Listening"},
+{q:"What does Emma wear when it is cold?",opts:["a dress","a t-shirt and sandals","a heavy sweater and mittens","shorts and sneakers"],ans:2,cat:"Listening"},
+{q:"Where was Abigail's event held?",opts:["in a concert hall","in an outdoor garden","at a restaurant","at her house"],ans:1,cat:"Listening"},
+{q:"What shoes are good for the office?",opts:["sneakers","flip-flops","formal shoes","sandals"],ans:2,cat:"Reading"},
+{q:"What should you wear for exercise?",opts:["a suit and tie","a t-shirt and shorts","a dress","formal shoes"],ans:1,cat:"Reading"},
+{q:"'Dressed to the nines' means ______.",opts:["wearing old clothes","wearing nine shirts","wearing very fancy clothes","getting dressed quickly"],ans:2,cat:"Idioms"},
+{q:"'Fit like a glove' means ______.",opts:["too tight","fit perfectly","too loose","uncomfortable"],ans:1,cat:"Idioms"}
+];
+const LB_KEY='kahoot_s11_lb';
+let state={phase:'menu',difficulty:null,questions:[],qi:0,score:0,streak:0,timer:null,timeLeft:15,answered:false,name:''};
+const app=document.getElementById('app');
+
+function render(){
+if(state.phase==='menu')renderMenu();
+else if(state.phase==='game')renderQuestion();
+else if(state.phase==='result')renderResult();
+}
+
+function renderMenu(){
+app.innerHTML=`<div class="setup fade-up">
+<h2 style="font-family:'Fredoka',sans-serif;text-align:center;margin-bottom:16px">Choose Difficulty</h2>
+<button class="diff-btn" onclick="startGame('easy')">&#x1F7E2; Easy<div class="detail">8 questions &bull; More time</div></button>
+<button class="diff-btn" onclick="startGame('medium')">&#x1F7E1; Medium<div class="detail">15 questions &bull; Normal time</div></button>
+<button class="diff-btn" onclick="startGame('hard')">&#x1F534; Hard<div class="detail">20 questions &bull; Less time</div></button>
+</div>`}
+
+function startGame(diff){
+state.difficulty=diff;
+const n=diff==='easy'?8:diff==='medium'?15:20;
+const shuffled=[...allQ].sort(()=>Math.random()-0.5);
+state.questions=shuffled.slice(0,n);
+state.qi=0;state.score=0;state.streak=0;state.phase='game';
+render()}
+
+function renderQuestion(){
+const q=state.questions[state.qi];
+state.answered=false;state.timeLeft=state.difficulty==='easy'?20:state.difficulty==='medium'?15:12;
+const circ=2*Math.PI*26;
+app.innerHTML=`<div class="fade-up">
+<div class="game-hud">
+<div class="hud-item"><div class="label">Score</div><div class="val" style="color:var(--accent)">${state.score}</div></div>
+<div class="timer-ring"><svg width="60" height="60"><circle class="bg" cx="30" cy="30" r="26"/><circle class="fg" id="tCircle" cx="30" cy="30" r="26" stroke-dasharray="${circ}" stroke-dashoffset="0"/></svg><div class="timer-num" id="tNum">${state.timeLeft}</div></div>
+<div class="hud-item"><div class="label">Q</div><div class="val">${state.qi+1}/${state.questions.length}</div></div>
+</div>
+${state.streak>=2?'<div class="streak-bar">\u{1F525} '+state.streak+' streak! x'+(1+Math.floor(state.streak/2))+' multiplier</div>':''}
+<div class="q-card"><div class="q-cat">${q.cat}</div><div class="q-text">${q.q}</div>
+<div class="opts">${q.opts.map((o,i)=>`<button class="opt" id="o${i}" onclick="answer(${i})"><span class="opt-label" style="background:${['var(--red)','var(--blue)','var(--green)','var(--purple)'][i]}">${'ABCD'[i]}</span>${o}</button>`).join('')}</div></div></div>`;
+startTimer()}
+
+function startTimer(){
+clearInterval(state.timer);
+const circ=2*Math.PI*26;
+const maxT=state.timeLeft;
+state.timer=setInterval(()=>{
+state.timeLeft--;
+const el=document.getElementById('tNum');
+const cr=document.getElementById('tCircle');
+if(el)el.textContent=state.timeLeft;
+if(cr)cr.style.strokeDashoffset=circ*(1-state.timeLeft/maxT);
+if(state.timeLeft<=5&&el)el.style.color='var(--red)';
+if(state.timeLeft<=0){clearInterval(state.timer);if(!state.answered)timeout()}
+},1000)}
+
+function answer(i){
+if(state.answered)return;
+state.answered=true;clearInterval(state.timer);
+const q=state.questions[state.qi];
+const btns=document.querySelectorAll('.opt');
+btns.forEach(b=>b.classList.add('locked'));
+if(i===q.ans){
+document.getElementById('o'+i).classList.add('correct');
+const mult=1+Math.floor(state.streak/2);
+const pts=(10+state.timeLeft)*mult;
+state.score+=pts;state.streak++;
+}else{
+document.getElementById('o'+i).classList.add('wrong');
+document.getElementById('o'+q.ans).classList.add('correct');
+state.streak=0;
+}
+showNext()}
+
+function timeout(){
+state.answered=true;state.streak=0;
+const q=state.questions[state.qi];
+document.querySelectorAll('.opt').forEach(b=>b.classList.add('locked'));
+document.getElementById('o'+q.ans).classList.add('correct');
+showNext()}
+
+function showNext(){
+const qc=document.querySelector('.q-card');
+if(qc){const b=document.createElement('button');b.className='next-btn';b.textContent=state.qi<state.questions.length-1?'Next Question \u{27A1}':'See Results \u{1F3C6}';b.onclick=()=>{state.qi++;if(state.qi>=state.questions.length){state.phase='result';render()}else render()};qc.appendChild(b)}}
+
+function renderResult(){
+clearInterval(state.timer);
+const pct=Math.round(state.score/(state.questions.length*25)*100);
+const lb=JSON.parse(localStorage.getItem(LB_KEY)||'[]');
+app.innerHTML=`<div class="setup fade-up"><div class="result">
+<div class="big pop">${state.score}</div>
+<div class="msg">${pct>=80?"You're a FASHION STAR! \u{1F31F}":pct>=60?'Looking stylish! \u{1F454}':pct>=40?'Keep shopping for answers! \u{1F6CD}':'Study more & try again! \u{1F4DA}'}</div>
+<div class="detail">${state.questions.length} questions &bull; ${state.difficulty} mode</div>
+</div>
+<input class="name-input" id="nameIn" placeholder="Enter your name for leaderboard" maxlength="20" onkeydown="if(event.key==='Enter')saveLB()">
+<button class="next-btn" onclick="saveLB()">Save Score</button>
+<div class="lb" id="lbDiv">${renderLB(lb)}</div>
+<button class="next-btn" style="margin-top:16px;background:rgba(255,255,255,0.1);color:var(--text)" onclick="state.phase='menu';render()">Play Again</button>
+</div>`}
+
+function saveLB(){
+const n=document.getElementById('nameIn').value.trim()||'Player';
+const lb=JSON.parse(localStorage.getItem(LB_KEY)||'[]');
+lb.push({name:n,score:state.score,diff:state.difficulty,date:new Date().toLocaleDateString()});
+lb.sort((a,b)=>b.score-a.score);
+if(lb.length>10)lb.length=10;
+localStorage.setItem(LB_KEY,JSON.stringify(lb));
+state.name=n;
+document.getElementById('lbDiv').innerHTML=renderLB(lb)}
+
+function renderLB(lb){
+if(!lb.length)return'';
+return'<h3>\u{1F3C6} Leaderboard</h3>'+lb.map((e,i)=>`<div class="lb-row${e.name===state.name&&e.score===state.score?' me':''}"><span class="rank">${i===0?'\u{1F947}':i===1?'\u{1F948}':i===2?'\u{1F949}':(i+1)}</span><span class="name">${e.name}</span><span class="pts">${e.score} pts</span></div>`).join('')}
+
+render();
+</script>
+</body>
+</html>

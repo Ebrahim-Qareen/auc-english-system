@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 9 - Deserted Island | AUC English A2A</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+:root{--bg:#fdf6ee;--card:#fff;--card-alt:#fefcf7;--accent:#e8a838;--accent-light:rgba(232,168,56,0.12);--green:#2d9d78;--green-light:#e6f7f1;--orange:#e8862a;--orange-light:#fff3e6;--red:#d94f4f;--red-light:#ffeaea;--pink:#c45ba1;--pink-light:#fce8f4;--blue:#5b6abf;--blue-light:#e8eaff;--yellow:#f0c929;--yellow-light:#fef9e7;--text:#2d3142;--text-dim:#6b7280;--border:#e5e2db;--shadow:0 2px 12px rgba(0,0,0,0.06);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+h1,h2,h3{font-family:'Fredoka',sans-serif}
+.hero{background:linear-gradient(135deg,#00b894 0%,#00a8a8 40%,#0984e3 100%);padding:50px 24px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.08)}
+.hero-emoji{font-size:3rem;margin-bottom:8px}
+.hero h1{font-size:2.2rem;font-weight:700;margin-bottom:4px}
+.hero .sub{opacity:0.9;font-size:1rem}
+.badge-row{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.badge{background:rgba(255,255,255,0.18);padding:4px 14px;border-radius:20px;font-size:0.78rem;font-weight:600}
+.method-banner{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin:20px auto 0;max-width:860px;box-shadow:var(--shadow)}
+.method-steps{display:flex;justify-content:center;align-items:center;gap:4px;flex-wrap:wrap;margin-top:10px}
+.method-step{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:10px;font-size:0.82rem;font-weight:600;white-space:nowrap}
+.method-arrow{color:var(--text-dim);font-size:1rem}
+.nav{position:sticky;top:0;z-index:100;background:rgba(253,246,238,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;overflow-x:auto;gap:2px;padding:8px 16px;-webkit-overflow-scrolling:touch}
+.nav-inner::-webkit-scrollbar{height:4px}
+.nav-inner::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+.nav a{color:var(--text-dim);text-decoration:none;font-size:0.8rem;font-weight:500;white-space:nowrap;padding:6px 12px;border-radius:8px;transition:all 0.2s}
+.nav a:hover{color:var(--accent);background:var(--accent-light)}
+.container{max-width:860px;margin:0 auto;padding:0 16px}
+.section{margin-top:40px;scroll-margin-top:60px}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-family:'Fredoka',sans-serif;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+.section h2{font-size:1.5rem;font-weight:700;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card h3{font-size:1.1rem;margin-bottom:10px}
+.progress-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin-top:16px;box-shadow:var(--shadow)}
+.progress-label{font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.95rem;margin-bottom:8px;display:flex;justify-content:space-between}
+.progress-bar{height:12px;background:#e8e6e0;border-radius:6px;overflow:hidden}
+.progress-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--green));transition:width 0.6s ease;width:0%}
+.recap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.recap-chip{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;box-shadow:var(--shadow);transition:transform 0.2s}
+.recap-chip:hover{transform:translateY(-2px)}
+.recap-chip .num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px}
+.recap-chip .topic{font-weight:700;font-size:0.95rem;margin:4px 0 2px}
+.recap-chip .detail{font-size:0.78rem;color:var(--text-dim)}
+.recap-current{border-color:var(--accent);background:var(--accent-light)}
+.fill-row{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:14px;margin:8px 0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fill-row select{padding:6px 10px;border-radius:8px;border:1.5px solid var(--border);font-size:0.85rem;font-family:inherit}
+.fill-row .result{font-size:0.85rem;font-weight:600;margin-left:auto}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.vocab-card{perspective:800px;height:190px;cursor:pointer}
+.vocab-inner{position:relative;width:100%;height:100%;transition:transform 0.5s;transform-style:preserve-3d}
+.vocab-card.flipped .vocab-inner{transform:rotateY(180deg)}
+.vocab-front,.vocab-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow)}
+.vocab-front{background:var(--card)}
+.vocab-front .word{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:700;color:var(--accent)}
+.vocab-front .pos{font-size:0.72rem;color:var(--text-dim);margin-top:2px}
+.vocab-front .hint{font-size:0.7rem;color:var(--pink);margin-top:8px;font-weight:500}
+.vocab-back{background:linear-gradient(135deg,var(--accent-light),#fef3c7);transform:rotateY(180deg)}
+.vocab-back .meaning{font-weight:600;font-size:0.9rem;margin-bottom:4px}
+.vocab-back .arabic{font-size:0.82rem;color:var(--pink);margin-bottom:4px}
+.vocab-back .example{font-size:0.8rem;color:var(--text-dim);font-style:italic}
+.tts-btn{background:none;border:none;cursor:pointer;font-size:1.1rem;padding:2px 4px;border-radius:6px;transition:all 0.2s;vertical-align:middle}
+.tts-btn:hover{background:var(--accent-light);transform:scale(1.15)}
+.tts-btn.playing{animation:pulse 0.8s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+.grammar-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;margin:12px 0;border:1px solid var(--border)}
+.grammar-table th{background:var(--accent);color:#fff;padding:10px 14px;font-weight:600;font-size:0.85rem;text-align:center}
+.grammar-table td{padding:10px 14px;text-align:center;font-size:0.88rem;border-bottom:1px solid var(--border)}
+.grammar-table tr:last-child td{border-bottom:0}
+.grammar-table tr:nth-child(even) td{background:#faf9f6}
+.demo-word{display:inline-block;background:var(--accent-light);color:var(--accent);font-weight:700;padding:2px 10px;border-radius:6px;font-size:0.85rem}
+.quiz-q{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}
+.quiz-q .q-num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.quiz-q .q-text{font-weight:600;font-size:0.93rem;margin-bottom:12px}
+.quiz-option{display:block;width:100%;text-align:left;padding:10px 14px;margin-bottom:6px;background:#faf9f6;border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:0.86rem;transition:all 0.2s;font-family:'Inter',sans-serif}
+.quiz-option:hover:not(:disabled){border-color:var(--accent);background:var(--accent-light)}
+.quiz-option.correct{border-color:var(--green);background:var(--green-light);color:var(--green);font-weight:600}
+.quiz-option.wrong{border-color:var(--red);background:var(--red-light);color:var(--red)}
+.quiz-option:disabled{cursor:default}
+.btn{display:inline-block;padding:8px 20px;border:none;border-radius:10px;font-weight:600;font-size:0.88rem;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
+.writing-area{width:100%;min-height:140px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe;transition:border-color 0.2s}
+.writing-area:focus{outline:none;border-color:var(--accent)}
+.word-count{font-size:0.78rem;color:var(--text-dim);margin-top:6px;text-align:right}
+.challenge-box{background:linear-gradient(135deg,#fef9e7,#fff3e6);border:2px dashed var(--accent);border-radius:var(--radius);padding:22px;text-align:center;margin:14px 0}
+.challenge-box h3{font-family:'Fredoka',sans-serif;color:var(--accent)}
+.tip-box{background:var(--green-light);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:12px 16px;margin:10px 0;font-size:0.85rem}
+.tip-box strong{color:var(--green)}
+.checklist label{display:flex;align-items:flex-start;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}
+.checklist input[type=checkbox]{margin-top:4px;accent-color:var(--green);width:16px;height:16px}
+.cheat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cheat-cell{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+.cheat-cell h4{font-family:'Fredoka',sans-serif;font-size:0.9rem;margin-bottom:6px}
+.expression-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:12px}
+.expression-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;box-shadow:var(--shadow);transition:transform 0.2s}
+.expression-card:hover{transform:translateY(-2px)}
+.expression-card .phrase{font-family:'Fredoka',sans-serif;font-size:0.95rem;font-weight:600;color:var(--accent)}
+.expression-card .ex-meaning{font-size:0.82rem;color:var(--text-dim);margin-top:3px}
+.role-card{background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow);cursor:pointer;transition:all 0.3s}
+.role-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.1)}
+.role-card h4{font-family:'Fredoka',sans-serif;font-size:1.05rem;margin-bottom:8px}
+.role-card .role-points{list-style:none;padding:0}
+.role-card .role-points li{font-size:0.85rem;padding:3px 0;padding-left:18px;position:relative}
+.role-card .role-points li::before{content:'\2022';position:absolute;left:4px;color:var(--green);font-weight:700}
+.role-convo{display:none;background:#faf9f6;border-radius:12px;padding:16px;margin-top:12px;font-size:0.86rem;line-height:1.9}
+.role-convo.show{display:block}
+.highlight{background:transparent;transition:background 0.5s;border-radius:4px;padding:0 2px}
+.highlight.active{background:#fef08a}
+.mcq-feedback{display:none;padding:8px 14px;border-radius:8px;margin-top:8px;font-size:0.85rem;font-weight:600}
+.mcq-feedback.show{display:block}
+.quiz-meme{display:none;padding:12px;border-radius:10px;margin-top:8px;text-align:center;font-weight:700;font-size:0.95rem}
+.quiz-meme.show{display:block;animation:fadeIn 0.3s}
+.meme-correct{background:var(--green-light);color:var(--green)}
+.meme-wrong{background:var(--red-light);color:var(--red)}
+.meme-emoji{font-size:1.8rem;display:block;margin-bottom:4px}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.shake{animation:shake 0.4s}
+.confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confetti-fall 1.5s ease-out forwards;pointer-events:none}
+@keyframes confetti-fall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(200px) rotate(720deg);opacity:0}}
+.score-banner{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);padding:8px 16px;display:flex;justify-content:center;align-items:center;gap:18px;box-shadow:0 -2px 10px rgba(0,0,0,0.06);z-index:99;font-family:'Fredoka',sans-serif}
+.score-item{text-align:center}
+.score-item .label{font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}
+.score-item .val{font-size:1.1rem;font-weight:700}
+.pb-80{padding-bottom:80px}
+.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}
+.text-center{text-align:center}
+.hidden{display:none}
+.session-nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.session-nav a{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:10px;font-size:0.8rem;font-weight:600;text-decoration:none;border:2px solid var(--border);color:var(--text-dim);transition:all 0.2s}
+.session-nav a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.session-nav a.active{border-color:var(--accent);background:var(--accent);color:#fff}
+.session-nav a.disabled{opacity:0.4;pointer-events:none}
+.notes-area{width:100%;min-height:100px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe}
+.notes-area:focus{outline:none;border-color:var(--accent)}
+.section-check{display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}
+.section-check input{accent-color:var(--green);width:16px;height:16px}
+.slideshow{position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:14px 0}
+.slide-viewport{overflow:hidden}
+.slide-track{display:flex;transition:transform 0.4s ease}
+.slide{min-width:100%;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;text-align:center;background:var(--card)}
+.slide img{display:block;object-fit:contain;width:100%;height:auto}
+.slide-controls{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid var(--border);background:#faf9f6}
+.slide-btn{background:var(--accent);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-family:'Fredoka',sans-serif}
+.slide-btn:hover{background:#cf9430;transform:scale(1.1)}
+.slide-btn:disabled{background:var(--border);cursor:default;transform:none}
+.slide-counter{font-family:'Fredoka',sans-serif;font-size:0.85rem;color:var(--text-dim)}
+.slide-dots{display:flex;gap:6px;justify-content:center}
+.slide-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all 0.3s;cursor:pointer}
+.slide-dot.active{background:var(--accent);transform:scale(1.3)}
+@media(max-width:600px){.cheat-grid{grid-template-columns:1fr}.vocab-grid{grid-template-columns:1fr}.recap-grid{grid-template-columns:1fr 1fr}.expression-grid{grid-template-columns:1fr}.slide{padding:10px}}
+</style>
+</head>
+<body class="pb-80">
+
+<div class="hero">
+  <div class="hero-emoji">&#x1F3DD;</div>
+  <h1>Session 9: Deserted Island</h1>
+  <p class="sub">Survive, Explore, Discover</p>
+  <div class="badge-row">
+    <span class="badge">&#x1F3DD; Island Vocabulary</span>
+    <span class="badge">&#x1F9ED; Survival Skills</span>
+    <span class="badge">&#x1F4DD; What a + NP</span>
+    <span class="badge">&#x1F3A7; Robinson Crusoe</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="session-nav" style="margin-top:16px">
+    <a href="session-1.html">S1</a><a href="session-2.html">S2</a><a href="session-3.html">S3</a><a href="session-4.html">S4</a><a href="session-5.html">S5</a><a href="session-6.html">S6</a><a href="session-7.html">S7</a><a href="session-8.html">S8</a><a class="active">S9</a><a href="session-10.html">S10</a><a href="session-11.html">S11</a><a href="session-12.html">S12</a>
+  </div>
+
+  <div class="card" style="background:linear-gradient(135deg,var(--red-light),var(--orange-light));border:2px solid var(--red);margin-top:12px;text-align:center">
+    <h3 style="color:var(--red);margin-bottom:4px">&#x26A0;&#xFE0F; Assessment: Independent Writing (25pts)</h3>
+    <p style="font-size:0.85rem;color:var(--text-dim)">Prepare well for the writing assessment this session!</p>
+  </div>
+
+  <div class="method-banner">
+    <div style="font-family:'Fredoka',sans-serif;font-weight:600;text-align:center">&#x1F3AF; Study Method</div>
+    <div class="method-steps">
+      <span class="method-step" style="background:var(--yellow-light);color:#b8860b">&#x1F501; Recap</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--blue-light);color:var(--blue)">&#x1F3A7; Listen</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--accent-light);color:var(--accent)">&#x1F4DA; Vocab</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--pink-light);color:var(--pink)">&#x1F4D6; Read</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--orange-light);color:var(--orange)">&#x1F5E3; Speak</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Quiz</span>
+    </div>
+  </div>
+
+  <nav class="nav" style="margin-top:16px;border-radius:var(--radius);border:1px solid var(--border)">
+    <div class="nav-inner">
+      <a href="#progress">Progress</a><a href="#recap">Recap</a><a href="#listen">Listen</a><a href="#vocab">Vocab</a><a href="#idioms">Idioms</a><a href="#grammar">Grammar</a><a href="#reading">Reading</a><a href="#speaking">Speaking</a><a href="#roleplay">Roleplay</a><a href="#email">Email</a><a href="#writing">Writing</a><a href="#quiz">Quiz</a><a href="#summary">Summary</a><a href="#notes">Notes</a>
+    </div>
+  </nav>
+
+  <!-- ===== PROGRESS ===== -->
+  <div class="section" id="progress">
+    <div class="progress-wrap"><div class="progress-label"><span>&#x1F4C8; Overall Progress</span><span id="progress-pct">0%</span></div><div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div></div>
+  </div>
+
+  <!-- ===== RECAP ===== -->
+  <div class="section" id="recap">
+    <span class="section-label" style="background:var(--yellow-light);color:#b8860b">&#x1F501; Review</span>
+    <h2>Grammar Recap: Sessions 1&ndash;8</h2>
+    <div class="recap-grid">
+      <div class="recap-chip"><div class="num">S1</div><div class="topic">will / going to</div><div class="detail">Future plans</div></div>
+      <div class="recap-chip"><div class="num">S2</div><div class="topic">-ing / to + inf</div><div class="detail">Verb patterns</div></div>
+      <div class="recap-chip"><div class="num">S3</div><div class="topic">some / any</div><div class="detail">Quantities</div></div>
+      <div class="recap-chip"><div class="num">S4</div><div class="topic">this / that</div><div class="detail">Demonstratives</div></div>
+      <div class="recap-chip"><div class="num">S5</div><div class="topic">Past cont.</div><div class="detail">Past events</div></div>
+      <div class="recap-chip"><div class="num">S6</div><div class="topic">very / too</div><div class="detail">Intensifiers</div></div>
+      <div class="recap-chip"><div class="num">S7</div><div class="topic">need to / want to</div><div class="detail">Needs &amp; wants</div></div>
+      <div class="recap-chip"><div class="num">S8</div><div class="topic">should / have to</div><div class="detail">Advice &amp; obligation</div></div>
+      <div class="recap-chip recap-current"><div class="num">S9</div><div class="topic">What a + NP</div><div class="detail">This session</div></div>
+    </div>
+    <div class="card">
+      <h3>&#x270F; Fill-in Recap Quiz (S1&ndash;S8 applied to island survival)</h3>
+      <div id="recap-exercises"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--accent);color:#fff" onclick="checkRecap()">Check Answers</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryRecap()">Retry</button>
+        <span id="recap-score" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== LISTEN ===== -->
+  <div class="section" id="listen">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F3A7; Listen</span>
+    <h2>Listening Activities</h2>
+
+    <div class="card">
+      <h3>&#x1F399; NLM Overview Video</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">Watch this fun overview of Session 9 topics: desert island vocabulary, What a + noun phrase grammar, and survival stories.</p>
+      <iframe src="https://drive.google.com/file/d/1uh2K4vQsLnP44nZkd6vNDo3NiKO4z3l9/preview" style="width:100%;height:400px;border:0;border-radius:12px" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <div class="card">
+      <h3>&#x1F3A7; Deep Dive: What a + Noun Phrase</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">A deep dive into exclamations with 'What a + noun phrase'.</p>
+      <iframe src="https://drive.google.com/file/d/1rLu1n9-sfiPEMzeC17OzNXvaU7x0rTuy/preview" style="width:100%;height:80px;border:0;border-radius:12px"></iframe>
+    </div>
+
+    <div class="card">
+      <h3>&#x23F1; Quick Review</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">A quick 3&ndash;5 minute summary &mdash; perfect before class!</p>
+      <iframe src="https://drive.google.com/file/d/1NgI0nfi5RDk5-tmsEReTeYcxF8-Ke58D/preview" style="width:100%;height:80px;border:0;border-radius:12px"></iframe>
+    </div>
+
+    <div class="card">
+      <h3>&#x1F3A7; Listening 1: Robinson Crusoe &mdash; Anna &amp; Tom</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">Listen to Anna and Tom talk about Robinson Crusoe, then answer the questions.</p>
+      <audio controls preload="none" style="width:100%;display:block;border-radius:12px"><source src="https://scemoodle.aucegypt.edu/pluginfile.php/3170070/mod_hvp/content/171785/audios/files-6829fd3594417.mp3" type="audio/mpeg"></audio>
+      <div class="mt-12" id="listen1-questions"></div>
+      <div class="mt-12" id="listen1-tf"></div>
+    </div>
+
+    <div class="card">
+      <h3>&#x1F3A7; Listening 2: Tongan Castaways</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">Listen to the incredible story of the Tongan boys who survived on a deserted island, then answer the questions.</p>
+      <audio controls preload="none" style="width:100%;display:block;border-radius:12px"><source src="https://scemoodle.aucegypt.edu/pluginfile.php/3170072/mod_hvp/content/171787/audios/files-682a0ba55eecc.mp3" type="audio/mpeg"></audio>
+      <div class="mt-12" id="listen2-questions"></div>
+      <div class="mt-12" id="listen2-tf"></div>
+    </div>
+  </div>
+
+  <!-- ===== VOCAB ===== -->
+  <div class="section" id="vocab">
+    <span class="section-label" style="background:var(--accent-light);color:var(--accent)">&#x1F4DA; Vocabulary</span>
+    <h2>Desert Island Vocabulary</h2>
+
+    <div class="slideshow">
+      <h3 style="padding:16px 16px 0;font-family:'Fredoka',sans-serif">&#x1F4CA; Vocabulary Slides</h3>
+      <div class="slide-viewport"><div class="slide-track" id="vocabTrack"></div></div>
+      <div class="slide-controls">
+        <button class="slide-btn" id="vocabPrev" onclick="slideNav('vocab',-1)">&larr;</button>
+        <div><span class="slide-counter" id="vocabCounter">1 / 1</span><div class="slide-dots" id="vocabDots"></div></div>
+        <button class="slide-btn" id="vocabNext" onclick="slideNav('vocab',1)">&rarr;</button>
+      </div>
+    </div>
+
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">&#x1F3DD; The Island</h3>
+    <div class="vocab-grid" id="vg-island"></div>
+
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">&#x1F9ED; Survival</h3>
+    <div class="vocab-grid" id="vg-survival"></div>
+
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">&#x26F5; The Journey</h3>
+    <div class="vocab-grid" id="vg-journey"></div>
+
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">&#x1F4AD; Feelings</h3>
+    <div class="vocab-grid" id="vg-feelings"></div>
+
+    <div class="card mt-20">
+      <h3>&#x270F; Vocabulary Exercise</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Choose the correct word for each sentence.</p>
+      <div id="vocab-ex-rows"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--accent);color:#fff" onclick="checkVocabEx()">Check Answers</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryVocabEx()">Retry</button>
+        <span id="vocab-result" style="font-family:'Fredoka',sans-serif;font-weight:700"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== IDIOMS ===== -->
+  <div class="section" id="idioms">
+    <span class="section-label" style="background:rgba(251,191,36,0.15);color:#f59e0b">&#x1F4AC; Idioms</span>
+    <h2>Survival Idioms</h2>
+    <p style="color:var(--text-dim);margin-bottom:18px">Common English idioms about survival, challenges, and going with the flow. Each includes meaning, example, and Arabic hint.</p>
+    <div style="display:grid;gap:14px">
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x26F5; In the same boat</h3>
+        <p><strong>Meaning:</strong> Being in the same difficult situation as others</p>
+        <p><strong>Example:</strong> "We're all <em>in the same boat</em> &mdash; none of us speak the language."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> &#x0643;&#x0644;&#x0646;&#x0627; &#x0641;&#x064A; &#x0646;&#x0641;&#x0633; &#x0627;&#x0644;&#x0645;&#x0631;&#x0643;&#x0628;</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F3CA; Sink or swim</h3>
+        <p><strong>Meaning:</strong> Either succeed or fail by your own effort</p>
+        <p><strong>Example:</strong> "It's <em>sink or swim</em> &mdash; nobody is going to help us."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> &#x064A;&#x0627; &#x062A;&#x0646;&#x062C;&#x062D; &#x064A;&#x0627; &#x062A;&#x0641;&#x0634;&#x0644; &#x0628;&#x0645;&#x062C;&#x0647;&#x0648;&#x062F;&#x0643;</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F30A; Weather the storm</h3>
+        <p><strong>Meaning:</strong> Survive a difficult period</p>
+        <p><strong>Example:</strong> "The company managed to <em>weather the storm</em> during the crisis."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> &#x064A;&#x062A;&#x062D;&#x0645;&#x0644; &#x0627;&#x0644;&#x0635;&#x0639;&#x0648;&#x0628;&#x0627;&#x062A;</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F4AA; Keep your head above water</h3>
+        <p><strong>Meaning:</strong> Barely manage to survive or cope</p>
+        <p><strong>Example:</strong> "With all these bills, I'm just trying to <em>keep my head above water</em>."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> &#x0628;&#x0627;&#x0644;&#x0639;&#x0627;&#x0641;&#x064A;&#x0629; &#x0645;&#x0627;&#x0634;&#x064A;</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x2693; Rock the boat</h3>
+        <p><strong>Meaning:</strong> Cause trouble or disturb a stable situation</p>
+        <p><strong>Example:</strong> "Don't <em>rock the boat</em> &mdash; everything is going well."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> &#x064A;&#x0639;&#x0645;&#x0644; &#x0645;&#x0634;&#x0627;&#x0643;&#x0644; / &#x064A;&#x0642;&#x0644;&#x0628; &#x0627;&#x0644;&#x062F;&#x0646;&#x064A;&#x0627;</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F30A; Go with the flow</h3>
+        <p><strong>Meaning:</strong> Accept things as they happen</p>
+        <p><strong>Example:</strong> "I don't have a plan, I'll just <em>go with the flow</em>."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> &#x064A;&#x0645;&#x0634;&#x064A; &#x0645;&#x0639; &#x0627;&#x0644;&#x062A;&#x064A;&#x0627;&#x0631;</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F321; Test the waters</h3>
+        <p><strong>Meaning:</strong> Try something carefully before committing</p>
+        <p><strong>Example:</strong> "Let's <em>test the waters</em> before we invest all our money."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> &#x064A;&#x062C;&#x0631;&#x0651;&#x0628; &#x0627;&#x0644;&#x0623;&#x0648;&#x0644;</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== GRAMMAR ===== -->
+  <div class="section" id="grammar">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span>
+    <h2>What a + Noun Phrase</h2>
+
+    <div class="slideshow">
+      <h3 style="padding:16px 16px 0;font-family:'Fredoka',sans-serif">&#x1F4CA; Grammar Slides</h3>
+      <div class="slide-viewport"><div class="slide-track" id="grammarTrack"></div></div>
+      <div class="slide-controls">
+        <button class="slide-btn" id="grammarPrev" onclick="slideNav('grammar',-1)">&larr;</button>
+        <div><span class="slide-counter" id="grammarCounter">1 / 1</span><div class="slide-dots" id="grammarDots"></div></div>
+        <button class="slide-btn" id="grammarNext" onclick="slideNav('grammar',1)">&rarr;</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>&#x2757; What a + (adjective) + noun!</h3>
+      <p style="font-size:0.88rem">Use <span class="demo-word">What a</span> to express strong feelings about something. Pattern: What a + (adjective) + singular noun (+ subject + verb)!</p>
+      <table class="grammar-table">
+        <tr><th>Pattern</th><th>Example</th></tr>
+        <tr><td>What a + noun!</td><td><strong>What a</strong> surprise!</td></tr>
+        <tr><td>What a + adj + noun!</td><td><strong>What a</strong> beautiful island!</td></tr>
+        <tr><td>What a + adj + noun + S + V!</td><td><strong>What a</strong> scary night it was!</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>&#x2757; What + (adjective) + plural/uncountable noun!</h3>
+      <p style="font-size:0.88rem">Use <span class="demo-word">What</span> (no "a") with plural or uncountable nouns.</p>
+      <table class="grammar-table">
+        <tr><th>Pattern</th><th>Example</th></tr>
+        <tr><td>What + adj + plural noun!</td><td><strong>What</strong> beautiful flowers!</td></tr>
+        <tr><td>What + adj + uncountable!</td><td><strong>What</strong> terrible weather!</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>&#x2753; Compare with: How + adjective!</h3>
+      <p style="font-size:0.88rem">Use <span class="demo-word">How</span> + adjective (no noun after).</p>
+      <table class="grammar-table">
+        <tr><th>Pattern</th><th>Example</th></tr>
+        <tr><td>How + adjective!</td><td><strong>How</strong> beautiful!</td></tr>
+        <tr><td>How + adjective!</td><td><strong>How</strong> scary!</td></tr>
+      </table>
+      <div class="tip-box"><strong>Remember:</strong> "What a" = singular nouns. "What" alone = plural/uncountable. "How" = adjectives alone (no noun).</div>
+    </div>
+
+    <div class="card">
+      <h3>&#x270F; Grammar Exercises</h3>
+      <div id="grammar-exercises"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--green);color:#fff" onclick="checkGrammar()">Check Answers</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryGrammar()">Retry</button>
+        <span id="grammar-score" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== READING ===== -->
+  <div class="section" id="reading">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink)">&#x1F4D6; Reading</span>
+    <h2>Alone on a Desert Island</h2>
+
+    <div class="card">
+      <div style="font-size:0.9rem;line-height:1.9">
+        <p>Alexander Selkirk was a sailor who lived alone on an island for more than four years. In 1704, he was left on a deserted island in the Pacific Ocean called M&aacute;s a Tierra (now known as Robinson Crusoe Island). The island was over 400 miles off the coast of Chile. <span class="highlight" data-q="q1">He chose to stay there because he believed the ship he was on would sink.</span></p>
+        <p style="margin-top:12px">Selkirk had only a few things with him: some clothes, tools, and a gun. At first, he hoped a ship would rescue him, but no one came. He realized he had to survive on his own.</p>
+        <p style="margin-top:12px">The island had no people, but it had <span class="highlight" data-q="q2">wild goats, rats, and cats. Selkirk hunted goats for food and used their skins to make clothes.</span> He made tools to help him build a shelter. The island was full of trees, hills, and beaches. It was beautiful but lonely.</p>
+        <p style="margin-top:12px">One day, Spanish ships came to the island. Selkirk ran and hid because he knew the Spanish would capture him. He stayed safe until they left.</p>
+        <p style="margin-top:12px">In February 1709, British ships finally arrived. <span class="highlight" data-q="q4">Selkirk made a fire to signal them.</span> The sailors were shocked to find a man living alone on the island, wearing clothes made of goat skin. <span class="highlight" data-q="q3">After four years and four months, Selkirk was rescued.</span></p>
+        <p style="margin-top:12px">Living on the island had saved Selkirk's life. He later learned that the ship he had left had sunk, and most of the crew had died.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>&#x2753; Reading Questions</h3>
+      <div id="reading-questions"></div>
+      <div id="readingMistakes" class="hidden mt-12" style="background:var(--red-light);border-radius:12px;padding:16px"><h4 style="color:var(--red);font-family:'Fredoka',sans-serif;margin-bottom:8px">Review These:</h4><div id="mistakesList"></div></div>
+    </div>
+
+    <div class="card">
+      <h3>&#x2753; True or False</h3>
+      <div id="reading-tf"></div>
+    </div>
+
+    <div class="card">
+      <h3>&#x2753; Exercise 3: What did Selkirk do to survive?</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Check <strong>all correct</strong> answers.</p>
+      <div id="reading-multiselect">
+        <label style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:0.88rem;cursor:pointer"><input type="checkbox" value="correct" style="accent-color:var(--green);width:16px;height:16px"> Hunted goats</label>
+        <label style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:0.88rem;cursor:pointer"><input type="checkbox" value="correct" style="accent-color:var(--green);width:16px;height:16px"> Made clothes from goat skins</label>
+        <label style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:0.88rem;cursor:pointer"><input type="checkbox" value="wrong" style="accent-color:var(--green);width:16px;height:16px"> Built a boat</label>
+        <label style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:0.88rem;cursor:pointer"><input type="checkbox" value="correct" style="accent-color:var(--green);width:16px;height:16px"> Hid from Spanish sailors</label>
+        <label style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:0.88rem;cursor:pointer"><input type="checkbox" value="wrong" style="accent-color:var(--green);width:16px;height:16px"> Planted trees</label>
+        <label style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:0.88rem;cursor:pointer"><input type="checkbox" value="correct" style="accent-color:var(--green);width:16px;height:16px"> Signaled British ships with fire</label>
+        <label style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:0.88rem;cursor:pointer"><input type="checkbox" value="wrong" style="accent-color:var(--green);width:16px;height:16px"> Slept in a cave</label>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--green);color:#fff" onclick="checkMultiSelect()">Check</button>
+        <span id="ms-result" style="font-family:'Fredoka',sans-serif;font-weight:700"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SPEAKING ===== -->
+  <div class="section" id="speaking">
+    <span class="section-label" style="background:var(--orange-light);color:var(--orange)">&#x1F5E3; Speaking</span>
+    <h2>Speaking Practice</h2>
+
+    <div class="challenge-box">
+      <h3>&#x23F1; 1-Minute Challenge</h3>
+      <p style="margin:8px 0;font-size:0.9rem">Talk for 1 minute about: <strong>"Imagine you are on a deserted island. What would you do to survive?"</strong></p>
+      <p style="font-size:0.82rem;color:var(--text-dim)">Use: shelter, rescue, signal, survive, What a...!</p>
+    </div>
+
+    <div class="card">
+      <h3>&#x1F4AC; Useful Expressions</h3>
+      <div class="expression-grid">
+        <div class="expression-card"><div class="phrase">find shelter</div><div class="ex-meaning">Look for a safe place to stay</div></div>
+        <div class="expression-card"><div class="phrase">light a fire</div><div class="ex-meaning">Start a fire for warmth or cooking</div></div>
+        <div class="expression-card"><div class="phrase">look for food</div><div class="ex-meaning">Search for something to eat</div></div>
+        <div class="expression-card"><div class="phrase">signal for help</div><div class="ex-meaning">Make a sign so people can find you</div></div>
+        <div class="expression-card"><div class="phrase">stay calm</div><div class="ex-meaning">Keep yourself relaxed and focused</div></div>
+        <div class="expression-card"><div class="phrase">keep going</div><div class="ex-meaning">Don't stop trying</div></div>
+        <div class="expression-card"><div class="phrase">work together</div><div class="ex-meaning">Cooperate with others</div></div>
+        <div class="expression-card"><div class="phrase">never give up</div><div class="ex-meaning">Don't quit even when it's hard</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>&#x1F4AC; Daily Drill</h3>
+      <p style="font-size:0.88rem;margin-bottom:8px">Practice saying these sentences out loud:</p>
+      <div style="font-size:0.88rem;line-height:2">
+        <p>1. "<strong>What a</strong> beautiful island this is!"</p>
+        <p>2. "I <strong>need to</strong> find shelter before dark."</p>
+        <p>3. "We <strong>should</strong> signal for help using a fire."</p>
+        <p>4. "<strong>What a</strong> scary experience it was!"</p>
+        <p>5. "They <strong>had to</strong> hunt goats to survive."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ROLEPLAY ===== -->
+  <div class="section" id="roleplay">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F3AD; Roleplay</span>
+    <h2>Roleplay Scenarios</h2>
+
+    <div class="role-card" onclick="toggleRole('r1')">
+      <h4>&#x1F3DD; Scenario 1: Stranded on an Island</h4>
+      <ul class="role-points"><li>You are stranded on a deserted island with a friend</li><li>Decide what to do first: find shelter, look for water, or make a fire</li><li>Use survival vocabulary and What a + NP</li></ul>
+      <div class="role-convo" id="r1-convo">
+        <p><strong>You:</strong> Oh no! <strong>What a</strong> scary situation this is! We need to find shelter first.</p>
+        <p><strong>Friend:</strong> I agree. Look at those palm trees over there. We can use the leaves.</p>
+        <p><strong>You:</strong> Good idea! We also <strong>need to</strong> find fresh water. We can't drink seawater.</p>
+        <p><strong>Friend:</strong> <strong>What a</strong> beautiful island, though! Look at the beach!</p>
+        <p><strong>You:</strong> It is beautiful, but we <strong>have to</strong> focus on survival. Let's light a fire too &mdash; it will help rescuers find us.</p>
+        <p><strong>Friend:</strong> You're right. <strong>What a</strong> brave person you are!</p>
+      </div>
+    </div>
+
+    <div class="role-card" onclick="toggleRole('r2')">
+      <h4>&#x1F4F0; Scenario 2: Rescued After 6 Months</h4>
+      <ul class="role-points"><li>You were rescued after 6 months on a deserted island</li><li>A reporter is interviewing you about your experience</li><li>Tell your story using past tense and What a + NP</li></ul>
+      <div class="role-convo" id="r2-convo">
+        <p><strong>Reporter:</strong> Tell us about your time on the island. How did you survive?</p>
+        <p><strong>You:</strong> <strong>What a</strong> difficult experience it was! I hunted goats and found coconuts to eat.</p>
+        <p><strong>Reporter:</strong> Were you ever scared?</p>
+        <p><strong>You:</strong> Yes! <strong>What</strong> terrible storms we had! But I built a shelter from palm leaves and stayed safe.</p>
+        <p><strong>Reporter:</strong> How were you finally rescued?</p>
+        <p><strong>You:</strong> I lit a fire every day to signal ships. <strong>What a</strong> happy day it was when I saw the rescue boat!</p>
+      </div>
+    </div>
+
+    <div class="role-card" onclick="toggleRole('r3')">
+      <h4>&#x1F9F3; Scenario 3: Planning a Survival Trip</h4>
+      <ul class="role-points"><li>You and a friend are planning a survival camping trip to an island</li><li>Discuss what items to bring and why</li><li>Use need to, should, and island vocabulary</li></ul>
+      <div class="role-convo" id="r3-convo">
+        <p><strong>You:</strong> We <strong>need to</strong> make a list of things to bring. First, we <strong>should</strong> bring a lighter to make fire.</p>
+        <p><strong>Friend:</strong> Good idea. We also <strong>need to</strong> bring a knife for cutting wood and hunting.</p>
+        <p><strong>You:</strong> <strong>What a</strong> great idea! What about water? We <strong>should</strong> bring bottles.</p>
+        <p><strong>Friend:</strong> Yes, and a rope. It can help us build a shelter.</p>
+        <p><strong>You:</strong> We <strong>don't have to</strong> bring food if we can hunt and find coconuts. <strong>What</strong> an exciting adventure this will be!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EMAIL ===== -->
+  <div class="section" id="email">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F4E7; Email</span>
+    <h2>Email Writing</h2>
+    <div class="card">
+      <h3>&#x2709; Write an email to a friend about your island experience</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Write an email to a friend describing your imaginary experience on a deserted island. Use What a + NP, survival vocabulary, and island words. (60&ndash;80 words)</p>
+      <textarea class="writing-area" id="email-area" placeholder="Dear [friend's name],&#10;&#10;You won't believe what happened to me!..." oninput="updateEmailWC()"></textarea>
+      <div class="word-count">Words: <span id="email-wc">0</span> / 60&ndash;80</div>
+      <div class="checklist mt-12" id="email-checklist">
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Used "What a...!"</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Used survival vocabulary</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Used past tense to tell your story</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Used at least 3 island words</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Included greeting and sign-off</label>
+      </div>
+      <p id="email-check-result" style="font-size:0.85rem;font-weight:600;margin-top:8px"></p>
+    </div>
+  </div>
+
+  <!-- ===== WRITING ===== -->
+  <div class="section" id="writing">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink)">&#x270F; Writing</span>
+    <h2>Writing Practice</h2>
+    <div class="card">
+      <h3>&#x1F4DD; If you were stranded on a deserted island...</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Write a paragraph: "If you were stranded on a deserted island, what 3 things would you bring and why?" (60&ndash;80 words)</p>
+      <textarea class="writing-area" id="writing-area" placeholder="If I were stranded on a deserted island, I would bring..." oninput="updateWritingWC()"></textarea>
+      <div class="word-count">Words: <span id="writing-wc">0</span> / 60&ndash;80</div>
+      <div class="checklist mt-12" id="writing-checklist">
+        <label><input type="checkbox" onchange="updateWritingCheck()"> Listed 3 items</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> Explained why for each</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> Used island/survival vocabulary</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> Used complete sentences</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> 60&ndash;80 words</label>
+      </div>
+      <p id="writing-check-result" style="font-size:0.85rem;font-weight:600;margin-top:8px"></p>
+    </div>
+  </div>
+
+  <!-- ===== QUIZ ===== -->
+  <div class="section" id="quiz">
+    <span class="section-label" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Quiz</span>
+    <h2>Session 9 Quiz</h2>
+    <div id="quiz-container"></div>
+    <div style="text-align:center;margin-top:16px">
+      <button class="btn" style="background:var(--accent);color:#fff;font-size:1rem;padding:12px 30px" onclick="showQuizScore()">Show Final Score</button>
+      <button class="btn" style="background:#eee;color:var(--text);font-size:1rem;padding:12px 30px" onclick="retryQuiz()">Retry Quiz</button>
+      <a href="kahoot-session9.html" style="display:inline-block;margin-left:10px;padding:12px 30px;background:var(--red);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;font-size:1rem">Kahoot! &#x1F3AE;</a>
+    </div>
+    <div id="quiz-final" class="hidden card mt-16 text-center" style="border:3px solid var(--accent)"></div>
+  </div>
+
+  <!-- ===== SUMMARY ===== -->
+  <div class="section" id="summary">
+    <span class="section-label" style="background:var(--yellow-light);color:#b8860b">&#x1F4CB; Summary</span>
+    <h2>Quick Cheat Sheet</h2>
+    <div class="cheat-grid">
+      <div class="cheat-cell">
+        <h4>&#x2757; Grammar: Exclamations</h4>
+        <p style="font-size:0.82rem">What a + adj + noun!<br><em>"What a beautiful island!"</em><br>What + adj + plural/uncountable!<br><em>"What terrible weather!"</em><br>How + adjective!<br><em>"How scary!"</em></p>
+      </div>
+      <div class="cheat-cell">
+        <h4>&#x1F3DD; Key Vocabulary</h4>
+        <p style="font-size:0.82rem">island, survive, shelter, rescue, signal, castaway, shipwreck, crew, raft, brave</p>
+      </div>
+    </div>
+    <div class="cheat-grid mt-12">
+      <div class="cheat-cell">
+        <h4>&#x26F5; Survival Idioms</h4>
+        <p style="font-size:0.82rem">in the same boat &bull; sink or swim &bull; weather the storm &bull; keep your head above water</p>
+      </div>
+      <div class="cheat-cell">
+        <h4>&#x1F501; Previous Grammar</h4>
+        <p style="font-size:0.82rem">S1: will/going to &bull; S2: -ing/to+inf &bull; S3: some/any &bull; S4: this/that &bull; S5: past cont. &bull; S6: very/too &bull; S7: need to/want to &bull; S8: should/have to</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NOTES ===== -->
+  <div class="section" id="notes">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Notes</span>
+    <h2>My Notes</h2>
+    <div class="card"><h3>&#x1F4D3; Class Notes</h3><textarea class="notes-area" id="classNotes" placeholder="Write notes during class..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x1F4D6; Difficult Words</h3><textarea class="notes-area" id="difficultWords" style="min-height:80px" placeholder="Words you need to review..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x2753; Questions for Teacher</h3><textarea class="notes-area" id="teacherQuestions" style="min-height:80px" placeholder="Write questions for your teacher..." oninput="saveNotes()"></textarea></div>
+  </div>
+
+  <!-- ===== TRACKER ===== -->
+  <div class="section" id="tracker">
+    <h2>&#x2705; Progress Tracker</h2>
+    <div class="card"><h3>Check off completed sections:</h3><div id="progressChecks">
+      <label class="section-check"><input type="checkbox" data-sec="listen" onchange="updateTracker()"> &#x1F3A7; Listened to audio &amp; watched videos</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocab" onchange="updateTracker()"> &#x1F4DA; Studied vocabulary flashcards</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocabex" onchange="updateTracker()"> &#x270F; Completed vocabulary exercise</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammar" onchange="updateTracker()"> &#x1F4DD; Understood grammar rules</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammarex" onchange="updateTracker()"> &#x1F4DD; Completed grammar exercises</label>
+      <label class="section-check"><input type="checkbox" data-sec="read" onchange="updateTracker()"> &#x1F4D6; Read passage &amp; answered questions</label>
+      <label class="section-check"><input type="checkbox" data-sec="speak" onchange="updateTracker()"> &#x1F5E3; Did speaking challenge</label>
+      <label class="section-check"><input type="checkbox" data-sec="roleplay" onchange="updateTracker()"> &#x1F3AD; Practiced roleplay</label>
+      <label class="section-check"><input type="checkbox" data-sec="email" onchange="updateTracker()"> &#x1F4E7; Wrote email</label>
+      <label class="section-check"><input type="checkbox" data-sec="write" onchange="updateTracker()"> &#x270F; Completed writing task</label>
+      <label class="section-check"><input type="checkbox" data-sec="quiz" onchange="updateTracker()"> &#x1F3AF; Finished quiz</label>
+      <label class="section-check"><input type="checkbox" data-sec="review" onchange="updateTracker()"> &#x1F4CB; Reviewed cheat sheet</label>
+    </div><div style="margin-top:14px"><div style="background:#e8e6e0;border-radius:8px;height:12px;overflow:hidden"><div id="trackerFill" style="height:100%;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--green));width:0%;transition:width 0.5s"></div></div><p style="font-size:0.82rem;color:var(--text-dim);margin-top:6px;text-align:center" id="trackerText">0 of 12 completed</p></div></div>
+  </div>
+
+  <!-- ===== NEXT ===== -->
+  <div class="section">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F52E; Coming Next</span>
+    <h2>Session 10: Preview</h2>
+    <div class="card" style="background:linear-gradient(135deg,var(--green-light),var(--blue-light))"><h4 style="font-family:'Fredoka',sans-serif;color:var(--blue);margin-bottom:6px">&#x1F3E0; Session 10</h4><p style="font-size:0.88rem">Deserted Island Part 2 — Negative Imperatives, Hollywood survival movies!</p><p style="font-size:0.88rem;margin-top:6px;color:var(--text-dim)"><em>Keep practicing your island vocabulary and What a + noun phrase!</em></p></div>
+  </div>
+
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:30px 0 20px">
+    <a href="session-8.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--blue);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">&#x2B05; Session 8</a>
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--accent);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">&#x1F3E0; Home</a>
+    <a href="session-10.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--green);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">Session 10 &#x27A1;</a>
+  </div>
+  <div style="text-align:center;padding:10px 20px 20px;color:var(--text-dim);font-size:0.78rem"><p>AUC English A2A &bull; Session 9: Deserted Island</p></div>
+</div>
+
+<div class="score-banner">
+  <div class="score-item"><div class="label">Cards</div><div class="val" id="sb-cards" style="color:var(--accent)">0</div></div>
+  <div class="score-item"><div class="label">Grammar</div><div class="val" id="sb-grammar" style="color:var(--green)">0</div></div>
+  <div class="score-item"><div class="label">Quiz</div><div class="val" id="sb-quiz" style="color:var(--red)">0/20</div></div>
+  <div class="score-item"><div class="label">Written</div><div class="val" id="sb-words" style="color:var(--orange)">0</div></div>
+</div>
+
+<script>
+function speak(w,b){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=0.85;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;if(b){b.classList.add('playing');u.onend=()=>b.classList.remove('playing')}speechSynthesis.speak(u)}
+if('speechSynthesis' in window)speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
+
+const islandVocab=[
+{w:"island",p:"noun",m:"A piece of land surrounded by water",ar:"جزيرة",ex:"They were stranded on a small island in the Pacific."},
+{w:"shore",p:"noun",m:"The land along the edge of the sea",ar:"شاطئ",ex:"We walked along the shore looking for shells."},
+{w:"beach",p:"noun",m:"A sandy area next to the sea",ar:"بلاج/شاطئ رملي",ex:"The beach was covered with white sand."},
+{w:"cave",p:"noun",m:"A large hole in the side of a mountain or underground",ar:"كهف",ex:"They found a cave to sleep in at night."},
+{w:"palm",p:"noun",m:"A tropical tree with large leaves",ar:"نخلة",ex:"Coconuts grow on palm trees."},
+{w:"coconut",p:"noun",m:"A large brown tropical fruit",ar:"جوز هند",ex:"They drank coconut water to stay hydrated."}
+];
+const survivalVocab=[
+{w:"survive",p:"verb",m:"To stay alive in a dangerous situation",ar:"ينجو/يعيش",ex:"He survived alone on the island for four years."},
+{w:"shelter",p:"noun",m:"A place that protects you from weather or danger",ar:"مأوى",ex:"They built a shelter from palm leaves."},
+{w:"rescue",p:"verb",m:"To save someone from danger",ar:"ينقذ",ex:"A helicopter came to rescue the sailors."},
+{w:"signal",p:"noun/verb",m:"A sign or action to communicate",ar:"إشارة",ex:"He used fire as a signal to passing ships."},
+{w:"fire",p:"noun",m:"Burning flames used for warmth or cooking",ar:"نار",ex:"They lit a fire to keep warm at night."},
+{w:"hunt",p:"verb",m:"To chase animals for food",ar:"يصطاد",ex:"Selkirk hunted goats on the island."}
+];
+const journeyVocab=[
+{w:"shipwreck",p:"noun",m:"When a ship is destroyed at sea",ar:"حطام سفينة",ex:"The shipwreck left them stranded on the island."},
+{w:"castaway",p:"noun",m:"A person left alone on an island",ar:"شخص تايه في جزيرة",ex:"Robinson Crusoe is the most famous castaway in literature."},
+{w:"crew",p:"noun",m:"The people who work on a ship",ar:"طاقم",ex:"The crew of the ship swam to the island."},
+{w:"sail",p:"verb",m:"To travel by boat",ar:"يبحر",ex:"They sailed across the ocean for weeks."},
+{w:"raft",p:"noun",m:"A flat structure that floats on water",ar:"طوف",ex:"They built a raft to escape the island."},
+{w:"adventure",p:"noun",m:"An exciting and sometimes dangerous experience",ar:"مغامرة",ex:"Living on an island was a real adventure."}
+];
+const feelingsVocab=[
+{w:"brave",p:"adj",m:"Not afraid of danger",ar:"شجاع",ex:"She was brave enough to explore the dark cave."},
+{w:"lonely",p:"adj",m:"Feeling sad because you are alone",ar:"وحيد",ex:"He felt lonely after months alone on the island."},
+{w:"danger",p:"noun",m:"A situation where something bad might happen",ar:"خطر",ex:"There was danger everywhere on the island."},
+{w:"strand",p:"verb",m:"To leave in a place you cannot leave",ar:"يُترك في مكان",ex:"The storm stranded the sailors on the island."},
+{w:"escape",p:"verb",m:"To get away from a dangerous place",ar:"يهرب",ex:"They wanted to escape the island and go home."}
+];
+const vocabExData=[
+{q:"He was the only ______ on the island after the ship sank.",opts:["castaway","crew","sailor"],ans:0},
+{q:"They built a ______ from palm leaves to protect them from rain.",opts:["raft","shelter","signal"],ans:1},
+{q:"The ______ of the ship swam to the nearest island.",opts:["castaway","crew","adventure"],ans:1},
+{q:"She felt very ______ living alone on the island.",opts:["brave","lonely","dangerous"],ans:1},
+{q:"They lit a ______ to keep warm at night.",opts:["signal","coconut","fire"],ans:2},
+{q:"A helicopter came to ______ them from the island.",opts:["strand","rescue","hunt"],ans:1},
+{q:"The boys built a small ______ to float on the water.",opts:["shelter","cave","raft"],ans:2},
+{q:"Living on a desert island is a real ______.",opts:["shipwreck","adventure","crew"],ans:1},
+{q:"He had to ______ goats for food on the island.",opts:["sail","hunt","rescue"],ans:1},
+{q:"The sailors were ______ on the island with no way to leave.",opts:["stranded","rescued","signaled"],ans:0},
+{q:"They waved a flag as a ______ to passing ships.",opts:["shelter","signal","shore"],ans:1},
+{q:"The ship hit rocks and it was a terrible ______.",opts:["adventure","shipwreck","castaway"],ans:1}
+];
+const grammarEx=[
+{q:'______ a beautiful island!',opts:['What','How','Which'],ans:0},
+{q:'______ scary! (no noun)',opts:['What','How','What a'],ans:1},
+{q:'What a ______ adventure it was!',opts:['danger','dangerous','dangerously'],ans:1},
+{q:'What ______ weather! (uncountable)',opts:['a terrible','terrible','the terrible'],ans:1},
+{q:'______ a brave man Selkirk was!',opts:['What','How','Which'],ans:0},
+{q:'How ______ the island is!',opts:['beautiful','a beautiful','beauty'],ans:0},
+{q:'What a ______ she had on the island!',opts:['hard time','hardly time','harder time'],ans:0},
+{q:'What ______ coconuts! (plural)',opts:['a delicious','delicious','the delicious'],ans:1},
+{q:'______ amazing! The boys survived 15 months!',opts:['What','How','What a'],ans:1},
+{q:'What a ______ storm hit the island last night!',opts:['terrible','terribly','terror'],ans:0}
+];
+const recapEx=[
+{q:'I ______ visit Egypt next summer.',opts:['will','going to','am'],ans:0},
+{q:'She is ______ buy a new phone tomorrow.',opts:['will','going to','want'],ans:1},
+{q:'He enjoys ______ in the sea.',opts:['swim','swimming','to swim'],ans:1},
+{q:'They offered ______ us some food.',opts:['to give','giving','give'],ans:0},
+{q:'Is there ______ water on this island?',opts:['some','any','much'],ans:1},
+{q:'I have ______ coconuts for lunch.',opts:['some','any','a'],ans:0},
+{q:'______ footprints on the beach are fresh. (near)',opts:['This','That','These'],ans:2},
+{q:'______ ship on the horizon is very far. (far)',opts:['This','That','These'],ans:1},
+{q:'I ______ sleeping when the storm started.',opts:['was','were','am'],ans:0},
+{q:'While they ______ exploring, it started raining.',opts:['was','were','are'],ans:1},
+{q:'The waves are ______ big to swim in.',opts:['very','too','much'],ans:1},
+{q:'This island is ______ beautiful!',opts:['very','too','real'],ans:0},
+{q:'We ______ find shelter before dark.',opts:['need to','need','needs to'],ans:0},
+{q:'She ______ explore the island, but it was dangerous.',opts:['wanted to','want to','wants'],ans:0},
+{q:'You ______ drink seawater. It will make you sick.',opts:['should','shouldn\'t','don\'t have to'],ans:1},
+{q:'We ______ build a fire to stay warm. It\'s necessary.',opts:['should','have to','don\'t have to'],ans:1}
+];
+const listen1Data=[
+{q:"What does Robinson Crusoe do when he reaches the island?",opts:["He builds a boat to leave","He grows food and keeps a diary","He stays in a hotel"],ans:1},
+{q:"How is the island described in the book?",opts:["Tall palm trees, sandy beach, green hills","Covered in snow and ice","Full of large buildings"],ans:0},
+{q:"Who is Friday in the story?",opts:["Robinson's pet","A man who becomes Robinson's friend","A sailor who rescues Robinson"],ans:1},
+{q:"What does the story teach?",opts:["How to build a ship","How clever and strong a person can be to survive","How to travel to different islands"],ans:1}
+];
+const listen1TF=[
+{q:"Robinson Crusoe's ship sinks, and he swims to the island with supplies.",a:true},
+{q:"The island is described as crowded and noisy.",a:false},
+{q:"Robinson Crusoe stays in a cave for shelter.",a:true},
+{q:"The story is based on a real person named Alexander Selkirk.",a:true},
+{q:"Robinson Crusoe becomes friends with goats on the island.",a:false}
+];
+const listen2Data=[
+{q:"How did the boys end up on the deserted island?",opts:["They wanted an adventure and took a boat","Their ship was attacked by pirates","They were traveling with families"],ans:0},
+{q:"What did the boys use to build shelters?",opts:["Rocks and mud","Palm leaves and sticks","Plastic and metal"],ans:1},
+{q:"How did the boys make fire?",opts:["Using lighters found on the island","With tools from the boat","Using old ways and keeping it burning"],ans:2},
+{q:"What helped the boys survive?",opts:["Their teamwork and creativity","Help from other people","Food brought from home"],ans:0},
+{q:"How long were the boys stranded?",opts:["6 months","15 months","2 years"],ans:1}
+];
+const listen2TF=[
+{q:"The boys from Tonga were stranded for over a year.",a:true},
+{q:"The boys were between 10 and 12 years old.",a:false},
+{q:"They used coconuts for drinking.",a:true},
+{q:"They used tree trunks to collect rainwater.",a:false},
+{q:"They were rescued by a plane after 15 months.",a:false}
+];
+const readingQ=[
+{q:"Why did Selkirk stay on the island?",opts:["He wanted to explore","He thought his ship would sink","He was left by mistake"],ans:1,hl:"q1"},
+{q:"What animals lived on the island?",opts:["Lions and tigers","Goats, rats, and cats","Birds and snakes"],ans:1,hl:"q2"},
+{q:"How long did Selkirk live on the island?",opts:["2 years","4 years and 4 months","10 years"],ans:1,hl:"q3"},
+{q:"How did Selkirk signal the British ships?",opts:["He shouted loudly","He lit a fire","He waved a flag"],ans:1,hl:"q4"},
+{q:"What famous book was inspired by Selkirk's story?",opts:["Treasure Island","Robinson Crusoe","Lord of the Flies"],ans:1,hl:"q5"}
+];
+const readingTF=[
+{q:"Selkirk was left on the island by accident.",a:false},
+{q:"Selkirk hunted goats for food.",a:true},
+{q:"Selkirk was rescued by Spanish ships.",a:false},
+{q:"The ship Selkirk left sank, and most of the crew survived.",a:false}
+];
+const readingMistakes=[];
+const quizData=[
+{q:"A person left alone on an island = ?",opts:["crew","castaway","sailor"],ans:1,cat:"Vocab"},
+{q:"A place that protects you from weather = ?",opts:["raft","signal","shelter"],ans:2,cat:"Vocab"},
+{q:"When a ship is destroyed at sea = ?",opts:["adventure","shipwreck","rescue"],ans:1,cat:"Vocab"},
+{q:"To save someone from danger = ?",opts:["strand","hunt","rescue"],ans:2,cat:"Vocab"},
+{q:"A flat structure that floats on water = ?",opts:["raft","shelter","shore"],ans:0,cat:"Vocab"},
+{q:"Not afraid of danger = ?",opts:["lonely","brave","stranded"],ans:1,cat:"Vocab"},
+{q:"______ a beautiful island!",opts:["What","How","Which"],ans:0,cat:"Grammar"},
+{q:"How ______ the sunset is!",opts:["beautiful","a beautiful","beauty"],ans:0,cat:"Grammar"},
+{q:"What ______ terrible weather!",opts:["a","(nothing)","the"],ans:1,cat:"Grammar"},
+{q:"What a ______ experience!",opts:["scare","scary","scarily"],ans:1,cat:"Grammar"},
+{q:"______ amazing! They survived!",opts:["What","How","What a"],ans:1,cat:"Grammar"},
+{q:"What a ______ night it was!",opts:["long","longer","longest"],ans:0,cat:"Grammar"},
+{q:"Robinson Crusoe grows food and keeps a ______.",opts:["fire","diary","raft"],ans:1,cat:"Listening"},
+{q:"Friday is Robinson's ______.",opts:["pet","friend","sailor"],ans:1,cat:"Listening"},
+{q:"The Tongan boys survived for ______ months.",opts:["6","15","24"],ans:1,cat:"Listening"},
+{q:"The boys made fire using ______.",opts:["lighters","old ways","tools from the boat"],ans:1,cat:"Listening"},
+{q:"Selkirk lived on the island for ______.",opts:["2 years","4 years and 4 months","10 years"],ans:1,cat:"Reading"},
+{q:"Selkirk made clothes from ______.",opts:["cotton","goat skins","old clothes"],ans:1,cat:"Reading"},
+{q:"'In the same boat' means ______.",opts:["on a real boat","in the same difficult situation","traveling together"],ans:1,cat:"Idioms"},
+{q:"'Sink or swim' means ______.",opts:["learn to swim","succeed or fail by yourself","go to the beach"],ans:1,cat:"Idioms"}
+];
+const memeWrong=[{e:'\u{1F605}',t:'Oops! Shipwrecked that answer!'},{e:'\u{1F926}',t:'Nice try! Navigate better!'},{e:'\u{1F62C}',t:'Almost! Check your compass!'},{e:'\u{1F648}',t:'That answer is stranded!'},{e:'\u{1F480}',t:'Your raft just sank!'},{e:'\u{1F62D}',t:'So close! Review and retry!'},{e:'\u{1FAE0}',t:'That answer needs rescue!'},{e:'\u{1F921}',t:'Castaway answer detected!'},{e:'\u{1F635}',t:'Confused? Check above!'},{e:'\u{1F9A5}',t:'Slow down and think again!'}];
+const memeRight=[{e:'\u{1F389}',t:'YESSS! Survival genius!'},{e:'\u{1F31F}',t:'Star explorer right here!'},{e:'\u{1F525}',t:"You're on FIRE!"},{e:'\u{1F4AA}',t:'Big brain energy!'},{e:'\u{1F3C6}',t:'Champion move!'},{e:'✨',t:'Absolutely brilliant!'},{e:'\u{1F680}',t:'To the rescue!'},{e:'\u{1F451}',t:'Crown this survivor!'}];
+let quizScore=0,quizAnswered=0;
+
+function buildVocabCards(data,cid){const c=document.getElementById(cid);if(!c)return;data.forEach(v=>{const d=document.createElement('div');d.className='vocab-card';d.onclick=e=>{if(e.target.classList.contains('tts-btn'))return;d.classList.toggle('flipped');updateSB()};const sw=v.w.replace(/'/g,"\\'");d.innerHTML='<div class="vocab-inner"><div class="vocab-front"><div class="word">'+v.w+' <button class="tts-btn" onclick="event.stopPropagation();speak(\''+sw+'\',this)">\u{1F50A}</button></div><div class="pos">'+v.p+'</div><div class="hint">Tap to flip</div></div><div class="vocab-back"><div class="meaning">'+v.m+'</div><div class="arabic">'+v.ar+'</div><div class="example">"'+v.ex+'"</div></div></div>';c.appendChild(d)})}
+function buildVocabEx(){const c=document.getElementById('vocab-ex-rows');vocabExData.forEach((ex,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='vq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+ex.q+'</div>'+ex.opts.map((o,j)=>'<button class="quiz-option" onclick="checkVocabQ('+i+','+j+')">'+o+'</button>').join('');c.appendChild(d)})}
+function checkVocabQ(qi,oi){const d=document.getElementById('vq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);oi===vocabExData[qi].ans?b[oi].classList.add('correct'):(b[oi].classList.add('wrong'),b[vocabExData[qi].ans].classList.add('correct'))}
+function checkVocabEx(){let s=0;vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);if(d.querySelector('.correct')&&!d.querySelector('.wrong'))s++});const r=document.getElementById('vocab-result');r.innerHTML=(s===vocabExData.length?'Perfect! ':'Good effort! ')+s+'/'+vocabExData.length;r.style.color=s>=10?'var(--green)':'var(--red)'}
+function retryVocabEx(){vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false})});document.getElementById('vocab-result').innerHTML=''}
+function buildMCQ(data,containerId,prefix){const c=document.getElementById(containerId);data.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id=prefix+'-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkMCQ(\''+prefix+'\','+i+','+j+')">'+o+'</button>').join('')+'<div class="mcq-feedback" id="'+prefix+'fb-'+i+'"></div>';c.appendChild(d)})}
+function checkMCQ(prefix,qi,oi){const data=prefix==='l1q'?listen1Data:prefix==='l2q'?listen2Data:readingQ;const d=document.getElementById(prefix+'-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const fb=document.getElementById(prefix+'fb-'+qi);if(oi===data[qi].ans){b[oi].classList.add('correct');fb.innerHTML='Correct!';fb.style.background='var(--green-light)';fb.style.color='var(--green)'}else{b[oi].classList.add('wrong');b[data[qi].ans].classList.add('correct');fb.innerHTML='Correct: <strong>'+data[qi].opts[data[qi].ans]+'</strong>';fb.style.background='var(--red-light)';fb.style.color='var(--red)';d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500);if(prefix==='rq'&&data[qi].hl){const hl=document.querySelector('.highlight[data-q="'+data[qi].hl+'"]');if(hl)hl.classList.add('active');readingMistakes.push({q:data[qi].q,c:data[qi].opts[data[qi].ans]});updateMistakes()}}fb.classList.add('show')}
+function buildTF(data,containerId,prefix){const c=document.getElementById(containerId);data.forEach((item,i)=>{const d=document.createElement('div');d.className='fill-row';d.id=prefix+'-'+i;d.setAttribute('data-answered','false');d.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+item.q+'</span><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--green);color:#fff;margin-left:auto" onclick="checkTFG(\''+prefix+'\','+i+',true)">True</button><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--red);color:#fff" onclick="checkTFG(\''+prefix+'\','+i+',false)">False</button><span class="result" id="'+prefix+'r-'+i+'"></span>';c.appendChild(d)})}
+function checkTFG(prefix,i,a){const dataMap={rtf:readingTF,l1tf:listen1TF,l2tf:listen2TF};const data=dataMap[prefix]||readingTF;const r=document.getElementById(prefix+'-'+i);if(r.getAttribute('data-answered')==='true')return;r.setAttribute('data-answered','true');const res=document.getElementById(prefix+'r-'+i);if(a===data[i].a){res.textContent='Correct';res.style.color='var(--green)';r.style.borderColor='var(--green)';r.style.background='var(--green-light)'}else{res.textContent='Wrong: '+(data[i].a?'True':'False');res.style.color='var(--red)';r.style.borderColor='var(--red)';r.style.background='var(--red-light)';r.classList.add('shake');setTimeout(()=>r.classList.remove('shake'),500)}}
+function buildRecap(){const c=document.getElementById('recap-exercises');if(!c)return;recapEx.forEach((ex,i)=>{const row=document.createElement('div');row.className='fill-row';row.id='rex-'+i;row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('______','<select id="rsel-'+i+'"><option value="">—</option>'+ex.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>')+'</span><span class="result" id="rres-'+i+'"></span>';c.appendChild(row)})}
+function checkRecap(){let n=0;recapEx.forEach((ex,i)=>{const s=document.getElementById('rsel-'+i),r=document.getElementById('rres-'+i),row=document.getElementById('rex-'+i);if(s.value===ex.opts[ex.ans]){n++;r.textContent='Correct';r.style.color='var(--green)';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}else{r.textContent='Wrong';r.style.color='var(--red)';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}});document.getElementById('recap-score').textContent=n+'/'+recapEx.length}
+function retryRecap(){recapEx.forEach((e,i)=>{document.getElementById('rsel-'+i).value='';document.getElementById('rres-'+i).textContent='';const r=document.getElementById('rex-'+i);r.style.borderColor='var(--border)';r.style.background=''});document.getElementById('recap-score').textContent=''}
+function buildGrammar(){const c=document.getElementById('grammar-exercises');grammarEx.forEach((ex,i)=>{const row=document.createElement('div');row.className='fill-row';row.id='gex-'+i;row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('______','<select id="gsel-'+i+'"><option value="">—</option>'+ex.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>')+'</span><span class="result" id="gres-'+i+'"></span>';c.appendChild(row)})}
+function checkGrammar(){let n=0;grammarEx.forEach((ex,i)=>{const s=document.getElementById('gsel-'+i),r=document.getElementById('gres-'+i),row=document.getElementById('gex-'+i);if(s.value===ex.opts[ex.ans]){n++;r.textContent='Correct';r.style.color='var(--green)';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}else{r.textContent='Wrong';r.style.color='var(--red)';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}});document.getElementById('grammar-score').textContent=n+'/'+grammarEx.length;document.getElementById('sb-grammar').textContent=n+'/'+grammarEx.length}
+function retryGrammar(){grammarEx.forEach((e,i)=>{document.getElementById('gsel-'+i).value='';document.getElementById('gres-'+i).textContent='';const r=document.getElementById('gex-'+i);r.style.borderColor='var(--border)';r.style.background=''});document.getElementById('grammar-score').textContent=''}
+function updateMistakes(){if(!readingMistakes.length)return;document.getElementById('readingMistakes').classList.remove('hidden');const l=document.getElementById('mistakesList');l.innerHTML='';readingMistakes.forEach((m,i)=>{l.innerHTML+='<div style="padding:8px 0;border-bottom:1px solid rgba(217,79,79,0.2);font-size:0.85rem"><strong>Q'+(i+1)+':</strong> '+m.q+'<br><span style="color:var(--green)">Correct: '+m.c+'</span></div>'})}
+function toggleRole(id){document.getElementById(id+'-convo').classList.toggle('show')}
+function buildQuiz(){const c=document.getElementById('quiz-container');quizData.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='qq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+' — '+q.cat+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkQuizQ('+i+','+j+')">'+o+'</button>').join('')+'<div class="quiz-meme" id="qm-'+i+'"></div>';c.appendChild(d)})}
+function checkQuizQ(qi,oi){const d=document.getElementById('qq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');quizAnswered++;const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const mm=document.getElementById('qm-'+qi);if(oi===quizData[qi].ans){b[oi].classList.add('correct');quizScore++;const m=memeRight[Math.floor(Math.random()*memeRight.length)];mm.className='quiz-meme meme-correct show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;createConfetti(d)}else{b[oi].classList.add('wrong');b[quizData[qi].ans].classList.add('correct');const m=memeWrong[Math.floor(Math.random()*memeWrong.length)];mm.className='quiz-meme meme-wrong show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500)}document.getElementById('sb-quiz').textContent=quizScore+'/'+quizData.length}
+function createConfetti(p){const colors=['#e8a838','#f472b6','#60a5fa','#2d9d78','#e74c3c','#a78bfa'];for(let i=0;i<10;i++){const c=document.createElement('div');c.className='confetti-piece';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.left=Math.random()*100+'%';c.style.top='-10px';c.style.animationDelay=Math.random()*0.3+'s';p.style.position='relative';p.appendChild(c);setTimeout(()=>c.remove(),2000)}}
+function showQuizScore(){const r=document.getElementById('quiz-final');r.classList.remove('hidden');const pct=Math.round(quizScore/quizData.length*100);let msg='',col='';if(pct>=90){msg="You're a SURVIVAL MASTER!";col='var(--green)'}else if(pct>=70){msg='Great job!';col='var(--accent)'}else if(pct>=50){msg='Good effort! Review!';col='var(--blue)'}else{msg="Don't worry! Try again!";col='var(--red)'}r.innerHTML='<div style="font-family:Fredoka,sans-serif;font-size:2.5rem;font-weight:700;color:'+col+'">'+quizScore+'/'+quizData.length+'</div><div style="font-size:1.1rem;margin-top:6px">'+pct+'% — '+msg+'</div>';r.style.borderColor=col}
+function retryQuiz(){quizScore=0;quizAnswered=0;document.getElementById('sb-quiz').textContent='0/'+quizData.length;document.getElementById('quiz-final').classList.add('hidden');quizData.forEach((q,i)=>{const d=document.getElementById('qq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false});const m=document.getElementById('qm-'+i);m.className='quiz-meme';m.innerHTML=''})}
+function checkMultiSelect(){const checks=document.querySelectorAll('#reading-multiselect input[type=checkbox]');let correct=0,total=0;checks.forEach(c=>{const isCorrect=c.value==='correct';if(isCorrect)total++;if(c.checked&&isCorrect)correct++;if(c.checked&&!isCorrect)correct--;});if(correct<0)correct=0;const r=document.getElementById('ms-result');r.textContent=correct+'/'+total+' correct';r.style.color=correct===total?'var(--green)':'var(--red)'}
+function updateEmailWC(){const w=document.getElementById('email-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('email-wc').textContent=w;updateSB()}
+function updateWritingWC(){const w=document.getElementById('writing-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('writing-wc').textContent=w;updateSB()}
+function updateEmailCheck(){const ch=document.querySelectorAll('#email-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('email-check-result');r.innerHTML=n===ch.length?'All checked! Great email!':n+'/'+ch.length+' checked';r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+function updateWritingCheck(){const ch=document.querySelectorAll('#writing-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('writing-check-result');r.innerHTML=n===ch.length?'All checked!':n+'/'+ch.length+' checked';r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+function saveNotes(){try{localStorage.setItem('s9_classNotes',document.getElementById('classNotes').value);localStorage.setItem('s9_difficultWords',document.getElementById('difficultWords').value);localStorage.setItem('s9_teacherQuestions',document.getElementById('teacherQuestions').value)}catch(e){}}
+function loadNotes(){try{document.getElementById('classNotes').value=localStorage.getItem('s9_classNotes')||'';document.getElementById('difficultWords').value=localStorage.getItem('s9_difficultWords')||'';document.getElementById('teacherQuestions').value=localStorage.getItem('s9_teacherQuestions')||''}catch(e){}}
+function updateTracker(){const ch=document.querySelectorAll('#progressChecks input');let n=0;const s={};ch.forEach(c=>{if(c.checked)n++;s[c.dataset.sec]=c.checked});const pct=Math.round(n/ch.length*100);document.getElementById('trackerFill').style.width=pct+'%';document.getElementById('trackerText').textContent=n+' of '+ch.length+' completed';try{localStorage.setItem('s9_tracker',JSON.stringify(s))}catch(e){}}
+function loadTracker(){try{const s=JSON.parse(localStorage.getItem('s9_tracker')||'{}');document.querySelectorAll('#progressChecks input').forEach(c=>{if(s[c.dataset.sec])c.checked=true});updateTracker()}catch(e){}}
+function updateSB(){document.getElementById('sb-cards').textContent=document.querySelectorAll('.vocab-card.flipped').length;const ew=parseInt(document.getElementById('email-wc')?.textContent||0);const ww=parseInt(document.getElementById('writing-wc')?.textContent||0);document.getElementById('sb-words').textContent=ew+ww}
+window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;if(h>0){const p=Math.min(scrollY/h*100,100);document.getElementById('progress-fill').style.width=p+'%';document.getElementById('progress-pct').textContent=Math.round(p)+'%'}});
+const slideState={grammar:{current:0,total:0},vocab:{current:0,total:0}};
+function initSlideshow(n){const t=document.getElementById(n+'Track');if(!t)return;const sl=t.querySelectorAll('.slide');slideState[n].total=sl.length;const dc=document.getElementById(n+'Dots');dc.innerHTML='';for(let i=0;i<sl.length;i++){const d=document.createElement('span');d.className='slide-dot'+(i===0?' active':'');d.onclick=()=>{slideState[n].current=i;updateSlide(n)};dc.appendChild(d)}updateSlide(n)}
+function slideNav(n,dir){const s=slideState[n];s.current=Math.max(0,Math.min(s.total-1,s.current+dir));updateSlide(n)}
+function updateSlide(n){const s=slideState[n];document.getElementById(n+'Track').style.transform='translateX(-'+s.current*100+'%)';document.getElementById(n+'Counter').textContent=(s.current+1)+' / '+s.total;document.getElementById(n+'Prev').disabled=s.current===0;document.getElementById(n+'Next').disabled=s.current===s.total-1;document.getElementById(n+'Dots').querySelectorAll('.slide-dot').forEach((d,i)=>d.classList.toggle('active',i===s.current))}
+const driveMap_Castaway_Survival_Journal_page={"0001":"1cz1eLTQ5SQGuJ8LLYWGdU6hL6o0jXYkI","0002":"1qbSCHkTZZ0NDIXwt5Cyf6xklyZoKl_Vc","0003":"1AEtnQk6flONaZ05eynHmZIN8obCylyjU","0004":"1Q2jtEjcpjOaXxZrPWRBY8P_ivpKmszj1","0005":"1K3Gs9h3qrTbSBEVcTa9eB-k_HsbGSlkR","0006":"1IxJBm_3XjhMauHtz-K9Oly2qFxZn5aU8","0007":"1nhf7-rcDVfWY6ztjmB4ESY3segmhQjXT","0008":"1FGz7lpOMjZxJrZ75E6xolYa6xyrAbx0f","0009":"1rgMXZGtgx2k8-C5U29nVQr242sZPVYGu","0010":"1ryrWpuMi4FTF1hwa5CmqywiHgawaYXZj","0011":"1yiOKvh9w1v8vXR0Ga2uRjHwsKP_nC530","0012":"1l8KEFOahBgcqdJY6g7uKlFXBlTeHS7zg","0013":"1bU87cRqIKfUYEdVcmQ-ZrAIWGXrozsnR"};
+const driveMap_Castaway_Exclamation_Guide_page={"0001":"1oVOpnJdhc6Gq2BdRWBcNpniFnjjECEiz","0002":"1UtTh4uTKliEdkawVYqln8_5NXMxoOajR","0003":"1qZkK3ba6aRk5VYZFE0kLo3wC5mWuiSxR","0004":"1GSl6zHUq5G7dqndRObCmLmbBklgV0QH4","0005":"1vUs3JKElzpc8ClrROP9hspWhjigGOXgI","0006":"1rxNQymWN43KdCULggQWRt5kcJ4z-E19N","0007":"1FSufC3g0J-2TGJvNwvK_ULZvqeFf9fWa","0008":"1CN6CRGaX3S9EK4Ea-_-YN-7VQq45YWjK","0009":"1HqUDKaJ_CwS4f4rOCO-3g6jHAqYTDjwU","0010":"1w9DN1TbiZ7hX4ehHHkcho8B12njjYjvp","0011":"1QNwO-D22TP9G5KDc8rUyuyp9IAoihOhQ","0012":"1ofL-eq3gKgp5eYn3dq1gVZuP8cjOh-IF","0013":"1T3z-xuxtjzAZt0kR0EUiQrMbAxhLE6CC"};
+function buildSlides(){const vt=document.getElementById('vocabTrack');for(let i=1;i<=13;i++){const k=String(i).padStart(4,'0');const s=document.createElement('div');s.className='slide';s.innerHTML='<img src="https://lh3.googleusercontent.com/d/'+driveMap_Castaway_Survival_Journal_page[k]+'" alt="Vocab Slide '+i+'" loading="lazy" style="max-width:100%;max-height:500px;border-radius:8px">';vt.appendChild(s)}const gt=document.getElementById('grammarTrack');for(let i=1;i<=13;i++){const k=String(i).padStart(4,'0');const s=document.createElement('div');s.className='slide';s.innerHTML='<img src="https://lh3.googleusercontent.com/d/'+driveMap_Castaway_Exclamation_Guide_page[k]+'" alt="Grammar Slide '+i+'" loading="lazy" style="max-width:100%;max-height:500px;border-radius:8px">';gt.appendChild(s)}}
+document.addEventListener('DOMContentLoaded',()=>{buildSlides();buildRecap();buildVocabCards(islandVocab,'vg-island');buildVocabCards(survivalVocab,'vg-survival');buildVocabCards(journeyVocab,'vg-journey');buildVocabCards(feelingsVocab,'vg-feelings');buildVocabEx();buildMCQ(listen1Data,'listen1-questions','l1q');buildTF(listen1TF,'listen1-tf','l1tf');buildMCQ(listen2Data,'listen2-questions','l2q');buildTF(listen2TF,'listen2-tf','l2tf');buildGrammar();buildTF(readingTF,'reading-tf','rtf');buildMCQ(readingQ,'reading-questions','rq');buildQuiz();initSlideshow('grammar');initSlideshow('vocab');loadNotes();loadTracker()});
+</script>
+</body>
+</html>

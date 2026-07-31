@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 6 - Feelings: Positive Emotions | AUC English A2A</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+  :root{--bg:#fdf6ee;--card:#fff;--card-alt:#fefcf7;--accent:#e8a838;--accent-light:rgba(232,168,56,0.12);--green:#2d9d78;--green-light:#e6f7f1;--orange:#e8862a;--orange-light:#fff3e6;--red:#d94f4f;--red-light:#ffeaea;--pink:#c45ba1;--pink-light:#fce8f4;--blue:#5b6abf;--blue-light:#e8eaff;--yellow:#f0c929;--yellow-light:#fef9e7;--text:#2d3142;--text-dim:#6b7280;--border:#e5e2db;--shadow:0 2px 12px rgba(0,0,0,0.06);--radius:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+  h1,h2,h3{font-family:'Fredoka',sans-serif}
+  .hero{background:linear-gradient(135deg,#f9ca24 0%,#f0932b 40%,#eb4d4b 100%);padding:50px 24px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.08)}
+  .hero-emoji{font-size:3rem;margin-bottom:8px}
+  .hero h1{font-size:2.2rem;font-weight:700;margin-bottom:4px}
+  .hero .sub{opacity:0.9;font-size:1rem}
+  .badge-row{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+  .badge{background:rgba(255,255,255,0.18);padding:4px 14px;border-radius:20px;font-size:0.78rem;font-weight:600}
+  .method-banner{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin:20px auto 0;max-width:860px;box-shadow:var(--shadow)}
+  .method-steps{display:flex;justify-content:center;align-items:center;gap:4px;flex-wrap:wrap;margin-top:10px}
+  .method-step{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:10px;font-size:0.82rem;font-weight:600;white-space:nowrap}
+  .method-arrow{color:var(--text-dim);font-size:1rem}
+  .nav{position:sticky;top:0;z-index:100;background:rgba(253,246,238,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+  .nav-inner{max-width:900px;margin:0 auto;display:flex;overflow-x:auto;gap:2px;padding:8px 16px;-webkit-overflow-scrolling:touch}
+  .nav-inner::-webkit-scrollbar{height:4px}
+  .nav-inner::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+  .nav-inner::after{content:'';min-width:16px;flex-shrink:0}
+  .nav a{color:var(--text-dim);text-decoration:none;font-size:0.8rem;font-weight:500;white-space:nowrap;padding:6px 12px;border-radius:8px;transition:all 0.2s}
+  .nav a:hover{color:var(--accent);background:var(--accent-light)}
+  .container{max-width:860px;margin:0 auto;padding:0 16px}
+  .section{margin-top:40px;scroll-margin-top:60px}
+  .section-label{display:inline-flex;align-items:center;gap:8px;font-family:'Fredoka',sans-serif;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+  .section h2{font-size:1.5rem;font-weight:700;margin-bottom:16px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;box-shadow:var(--shadow)}
+  .card h3{font-size:1.1rem;margin-bottom:10px}
+  .progress-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin-top:16px;box-shadow:var(--shadow)}
+  .progress-label{font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.95rem;margin-bottom:8px;display:flex;justify-content:space-between}
+  .progress-bar{height:12px;background:#e8e6e0;border-radius:6px;overflow:hidden}
+  .progress-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--green));transition:width 0.6s ease;width:0%}
+  .recap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+  .recap-chip{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;box-shadow:var(--shadow);transition:transform 0.2s}
+  .recap-chip:hover{transform:translateY(-2px)}
+  .recap-chip .num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px}
+  .recap-chip .topic{font-weight:700;font-size:0.95rem;margin:4px 0 2px}
+  .recap-chip .detail{font-size:0.78rem;color:var(--text-dim)}
+  .recap-current{border-color:var(--accent);background:var(--accent-light)}
+  .fill-row{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:14px;margin:8px 0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .fill-row select{padding:6px 10px;border-radius:8px;border:1.5px solid var(--border);font-size:0.85rem;font-family:inherit}
+  .fill-row .result{font-size:0.85rem;font-weight:600;margin-left:auto}
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+  .vocab-card{perspective:800px;height:190px;cursor:pointer}
+  .vocab-inner{position:relative;width:100%;height:100%;transition:transform 0.5s;transform-style:preserve-3d}
+  .vocab-card.flipped .vocab-inner{transform:rotateY(180deg)}
+  .vocab-front,.vocab-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow)}
+  .vocab-front{background:var(--card)}
+  .vocab-front .word{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:700;color:var(--accent)}
+  .vocab-front .pos{font-size:0.72rem;color:var(--text-dim);margin-top:2px}
+  .vocab-front .hint{font-size:0.7rem;color:var(--pink);margin-top:8px;font-weight:500}
+  .vocab-back{background:linear-gradient(135deg,var(--accent-light),#fef3c7);transform:rotateY(180deg)}
+  .vocab-back .meaning{font-weight:600;font-size:0.9rem;margin-bottom:4px}
+  .vocab-back .arabic{font-size:0.82rem;color:var(--pink);margin-bottom:4px}
+  .vocab-back .example{font-size:0.8rem;color:var(--text-dim);font-style:italic}
+  .vocab-back .collocation{font-size:0.75rem;color:var(--blue);margin-top:4px;font-weight:600}
+  .tts-btn{background:none;border:none;cursor:pointer;font-size:1.1rem;padding:2px 4px;border-radius:6px;transition:all 0.2s;vertical-align:middle}
+  .tts-btn:hover{background:var(--accent-light);transform:scale(1.15)}
+  .tts-btn.playing{animation:pulse 0.8s infinite}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+  .grammar-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;margin:12px 0;border:1px solid var(--border)}
+  .grammar-table th{background:var(--accent);color:#fff;padding:10px 14px;font-weight:600;font-size:0.85rem;text-align:center}
+  .grammar-table td{padding:10px 14px;text-align:center;font-size:0.88rem;border-bottom:1px solid var(--border)}
+  .grammar-table tr:last-child td{border-bottom:0}
+  .grammar-table tr:nth-child(even) td{background:#faf9f6}
+  .demo-word{display:inline-block;background:var(--accent-light);color:var(--accent);font-weight:700;padding:2px 10px;border-radius:6px;font-size:0.85rem}
+  .audio-card{background:linear-gradient(135deg,#fef9e7,#fff3e6);border:1px solid #f0dcc0;border-radius:var(--radius);padding:18px;margin-bottom:14px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .audio-icon{font-size:2rem}
+  .audio-info h4{font-family:'Fredoka',sans-serif;font-size:0.95rem}
+  .audio-info p{font-size:0.8rem;color:var(--text-dim)}
+  .subtitle-toggle{margin-top:8px;width:100%}
+  .subtitle-toggle summary{cursor:pointer;font-size:0.82rem;font-weight:600;color:var(--accent);padding:6px 0;user-select:none}
+  .subtitle-text{background:#faf9f6;border-radius:10px;padding:14px 16px;margin-top:6px;font-size:0.82rem;line-height:1.9;color:var(--text);max-height:300px;overflow-y:auto}
+  .quiz-q{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}
+  .quiz-q .q-num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+  .quiz-q .q-text{font-weight:600;font-size:0.93rem;margin-bottom:12px}
+  .quiz-option{display:block;width:100%;text-align:left;padding:10px 14px;margin-bottom:6px;background:#faf9f6;border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:0.86rem;transition:all 0.2s;font-family:'Inter',sans-serif}
+  .quiz-option:hover:not(:disabled){border-color:var(--accent);background:var(--accent-light)}
+  .quiz-option.correct{border-color:var(--green);background:var(--green-light);color:var(--green);font-weight:600}
+  .quiz-option.wrong{border-color:var(--red);background:var(--red-light);color:var(--red)}
+  .quiz-option:disabled{cursor:default}
+  .fill-input{display:inline-block;width:120px;padding:4px 8px;border:2px solid var(--border);border-radius:8px;font-size:0.88rem;font-family:'Inter',sans-serif;text-align:center;background:#faf9f6;transition:border-color 0.2s}
+  .fill-input:focus{outline:none;border-color:var(--accent)}
+  .fill-input.correct{border-color:var(--green);background:var(--green-light)}
+  .fill-input.wrong{border-color:var(--red);background:var(--red-light)}
+  .btn{display:inline-block;padding:8px 20px;border:none;border-radius:10px;font-weight:600;font-size:0.88rem;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
+  .btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{background:#cf9430}
+  .btn-green{background:var(--green);color:#fff}.btn-green:hover{background:#248a68}
+  .btn-orange{background:var(--orange);color:#fff}.btn-orange:hover{background:#cf7524}
+  .btn-outline{background:transparent;border:2px solid var(--accent);color:var(--accent)}.btn-outline:hover{background:var(--accent-light)}
+  .writing-area{width:100%;min-height:140px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe;transition:border-color 0.2s}
+  .writing-area:focus{outline:none;border-color:var(--accent)}
+  .word-count{font-size:0.78rem;color:var(--text-dim);margin-top:6px;text-align:right}
+  .challenge-box{background:linear-gradient(135deg,#fef9e7,#fff3e6);border:2px dashed var(--accent);border-radius:var(--radius);padding:22px;text-align:center;margin:14px 0}
+  .challenge-box h3{font-family:'Fredoka',sans-serif;color:var(--accent)}
+  .tip-box{background:var(--green-light);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:12px 16px;margin:10px 0;font-size:0.85rem}
+  .tip-box strong{color:var(--green)}
+  .checklist label{display:flex;align-items:flex-start;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}
+  .checklist input[type=checkbox]{margin-top:4px;accent-color:var(--green);width:16px;height:16px}
+  .cheat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .cheat-cell{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+  .cheat-cell h4{font-family:'Fredoka',sans-serif;font-size:0.9rem;margin-bottom:6px}
+  .email-frame{background:#fff;border:1px solid #d0d0d0;border-radius:10px;overflow:hidden;margin:12px 0}
+  .email-header{background:#f0f0f0;padding:10px 16px;border-bottom:1px solid #d0d0d0;font-size:0.82rem}
+  .email-body{padding:16px;font-size:0.88rem;line-height:1.8}
+  .expression-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:12px}
+  .expression-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;box-shadow:var(--shadow);transition:transform 0.2s}
+  .expression-card:hover{transform:translateY(-2px)}
+  .expression-card .phrase{font-family:'Fredoka',sans-serif;font-size:0.95rem;font-weight:600;color:var(--accent)}
+  .expression-card .ex-meaning{font-size:0.82rem;color:var(--text-dim);margin-top:3px}
+  .role-card{background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow);cursor:pointer;transition:all 0.3s}
+  .role-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.1)}
+  .role-card h4{font-family:'Fredoka',sans-serif;font-size:1.05rem;margin-bottom:8px}
+  .role-card .role-points{list-style:none;padding:0}
+  .role-card .role-points li{font-size:0.85rem;padding:3px 0;padding-left:18px;position:relative}
+  .role-card .role-points li::before{content:'•';position:absolute;left:4px;color:var(--green);font-weight:700}
+  .role-convo{display:none;background:#faf9f6;border-radius:12px;padding:16px;margin-top:12px;font-size:0.86rem;line-height:1.9}
+  .role-convo.show{display:block}
+  .highlight{background:transparent;transition:background 0.5s;border-radius:4px;padding:0 2px}
+  .highlight.active{background:#fef08a}
+  .mcq-feedback{display:none;padding:8px 14px;border-radius:8px;margin-top:8px;font-size:0.85rem;font-weight:600}
+  .mcq-feedback.show{display:block}
+  .quiz-meme{display:none;padding:12px;border-radius:10px;margin-top:8px;text-align:center;font-weight:700;font-size:0.95rem}
+  .quiz-meme.show{display:block;animation:fadeIn 0.3s}
+  .meme-correct{background:var(--green-light);color:var(--green)}
+  .meme-wrong{background:var(--red-light);color:var(--red)}
+  .meme-emoji{font-size:1.8rem;display:block;margin-bottom:4px}
+  @keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+  .shake{animation:shake 0.4s}
+  .confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confetti-fall 1.5s ease-out forwards;pointer-events:none}
+  @keyframes confetti-fall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(200px) rotate(720deg);opacity:0}}
+  .score-banner{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);padding:8px 16px;display:flex;justify-content:center;align-items:center;gap:18px;box-shadow:0 -2px 10px rgba(0,0,0,0.06);z-index:99;font-family:'Fredoka',sans-serif}
+  .score-item{text-align:center}
+  .score-item .label{font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}
+  .score-item .val{font-size:1.1rem;font-weight:700}
+  .pb-80{padding-bottom:80px}
+  .mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}
+  .text-center{text-align:center}
+  .hidden{display:none}
+  .session-nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+  .session-nav a{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:10px;font-size:0.8rem;font-weight:600;text-decoration:none;border:2px solid var(--border);color:var(--text-dim);transition:all 0.2s}
+  .session-nav a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+  .session-nav a.active{border-color:var(--accent);background:var(--accent);color:#fff}
+  .session-nav a.disabled{opacity:0.4;pointer-events:none}
+  .notes-area{width:100%;min-height:100px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe;transition:border-color 0.2s}
+  .notes-area:focus{outline:none;border-color:var(--accent)}
+  .section-check{display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}
+  .section-check input{accent-color:var(--green);width:16px;height:16px}
+  .slideshow{position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:14px 0}
+  .slide-viewport{overflow:hidden;position:relative}
+  .slide-track{display:flex;transition:transform 0.4s ease}
+  .slide{min-width:100%;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;text-align:center;background:var(--card)}
+  .slide img{display:block;object-fit:contain;width:100%;height:auto}
+  .slide-controls{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid var(--border);background:#faf9f6}
+  .slide-btn{background:var(--accent);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-family:'Fredoka',sans-serif}
+  .slide-btn:hover{background:#cf9430;transform:scale(1.1)}
+  .slide-btn:disabled{background:var(--border);cursor:default;transform:none}
+  .slide-counter{font-family:'Fredoka',sans-serif;font-size:0.85rem;color:var(--text-dim)}
+  .slide-dots{display:flex;gap:6px;justify-content:center}
+  .slide-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all 0.3s;cursor:pointer}
+  .slide-dot.active{background:var(--accent);transform:scale(1.3)}
+  @media(max-width:600px){.cheat-grid{grid-template-columns:1fr}.vocab-grid{grid-template-columns:1fr}.recap-grid{grid-template-columns:1fr 1fr}.expression-grid{grid-template-columns:1fr}.slide{padding:10px}}
+.nlm-slot{background:repeating-linear-gradient(45deg,#faf9f6,#faf9f6 10px,#f5f2ea 10px,#f5f2ea 20px);border:2px dashed var(--accent);border-radius:14px;padding:26px 20px;text-align:center;color:var(--text-dim);font-size:0.86rem;margin:8px 0}
+.nlm-slot .slot-title{font-family:'Fredoka',sans-serif;font-weight:600;color:var(--accent);font-size:0.95rem;margin-bottom:4px}
+</style>
+</head>
+<body class="pb-80">
+
+<div class="hero">
+  <div class="hero-emoji">&#x1F60A;</div>
+  <h1>Session 6: Positive Emotions</h1>
+  <p class="sub">Express happiness, gratitude &amp; positive feelings in English</p>
+  <div class="badge-row">
+    <span class="badge">&#x1F4DA; A2 Level</span>
+    <span class="badge">&#x1F3AF; very / really / too</span>
+    <span class="badge">&#x1F60A; Feelings &amp; Emotions</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="session-nav" style="margin-top:16px">
+    <a href="session-1.html">&#x1F382; S1</a>
+    <a href="session-2.html">&#x1F389; S2</a>
+    <a href="session-3.html">&#x1F35C; S3</a>
+    <a href="session-4.html">&#x1F91D; S4</a>
+    <a href="session-5.html">&#x1F4F1; S5</a>
+    <a href="#" class="active">&#x1F60A; S6</a>
+    <a href="session-7.html">&#x1F614; S7</a>
+    <a href="#" class="disabled">&#x1F4B0; S8</a>
+    <a href="#" class="disabled">&#x1F3DD; S9</a>
+    <a href="#" class="disabled">&#x1F3DD; S10</a>
+    <a href="#" class="disabled">&#x1F455; S11</a>
+    <a href="#" class="disabled">&#x1F455; S12</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="method-banner">
+    <div style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem;text-align:center;">&#x1F9EA; Scientifically proven learning sequence</div>
+    <div class="method-steps">
+      <span class="method-step" style="background:var(--blue-light);color:var(--blue);">&#x1F519; Recap</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--pink-light);color:var(--pink);">&#x1F3A7; Listen</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--accent-light);color:var(--accent);">&#x1F4D6; Vocab</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--green-light);color:var(--green);">&#x1F4DD; Grammar</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--orange-light);color:var(--orange);">&#x1F4D6; Read</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--pink-light);color:var(--pink);">&#x1F5E3; Speak</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--blue-light);color:var(--blue);">&#x1F3AD; Role</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--yellow-light);color:var(--orange);">&#x1F4E7; Email</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--green-light);color:var(--green);">&#x270F; Write</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--red-light);color:var(--red);">&#x1F3AF; Quiz</span>
+    </div>
+  </div>
+</div>
+
+<nav class="nav"><div class="nav-inner">
+  <a href="#recap">Recap</a><a href="#listen">1. Listen</a><a href="#vocab">2. Vocab</a><a href="#grammar">3. Grammar</a><a href="#reading">4. Read</a><a href="#speaking">5. Speak</a><a href="#roleplay">6. Roleplay</a><a href="#email">7. Email</a><a href="#writing">8. Write</a><a href="#quiz">9. Quiz</a><a href="#summary">Summary</a><a href="#cheat">Cheat Sheet</a>
+</div></nav>
+
+<div class="container">
+
+  <div class="progress-wrap">
+    <div class="progress-label"><span>Your Session Progress</span><span id="progress-pct">0%</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+
+  <!-- RECAP -->
+  <div class="section" id="recap">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue);">&#x1F519; Quick Recap</span>
+    <h2>&#x1F504; Recap &amp; Apply — Sessions 1-5 Grammar</h2>
+    <div class="recap-grid">
+      <div class="recap-chip"><div class="num">Session 1</div><div class="topic">&#x1F382; Birthdays</div><div class="detail">'will' for plans</div></div>
+      <div class="recap-chip"><div class="num">Session 2</div><div class="topic">&#x1F389; Parties</div><div class="detail">offer/accept/refuse</div></div>
+      <div class="recap-chip"><div class="num">Session 3</div><div class="topic">&#x1F35C; Street Food</div><div class="detail">some/any, articles</div></div>
+      <div class="recap-chip"><div class="num">Session 4</div><div class="topic">&#x1F91D; Friendship</div><div class="detail">this/that/these/those</div></div>
+      <div class="recap-chip"><div class="num">Session 5</div><div class="topic">&#x1F4F1; Stories</div><div class="detail">past continuous</div></div>
+      <div class="recap-chip recap-current"><div class="num">Now!</div><div class="topic">&#x1F60A; Feelings</div><div class="detail">very/really/too</div></div>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--blue)">
+      <p style="font-size:0.88rem">You've learned 5 grammar topics. Apply them ALL to today's topic — positive emotions!</p>
+      <div style="margin-top:10px;font-size:0.82rem;color:var(--text-dim)">
+        <strong>S1:</strong> "I <em>will</em> feel proud when I graduate."<br>
+        <strong>S2:</strong> "Would you like me to cheer you up?"<br>
+        <strong>S3:</strong> "I have <em>some</em> exciting news!" / "There isn't <em>any</em> reason to worry."<br>
+        <strong>S4:</strong> "<em>This</em> feeling is amazing." / "<em>Those</em> moments were peaceful."<br>
+        <strong>S5:</strong> "I <em>was feeling</em> nervous <em>when</em> I <em>heard</em> the good news."
+      </div>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--green)">
+      <h3>&#x1F9EA; Apply S1-S5 Grammar to Feelings</h3>
+      <p style="font-size:0.82rem;color:var(--text-dim);margin-bottom:10px">Choose the correct answer — all previous grammar applied to emotions:</p>
+      <div id="recap-exercises"></div>
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" style="background:var(--green);color:#fff" onclick="checkRecap()">Check</button>
+        <button class="btn" style="background:var(--blue);color:#fff" onclick="retryRecap()">Retry</button>
+        <span id="recap-score" style="font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:700;margin-left:auto;display:flex;align-items:center"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LISTEN -->
+  <div class="section" id="listen">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink);">Phase 1 — Input</span>
+    <h2>&#x1F3A7; Step 1: Listen First</h2>
+    <p style="color:var(--text-dim);margin-bottom:12px;font-size:0.88rem;">Listen to the pronunciation and rhythm first. Don't read yet.</p>
+
+    <div class="card" style="background:linear-gradient(135deg,#fef9e7,#fff3e6);border:1px solid rgba(232,168,56,0.2)">
+      <h3>&#x1F3AC; 5 Ways to Be Happy Consistently</h3>
+      <p style="font-size:0.88rem;color:var(--text-dim);margin-bottom:8px">Watch this video lesson about increasing positive emotions — before class!</p>
+      <div class="nlm-slot"><div class="slot-title">&#x25B6;&#xFE0F; Watch on YouTube</div><div style="margin-bottom:8px">How to Be Happy Consistently: 5 Ways to Increase Positive Emotions</div><a href="https://www.youtube.com/results?search_query=How+to+Be+Happy+Consistently:+5+Ways+to+Increase+Positive+Emotions" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;text-decoration:none">Open on YouTube &#x2197;</a></div>
+    </div>
+
+    <div class="audio-card">
+      <div class="audio-icon">&#x1F4DE;</div>
+      <div class="audio-info" style="flex:1"><h4>Listening: Showing Emotion Across Cultures</h4><p>How different cultures express feelings</p></div>
+      <audio controls preload="none" style="width:100%;max-width:500px;margin-top:4px"><source src="https://scemoodle.aucegypt.edu/pluginfile.php/3170051/mod_hvp/content/171769/audios/files-6824b2b1999be.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="audio-card" style="background:linear-gradient(135deg,#e8eaff,#f0f0ff);border-color:#d0d3f0">
+      <div class="audio-icon">&#x1F3A7;</div>
+      <div class="audio-info" style="flex:1"><h4>Deep Dive: Positive Feelings &amp; Grammar</h4><p>Full audio lesson — vocabulary, grammar rules &amp; cultural context</p></div>
+      <audio controls preload="none" style="width:100%;max-width:500px;margin-top:4px"><source src="media/session-6/Precise_English_words_for_positive_feelings.m4a" type="audio/mp4"></audio>
+    </div>
+
+    <div class="card">
+      <h3>&#x2705; Listening Comprehension — True or False?</h3>
+      <p style="font-size:0.82rem;color:var(--text-dim);margin-bottom:10px">Answer based on what you heard:</p>
+      <div id="tf-questions"></div>
+    </div>
+  </div>
+
+  <!-- VOCABULARY -->
+  <div class="section" id="vocab">
+    <span class="section-label" style="background:var(--accent-light);color:var(--accent);">Phase 2 — Learn</span>
+    <h2>&#x1F4D6; Step 2: Vocabulary — Positive Feelings</h2>
+    <h3 style="margin:0 0 8px">&#x1F4CA; Vocabulary Slides — Positive Feelings</h3>
+    <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:6px">Browse all vocabulary slides with meanings, Arabic, and examples:</p>
+    <div class="slideshow" id="vocabSlides">
+      <div class="slide-viewport"><div class="slide-track" id="vocabTrack">
+        <div class="slide"><img src="media/session-6/Egyptian_Positive_Vocabulary_page-0001.jpg" alt="Vocabulary Slide 1" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Egyptian_Positive_Vocabulary_page-0002.jpg" alt="Vocabulary Slide 2" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Egyptian_Positive_Vocabulary_page-0003.jpg" alt="Vocabulary Slide 3" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Egyptian_Positive_Vocabulary_page-0004.jpg" alt="Vocabulary Slide 4" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Egyptian_Positive_Vocabulary_page-0005.jpg" alt="Vocabulary Slide 5" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Egyptian_Positive_Vocabulary_page-0006.jpg" alt="Vocabulary Slide 6" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Egyptian_Positive_Vocabulary_page-0007.jpg" alt="Vocabulary Slide 7" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Egyptian_Positive_Vocabulary_page-0008.jpg" alt="Vocabulary Slide 8" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Egyptian_Positive_Vocabulary_page-0009.jpg" alt="Vocabulary Slide 9" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Egyptian_Positive_Vocabulary_page-0010.jpg" alt="Vocabulary Slide 10" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Egyptian_Positive_Vocabulary_page-0011.jpg" alt="Vocabulary Slide 11" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Egyptian_Positive_Vocabulary_page-0012.jpg" alt="Vocabulary Slide 12" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Egyptian_Positive_Vocabulary_page-0013.jpg" alt="Vocabulary Slide 13" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Egyptian_Positive_Vocabulary_page-0014.jpg" alt="Vocabulary Slide 14" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Egyptian_Positive_Vocabulary_page-0015.jpg" alt="Vocabulary Slide 15" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+      </div></div>
+      <div class="slide-controls">
+        <button class="slide-btn" onclick="slideNav('vocab',-1)" id="vocabPrev" disabled>&#x2B05;</button>
+        <div><div class="slide-dots" id="vocabDots"></div><div class="slide-counter" id="vocabCounter">1 / 15</div></div>
+        <button class="slide-btn" onclick="slideNav('vocab',1)" id="vocabNext">&#x27A1;</button>
+      </div>
+    </div>
+
+    <h3 style="margin:20px 0 8px">&#x1F0CF; Flashcards</h3>
+    <p style="color:var(--text-dim);margin-bottom:4px;font-size:0.88rem;">Click to flip. Press &#x1F50A; to hear the word.</p>
+    <div class="vocab-grid" id="vg-feelings"></div>
+
+    <h3 style="margin:20px 0 10px">&#x1F31F; Bonus Expressions</h3>
+    <div class="expression-grid">
+      <div class="expression-card"><div class="phrase">Over the moon &#x1F319;</div><div class="ex-meaning">Extremely happy</div></div>
+      <div class="expression-card"><div class="phrase">On cloud nine &#x2601;</div><div class="ex-meaning">Feeling wonderful</div></div>
+      <div class="expression-card"><div class="phrase">Thrilled &#x1F929;</div><div class="ex-meaning">Very excited and pleased</div></div>
+      <div class="expression-card"><div class="phrase">Thankful &#x1F64F;</div><div class="ex-meaning">Feeling grateful</div></div>
+      <div class="expression-card"><div class="phrase">Amazed &#x1F92F;</div><div class="ex-meaning">Very surprised in a good way</div></div>
+      <div class="expression-card"><div class="phrase">Down in the dumps &#x1F614;</div><div class="ex-meaning">Feeling sad (opposite!)</div></div>
+    </div>
+
+    <h3 style="margin:20px 0 10px">&#x1F525; Idioms &amp; Expressions</h3>
+    <div id="idioms-box">
+      <div style="background:var(--card);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow)"><div style="font-family:'Fredoka',sans-serif;font-size:1rem;color:var(--accent);font-weight:600">over the moon</div><div style="font-size:0.85rem;color:var(--text-dim);margin-top:3px">Meaning: extremely happy</div><div style="font-size:0.82rem;font-style:italic;margin-top:3px">"She was over the moon when she passed the exam!"</div></div>
+      <div style="background:var(--card);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow)"><div style="font-family:'Fredoka',sans-serif;font-size:1rem;color:var(--green);font-weight:600">on cloud nine</div><div style="font-size:0.85rem;color:var(--text-dim);margin-top:3px">Meaning: feeling wonderful, extremely happy</div><div style="font-size:0.82rem;font-style:italic;margin-top:3px">"After getting the job, he was on cloud nine for a week!"</div></div>
+      <div style="background:var(--card);border-left:4px solid var(--pink);border-radius:0 12px 12px 0;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow)"><div style="font-family:'Fredoka',sans-serif;font-size:1rem;color:var(--pink);font-weight:600">walking on air</div><div style="font-size:0.85rem;color:var(--text-dim);margin-top:3px">Meaning: feeling very happy and excited</div><div style="font-size:0.82rem;font-style:italic;margin-top:3px">"When she said yes, I was walking on air!"</div></div>
+      <div style="background:var(--card);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow)"><div style="font-family:'Fredoka',sans-serif;font-size:1rem;color:var(--blue);font-weight:600">down in the dumps</div><div style="font-size:0.85rem;color:var(--text-dim);margin-top:3px">Meaning: feeling sad or unhappy (opposite!)</div><div style="font-size:0.82rem;font-style:italic;margin-top:3px">"He's been down in the dumps since he lost his phone."</div></div>
+      <div style="background:var(--card);border-left:4px solid var(--orange);border-radius:0 12px 12px 0;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow)"><div style="font-family:'Fredoka',sans-serif;font-size:1rem;color:var(--orange);font-weight:600">look on the bright side</div><div style="font-size:0.85rem;color:var(--text-dim);margin-top:3px">Meaning: focus on the positive parts of a bad situation</div><div style="font-size:0.82rem;font-style:italic;margin-top:3px">"I failed the test, but look on the bright side — now I know what to study!"</div></div>
+    </div>
+
+    <h3 style="margin:20px 0 10px">&#x1F517; Key Collocations</h3>
+    <div class="card" style="background:var(--card-alt)">
+      <p style="font-size:0.88rem;line-height:2"><strong>feel</strong> proud / relaxed / confident &bull; <strong>get</strong> excited / interested &bull; <strong>be</strong> grateful / hopeful &bull; proud <strong>OF</strong> &bull; excited <strong>ABOUT</strong> &bull; grateful <strong>FOR</strong> &bull; interested <strong>IN</strong> &bull; confident <strong>ABOUT</strong> &bull; hopeful <strong>ABOUT</strong></p>
+    </div>
+
+    <h3 style="margin:20px 0 10px">&#x270F; Vocabulary Exercise — Match the Feeling</h3>
+    <div class="card" id="vocab-exercise">
+      <div id="vocab-ex-rows"></div>
+      <div class="text-center mt-12">
+        <button class="btn btn-accent" onclick="checkVocabEx()">Check &#x2714;</button>
+        <button class="btn btn-outline" onclick="retryVocabEx()" style="margin-left:8px">Retry &#x1F504;</button>
+      </div>
+      <div id="vocab-result" class="mt-8 text-center" style="font-family:'Fredoka',sans-serif;font-size:1rem"></div>
+    </div>
+  </div>
+
+  <!-- ===== IDIOMS ===== -->
+  <div class="section" id="idioms">
+    <span class="section-label" style="background:rgba(251,191,36,0.15);color:#f59e0b">&#x1F4AC; Idioms</span>
+    <h2>Positive Emotions Idioms</h2>
+    <p style="color:var(--text-dim);margin-bottom:18px">English idioms for expressing happiness and positive feelings. Each includes meaning, example, and Arabic hint.</p>
+    <div style="display:grid;gap:14px">
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F319; Over the moon</h3>
+        <p><strong>Meaning:</strong> Extremely happy and excited</p>
+        <p><strong>Example:</strong> "I was <em>over the moon</em> when I passed my driving test!"</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> فرحان أوي / طاير من الفرحة</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x2601;&#xFE0F; On cloud nine</h3>
+        <p><strong>Meaning:</strong> Feeling wonderful and very happy</p>
+        <p><strong>Example:</strong> "She's been <em>on cloud nine</em> since she got engaged!"</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> في السابعة / سعيد جداً</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F31E; On top of the world</h3>
+        <p><strong>Meaning:</strong> Feeling the best you've ever felt</p>
+        <p><strong>Example:</strong> "After winning the competition, I felt <em>on top of the world</em>!"</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> حاسس إني فوق الدنيا</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F60A; Grin from ear to ear</h3>
+        <p><strong>Meaning:</strong> Smile very widely because you are very happy</p>
+        <p><strong>Example:</strong> "He was <em>grinning from ear to ear</em> when he saw his birthday cake."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> ضاحك من ودنه لودنه</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F49B; Warm someone's heart</h3>
+        <p><strong>Meaning:</strong> Make someone feel happy and loved inside</p>
+        <p><strong>Example:</strong> "The students' thank-you card <em>warmed my heart</em>."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> دفّى قلبي / فرّحني من جوّا</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F308; Every cloud has a silver lining</h3>
+        <p><strong>Meaning:</strong> There is something positive in every bad situation</p>
+        <p><strong>Example:</strong> "I lost my job but found a better one — <em>every cloud has a silver lining</em>."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> رب ضارة نافعة</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F3C6; Walking on air</h3>
+        <p><strong>Meaning:</strong> Feeling extremely happy, like you're floating</p>
+        <p><strong>Example:</strong> "I've been <em>walking on air</em> since I got accepted to AUC!"</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> مش حاسس بالأرض من الفرحة</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRAMMAR -->
+  <div class="section" id="grammar">
+    <h2>&#x1F4DD; Step 3: Grammar — very, really &amp; too</h2>
+
+    <div class="card" style="background:linear-gradient(135deg,#e8eaff,#f0f0ff);border:1px solid rgba(91,106,191,0.2)">
+      <h3>&#x1F3AC; Grammar Video — Expressing Happiness</h3>
+      <p style="font-size:0.88rem;color:var(--text-dim);margin-bottom:8px">Watch this visual guide to understand how we express positive feelings in English:</p>
+      <video controls preload="none" style="width:100%;display:block;border-radius:12px"><source src="media/session-6/Expressing_Happiness.mp4" type="video/mp4"></video>
+    </div>
+
+    <h3 style="margin:20px 0 8px">&#x1F4CA; Grammar Slides — very, really &amp; too</h3>
+    <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:6px">Use &#x2B05; &#x27A1; arrows to navigate through the slides:</p>
+    <div class="slideshow" id="grammarSlides">
+      <div class="slide-viewport"><div class="slide-track" id="grammarTrack">
+        <div class="slide"><img src="media/session-6/Very_Really_and_Too_pages-to-jpg-0001.jpg" alt="Grammar Slide 1" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Very_Really_and_Too_pages-to-jpg-0002.jpg" alt="Grammar Slide 2" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Very_Really_and_Too_pages-to-jpg-0003.jpg" alt="Grammar Slide 3" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Very_Really_and_Too_pages-to-jpg-0004.jpg" alt="Grammar Slide 4" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Very_Really_and_Too_pages-to-jpg-0005.jpg" alt="Grammar Slide 5" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Very_Really_and_Too_pages-to-jpg-0006.jpg" alt="Grammar Slide 6" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Very_Really_and_Too_pages-to-jpg-0007.jpg" alt="Grammar Slide 7" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Very_Really_and_Too_pages-to-jpg-0008.jpg" alt="Grammar Slide 8" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+        <div class="slide"><img src="media/session-6/Very_Really_and_Too_pages-to-jpg-0009.jpg" alt="Grammar Slide 9" style="max-width:100%;max-height:500px;border-radius:8px"></div>
+      </div></div>
+      <div class="slide-controls">
+        <button class="slide-btn" onclick="slideNav('grammar',-1)" id="grammarPrev" disabled>&#x2B05;</button>
+        <div><div class="slide-dots" id="grammarDots"></div><div class="slide-counter" id="grammarCounter">1 / 9</div></div>
+        <button class="slide-btn" onclick="slideNav('grammar',1)" id="grammarNext">&#x27A1;</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>What are Adverbs of Degree?</h3>
+      <p style="font-size:0.88rem">They work like a <strong>volume dial</strong> for adjectives — they tell us HOW MUCH.</p>
+      <p style="font-size:0.88rem;margin-top:6px"><strong>Structure:</strong> Subject + Verb + <span class="demo-word">Adverb</span> + Adjective</p>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--green)">
+      <h3 style="color:var(--green)">&#x1F7E2; very / really = A LOT (no problem!)</h3>
+      <p style="font-size:0.88rem">Use when the feeling is <strong>strong but OK</strong>.</p>
+      <div style="margin-top:8px;font-size:0.88rem;line-height:2">
+        <p>&#x2705; The food is <span class="demo-word">very</span> delicious!</p>
+        <p>&#x2705; I am <span class="demo-word">really</span> happy to see you!</p>
+        <p>&#x2705; She feels <span class="demo-word">very</span> grateful for the help.</p>
+        <p>&#x2705; We are <span class="demo-word">really</span> excited about the trip!</p>
+      </div>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--red)">
+      <h3 style="color:var(--red)">&#x1F534; too = MORE THAN ENOUGH (there is a problem!)</h3>
+      <p style="font-size:0.88rem">Use when something is <strong>excessive and causes a problem</strong>.</p>
+      <div style="margin-top:8px;font-size:0.88rem;line-height:2">
+        <p>&#x274C; The bag is <span class="demo-word">too</span> heavy. I can't carry it. (problem!)</p>
+        <p>&#x274C; The room is <span class="demo-word">too</span> noisy. I can't study. (problem!)</p>
+        <p>&#x274C; The coffee is <span class="demo-word">too</span> hot. I can't drink it. (problem!)</p>
+      </div>
+    </div>
+
+    <div class="card" style="background:var(--red-light);border:3px solid var(--red)">
+      <h3 style="color:var(--red);font-size:1.2rem;text-align:center">&#x26A0; THE BIG MISTAKE</h3>
+      <p style="font-size:0.95rem;text-align:center;margin-top:8px">In Arabic, "&#x062C;&#x062F;&#x0627;&#x064B;" can mean both "very" and "too" — but in English they are DIFFERENT!</p>
+      <div style="display:flex;gap:14px;margin-top:14px;flex-wrap:wrap;justify-content:center">
+        <div style="background:#fff;border:2px solid var(--red);border-radius:12px;padding:14px;flex:1;min-width:200px;text-align:center">
+          <p style="font-size:0.95rem;font-weight:700;color:var(--red)">&#x274C; WRONG</p>
+          <p style="font-size:0.9rem;margin-top:6px">"I am <strong>too</strong> happy to see you!"</p>
+          <p style="font-size:0.78rem;color:var(--text-dim);margin-top:4px">(Happy is NOT a problem!)</p>
+        </div>
+        <div style="background:#fff;border:2px solid var(--green);border-radius:12px;padding:14px;flex:1;min-width:200px;text-align:center">
+          <p style="font-size:0.95rem;font-weight:700;color:var(--green)">&#x2705; CORRECT</p>
+          <p style="font-size:0.9rem;margin-top:6px">"I am <strong>very</strong> happy to see you!"</p>
+          <p style="font-size:0.78rem;color:var(--text-dim);margin-top:4px">(No problem = use very/really)</p>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;color:var(--red);font-size:1.1rem">Remember: TOO = PROBLEM!</p>
+    </div>
+
+    <div class="card">
+      <h3>&#x270F; Practice 1: Correct or Incorrect?</h3>
+      <div id="grammar-exercises"></div>
+      <div class="text-center mt-12">
+        <button class="btn btn-accent" onclick="checkGrammar()">Check &#x2714;</button>
+        <button class="btn btn-outline" onclick="retryGrammar()" style="margin-left:8px">Retry &#x1F504;</button>
+      </div>
+      <div id="grammar-result" class="hidden mt-12 text-center" style="font-family:'Fredoka',sans-serif;font-size:1rem"></div>
+    </div>
+
+    <div class="card">
+      <h3>&#x270F; Practice 2: Fill in (very/really or too)</h3>
+      <div id="grammar-fill"></div>
+      <div class="text-center mt-12">
+        <button class="btn btn-green" onclick="checkFillIn()">Check &#x2714;</button>
+        <button class="btn btn-outline" onclick="retryFillIn()" style="margin-left:8px">Retry &#x1F504;</button>
+      </div>
+      <div id="fill-result" class="hidden mt-12 text-center" style="font-family:'Fredoka',sans-serif;font-size:1rem"></div>
+    </div>
+  </div>
+
+  <!-- READING -->
+  <div class="section" id="reading">
+    <h2>&#x1F4D6; Step 4: Read &amp; Understand</h2>
+    <div class="card">
+      <h3>&#x1F31F; The Importance of Happiness</h3>
+      <div style="background:#faf9f6;padding:14px;border-radius:10px;font-size:0.86rem;line-height:2" id="readingPassage">
+        <span class="highlight" data-q="q1">Happiness is not just a feeling — it is a powerful force that can change your life.</span> Scientists have found that <span class="highlight" data-q="q2">happy people are healthier, live longer, and have better relationships.</span><br><br>
+        <span class="highlight" data-q="q3">When you feel positive emotions like gratitude, excitement, and hope, your body releases chemicals that reduce stress and make you feel calm.</span> This is why doctors say that happiness is good for both your mind and your body.<br><br>
+        <span class="highlight" data-q="q4">Research shows that grateful people sleep better, have more energy, and are more creative.</span> Being thankful for small things — like a good meal, a kind word, or time with friends — can make a big difference.<br><br>
+        <span class="highlight" data-q="q5">One simple way to be happier is to focus on positive things every day.</span> You can keep a "positivity box" — write down good moments on small papers and put them in a box. When you feel sad, open the box and read them!<br><br>
+        <span class="highlight" data-q="q6">Happiness is also connected to helping others. When you do something kind for someone, you feel good too.</span> Scientists call this the "helper's high." So being kind doesn't just help others — it helps YOU feel happier!
+      </div>
+      <div class="tip-box mt-8"><strong>Did you notice?</strong> The passage uses many positive feeling words: happiness, gratitude, excitement, hope, grateful, thankful, kind. These are all from your vocabulary list!</div>
+    </div>
+
+    <div class="card">
+      <h3>&#x2753; Reading Comprehension</h3>
+      <p style="font-size:0.82rem;color:var(--text-dim);margin-bottom:10px">If you answer wrong, the relevant part of the passage will be highlighted for you!</p>
+      <div id="reading-questions"></div>
+      <div id="readingMistakes" class="hidden mt-16">
+        <div class="card" style="background:var(--red-light);border:2px solid var(--red)">
+          <h3 style="color:var(--red)">&#x1F4CB; Your Mistake Tracker</h3>
+          <div id="mistakesList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPEAKING -->
+  <div class="section" id="speaking">
+    <span class="section-label" style="background:var(--orange-light);color:var(--orange);">Phase 3 — Output</span>
+    <h2>&#x1F5E3; Step 5: Speaking Practice</h2>
+    <div class="card">
+      <h3>&#x1F3A4; 1-Minute Challenge</h3>
+      <p style="font-size:0.88rem;margin-bottom:8px">Set a timer. Speak for 60 seconds without stopping:</p>
+      <div class="challenge-box"><h3>"Talk about 3 things that make you feel happy. Use 'very' or 'really' — and explain WHY each one makes you feel that way."</h3><p style="font-size:0.82rem;color:var(--text-dim);margin-top:6px">Use: at least 3 feeling words + very/really + because</p></div>
+    </div>
+    <div class="card">
+      <h3>&#x1F6E1; Rescue Phrases</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <span style="background:var(--accent-light);padding:5px 12px;border-radius:20px;font-size:0.82rem;font-weight:500">"I feel really... when..."</span>
+        <span style="background:var(--green-light);padding:5px 12px;border-radius:20px;font-size:0.82rem;font-weight:500">"It makes me very... because..."</span>
+        <span style="background:var(--orange-light);padding:5px 12px;border-radius:20px;font-size:0.82rem;font-weight:500">"I'm so grateful for..."</span>
+        <span style="background:var(--pink-light);padding:5px 12px;border-radius:20px;font-size:0.82rem;font-weight:500">"What I love most is..."</span>
+        <span style="background:var(--blue-light);padding:5px 12px;border-radius:20px;font-size:0.82rem;font-weight:500">"That's why I feel..."</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>&#x1F4AC; Pronunciation Tips</h3>
+      <div style="font-size:0.88rem;line-height:2">
+        <p><strong>grateful</strong> — GRAY-ful (not GRAT-ful) <button class="tts-btn" onclick="speak('grateful',this)">&#x1F50A;</button></p>
+        <p><strong>excited</strong> — ik-SY-tid (stress on 2nd syllable) <button class="tts-btn" onclick="speak('excited',this)">&#x1F50A;</button></p>
+        <p><strong>confident</strong> — KON-fi-dent (stress on 1st) <button class="tts-btn" onclick="speak('confident',this)">&#x1F50A;</button></p>
+        <p><strong>peaceful</strong> — PEES-ful (long 'ee' sound) <button class="tts-btn" onclick="speak('peaceful',this)">&#x1F50A;</button></p>
+        <p><strong>cheerful</strong> — CHEER-ful (rhymes with "ear") <button class="tts-btn" onclick="speak('cheerful',this)">&#x1F50A;</button></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROLEPLAY -->
+  <div class="section" id="roleplay">
+    <h2>&#x1F3AD; Step 6: Roleplay — Sharing Positive Feelings</h2>
+    <p style="color:var(--text-dim);margin-bottom:14px;font-size:0.88rem;">Click each role to see guiding points and example conversation. Practice with a partner!</p>
+
+    <div class="role-card" style="border-color:var(--accent)" onclick="toggleRole('sharer')">
+      <h4 style="color:var(--accent)">&#x1F60A; Role 1: The Good News Sharer</h4>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:6px">You have exciting news and want to share your positive feelings.</p>
+      <ul class="role-points">
+        <li>Start with your exciting news</li>
+        <li>Describe how you feel using 3+ feeling words</li>
+        <li>Use very/really correctly (not too!)</li>
+        <li>Explain why this makes you feel this way</li>
+      </ul>
+      <div class="role-convo" id="sharer-convo">
+        <strong>You:</strong> Guess what! I just got accepted to the AUC summer program!<br>
+        <strong>Friend:</strong> Wow! That's amazing! How do you feel?<br>
+        <strong>You:</strong> I'm <span class="demo-word">really excited</span> about it! And I feel <span class="demo-word">very proud</span> of myself because I worked so hard.<br>
+        <strong>Friend:</strong> You should be! Are you nervous too?<br>
+        <strong>You:</strong> A little, but mostly I'm <span class="demo-word">very hopeful</span> about the future. I'm also <span class="demo-word">really grateful</span> for my family's support.
+      </div>
+    </div>
+
+    <div class="role-card" style="border-color:var(--green)" onclick="toggleRole('listener')">
+      <h4 style="color:var(--green)">&#x1F91D; Role 2: The Supportive Listener</h4>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:6px">Your friend shares good news. React and ask about their feelings.</p>
+      <ul class="role-points">
+        <li>Show you're happy for your friend</li>
+        <li>Ask questions about their feelings</li>
+        <li>Share a similar experience</li>
+        <li>Use feeling words in your responses</li>
+      </ul>
+      <div class="role-convo" id="listener-convo">
+        <strong>Friend:</strong> I passed my driving test today!<br>
+        <strong>You:</strong> That's wonderful! You must be <span class="demo-word">very proud</span>!<br>
+        <strong>Friend:</strong> Yes! I feel so confident now.<br>
+        <strong>You:</strong> I remember when I passed mine. I was <span class="demo-word">really excited</span> too! How does your family feel?<br>
+        <strong>Friend:</strong> They're <span class="demo-word">over the moon</span>! My mom is very <span class="demo-word">grateful</span> because now I can drive her to the market.
+      </div>
+    </div>
+
+    <div class="role-card" style="border-color:var(--pink)" onclick="toggleRole('interviewer')">
+      <h4 style="color:var(--pink)">&#x1F399; Role 3: The Happiness Interviewer</h4>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:6px">Interview your partner about what makes them happy.</p>
+      <ul class="role-points">
+        <li>Ask: "What makes you feel [feeling word]?"</li>
+        <li>Ask follow-up questions about WHY</li>
+        <li>Compare their answers to your own feelings</li>
+        <li>Use at least 5 different feeling words</li>
+      </ul>
+      <div class="role-convo" id="interviewer-convo">
+        <strong>You:</strong> What makes you feel <span class="demo-word">peaceful</span>?<br>
+        <strong>Partner:</strong> Sitting by the Nile at sunset. It's very <span class="demo-word">relaxing</span>.<br>
+        <strong>You:</strong> That sounds lovely! And what are you most <span class="demo-word">grateful</span> for?<br>
+        <strong>Partner:</strong> My friends. They always make me feel <span class="demo-word">cheerful</span> even when I'm stressed.<br>
+        <strong>You:</strong> I feel the same way. What makes you feel <span class="demo-word">confident</span>?<br>
+        <strong>Partner:</strong> Preparing well for exams. When I study hard, I feel <span class="demo-word">really confident</span> about the test.
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL -->
+  <div class="section" id="email">
+    <h2>&#x1F4E7; Step 7: Email Writing</h2>
+
+    <div class="card">
+      <h3>Email Task</h3>
+      <p style="font-size:0.88rem">Write an email to a friend telling them about something that made you feel very happy recently. Describe the situation, explain your feelings, and invite them to share their happy moment too.</p>
+      <p style="font-size:0.82rem;color:var(--text-dim);margin-top:6px"><strong>Target:</strong> 60-80 words</p>
+    </div>
+
+    <div class="card">
+      <h3>Email Structure</h3>
+      <table class="grammar-table">
+        <tr><th>Part</th><th>What to Write</th><th>Example</th></tr>
+        <tr><td style="font-weight:700">Subject</td><td>Short &amp; clear</td><td>Great news!</td></tr>
+        <tr><td style="font-weight:700">Greeting</td><td>Hi/Dear + name</td><td>Hi Sara,</td></tr>
+        <tr><td style="font-weight:700">Opening</td><td>What happened</td><td>I'm writing because something amazing happened!</td></tr>
+        <tr><td style="font-weight:700">Body</td><td>Your feelings + details</td><td>I feel very proud because I got an A on my exam.</td></tr>
+        <tr><td style="font-weight:700">Closing</td><td>Ask about them</td><td>What about you? What made you happy this week?</td></tr>
+        <tr><td style="font-weight:700">Sign-off</td><td>Your name</td><td>Your happy friend, Ebrahim</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>&#x1F4A1; Model Email</h3>
+      <div class="email-frame">
+        <div class="email-header"><strong>Subject:</strong> I have great news!</div>
+        <div class="email-body">
+          <p>Hi Sara,</p>
+          <p style="margin-top:8px">I'm <strong>really excited</strong> to tell you my news! I got accepted to the English program at AUC. I feel <strong>very proud</strong> because I worked so hard for this.</p>
+          <p style="margin-top:8px">My family is <strong>very grateful</strong> for the teachers who helped me. I'm also <strong>really hopeful</strong> about improving my English this year.</p>
+          <p style="margin-top:8px">What about you? What made you feel happy this week? I'd love to hear your good news!</p>
+          <p style="margin-top:8px">Your happy friend,<br>Ebrahim</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>&#x2705; Email Checklist</h3>
+      <div class="checklist" id="email-checklist">
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Has greeting (Hi/Dear + name)</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Describes a happy situation</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Uses at least 3 positive feeling words</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Uses very/really correctly (not "too happy"!)</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Uses correct collocations (proud OF, grateful FOR...)</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Asks the friend about their feelings</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Has closing + sign-off</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> 60-80 words</label>
+      </div>
+      <div id="email-check-result" class="mt-8" style="font-family:'Fredoka',sans-serif;font-size:0.9rem"></div>
+    </div>
+
+    <div class="card">
+      <h3>&#x270F; Write Your Email</h3>
+      <textarea class="writing-area" id="email-area" placeholder="Subject: Great news!
+
+Hi [name],
+
+I'm really excited to tell you...
+
+I feel very... because...
+
+What about you?
+
+Your happy friend,
+[your name]" oninput="updateEmailWC()"></textarea>
+      <div class="word-count">Words: <span id="email-wc">0</span> / 60-80 target</div>
+    </div>
+  </div>
+
+  <!-- WRITING -->
+  <div class="section" id="writing">
+    <h2>&#x270F; Step 8: Writing — Paragraph About Positive Emotions</h2>
+    <div class="card">
+      <h3>&#x1F4A1; Writing Task</h3>
+      <p style="font-size:0.88rem">Write a paragraph (60-80 words) about the advantages of positive emotions. Explain how feeling happy, grateful, or hopeful can improve our lives.</p>
+      <div style="background:linear-gradient(135deg,#fef9e7,#fff3e6);padding:18px;border-radius:12px;border:2px solid #f0dcc0;font-size:0.9rem;line-height:1.9;margin-top:12px">
+        <p><em>Model:</em></p>
+        <p>Positive emotions have many advantages. When we feel <strong>grateful</strong>, we notice the good things in life and feel more <strong>peaceful</strong>. Being <strong>hopeful</strong> helps us work harder toward our goals. <strong>Excited</strong> people are more creative and solve problems better. Also, when we feel <strong>cheerful</strong>, we make others around us happy too. I think everyone should try to focus on positive feelings because they make life <strong>really</strong> beautiful.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>&#x270F; Write Your Paragraph</h3>
+      <textarea class="writing-area" id="writing-area" placeholder="Positive emotions have many advantages...
+
+When we feel...
+
+I think..." oninput="updateWritingWC()"></textarea>
+      <div class="word-count">Words: <span id="writing-wc">0</span> / 60-80 target</div>
+    </div>
+
+    <div class="card">
+      <h3>&#x2705; Writing Checklist</h3>
+      <div class="checklist" id="writing-checklist">
+        <label><input type="checkbox" onchange="updateWritingCheck()"> Uses at least 4 positive feeling words</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> Explains advantages (not just lists feelings)</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> Uses very/really correctly</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> Has a clear topic sentence</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> 60-80 words</label>
+      </div>
+      <div id="writing-check-result" class="mt-8" style="font-family:'Fredoka',sans-serif;font-size:0.9rem"></div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section" id="quiz">
+    <span class="section-label" style="background:var(--red-light);color:var(--red);">Phase 4 — Test</span>
+    <h2>&#x1F3AF; Step 9: Final Quiz</h2>
+    <p style="color:var(--text-dim);margin-bottom:14px;font-size:0.88rem;">15 questions. Get ready for memes if you answer wrong! &#x1F609;</p>
+    <div id="quiz-container"></div>
+    <div class="text-center mt-20">
+      <button class="btn btn-green" onclick="showQuizScore()" style="padding:10px 28px;font-size:0.95rem">Show My Score &#x1F3C6;</button>
+      <button class="btn btn-outline" onclick="retryQuiz()" style="margin-left:10px;padding:10px 28px;font-size:0.95rem">Retry Quiz &#x1F504;</button>
+      <a href="kahoot-session6.html" style="display:inline-block;margin-left:10px;padding:10px 28px;background:var(--red);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;font-size:0.88rem">Play Kahoot! &#x1F3AE;</a>
+    </div>
+    <div id="quiz-final" class="hidden mt-16 text-center card" style="border-width:2px"></div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section" id="summary">
+    <span class="section-label" style="background:var(--yellow-light);color:var(--orange);">&#x1F4CA; Summary</span>
+    <h2>Everything You Learned Today</h2>
+    <div class="card">
+      <h3>&#x1F4D6; Vocabulary Summary</h3>
+      <table class="grammar-table">
+        <tr><th>Word</th><th>Meaning</th><th>Arabic</th><th>Collocation</th></tr>
+        <tr><td>proud</td><td>Happy about an achievement</td><td>&#x0641;&#x062E;&#x0648;&#x0631;</td><td>proud OF</td></tr>
+        <tr><td>relaxed</td><td>Calm, not stressed</td><td>&#x0645;&#x0633;&#x062A;&#x0631;&#x062E;&#x064A;</td><td>feel relaxed</td></tr>
+        <tr><td>excited</td><td>Very happy about something coming</td><td>&#x0645;&#x062A;&#x062D;&#x0645;&#x0633;</td><td>excited ABOUT</td></tr>
+        <tr><td>cheerful</td><td>Always happy and smiling</td><td>&#x0645;&#x0628;&#x062A;&#x0647;&#x062C;</td><td>feel cheerful</td></tr>
+        <tr><td>grateful</td><td>Thankful for something good</td><td>&#x0645;&#x0645;&#x062A;&#x0646;&#x0651;</td><td>grateful FOR</td></tr>
+        <tr><td>confident</td><td>Believing in yourself</td><td>&#x0648;&#x0627;&#x062B;&#x0642; &#x0645;&#x0646; &#x0646;&#x0641;&#x0633;&#x0647;</td><td>confident ABOUT</td></tr>
+        <tr><td>peaceful</td><td>Very calm and quiet</td><td>&#x0647;&#x0627;&#x062F;&#x0626;</td><td>feel peaceful</td></tr>
+        <tr><td>hopeful</td><td>Believing good things will happen</td><td>&#x0645;&#x062A;&#x0641;&#x0627;&#x0626;&#x0644;</td><td>hopeful ABOUT</td></tr>
+        <tr><td>interested</td><td>Wanting to know more</td><td>&#x0645;&#x0647;&#x062A;&#x0645;</td><td>interested IN</td></tr>
+        <tr><td>loving</td><td>Showing love and care</td><td>&#x0645;&#x062D;&#x0628;</td><td>a loving person</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>&#x1F4DD; Grammar Rules</h3>
+      <table class="grammar-table">
+        <tr><th>Adverb</th><th>Meaning</th><th>Use When</th><th>Example</th></tr>
+        <tr><td><strong>very / really</strong></td><td>A lot</td><td>No problem &#x1F7E2;</td><td>I'm <strong>very</strong> happy!</td></tr>
+        <tr><td><strong>too</strong></td><td>More than enough</td><td>There IS a problem &#x1F534;</td><td>It's <strong>too</strong> hot to drink.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- CHEAT SHEET -->
+  <div class="section" id="cheat">
+    <span class="section-label" style="background:var(--yellow-light);color:var(--orange);">&#x1F4CB; Reference</span>
+    <h2>Cheat Sheet</h2>
+    <h3 style="margin-bottom:10px">Session 6: Positive Emotions</h3>
+    <div class="cheat-grid">
+      <div class="cheat-cell"><h4 style="color:var(--green)">&#x1F7E2; very / really</h4><p style="font-size:0.82rem">= "a lot" — NO problem<br>I'm <strong>very</strong> happy!<br>She's <strong>really</strong> excited!<br>Use with positive feelings!</p></div>
+      <div class="cheat-cell"><h4 style="color:var(--red)">&#x1F534; too</h4><p style="font-size:0.82rem">= "more than enough" — PROBLEM!<br>It's <strong>too</strong> heavy. I can't carry it.<br>It's <strong>too</strong> noisy to study.<br>&#x274C; Never say "too happy"!</p></div>
+      <div class="cheat-cell"><h4 style="color:var(--accent)">&#x1F517; Collocations</h4><p style="font-size:0.82rem">proud <strong>OF</strong><br>excited <strong>ABOUT</strong><br>grateful <strong>FOR</strong><br>interested <strong>IN</strong><br>confident/hopeful <strong>ABOUT</strong></p></div>
+      <div class="cheat-cell"><h4 style="color:var(--pink)">&#x1F5E3; Useful Phrases</h4><p style="font-size:0.82rem">"I feel really ___ when..."<br>"It makes me very ___ because..."<br>"I'm so grateful for..."<br>"What I love most is..."</p></div>
+    </div>
+    <h3 style="margin:20px 0 10px">Sessions 1-5: Words You Should Still Remember</h3>
+    <div class="cheat-grid">
+      <div class="cheat-cell"><h4 style="color:var(--blue)">&#x1F382; S1-2: Parties</h4><p style="font-size:0.82rem">invite, celebrate, decoration, organize, surprise &bull; 'will' for plans &bull; Can I help? Would you like me to...? &bull; verb+ing after prepositions</p></div>
+      <div class="cheat-cell"><h4 style="color:var(--orange)">&#x1F35C; S3: Street Food</h4><p style="font-size:0.82rem">delicious, crispy, spicy, bland, tender &bull; some/any &bull; a/an/the &bull; how much/many &bull; countable vs uncountable</p></div>
+      <div class="cheat-cell"><h4 style="color:var(--green)">&#x1F91D; S4: Friendship</h4><p style="font-size:0.82rem">kind, honest, loyal, supportive, encouraging &bull; this/that/these/those &bull; make friends, hang out, catch up</p></div>
+      <div class="cheat-cell"><h4 style="color:var(--pink)">&#x1F4F1; S5: Stories</h4><p style="font-size:0.82rem">reconnect, browse, scroll, chat, share, memory &bull; stay in touch, meet face-to-face &bull; past continuous + past simple</p></div>
+    </div>
+  </div>
+
+  <!-- SESSION NOTES -->
+  <div class="section" id="notes">
+    <h2>&#x1F4D3; My Session Notes</h2>
+    <div class="card">
+      <h3>&#x1F4DD; Class Notes</h3>
+      <p style="font-size:0.82rem;color:var(--text-dim);margin-bottom:8px">Write your notes during or after class. They save automatically!</p>
+      <textarea class="notes-area" id="classNotes" placeholder="Type your notes here... What did the instructor explain? What was difficult?" oninput="saveNotes()"></textarea>
+    </div>
+    <div class="card">
+      <h3>&#x1F4D5; My Difficult Words</h3>
+      <textarea class="notes-area" id="difficultWords" style="min-height:80px" placeholder="e.g., grateful — I keep forgetting the correct preposition (FOR)..." oninput="saveNotes()"></textarea>
+    </div>
+    <div class="card">
+      <h3>&#x2753; Questions for Teacher</h3>
+      <textarea class="notes-area" id="teacherQuestions" style="min-height:80px" placeholder="Write questions you want to ask your teacher..." oninput="saveNotes()"></textarea>
+    </div>
+  </div>
+
+  <!-- PROGRESS TRACKER -->
+  <div class="section" id="tracker">
+    <h2>&#x2705; Progress Tracker</h2>
+    <div class="card">
+      <h3>Check off completed sections:</h3>
+      <div id="progressChecks">
+        <label class="section-check"><input type="checkbox" data-sec="listen" onchange="updateTracker()"> &#x1F3A7; Listened to audio &amp; watched video</label>
+        <label class="section-check"><input type="checkbox" data-sec="vocab" onchange="updateTracker()"> &#x1F4DA; Studied vocabulary flashcards</label>
+        <label class="section-check"><input type="checkbox" data-sec="vocabex" onchange="updateTracker()"> &#x270F; Completed vocabulary exercise</label>
+        <label class="section-check"><input type="checkbox" data-sec="grammar" onchange="updateTracker()"> &#x1F4DD; Understood grammar rules</label>
+        <label class="section-check"><input type="checkbox" data-sec="grammarex" onchange="updateTracker()"> &#x1F4DD; Completed grammar exercises</label>
+        <label class="section-check"><input type="checkbox" data-sec="read" onchange="updateTracker()"> &#x1F4D6; Read passage &amp; answered questions</label>
+        <label class="section-check"><input type="checkbox" data-sec="speak" onchange="updateTracker()"> &#x1F5E3; Did speaking challenge</label>
+        <label class="section-check"><input type="checkbox" data-sec="roleplay" onchange="updateTracker()"> &#x1F3AD; Practiced roleplay</label>
+        <label class="section-check"><input type="checkbox" data-sec="email" onchange="updateTracker()"> &#x1F4E7; Wrote email</label>
+        <label class="section-check"><input type="checkbox" data-sec="write" onchange="updateTracker()"> &#x270F; Completed writing task</label>
+        <label class="section-check"><input type="checkbox" data-sec="quiz" onchange="updateTracker()"> &#x1F3AF; Finished quiz</label>
+        <label class="section-check"><input type="checkbox" data-sec="kahoot" onchange="updateTracker()"> &#x1F3AE; Played Kahoot</label>
+      </div>
+      <div style="margin-top:14px">
+        <div style="background:#e8e6e0;border-radius:8px;height:12px;overflow:hidden">
+          <div id="trackerFill" style="height:100%;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--green));width:0%;transition:width 0.5s"></div>
+        </div>
+        <p style="font-size:0.82rem;color:var(--text-dim);margin-top:6px;text-align:center" id="trackerText">0 of 12 completed</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREVIEW NEXT -->
+  <div class="section">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue);">&#x1F52E; Coming Next</span>
+    <h2>Session 7: Feelings (Negative Emotions)</h2>
+    <div class="card" style="background:linear-gradient(135deg,var(--green-light),var(--blue-light));border:1px solid rgba(91,106,191,0.2)">
+      <h4 style="font-family:'Fredoka',sans-serif;color:var(--blue);margin-bottom:6px">What's Coming</h4>
+      <p style="font-size:0.88rem"><strong>Vocabulary:</strong> sad, bored, nervous, angry, stressed, anxious, disappointed</p>
+      <p style="font-size:0.88rem"><strong>Grammar:</strong> Positive vs Negative traits, weak vs strong adjectives</p>
+      <p style="font-size:0.88rem"><strong>Assessment:</strong> Monologue (20 points) — speaking about feelings!</p>
+      <p style="font-size:0.88rem;margin-top:6px;color:var(--text-dim)">Start thinking: <em>"What situations make you feel sad, nervous, or stressed?"</em></p>
+    </div>
+    <div class="tip-box"><strong>Connection:</strong> Session 6 positive feelings connect directly to Session 7 negative feelings. Understanding BOTH will help you in the monologue assessment!</div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:30px 0 20px;padding:0 16px">
+    <a href="session-5.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--blue);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem;transition:all 0.3s;box-shadow:0 2px 8px rgba(91,106,191,0.3)">&#x2B05; Session 5</a>
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--accent);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem;transition:all 0.3s;box-shadow:0 2px 8px rgba(232,168,56,0.3)">&#x1F3E0; Home</a>
+    <a href="session-7.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--green);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem;transition:all 0.3s;box-shadow:0 2px 8px rgba(45,157,120,0.3)">Session 7 &#x27A1;</a>
+  </div>
+  <div style="text-align:center;padding:10px 20px 20px;color:var(--text-dim);font-size:0.78rem">
+    <p>AUC English A2A &bull; Session 6: Positive Emotions</p>
+    <p style="margin-top:4px">Made with &#x2764; for A2A students</p>
+  </div>
+
+</div>
+
+<div class="score-banner">
+  <div class="score-item"><div class="label">Cards</div><div class="val" id="sb-cards" style="color:var(--accent)">0</div></div>
+  <div class="score-item"><div class="label">Grammar</div><div class="val" id="sb-grammar" style="color:var(--green)">0</div></div>
+  <div class="score-item"><div class="label">Quiz</div><div class="val" id="sb-quiz" style="color:var(--red)">0/15</div></div>
+  <div class="score-item"><div class="label">Written</div><div class="val" id="sb-words" style="color:var(--orange)">0</div></div>
+</div>
+
+<script>
+// ===== TTS =====
+function speak(word,btn){
+  if(!('speechSynthesis' in window))return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(word);u.lang='en-US';u.rate=0.85;u.pitch=1;
+  const voices=window.speechSynthesis.getVoices();
+  const ev=voices.find(v=>v.lang.startsWith('en')&&v.name.includes('Female'))||voices.find(v=>v.lang.startsWith('en'));
+  if(ev)u.voice=ev;
+  if(btn){btn.classList.add('playing');u.onend=()=>btn.classList.remove('playing')}
+  window.speechSynthesis.speak(u);
+}
+if('speechSynthesis' in window){speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices()}
+
+// ===== VOCAB DATA =====
+const VOCAB=[
+  {w:"proud",p:"adjective",m:"Happy about an achievement",ar:"فخور",ex:"Ahmed was proud when he graduated from AUC.",col:"proud OF"},
+  {w:"relaxed",p:"adjective",m:"Calm, not stressed or worried",ar:"مسترخي",ex:"After yoga, everyone felt very relaxed.",col:"feel relaxed"},
+  {w:"excited",p:"adjective",m:"Very happy about something coming",ar:"متحمس",ex:"The children are really excited about the trip!",col:"excited ABOUT"},
+  {w:"cheerful",p:"adjective",m:"Always happy and smiling",ar:"مبتهج",ex:"She has a very cheerful personality.",col:"feel cheerful"},
+  {w:"grateful",p:"adjective",m:"Thankful for something good",ar:"ممتنّ",ex:"I'm really grateful for your help.",col:"grateful FOR"},
+  {w:"confident",p:"adjective",m:"Believing in yourself",ar:"واثق من نفسه",ex:"She felt confident before the presentation.",col:"confident ABOUT"},
+  {w:"peaceful",p:"adjective",m:"Very calm and quiet",ar:"هادئ",ex:"The Nile at sunset is very peaceful.",col:"feel peaceful"},
+  {w:"hopeful",p:"adjective",m:"Believing good things will happen",ar:"متفائل",ex:"We're hopeful about the future.",col:"hopeful ABOUT"},
+  {w:"interested",p:"adjective",m:"Wanting to know more",ar:"مهتم",ex:"He is really interested in learning Arabic.",col:"interested IN"},
+  {w:"loving",p:"adjective",m:"Showing love and care",ar:"محب",ex:"She comes from a very loving family.",col:"a loving person"}
+];
+
+// ===== BUILD VOCAB CARDS =====
+function buildVocab(){
+  const c=document.getElementById('vg-feelings');
+  VOCAB.forEach(v=>{
+    const d=document.createElement('div');d.className='vocab-card';
+    d.onclick=(e)=>{if(e.target.classList.contains('tts-btn'))return;d.classList.toggle('flipped');updateSB()};
+    d.innerHTML='<div class="vocab-inner"><div class="vocab-front"><div class="word">'+v.w+' <button class="tts-btn" onclick="event.stopPropagation();speak(\''+v.w+'\',this)">&#x1F50A;</button></div><div class="pos">'+v.p+'</div><div class="hint">Tap to flip &bull; &#x1F50A; to hear</div></div><div class="vocab-back"><div class="meaning">'+v.m+'</div><div class="arabic">'+v.ar+'</div><div class="example">"'+v.ex+'"</div><div class="collocation">'+v.col+'</div><button class="tts-btn" onclick="event.stopPropagation();speak(\''+v.w+'\',this)" style="margin-top:6px;font-size:1.3rem">&#x1F50A;</button></div></div>';
+    c.appendChild(d);
+  });
+}
+
+// ===== VOCAB EXERCISE =====
+const vocabExData=[
+  {q:"I feel so happy about passing my exam. I'm really ___.",ans:"proud"},
+  {q:"After a hot bath, I feel completely ___.",ans:"relaxed"},
+  {q:"The kids are ___ about going to the zoo tomorrow!",ans:"excited"},
+  {q:"She's always smiling. She has a very ___ personality.",ans:"cheerful"},
+  {q:"Thank you so much! I'm very ___ for your help.",ans:"grateful"},
+  {q:"He believes he can do it. He feels very ___.",ans:"confident"},
+  {q:"Sitting by the river at sunset is very ___.",ans:"peaceful"},
+  {q:"I'm ___ that things will get better soon.",ans:"hopeful"},
+  {q:"She wants to learn more about space. She's very ___.",ans:"interested"},
+  {q:"My grandmother is a very ___ person. She cares about everyone.",ans:"loving"}
+];
+function buildVocabEx(){
+  const c=document.getElementById('vocab-ex-rows');
+  const opts=VOCAB.map(v=>v.w).sort();
+  vocabExData.forEach((ex,i)=>{
+    const row=document.createElement('div');row.className='fill-row';row.id='vex-'+i;
+    let optHtml=opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('');
+    row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('___','<select id="vsel-'+i+'" data-answer="'+ex.ans+'"><option value="">— choose —</option>'+optHtml+'</select>')+'</span><span class="result" id="vres-'+i+'"></span>';
+    c.appendChild(row);
+  });
+}
+function checkVocabEx(){
+  let score=0;
+  vocabExData.forEach((ex,i)=>{
+    const sel=document.getElementById('vsel-'+i),res=document.getElementById('vres-'+i),row=document.getElementById('vex-'+i);
+    if(sel.value===ex.ans){score++;res.textContent='✅';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}
+    else{res.textContent='❌';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}
+  });
+  const r=document.getElementById('vocab-result');
+  if(score===10)r.innerHTML='\u{1F31F} Perfect! 10/10!';
+  else if(score>=7)r.innerHTML='\u{1F4AA} Great! '+score+'/10';
+  else r.innerHTML='\u{1F4DA} '+score+'/10 — Review the flashcards!';
+  r.style.color=score>=7?'var(--green)':'var(--red)';
+}
+function retryVocabEx(){
+  vocabExData.forEach((ex,i)=>{document.getElementById('vsel-'+i).value='';document.getElementById('vres-'+i).textContent='';const row=document.getElementById('vex-'+i);row.style.borderColor='var(--border)';row.style.background=''});
+  document.getElementById('vocab-result').innerHTML='';
+}
+
+// ===== RECAP EXERCISES =====
+const recapEx=[
+  {q:'I ______ feel proud when I finish this course.',opts:['will','am','do'],ans:0},
+  {q:'______ you like me to help you feel better?',opts:['Will','Would','Do'],ans:1},
+  {q:'I have ______ exciting news to share!',opts:['some','any','a'],ans:0},
+  {q:'There isn\'t ______ reason to feel worried.',opts:['any','some','the'],ans:0},
+  {q:'______ feeling of happiness is amazing!',opts:['This','These','A'],ans:0},
+  {q:'______ moments were really peaceful.',opts:['Those','That','Any'],ans:0},
+  {q:'She ______ not forget how grateful she felt.',opts:['will','does','is'],ans:0},
+  {q:'I was ______ very relaxed when the phone rang.',opts:['feeling','felt','feels'],ans:0},
+  {q:'While I was ______ good news, my friend arrived.',opts:['sharing','shared','share'],ans:0},
+  {q:'Can I help you ______ finding a cheerful gift?',opts:['with','to','for'],ans:0}
+];
+function buildRecap(){
+  const c=document.getElementById('recap-exercises');if(!c)return;
+  recapEx.forEach((ex,i)=>{
+    const row=document.createElement('div');row.className='fill-row';row.id='rex-'+i;
+    let opts=ex.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('');
+    row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('______','<select id="rsel-'+i+'"><option value="">—</option>'+opts+'</select>')+'</span><span class="result" id="rres-'+i+'"></span>';
+    c.appendChild(row);
+  });
+}
+function checkRecap(){
+  let correct=0;
+  recapEx.forEach((ex,i)=>{
+    const sel=document.getElementById('rsel-'+i),res=document.getElementById('rres-'+i),row=document.getElementById('rex-'+i);
+    if(sel.value===ex.opts[ex.ans]){correct++;res.textContent='✅';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}
+    else{res.textContent='❌';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}
+  });
+  document.getElementById('recap-score').textContent=correct+' / '+recapEx.length;
+}
+function retryRecap(){
+  recapEx.forEach((ex,i)=>{document.getElementById('rsel-'+i).value='';document.getElementById('rres-'+i).textContent='';const row=document.getElementById('rex-'+i);row.style.borderColor='var(--border)';row.style.background=''});
+  document.getElementById('recap-score').textContent='';
+}
+
+// ===== TRUE/FALSE =====
+const tfData=[
+  {q:"Latin Americans often show emotions to connect with others.",a:true},
+  {q:"Japanese people show stronger happy feelings than Latin Americans.",a:false},
+  {q:"In the USA, people show emotions mainly to feel good.",a:true},
+  {q:"Japanese people feel guilty when they are happy and others are not.",a:true},
+  {q:"All cultures express emotions in the same way.",a:false},
+  {q:"The speaker recommends creating a 'positivity box' to remember good times.",a:true},
+  {q:"Being grateful means remembering only the bad moments.",a:false},
+  {q:"Focusing on small happy moments can improve your mood.",a:true},
+  {q:"The video says money is the most important thing for happiness.",a:false},
+  {q:"Helping others can make you feel happier too.",a:true},
+  {q:"It's not important to say 'thank you' to feel grateful.",a:false},
+  {q:"Positive emotions can reduce stress.",a:true}
+];
+function buildTF(){
+  const c=document.getElementById('tf-questions');
+  tfData.forEach((item,i)=>{
+    const d=document.createElement('div');d.className='fill-row';d.id='tf-'+i;d.setAttribute('data-answered','false');
+    d.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+item.q+'</span><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--green);color:#fff;margin-left:auto" onclick="checkTF('+i+',true)">True</button><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--red);color:#fff" onclick="checkTF('+i+',false)">False</button><span class="result" id="tfr-'+i+'"></span>';
+    c.appendChild(d);
+  });
+}
+function checkTF(i,answer){
+  const row=document.getElementById('tf-'+i);
+  if(row.getAttribute('data-answered')==='true')return;
+  row.setAttribute('data-answered','true');
+  const res=document.getElementById('tfr-'+i);
+  if(answer===tfData[i].a){res.textContent='✅';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}
+  else{res.textContent='❌ '+(tfData[i].a?'True':'False');row.style.borderColor='var(--red)';row.style.background='var(--red-light)';row.classList.add('shake');setTimeout(()=>row.classList.remove('shake'),500)}
+}
+
+// ===== GRAMMAR EXERCISES =====
+const grammarEx=[
+  {q:'"I am too excited about the trip!" — Is this correct?',opts:['Correct','Incorrect — use "very" (excited is positive!)'],ans:1},
+  {q:'"The bag is too heavy. I can\'t carry it." — Is this correct?',opts:['Correct — too heavy is a problem!','Incorrect'],ans:0},
+  {q:'"She is too proud of her work." — Is this correct?',opts:['Correct','Incorrect — proud is positive, use "very"'],ans:1},
+  {q:'"The room is too noisy. I can\'t study." — Is this correct?',opts:['Correct — too noisy is a problem!','Incorrect'],ans:0},
+  {q:'"The movie was too interesting!" — Is this correct?',opts:['Correct','Incorrect — interesting is positive, use "very"'],ans:1}
+];
+function buildGrammar(){
+  const c=document.getElementById('grammar-exercises');
+  grammarEx.forEach((ex,i)=>{
+    const d=document.createElement('div');d.className='quiz-q';d.id='gq-'+i;d.setAttribute('data-answered','false');
+    let optsHtml=ex.opts.map((o,j)=>'<button class="quiz-option" onclick="selectGrammar('+i+','+j+')">'+o+'</button>').join('');
+    d.innerHTML='<div class="q-num">Question '+(i+1)+'</div><div class="q-text">'+ex.q+'</div>'+optsHtml;
+    c.appendChild(d);
+  });
+}
+function selectGrammar(qi,oi){
+  const d=document.getElementById('gq-'+qi);
+  if(d.getAttribute('data-answered')==='true')return;
+  d.setAttribute('data-answered','true');
+  const btns=d.querySelectorAll('.quiz-option');
+  btns.forEach(b=>b.disabled=true);
+  if(oi===grammarEx[qi].ans){btns[oi].classList.add('correct')}
+  else{btns[oi].classList.add('wrong');btns[grammarEx[qi].ans].classList.add('correct')}
+}
+function checkGrammar(){
+  let score=0;
+  grammarEx.forEach((ex,i)=>{
+    const d=document.getElementById('gq-'+i);
+    if(d.querySelector('.quiz-option.correct')&&!d.querySelector('.quiz-option.wrong'))score++;
+  });
+  const r=document.getElementById('grammar-result');r.classList.remove('hidden');
+  r.textContent=score+'/'+grammarEx.length+(score===grammarEx.length?' \u{1F31F} Perfect!':' — Review the rules above!');
+  r.style.color=score>=4?'var(--green)':'var(--red)';
+  document.getElementById('sb-grammar').textContent=score+'/'+grammarEx.length;
+}
+function retryGrammar(){
+  grammarEx.forEach((ex,i)=>{
+    const d=document.getElementById('gq-'+i);d.setAttribute('data-answered','false');
+    d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false});
+  });
+  document.getElementById('grammar-result').classList.add('hidden');
+}
+
+// ===== FILL IN =====
+const fillData=[
+  {q:'This soup is _____ delicious! I love it.',ans:'very'},
+  {q:'The music is _____ loud. I can\'t hear you.',ans:'too'},
+  {q:'She feels _____ grateful for your help.',ans:'very'},
+  {q:'The coffee is _____ hot. I can\'t drink it yet.',ans:'too'},
+  {q:'I am _____ happy to see you!',ans:'very'},
+  {q:'The test was _____ difficult. Nobody passed.',ans:'too'}
+];
+function buildFillIn(){
+  const c=document.getElementById('grammar-fill');
+  fillData.forEach((ex,i)=>{
+    const row=document.createElement('div');row.className='fill-row';
+    row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('_____','<input class="fill-input" id="fi-'+i+'" data-answer="'+ex.ans+'" placeholder="very/too">')+'</span><span class="result" id="fir-'+i+'"></span>';
+    c.appendChild(row);
+  });
+}
+function checkFillIn(){
+  let score=0;
+  fillData.forEach((ex,i)=>{
+    const inp=document.getElementById('fi-'+i),res=document.getElementById('fir-'+i);
+    const val=inp.value.trim().toLowerCase();
+    inp.classList.remove('correct','wrong');
+    if(val===ex.ans||(ex.ans==='very'&&val==='really')){score++;inp.classList.add('correct');res.textContent='✅'}
+    else{inp.classList.add('wrong');res.textContent='❌ '+ex.ans}
+  });
+  const r=document.getElementById('fill-result');r.classList.remove('hidden');
+  r.textContent=score+'/'+fillData.length+(score===fillData.length?' \u{1F31F} Perfect!':'');
+  r.style.color=score>=5?'var(--green)':'var(--red)';
+}
+function retryFillIn(){
+  fillData.forEach((ex,i)=>{document.getElementById('fi-'+i).value='';document.getElementById('fi-'+i).classList.remove('correct','wrong');document.getElementById('fir-'+i).textContent=''});
+  document.getElementById('fill-result').classList.add('hidden');
+}
+
+// ===== READING MCQ =====
+const readingQ=[
+  {q:"According to the passage, happiness is:",opts:["Just a feeling","A powerful force that can change your life","Only for children","Not important"],ans:1,hl:"q1"},
+  {q:"What happens when you feel positive emotions?",opts:["You feel tired","Your body releases chemicals that reduce stress","You want to eat more","Nothing changes"],ans:1,hl:"q3"},
+  {q:"Grateful people:",opts:["Sleep worse","Have less energy","Sleep better and are more creative","Don't exercise"],ans:2,hl:"q4"},
+  {q:"What is a 'positivity box'?",opts:["A box of chocolates","A box where you write down good moments","A video game","A type of medicine"],ans:1,hl:"q5"},
+  {q:"The 'helper's high' means:",opts:["Feeling tired after helping","Feeling good when you help others","Being the tallest helper","Helping only yourself"],ans:1,hl:"q6"},
+  {q:"The main idea of the passage is:",opts:["Money makes you happy","Happiness has no benefits","Positive emotions improve your life and health","Only young people can be happy"],ans:2,hl:"q2"}
+];
+const readingMistakes=[];
+function buildReading(){
+  const c=document.getElementById('reading-questions');
+  readingQ.forEach((q,i)=>{
+    const d=document.createElement('div');d.className='quiz-q';d.id='rq-'+i;d.setAttribute('data-answered','false');
+    let optsHtml=q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkReadingQ('+i+','+j+')">'+o+'</button>').join('');
+    d.innerHTML='<div class="q-num">Question '+(i+1)+'</div><div class="q-text">'+q.q+'</div>'+optsHtml+'<div class="mcq-feedback" id="rfb-'+i+'"></div>';
+    c.appendChild(d);
+  });
+}
+function checkReadingQ(qi,oi){
+  const d=document.getElementById('rq-'+qi);
+  if(d.getAttribute('data-answered')==='true')return;
+  d.setAttribute('data-answered','true');
+  const btns=d.querySelectorAll('.quiz-option');
+  btns.forEach(b=>b.disabled=true);
+  const fb=document.getElementById('rfb-'+qi);
+  const hl=document.querySelector('.highlight[data-q="'+readingQ[qi].hl+'"]');
+  if(oi===readingQ[qi].ans){
+    btns[oi].classList.add('correct');
+    fb.innerHTML='✅ Correct!';fb.style.background='var(--green-light)';fb.style.color='var(--green)';
+  }else{
+    btns[oi].classList.add('wrong');btns[readingQ[qi].ans].classList.add('correct');
+    fb.innerHTML='❌ Wrong! Correct: <strong>'+readingQ[qi].opts[readingQ[qi].ans]+'</strong>';
+    fb.style.background='var(--red-light)';fb.style.color='var(--red)';
+    d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500);
+    if(hl)hl.classList.add('active');
+    readingMistakes.push({q:readingQ[qi].q,correct:readingQ[qi].opts[readingQ[qi].ans]});
+    updateMistakeTracker();
+  }
+  fb.classList.add('show');
+}
+function updateMistakeTracker(){
+  if(!readingMistakes.length)return;
+  document.getElementById('readingMistakes').classList.remove('hidden');
+  const list=document.getElementById('mistakesList');
+  list.innerHTML='';
+  readingMistakes.forEach((m,i)=>{
+    list.innerHTML+='<div style="padding:8px 0;border-bottom:1px solid rgba(217,79,79,0.2);font-size:0.85rem"><strong>Q'+(i+1)+':</strong> '+m.q+'<br><span style="color:var(--green)">✅ '+m.correct+'</span></div>';
+  });
+}
+
+// ===== ROLEPLAY TOGGLE =====
+function toggleRole(id){
+  const el=document.getElementById(id+'-convo');
+  el.classList.toggle('show');
+}
+
+// ===== QUIZ WITH MEMES =====
+const quizData=[
+  {q:"What does 'grateful' mean?",opts:["Thankful for something good","Feeling sad","Angry at someone","Worried"],ans:0,cat:"Vocab"},
+  {q:"The bag is _____ heavy. I can't carry it.",opts:["very","really","too","so"],ans:2,cat:"Grammar"},
+  {q:"'I am too excited!' — Correct?",opts:["Correct","Incorrect — use 'very'"],ans:1,cat:"Grammar"},
+  {q:"After yoga, everyone felt _____.",opts:["proud","relaxed","confident","hopeful"],ans:1,cat:"Vocab"},
+  {q:"Latin Americans show emotions to...",opts:["connect with others","hide feelings","seem strong","follow rules"],ans:0,cat:"Listening"},
+  {q:"'Confident' means:",opts:["Very happy about something","Thankful for help","Believing in yourself","Wanting to know more"],ans:2,cat:"Vocab"},
+  {q:"This soup is _____ delicious! I love it.",opts:["very / really","too"],ans:0,cat:"Grammar"},
+  {q:"The main benefit of happiness is:",opts:["Making money","Reducing stress","Sleeping all day","Eating more"],ans:1,cat:"Reading"},
+  {q:"She is grateful _____ the help.",opts:["about","for","of","in"],ans:1,cat:"Collocations"},
+  {q:"'Too' means:",opts:["A lot (positive)","Also/as well","More than enough (problem!)","Very much"],ans:2,cat:"Grammar"},
+  {q:"Japanese show stronger feelings than Latin Americans?",opts:["True","False"],ans:1,cat:"Listening"},
+  {q:"What does 'cheerful' mean?",opts:["Always happy and smiling","Believing in yourself","Wanting to know more","Very calm"],ans:0,cat:"Vocab"},
+  {q:"'The movie was too interesting' — Correct?",opts:["Correct","Incorrect — use 'very'"],ans:1,cat:"Grammar"},
+  {q:"He is interested _____ learning Arabic.",opts:["about","for","in","of"],ans:2,cat:"Collocations"},
+  {q:"Create a _____ to remember good times.",opts:["diary","positivity box","photo album","playlist"],ans:1,cat:"Listening"}
+];
+const memeWrong=[
+  {e:'😅',t:'Oops! Even Einstein made mistakes!'},
+  {e:'🤦‍♂️',t:'Nice try! But not quite!'},
+  {e:'😬',t:'Almost! Give it another shot!'},
+  {e:'🙈',t:'The answer said no thank you!'},
+  {e:'💀',t:'Your brain needs more chai! ☕'},
+  {e:'😭',t:'So close yet so far!'},
+  {e:'🫠',t:'That answer melted away...'},
+  {e:'🤡',t:'Clown answer detected!'},
+  {e:'😵‍💫',t:'Confused? Review the section above!'},
+  {e:'🦥',t:'Slow down and think again!'}
+];
+const memeRight=[
+  {e:'🎉',t:'YESSS! You nailed it!'},
+  {e:'🌟',t:'Star student right here!'},
+  {e:'🔥',t:"You're on FIRE!"},
+  {e:'💪',t:'Big brain energy!'},
+  {e:'🏆',t:'Champion move!'},
+  {e:'✨',t:'Absolutely brilliant!'},
+  {e:'🚀',t:'Rocket scientist level!'},
+  {e:'👑',t:'Crown this genius!'}
+];
+let quizScore=0,quizAnswered=0;
+
+function buildQuiz(){
+  const c=document.getElementById('quiz-container');
+  quizData.forEach((q,i)=>{
+    const d=document.createElement('div');d.className='quiz-q';d.id='qq-'+i;d.setAttribute('data-answered','false');
+    let optsHtml=q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkQuizQ('+i+','+j+')">'+o+'</button>').join('');
+    d.innerHTML='<div class="q-num">Q'+(i+1)+' — '+q.cat+'</div><div class="q-text">'+q.q+'</div>'+optsHtml+'<div class="quiz-meme" id="qm-'+i+'"></div>';
+    c.appendChild(d);
+  });
+}
+function checkQuizQ(qi,oi){
+  const d=document.getElementById('qq-'+qi);
+  if(d.getAttribute('data-answered')==='true')return;
+  d.setAttribute('data-answered','true');
+  quizAnswered++;
+  const btns=d.querySelectorAll('.quiz-option');
+  btns.forEach(b=>b.disabled=true);
+  const memeDiv=document.getElementById('qm-'+qi);
+  if(oi===quizData[qi].ans){
+    btns[oi].classList.add('correct');quizScore++;
+    const m=memeRight[Math.floor(Math.random()*memeRight.length)];
+    memeDiv.className='quiz-meme meme-correct show';
+    memeDiv.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;
+    createConfetti(d);
+  }else{
+    btns[oi].classList.add('wrong');btns[quizData[qi].ans].classList.add('correct');
+    const m=memeWrong[Math.floor(Math.random()*memeWrong.length)];
+    memeDiv.className='quiz-meme meme-wrong show';
+    memeDiv.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;
+    d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500);
+  }
+  document.getElementById('sb-quiz').textContent=quizScore+'/'+quizData.length;
+}
+function createConfetti(parent){
+  const colors=['#e8a838','#f472b6','#60a5fa','#2d9d78','#e74c3c','#a78bfa'];
+  for(let i=0;i<10;i++){
+    const c=document.createElement('div');c.className='confetti-piece';
+    c.style.background=colors[Math.floor(Math.random()*colors.length)];
+    c.style.left=Math.random()*100+'%';c.style.top='-10px';
+    c.style.animationDelay=Math.random()*0.3+'s';
+    parent.style.position='relative';parent.appendChild(c);
+    setTimeout(()=>c.remove(),2000);
+  }
+}
+function showQuizScore(){
+  const r=document.getElementById('quiz-final');r.classList.remove('hidden');
+  const pct=Math.round(quizScore/quizData.length*100);
+  let msg='',col='';
+  if(pct>=90){msg="You're a STAR! 🌟 Amazing!";col='var(--green)'}
+  else if(pct>=70){msg='Great job! Keep it up! 💪';col='var(--accent)'}
+  else if(pct>=50){msg='Good effort! Review the material! 📚';col='var(--blue)'}
+  else{msg="Don't worry! Try again! 🤗";col='var(--red)'}
+  r.innerHTML='<div style="font-family:Fredoka,sans-serif;font-size:2.5rem;font-weight:700;color:'+col+'">'+quizScore+' / '+quizData.length+'</div><div style="font-size:1.1rem;margin-top:6px">'+pct+'% — '+msg+'</div>';
+  r.style.borderColor=col;
+}
+function retryQuiz(){
+  quizScore=0;quizAnswered=0;
+  document.getElementById('sb-quiz').textContent='0/'+quizData.length;
+  document.getElementById('quiz-final').classList.add('hidden');
+  quizData.forEach((q,i)=>{
+    const d=document.getElementById('qq-'+i);d.setAttribute('data-answered','false');
+    d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false});
+    document.getElementById('qm-'+i).className='quiz-meme';document.getElementById('qm-'+i).innerHTML='';
+  });
+}
+
+// ===== EMAIL/WRITING =====
+function updateEmailWC(){const w=document.getElementById('email-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('email-wc').textContent=w;updateSB()}
+function updateWritingWC(){const w=document.getElementById('writing-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('writing-wc').textContent=w;updateSB()}
+function updateEmailCheck(){
+  const checks=document.querySelectorAll('#email-checklist input');
+  let done=0;checks.forEach(c=>{if(c.checked)done++});
+  const r=document.getElementById('email-check-result');
+  if(done===checks.length)r.innerHTML='✅ All items checked! Great email!';
+  else r.innerHTML=done+'/'+checks.length+' items checked';
+  r.style.color=done===checks.length?'var(--green)':'var(--text-dim)';
+}
+function updateWritingCheck(){
+  const checks=document.querySelectorAll('#writing-checklist input');
+  let done=0;checks.forEach(c=>{if(c.checked)done++});
+  const r=document.getElementById('writing-check-result');
+  if(done===checks.length)r.innerHTML='✅ All items checked!';
+  else r.innerHTML=done+'/'+checks.length+' items checked';
+  r.style.color=done===checks.length?'var(--green)':'var(--text-dim)';
+}
+
+// ===== NOTES =====
+function saveNotes(){
+  try{
+    localStorage.setItem('s6_classNotes',document.getElementById('classNotes').value);
+    localStorage.setItem('s6_difficultWords',document.getElementById('difficultWords').value);
+    localStorage.setItem('s6_teacherQuestions',document.getElementById('teacherQuestions').value);
+  }catch(e){}
+}
+function loadNotes(){
+  try{
+    document.getElementById('classNotes').value=localStorage.getItem('s6_classNotes')||'';
+    document.getElementById('difficultWords').value=localStorage.getItem('s6_difficultWords')||'';
+    document.getElementById('teacherQuestions').value=localStorage.getItem('s6_teacherQuestions')||'';
+  }catch(e){}
+}
+
+// ===== PROGRESS TRACKER =====
+function updateTracker(){
+  const checks=document.querySelectorAll('#progressChecks input');
+  let done=0;const state={};
+  checks.forEach(c=>{if(c.checked)done++;state[c.dataset.sec]=c.checked});
+  const pct=Math.round(done/checks.length*100);
+  document.getElementById('trackerFill').style.width=pct+'%';
+  document.getElementById('trackerText').textContent=done+' of '+checks.length+' completed';
+  try{localStorage.setItem('s6_tracker',JSON.stringify(state))}catch(e){}
+}
+function loadTracker(){
+  try{
+    const state=JSON.parse(localStorage.getItem('s6_tracker')||'{}');
+    document.querySelectorAll('#progressChecks input').forEach(c=>{if(state[c.dataset.sec])c.checked=true});
+    updateTracker();
+  }catch(e){}
+}
+
+// ===== SCORE BANNER =====
+function updateSB(){
+  const cards=document.querySelectorAll('.vocab-card.flipped').length;
+  document.getElementById('sb-cards').textContent=cards;
+  const emailW=parseInt(document.getElementById('email-wc')?.textContent||0);
+  const writeW=parseInt(document.getElementById('writing-wc')?.textContent||0);
+  document.getElementById('sb-words').textContent=(emailW+writeW);
+}
+
+// ===== SCROLL PROGRESS =====
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  if(h>0){const pct=Math.min(window.scrollY/h*100,100);
+  document.getElementById('progress-fill').style.width=pct+'%';
+  document.getElementById('progress-pct').textContent=Math.round(pct)+'%'}
+});
+
+// ===== SLIDESHOWS =====
+const slideState={grammar:{current:0,total:0},vocab:{current:0,total:0}};
+function initSlideshow(name){
+  const track=document.getElementById(name+'Track');
+  if(!track)return;
+  const slides=track.querySelectorAll('.slide');
+  slideState[name].total=slides.length;
+  const dotsC=document.getElementById(name+'Dots');
+  dotsC.innerHTML='';
+  for(let i=0;i<slides.length;i++){
+    const dot=document.createElement('span');dot.className='slide-dot'+(i===0?' active':'');
+    dot.onclick=()=>{slideState[name].current=i;updateSlide(name)};
+    dotsC.appendChild(dot);
+  }
+  updateSlide(name);
+}
+function slideNav(name,dir){
+  const s=slideState[name];
+  s.current=Math.max(0,Math.min(s.total-1,s.current+dir));
+  updateSlide(name);
+}
+function updateSlide(name){
+  const s=slideState[name];
+  const track=document.getElementById(name+'Track');
+  track.style.transform='translateX(-'+s.current*100+'%)';
+  document.getElementById(name+'Counter').textContent=(s.current+1)+' / '+s.total;
+  document.getElementById(name+'Prev').disabled=s.current===0;
+  document.getElementById(name+'Next').disabled=s.current===s.total-1;
+  const dots=document.getElementById(name+'Dots').querySelectorAll('.slide-dot');
+  dots.forEach((d,i)=>d.classList.toggle('active',i===s.current));
+}
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded',()=>{
+  buildRecap();buildVocab();buildVocabEx();buildTF();buildGrammar();buildFillIn();buildReading();buildQuiz();
+  initSlideshow('grammar');initSlideshow('vocab');
+  loadNotes();loadTracker();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 11 - Clothes &amp; Fashion | AUC English A2A</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+:root{--bg:#fdf6ee;--card:#fff;--card-alt:#fefcf7;--accent:#e8a838;--accent-light:rgba(232,168,56,0.12);--green:#2d9d78;--green-light:#e6f7f1;--orange:#e8862a;--orange-light:#fff3e6;--red:#d94f4f;--red-light:#ffeaea;--pink:#c45ba1;--pink-light:#fce8f4;--blue:#5b6abf;--blue-light:#e8eaff;--yellow:#f0c929;--yellow-light:#fef9e7;--text:#2d3142;--text-dim:#6b7280;--border:#e5e2db;--shadow:0 2px 12px rgba(0,0,0,0.06);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}h1,h2,h3{font-family:'Fredoka',sans-serif}
+.hero{background:linear-gradient(135deg,#c45ba1 0%,#e8a838 40%,#5b6abf 100%);padding:50px 24px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.08)}.hero-emoji{font-size:3rem;margin-bottom:8px}.hero h1{font-size:2.2rem;font-weight:700;margin-bottom:4px}.hero .sub{opacity:0.9;font-size:1rem}.badge-row{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap}.badge{background:rgba(255,255,255,0.18);padding:4px 14px;border-radius:20px;font-size:0.78rem;font-weight:600}
+.method-banner{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin:20px auto 0;max-width:860px;box-shadow:var(--shadow)}.method-steps{display:flex;justify-content:center;align-items:center;gap:4px;flex-wrap:wrap;margin-top:10px}.method-step{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:10px;font-size:0.82rem;font-weight:600;white-space:nowrap}.method-arrow{color:var(--text-dim);font-size:1rem}
+.nav{position:sticky;top:0;z-index:100;background:rgba(253,246,238,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}.nav-inner{max-width:900px;margin:0 auto;display:flex;overflow-x:auto;gap:2px;padding:8px 16px;-webkit-overflow-scrolling:touch}.nav-inner::-webkit-scrollbar{height:4px}.nav-inner::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}.nav a{color:var(--text-dim);text-decoration:none;font-size:0.8rem;font-weight:500;white-space:nowrap;padding:6px 12px;border-radius:8px;transition:all 0.2s}.nav a:hover{color:var(--accent);background:var(--accent-light)}
+.container{max-width:860px;margin:0 auto;padding:0 16px}.section{margin-top:40px;scroll-margin-top:60px}.section-label{display:inline-flex;align-items:center;gap:8px;font-family:'Fredoka',sans-serif;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;padding:4px 14px;border-radius:20px;margin-bottom:10px}.section h2{font-size:1.5rem;font-weight:700;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;box-shadow:var(--shadow)}.card h3{font-size:1.1rem;margin-bottom:10px}
+.progress-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin-top:16px;box-shadow:var(--shadow)}.progress-label{font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.95rem;margin-bottom:8px;display:flex;justify-content:space-between}.progress-bar{height:12px;background:#e8e6e0;border-radius:6px;overflow:hidden}.progress-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--green));transition:width 0.6s ease;width:0%}
+.recap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:20px}.recap-chip{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;box-shadow:var(--shadow);transition:transform 0.2s}.recap-chip:hover{transform:translateY(-2px)}.recap-chip .num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px}.recap-chip .topic{font-weight:700;font-size:0.95rem;margin:4px 0 2px}.recap-chip .detail{font-size:0.78rem;color:var(--text-dim)}.recap-current{border-color:var(--accent);background:var(--accent-light)}
+.fill-row{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:14px;margin:8px 0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.fill-row select{padding:6px 10px;border-radius:8px;border:1.5px solid var(--border);font-size:0.85rem;font-family:inherit}.fill-row .result{font-size:0.85rem;font-weight:600;margin-left:auto}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}.vocab-card{perspective:800px;height:190px;cursor:pointer}.vocab-inner{position:relative;width:100%;height:100%;transition:transform 0.5s;transform-style:preserve-3d}.vocab-card.flipped .vocab-inner{transform:rotateY(180deg)}.vocab-front,.vocab-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow)}.vocab-front{background:var(--card)}.vocab-front .word{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:700;color:var(--accent)}.vocab-front .pos{font-size:0.72rem;color:var(--text-dim);margin-top:2px}.vocab-front .hint{font-size:0.7rem;color:var(--pink);margin-top:8px;font-weight:500}.vocab-back{background:linear-gradient(135deg,var(--accent-light),#fef3c7);transform:rotateY(180deg)}.vocab-back .meaning{font-weight:600;font-size:0.9rem;margin-bottom:4px}.vocab-back .arabic{font-size:0.82rem;color:var(--pink);margin-bottom:4px}.vocab-back .example{font-size:0.8rem;color:var(--text-dim);font-style:italic}
+.tts-btn{background:none;border:none;cursor:pointer;font-size:1.1rem;padding:2px 4px;border-radius:6px;transition:all 0.2s;vertical-align:middle}.tts-btn:hover{background:var(--accent-light);transform:scale(1.15)}.tts-btn.playing{animation:pulse 0.8s infinite}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+.grammar-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;margin:12px 0;border:1px solid var(--border)}.grammar-table th{background:var(--accent);color:#fff;padding:10px 14px;font-weight:600;font-size:0.85rem;text-align:center}.grammar-table td{padding:10px 14px;text-align:center;font-size:0.88rem;border-bottom:1px solid var(--border)}.grammar-table tr:last-child td{border-bottom:0}.grammar-table tr:nth-child(even) td{background:#faf9f6}.demo-word{display:inline-block;background:var(--accent-light);color:var(--accent);font-weight:700;padding:2px 10px;border-radius:6px;font-size:0.85rem}
+.quiz-q{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}.quiz-q .q-num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}.quiz-q .q-text{font-weight:600;font-size:0.93rem;margin-bottom:12px}.quiz-option{display:block;width:100%;text-align:left;padding:10px 14px;margin-bottom:6px;background:#faf9f6;border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:0.86rem;transition:all 0.2s;font-family:'Inter',sans-serif}.quiz-option:hover:not(:disabled){border-color:var(--accent);background:var(--accent-light)}.quiz-option.correct{border-color:var(--green);background:var(--green-light);color:var(--green);font-weight:600}.quiz-option.wrong{border-color:var(--red);background:var(--red-light);color:var(--red)}.quiz-option:disabled{cursor:default}
+.btn{display:inline-block;padding:8px 20px;border:none;border-radius:10px;font-weight:600;font-size:0.88rem;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
+.writing-area{width:100%;min-height:140px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe;transition:border-color 0.2s}.writing-area:focus{outline:none;border-color:var(--accent)}.word-count{font-size:0.78rem;color:var(--text-dim);margin-top:6px;text-align:right}
+.challenge-box{background:linear-gradient(135deg,#fef9e7,#fff3e6);border:2px dashed var(--accent);border-radius:var(--radius);padding:22px;text-align:center;margin:14px 0}.challenge-box h3{font-family:'Fredoka',sans-serif;color:var(--accent)}
+.tip-box{background:var(--green-light);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:12px 16px;margin:10px 0;font-size:0.85rem}.tip-box strong{color:var(--green)}
+.checklist label{display:flex;align-items:flex-start;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}.checklist input[type=checkbox]{margin-top:4px;accent-color:var(--green);width:16px;height:16px}
+.cheat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.cheat-cell{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:var(--shadow)}.cheat-cell h4{font-family:'Fredoka',sans-serif;font-size:0.9rem;margin-bottom:6px}
+.expression-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:12px}.expression-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;box-shadow:var(--shadow);transition:transform 0.2s}.expression-card:hover{transform:translateY(-2px)}.expression-card .phrase{font-family:'Fredoka',sans-serif;font-size:0.95rem;font-weight:600;color:var(--accent)}.expression-card .ex-meaning{font-size:0.82rem;color:var(--text-dim);margin-top:3px}
+.role-card{background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow);cursor:pointer;transition:all 0.3s}.role-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.1)}.role-card h4{font-family:'Fredoka',sans-serif;font-size:1.05rem;margin-bottom:8px}.role-card .role-points{list-style:none;padding:0}.role-card .role-points li{font-size:0.85rem;padding:3px 0;padding-left:18px;position:relative}.role-card .role-points li::before{content:'\2022';position:absolute;left:4px;color:var(--green);font-weight:700}.role-convo{display:none;background:#faf9f6;border-radius:12px;padding:16px;margin-top:12px;font-size:0.86rem;line-height:1.9}.role-convo.show{display:block}
+.mcq-feedback{display:none;padding:8px 14px;border-radius:8px;margin-top:8px;font-size:0.85rem;font-weight:600}.mcq-feedback.show{display:block}
+.quiz-meme{display:none;padding:12px;border-radius:10px;margin-top:8px;text-align:center;font-weight:700;font-size:0.95rem}.quiz-meme.show{display:block;animation:fadeIn 0.3s}.meme-correct{background:var(--green-light);color:var(--green)}.meme-wrong{background:var(--red-light);color:var(--red)}.meme-emoji{font-size:1.8rem;display:block;margin-bottom:4px}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}.shake{animation:shake 0.4s}
+.confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confetti-fall 1.5s ease-out forwards;pointer-events:none}@keyframes confetti-fall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(200px) rotate(720deg);opacity:0}}
+.score-banner{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);padding:8px 16px;display:flex;justify-content:center;align-items:center;gap:18px;box-shadow:0 -2px 10px rgba(0,0,0,0.06);z-index:99;font-family:'Fredoka',sans-serif}.score-item{text-align:center}.score-item .label{font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}.score-item .val{font-size:1.1rem;font-weight:700}
+.pb-80{padding-bottom:80px}.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}.text-center{text-align:center}.hidden{display:none}
+.session-nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:16px 0}.session-nav a{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:10px;font-size:0.8rem;font-weight:600;text-decoration:none;border:2px solid var(--border);color:var(--text-dim);transition:all 0.2s}.session-nav a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}.session-nav a.active{border-color:var(--accent);background:var(--accent);color:#fff}.session-nav a.disabled{opacity:0.4;pointer-events:none}
+.notes-area{width:100%;min-height:100px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe}.notes-area:focus{outline:none;border-color:var(--accent)}
+.section-check{display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}.section-check input{accent-color:var(--green);width:16px;height:16px}
+.slideshow{position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:14px 0}.slide-viewport{overflow:hidden}.slide-track{display:flex;transition:transform 0.4s ease}.slide{min-width:100%;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;text-align:center;background:var(--card)}.slide img{display:block;object-fit:contain;width:100%;height:auto}.slide-controls{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid var(--border);background:#faf9f6}.slide-btn{background:var(--accent);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-family:'Fredoka',sans-serif}.slide-btn:hover{background:#cf9430;transform:scale(1.1)}.slide-btn:disabled{background:var(--border);cursor:default;transform:none}.slide-counter{font-family:'Fredoka',sans-serif;font-size:0.85rem;color:var(--text-dim)}.slide-dots{display:flex;gap:6px;justify-content:center}.slide-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all 0.3s;cursor:pointer}.slide-dot.active{background:var(--accent);transform:scale(1.3)}
+@media(max-width:600px){.cheat-grid{grid-template-columns:1fr}.vocab-grid{grid-template-columns:1fr}.recap-grid{grid-template-columns:1fr 1fr}.expression-grid{grid-template-columns:1fr}.slide{padding:10px}}
+</style>
+</head>
+<body class="pb-80">
+
+<div class="hero">
+  <div class="hero-emoji">&#x1F455;</div>
+  <h1>Session 11: Clothes &amp; Fashion</h1>
+  <p class="sub">What to Wear &amp; Plural Nouns!</p>
+  <div class="badge-row">
+    <span class="badge">&#x1F457; Clothing Vocab</span>
+    <span class="badge">&#x1F4DA; Plural Nouns</span>
+    <span class="badge">&#x1F3AD; Occasions</span>
+    <span class="badge">&#x1F3A7; Fashion Talk</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="session-nav" style="margin-top:16px">
+    <a href="session-1.html">S1</a><a href="session-2.html">S2</a><a href="session-3.html">S3</a><a href="session-4.html">S4</a><a href="session-5.html">S5</a><a href="session-6.html">S6</a><a href="session-7.html">S7</a><a href="session-8.html">S8</a><a href="session-9.html">S9</a><a href="session-10.html">S10</a><a class="active">S11</a><a class="disabled">S12</a>
+  </div>
+
+  <div class="method-banner">
+    <div style="font-family:'Fredoka',sans-serif;font-weight:600;text-align:center">&#x1F3AF; Study Method</div>
+    <div class="method-steps">
+      <span class="method-step" style="background:var(--yellow-light);color:#b8860b">&#x1F501; Recap</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--blue-light);color:var(--blue)">&#x1F3A7; Listen</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--accent-light);color:var(--accent)">&#x1F4DA; Vocab</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--pink-light);color:var(--pink)">&#x1F4D6; Read</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--orange-light);color:var(--orange)">&#x1F5E3; Speak</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Quiz</span>
+    </div>
+  </div>
+
+  <nav class="nav" style="margin-top:16px;border-radius:var(--radius);border:1px solid var(--border)">
+    <div class="nav-inner">
+      <a href="#progress">Progress</a><a href="#recap">Recap</a><a href="#listen">Listen</a><a href="#vocab">Vocab</a><a href="#idioms">Idioms</a><a href="#grammar">Grammar</a><a href="#reading">Reading</a><a href="#speaking">Speaking</a><a href="#roleplay">Roleplay</a><a href="#email">Email</a><a href="#writing">Writing</a><a href="#quiz">Quiz</a><a href="#summary">Summary</a><a href="#notes">Notes</a>
+    </div>
+  </nav>
+
+  <!-- PROGRESS -->
+  <div class="section" id="progress">
+    <div class="progress-wrap"><div class="progress-label"><span>&#x1F4C8; Overall Progress</span><span id="progress-pct">0%</span></div><div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div></div>
+  </div>
+
+  <!-- RECAP -->
+  <div class="section" id="recap">
+    <span class="section-label" style="background:var(--yellow-light);color:#b8860b">&#x1F501; Review</span>
+    <h2>Grammar Recap: Sessions 1&ndash;10</h2>
+    <div class="recap-grid">
+      <div class="recap-chip"><div class="num">S1</div><div class="topic">will / going to</div><div class="detail">Future plans</div></div>
+      <div class="recap-chip"><div class="num">S2</div><div class="topic">-ing / to + inf</div><div class="detail">Verb patterns</div></div>
+      <div class="recap-chip"><div class="num">S3</div><div class="topic">some / any</div><div class="detail">Quantities</div></div>
+      <div class="recap-chip"><div class="num">S4</div><div class="topic">this / that</div><div class="detail">Demonstratives</div></div>
+      <div class="recap-chip"><div class="num">S5</div><div class="topic">Past cont.</div><div class="detail">Past events</div></div>
+      <div class="recap-chip"><div class="num">S6</div><div class="topic">very / too</div><div class="detail">Intensifiers</div></div>
+      <div class="recap-chip"><div class="num">S7</div><div class="topic">need to / want to</div><div class="detail">Needs &amp; wants</div></div>
+      <div class="recap-chip"><div class="num">S8</div><div class="topic">should / have to</div><div class="detail">Advice &amp; rules</div></div>
+      <div class="recap-chip"><div class="num">S9</div><div class="topic">What a + Noun!</div><div class="detail">Exclamations</div></div>
+      <div class="recap-chip"><div class="num">S10</div><div class="topic">Don&#39;t + verb</div><div class="detail">Neg. Imperative</div></div>
+      <div class="recap-chip recap-current"><div class="num">S11</div><div class="topic">Plural Nouns</div><div class="detail">This session</div></div>
+    </div>
+    <div class="card">
+      <h3>&#x270F; Fill-in Recap Quiz (S1&ndash;S10 applied to fashion)</h3>
+      <div id="recap-exercises"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--accent);color:#fff" onclick="checkRecap()">Check Answers</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryRecap()">Retry</button>
+        <span id="recap-score" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LISTEN -->
+  <div class="section" id="listen">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F3A7; Listen</span>
+    <h2>Listening Activities</h2>
+
+    <div class="card">
+      <h3>&#x1F399; NLM Overview Video</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">Watch this overview of Session 11: clothes vocabulary, plural nouns, and fashion for different occasions.</p>
+      <iframe src="https://drive.google.com/file/d/1aAusW23yTluewlT0pZ4D55rP60-c67UH/preview" style="width:100%;height:400px;border:0;border-radius:12px" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <div class="card">
+      <h3>&#x1F3A7; Deep Dive: Why Your Pants Are Always Plural</h3>
+      <iframe src="https://drive.google.com/file/d/1SYDG5V4eugc5p9uTz5c61KnZ6hqvpSSf/preview" style="width:100%;height:80px;border:0;border-radius:12px"></iframe>
+    </div>
+    <div class="card">
+      <h3>&#x23F1; Quick Review: Pants Are Always Plural</h3>
+      <iframe src="https://drive.google.com/file/d/1g-pDJfelKc23Se_GzoiYwVNzhQ4kMpSe/preview" style="width:100%;height:80px;border:0;border-radius:12px"></iframe>
+    </div>
+
+    <div class="card">
+      <h3>&#x1F3A7; Listening 1: Carl and Emma (YouTube)</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">Watch Carl and Emma talk about what clothes they like to wear.</p>
+      <iframe src="https://drive.google.com/file/d/1ayb-XxPseY-uYNC-Lh6fnNmnmS346rv4/preview" style="width:100%;height:400px;border:0;border-radius:12px" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      
+      <div class="mt-12" id="listen1-mcq"></div>
+    </div>
+
+    <div class="card">
+      <h3>&#x1F3A7; Listening 2: Abigail&#39;s Events</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:10px">Listen to Abigail talking about what she wears for different events.</p>
+      <audio controls preload="none" style="width:100%;display:block;border-radius:12px"><source src="https://scemoodle.aucegypt.edu/pluginfile.php/3170081/mod_hvp/content/171796/audios/files-68298d0ea8448.mp3" type="audio/mpeg"></audio>
+      <h4 style="margin:16px 0 8px;font-family:'Fredoka',sans-serif">True or False</h4>
+      <div id="listen2-tf"></div>
+      <h4 style="margin:16px 0 8px;font-family:'Fredoka',sans-serif">Multiple Choice</h4>
+      <div id="listen2-mcq"></div>
+    </div>
+  </div>
+
+  <!-- VOCAB -->
+  <div class="section" id="vocab">
+    <span class="section-label" style="background:var(--accent-light);color:var(--accent)">&#x1F4DA; Vocabulary</span>
+    <h2>Clothing &amp; Fashion Vocabulary</h2>
+    <div class="slideshow">
+      <h3 style="padding:16px 16px 0;font-family:'Fredoka',sans-serif">&#x1F4CA; Vocabulary Slides</h3>
+      <div class="slide-viewport"><div class="slide-track" id="vocabTrack"></div></div>
+      <div class="slide-controls">
+        <button class="slide-btn" id="vocabPrev" onclick="slideNav('vocab',-1)">&larr;</button>
+        <div><span class="slide-counter" id="vocabCounter">1 / 1</span><div class="slide-dots" id="vocabDots"></div></div>
+        <button class="slide-btn" id="vocabNext" onclick="slideNav('vocab',1)">&rarr;</button>
+      </div>
+    </div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">&#x1F455; Everyday Clothes</h3>
+    <div class="vocab-grid" id="vg-everyday"></div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">&#x1F460; Formal &amp; Special</h3>
+    <div class="vocab-grid" id="vg-formal"></div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">&#x1F9E3; Accessories &amp; Weather</h3>
+    <div class="vocab-grid" id="vg-accessories"></div>
+
+    <div class="card mt-20">
+      <h3>&#x270F; Vocabulary Exercise</h3>
+      <div id="vocab-ex-rows"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--accent);color:#fff" onclick="checkVocabEx()">Check</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryVocabEx()">Retry</button>
+        <span id="vocab-result" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- IDIOMS -->
+  <div class="section" id="idioms">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink)">&#x1F4AC; Idioms</span>
+    <h2>Fashion Idioms</h2>
+    <div class="expression-grid">
+      <div class="expression-card"><div class="phrase">dressed to the nines</div><div class="ex-meaning">Wearing very stylish, fancy clothes</div></div>
+      <div class="expression-card"><div class="phrase">fit like a glove</div><div class="ex-meaning">Fit perfectly</div></div>
+      <div class="expression-card"><div class="phrase">wear your heart on your sleeve</div><div class="ex-meaning">Show your emotions openly</div></div>
+      <div class="expression-card"><div class="phrase">roll up your sleeves</div><div class="ex-meaning">Get ready to work hard</div></div>
+      <div class="expression-card"><div class="phrase">have something up your sleeve</div><div class="ex-meaning">Have a secret plan or idea</div></div>
+      <div class="expression-card"><div class="phrase">walk a mile in someone&#39;s shoes</div><div class="ex-meaning">Try to understand someone&#39;s situation</div></div>
+      <div class="expression-card"><div class="phrase">if the shoe fits</div><div class="ex-meaning">If a description is true about you, accept it</div></div>
+    </div>
+  </div>
+
+  <!-- GRAMMAR -->
+  <div class="section" id="grammar">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span>
+    <h2>Plural Nouns</h2>
+    <div class="slideshow">
+      <h3 style="padding:16px 16px 0;font-family:'Fredoka',sans-serif">&#x1F4CA; Grammar Slides</h3>
+      <div class="slide-viewport"><div class="slide-track" id="grammarTrack"></div></div>
+      <div class="slide-controls">
+        <button class="slide-btn" id="grammarPrev" onclick="slideNav('grammar',-1)">&larr;</button>
+        <div><span class="slide-counter" id="grammarCounter">1 / 1</span><div class="slide-dots" id="grammarDots"></div></div>
+        <button class="slide-btn" id="grammarNext" onclick="slideNav('grammar',1)">&rarr;</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>&#x1F4CB; Rules for Plural Nouns</h3>
+      <table class="grammar-table">
+        <tr><th>Rule</th><th>Singular</th><th>Plural</th></tr>
+        <tr><td>Add <span class="demo-word">-s</span></td><td>shirt</td><td>shirts</td></tr>
+        <tr><td>Add <span class="demo-word">-es</span> (ch, sh, s, x, z)</td><td>dress</td><td>dresses</td></tr>
+        <tr><td>Change y &rarr; <span class="demo-word">-ies</span></td><td>accessory</td><td>accessories</td></tr>
+        <tr><td>Change f/fe &rarr; <span class="demo-word">-ves</span></td><td>scarf</td><td>scarves</td></tr>
+        <tr><td>Irregular</td><td>foot</td><td>feet</td></tr>
+        <tr><td>Irregular</td><td>child</td><td>children</td></tr>
+        <tr><td>Always plural</td><td>&mdash;</td><td>jeans, pants, shorts, scissors, glasses</td></tr>
+        <tr><td>Uncountable</td><td colspan="2">clothing, jewellery, luggage (no plural)</td></tr>
+      </table>
+      <div class="tip-box"><strong>Tip:</strong> Always-plural nouns use &ldquo;a pair of&rdquo; to count them: &ldquo;a pair of jeans,&rdquo; &ldquo;two pairs of scissors.&rdquo;</div>
+    </div>
+    <div class="card">
+      <h3>&#x270F; Grammar Exercises (14 Questions)</h3>
+      <div id="grammar-exercises"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--green);color:#fff" onclick="checkGrammar()">Check</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryGrammar()">Retry</button>
+        <span id="grammar-score" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- READING -->
+  <div class="section" id="reading">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink)">&#x1F4D6; Reading</span>
+    <h2>Clothes for Different Situations</h2>
+    <div class="card" style="line-height:1.9;font-size:0.9rem">
+      <p>People wear different <strong>clothes</strong> for different situations. When you go to <strong>work</strong>, you usually wear something <strong>formal</strong> &mdash; like a <strong>suit</strong> and <strong>tie</strong>, or a <strong>blouse</strong> and <strong>skirt</strong>. But when you are at home or with <strong>friends</strong>, you wear something more <strong>casual</strong> and <strong>comfortable</strong>, like a <strong>t-shirt</strong> and <strong>jeans</strong>.</p>
+      <p style="margin-top:10px">In <strong>cold weather</strong>, you need warm clothes: a <strong>coat</strong>, a <strong>scarf</strong>, <strong>boots</strong>, and maybe <strong>mittens</strong>. In <strong>summer</strong>, people wear light clothes like <strong>shorts</strong>, <strong>sandals</strong>, and <strong>sleeveless tops</strong>.</p>
+      <p style="margin-top:10px">For a <strong>party</strong> or <strong>special occasion</strong>, you might choose a nice <strong>dress</strong> or a <strong>stylish outfit</strong>. Some people love following <strong>fashion trends</strong>, while others prefer to be <strong>comfortable</strong> and wear what they like.</p>
+      <p style="margin-top:10px">When you go <strong>shopping</strong> for clothes, it&#39;s important to try things on. Sometimes a <strong>medium</strong> size fits you better than a <strong>large</strong>. And the best clothes are the ones that <strong>fit like a glove</strong>!</p>
+    </div>
+    <div class="card">
+      <h3>&#x270F; Reading Questions</h3>
+      <div id="reading-questions"></div>
+    </div>
+  </div>
+
+  <!-- SPEAKING -->
+  <div class="section" id="speaking">
+    <span class="section-label" style="background:var(--orange-light);color:var(--orange)">&#x1F5E3; Speaking</span>
+    <h2>Speaking Practice</h2>
+    <div class="challenge-box">
+      <h3>&#x23F1; 1-Minute Challenge</h3>
+      <p style="margin-top:8px;font-size:0.88rem">Describe what you are wearing today. Use plural nouns and clothing vocabulary!</p>
+      <p style="font-size:0.82rem;color:var(--text-dim);margin-top:6px">Use: &ldquo;I&#39;m wearing...&rdquo; &ldquo;My jeans are...&rdquo; &ldquo;I have a pair of...&rdquo;</p>
+      <div style="margin-top:14px"><button class="btn" style="background:var(--accent);color:#fff;padding:10px 24px;font-size:1rem" onclick="startTimer(this)">&#x25B6; Start Timer</button><span id="timer-display" style="font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;color:var(--accent);margin-left:16px">60s</span></div>
+    </div>
+  </div>
+
+  <!-- ROLEPLAY -->
+  <div class="section" id="roleplay">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F3AD; Roleplay</span>
+    <h2>Roleplay Scenarios</h2>
+    <div class="role-card" onclick="toggleRole('rp1')">
+      <h4>&#x1F6CD; Scenario 1: Shopping for Clothes</h4>
+      <ul class="role-points"><li>You are shopping for new clothes</li><li>Ask the shop assistant about sizes and colors</li><li>Use: dress, jeans, pair of, try on, fit</li></ul>
+      <div class="role-convo" id="rp1-convo"><p><strong>You:</strong> Excuse me, do you have these jeans in a medium?</p><p><strong>Assistant:</strong> Let me check... Yes, here you go!</p><p><strong>You:</strong> Can I try them on? I also need a pair of shoes to match.</p><p><strong>Assistant:</strong> Of course! The fitting room is over there. What size shoes?</p><p><strong>You:</strong> Size 42, please. And do you have any nice shirts?</p></div>
+    </div>
+    <div class="role-card" onclick="toggleRole('rp2')">
+      <h4>&#x1F457; Scenario 2: What to Wear?</h4>
+      <ul class="role-points"><li>Your friend needs outfit advice for a job interview</li><li>Suggest formal clothes and explain why</li><li>Use idioms: dressed to the nines, fit like a glove</li></ul>
+      <div class="role-convo" id="rp2-convo"><p><strong>Friend:</strong> I have a job interview tomorrow. What should I wear?</p><p><strong>You:</strong> You should dress to the nines! Wear a nice suit with a tie.</p><p><strong>Friend:</strong> What about my shoes?</p><p><strong>You:</strong> Wear your black leather shoes &mdash; they fit like a glove! And make sure your clothes are clean and ironed.</p></div>
+    </div>
+    <div class="role-card" onclick="toggleRole('rp3')">
+      <h4>&#x2600; Scenario 3: Packing for a Trip</h4>
+      <ul class="role-points"><li>You are helping someone pack for a beach holiday</li><li>Discuss clothes for different weather and activities</li><li>Use plural nouns correctly</li></ul>
+      <div class="role-convo" id="rp3-convo"><p><strong>You:</strong> Don&#39;t forget to pack your shorts and sandals!</p><p><strong>Friend:</strong> What about if it gets cold at night?</p><p><strong>You:</strong> Bring a sweater and a pair of jeans, just in case. Oh, and don&#39;t forget your sunglasses!</p><p><strong>Friend:</strong> Good idea. Should I bring sneakers?</p><p><strong>You:</strong> Yes, you need sneakers for hiking. And pack two pairs of socks!</p></div>
+    </div>
+  </div>
+
+  <!-- EMAIL -->
+  <div class="section" id="email">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F4E7; Email</span>
+    <h2>Email Writing</h2>
+    <div class="card">
+      <h3>&#x270F; Write an Email</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Write an email to a friend describing what you wore to a recent event. Use at least 6 clothing vocabulary words and plural nouns.</p>
+      <textarea class="writing-area" id="email-area" placeholder="Dear [friend's name],&#10;&#10;Last weekend I went to a party and I wore..." oninput="updateEmailWC()"></textarea>
+      <div class="word-count">Words: <span id="email-wc">0</span></div>
+      <div class="checklist mt-12" id="email-checklist">
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Greeting</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> 6+ clothing words</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Plural nouns used correctly</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Describes the event/occasion</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Sign-off</label>
+      </div>
+      <span id="email-check-result" style="font-size:0.85rem;font-weight:600;margin-top:8px;display:block"></span>
+    </div>
+  </div>
+
+  <!-- WRITING -->
+  <div class="section" id="writing">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x270F; Writing</span>
+    <h2>Writing Practice</h2>
+    <div class="card">
+      <h3>&#x1F4DD; My Wardrobe</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Describe what clothes you have in your wardrobe and what you wear for different situations (work/school, home, party, sport).</p>
+      <textarea class="writing-area" id="writing-area" placeholder="In my wardrobe, I have many different clothes for different occasions..." oninput="updateWritingWC()"></textarea>
+      <div class="word-count">Words: <span id="writing-wc">0</span></div>
+      <div class="checklist mt-12" id="writing-checklist">
+        <label><input type="checkbox" onchange="updateWritingCheck()"> At least 4 situations described</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> 8+ clothing words</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> Plural nouns used correctly</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> Clear paragraphs</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> 80+ words</label>
+      </div>
+      <span id="writing-check-result" style="font-size:0.85rem;font-weight:600;margin-top:8px;display:block"></span>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section" id="quiz">
+    <span class="section-label" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Quiz</span>
+    <h2>Session 11 Quiz (20 Questions)</h2>
+    <div id="quiz-container"></div>
+    <div style="margin-top:20px;text-align:center">
+      <button class="btn" style="background:var(--accent);color:#fff;padding:12px 30px;font-size:1rem" onclick="showQuizScore()">Show My Score</button>
+      <button class="btn" style="background:#eee;color:var(--text);padding:12px 30px;font-size:1rem;margin-left:10px" onclick="retryQuiz()">Retry Quiz</button>
+      <a href="kahoot-session11.html" style="display:inline-block;margin-left:10px;padding:12px 30px;background:var(--red);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;font-size:1rem">Kahoot! &#x1F3AE;</a>
+    </div>
+    <div class="card mt-16 hidden" id="quiz-final" style="text-align:center;border:2px solid var(--border)"></div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section" id="summary">
+    <span class="section-label" style="background:var(--accent-light);color:var(--accent)">&#x1F4CB; Cheat Sheet</span>
+    <h2>Quick Reference</h2>
+    <div class="cheat-grid">
+      <div class="cheat-cell"><h4>&#x1F4DA; Plural Rules</h4><p style="font-size:0.82rem">+s: shirt&rarr;shirts<br>+es: dress&rarr;dresses<br>y&rarr;ies: accessory&rarr;accessories<br>f&rarr;ves: scarf&rarr;scarves<br>Irregular: foot&rarr;feet, child&rarr;children</p></div>
+      <div class="cheat-cell"><h4>&#x26A0; Always Plural</h4><p style="font-size:0.82rem">jeans, pants, shorts, scissors, glasses, pajamas<br>Count with &ldquo;a pair of&rdquo;<br><em>&ldquo;I bought two pairs of jeans.&rdquo;</em></p></div>
+      <div class="cheat-cell"><h4>&#x1F455; Key Vocabulary</h4><p style="font-size:0.82rem">t-shirt, jeans, dress, blouse, suit, tie, sweater, coat, boots, sandals, sneakers, scarf, mittens, skirt, pajamas, outfit, accessories</p></div>
+      <div class="cheat-cell"><h4>&#x1F5E3; Useful Phrases</h4><p style="font-size:0.82rem">&ldquo;I usually wear...&rdquo; &bull; &ldquo;For formal events...&rdquo; &bull; &ldquo;A pair of...&rdquo; &bull; &ldquo;It fits like a glove!&rdquo; &bull; &ldquo;I prefer comfortable clothes.&rdquo;</p></div>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="section" id="notes">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Notes</span>
+    <h2>My Notes</h2>
+    <div class="card"><h3>&#x1F4D3; Class Notes</h3><textarea class="notes-area" id="classNotes" placeholder="Write notes during class..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x1F4D6; Difficult Words</h3><textarea class="notes-area" id="difficultWords" style="min-height:80px" placeholder="Words you need to review..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x2753; Questions for Teacher</h3><textarea class="notes-area" id="teacherQuestions" style="min-height:80px" placeholder="Write questions for your teacher..." oninput="saveNotes()"></textarea></div>
+  </div>
+
+  <!-- TRACKER -->
+  <div class="section" id="tracker">
+    <h2>&#x2705; Progress Tracker</h2>
+    <div class="card"><h3>Check off completed sections:</h3><div id="progressChecks">
+      <label class="section-check"><input type="checkbox" data-sec="listen" onchange="updateTracker()"> &#x1F3A7; Listened to audio &amp; watched videos</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocab" onchange="updateTracker()"> &#x1F4DA; Studied vocabulary flashcards</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocabex" onchange="updateTracker()"> &#x270F; Completed vocabulary exercise</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammar" onchange="updateTracker()"> &#x1F4DD; Understood grammar rules</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammarex" onchange="updateTracker()"> &#x1F4DD; Completed grammar exercises</label>
+      <label class="section-check"><input type="checkbox" data-sec="read" onchange="updateTracker()"> &#x1F4D6; Read passage &amp; answered questions</label>
+      <label class="section-check"><input type="checkbox" data-sec="speak" onchange="updateTracker()"> &#x1F5E3; Did speaking challenge</label>
+      <label class="section-check"><input type="checkbox" data-sec="roleplay" onchange="updateTracker()"> &#x1F3AD; Practiced roleplay</label>
+      <label class="section-check"><input type="checkbox" data-sec="email" onchange="updateTracker()"> &#x1F4E7; Wrote email</label>
+      <label class="section-check"><input type="checkbox" data-sec="write" onchange="updateTracker()"> &#x270F; Completed writing task</label>
+      <label class="section-check"><input type="checkbox" data-sec="quiz" onchange="updateTracker()"> &#x1F3AF; Finished quiz</label>
+      <label class="section-check"><input type="checkbox" data-sec="review" onchange="updateTracker()"> &#x1F4CB; Reviewed cheat sheet</label>
+    </div><div style="margin-top:14px"><div style="background:#e8e6e0;border-radius:8px;height:12px;overflow:hidden"><div id="trackerFill" style="height:100%;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--green));width:0%;transition:width 0.5s"></div></div><p style="font-size:0.82rem;color:var(--text-dim);margin-top:6px;text-align:center" id="trackerText">0 of 12 completed</p></div></div>
+  </div>
+
+  <!-- NEXT -->
+  <div class="section">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F52E; Coming Next</span>
+    <h2>Session 12: Preview</h2>
+    <div class="card" style="background:linear-gradient(135deg,var(--pink-light),var(--blue-light))"><h4 style="font-family:'Fredoka',sans-serif;color:var(--blue);margin-bottom:6px">&#x1F3A8; Session 12: Describing Clothes</h4><p style="font-size:0.88rem">Learn adjective order (OSASCOMP), describe clothes, and prepare for the final dialogue assessment!</p></div>
+  </div>
+
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:30px 0 20px">
+    <a href="session-10.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--blue);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">&#x2B05; Session 10</a>
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--accent);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">&#x1F3E0; Home</a>
+    <a href="session-12.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--green);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">Session 12 &#x27A1;</a>
+  </div>
+  <div style="text-align:center;padding:10px 20px 20px;color:var(--text-dim);font-size:0.78rem"><p>AUC English A2A &bull; Session 11: Clothes &amp; Fashion</p></div>
+</div>
+
+<div class="score-banner">
+  <div class="score-item"><div class="label">Cards</div><div class="val" id="sb-cards" style="color:var(--accent)">0</div></div>
+  <div class="score-item"><div class="label">Grammar</div><div class="val" id="sb-grammar" style="color:var(--green)">0</div></div>
+  <div class="score-item"><div class="label">Quiz</div><div class="val" id="sb-quiz" style="color:var(--red)">0/20</div></div>
+  <div class="score-item"><div class="label">Written</div><div class="val" id="sb-words" style="color:var(--orange)">0</div></div>
+</div>
+
+<script>
+const driveMap_The_Plural_Lookbook_page={"0001":"1CEGPM7cnv-e-Gvd6zULSSeV88NoYXRkG","0002":"1dUWTKnUNb8eaGwVmcBh0cZtThg2VlZuG","0003":"14IWdGC4aN3Jz-fIPsxwQhgzNRJpqdwXn","0004":"1Mm-E4s5Y8aapGKF0qE6qTQOvVEAi6h2_","0005":"1I0j2ooJxRP3k2wmQbhxxnyvYX53ownfi","0006":"18SA1MJCTFHXfD0HGbyqFVcQ401ImIkyO","0007":"1YRVwKepZVCQFVtbRM7mZjwHp6Mo4iDkM","0008":"1cF1nAze8xHy8BsyApV5VZr6Lz92wqw_z","0009":"1JJfA0SoWO2UV6gyoECX1O2Rpiu8rPn6R","0010":"1DEBfu1z1KsuIPrYlY45kTpFtdM24kdLA","0011":"1ogXckS-XnlEFumT5ipxsAUA8Q_li7LED","0012":"1WZp-Dumghtcw_w_I8dYnzOZCAYX2Lnov","0013":"18TFG0V7TEI8FJYp3nhjxQTE3LqEjtwjR","0014":"1gYl93LeuGy8DGgoOT6_8QFK8IRnJJZes"};
+const driveMap_The_Wardrobe_Guide_page={"0001":"1cvULim4ATGjpFHRhjfNh1G9a_Xr3NVx8","0002":"1w53ngN4vBn-lBJPKpxueOhhUT9gPdEEZ","0003":"1p5nNrFnC8WmcaRpijrXieGuQBWeBaI20","0004":"10jCzx8-iQ1O6WsFKsCWNONiTaMjfyOr_","0005":"1pCkmQ-W6cFCrhm_tNNsqWBO59GyxcSqP","0006":"1XNHVxDImpPYQgCQvWqM_Q32E05V9sWId","0007":"1tV7vn5Jzo0fn41FSFt1Vrm0_mMbEQICv","0008":"1zU_LSw3rsPGvtcu_PXzLRMJU3McIK1jL","0009":"11atP6IIC1fK7yTcDAi6ZdCovihLY135q","0010":"1j2rqj0_n8xPQE27lmgHaBPjns2-zuJsO","0011":"10Vlv-lVlQuaR8NCgDf2zjtmQUAmnSqwV","0012":"12gVoLtHGIl966qevYU09fhtFWZIN42Vy","0013":"1YkbeRAsBL-mvGhpmwXIXnA8jM0OSADaR","0014":"17KgnaXV5NI2nLBfKm80sibFOE15dPsVz"};
+
+function speak(w,b){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=0.85;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;if(b){b.classList.add('playing');u.onend=()=>b.classList.remove('playing')}speechSynthesis.speak(u)}
+if('speechSynthesis' in window)speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
+
+const everydayVocab=[
+{w:"t-shirt",p:"noun",m:"A casual shirt with short sleeves",ar:"تي شيرت",ex:"I always wear a t-shirt at home."},
+{w:"jeans",p:"noun",m:"Casual trousers made of denim (always plural)",ar:"جينز",ex:"She bought a new pair of jeans."},
+{w:"shorts",p:"noun",m:"Short trousers (always plural)",ar:"شورت",ex:"I wear shorts in summer."},
+{w:"sweater",p:"noun",m:"A warm knitted top for cold weather",ar:"سويتر",ex:"Put on a sweater — it's cold outside!"},
+{w:"sneakers",p:"noun",m:"Comfortable sports shoes",ar:"حذاء رياضي",ex:"I need new sneakers for the gym."},
+{w:"socks",p:"noun",m:"Cloth coverings for the feet",ar:"جوارب",ex:"Don't forget to wear clean socks!"},
+{w:"pants",p:"noun",m:"Trousers (always plural)",ar:"بنطلون",ex:"These pants are too tight."},
+{w:"shirt",p:"noun",m:"A top with a collar and buttons",ar:"قميص",ex:"He wears a white shirt to work."}
+];
+const formalVocab=[
+{w:"suit",p:"noun",m:"A formal set of jacket and trousers",ar:"بدلة",ex:"He wore a black suit to the interview."},
+{w:"tie",p:"noun",m:"A strip of cloth worn around the neck with a shirt",ar:"ربطة عنق",ex:"A red tie goes well with a dark suit."},
+{w:"dress",p:"noun",m:"A one-piece garment for women",ar:"فستان",ex:"She wore a beautiful dress to the party."},
+{w:"blouse",p:"noun",m:"A woman's formal top",ar:"بلوزة",ex:"She chose a silk blouse for the meeting."},
+{w:"skirt",p:"noun",m:"A garment that hangs from the waist",ar:"تنورة",ex:"The skirt matches her blouse perfectly."},
+{w:"high heels",p:"noun",m:"Shoes with tall heels (always plural)",ar:"كعب عالي",ex:"She wears high heels to formal events."},
+{w:"flat shoes",p:"noun",m:"Shoes without heels (always plural)",ar:"حذاء مسطح",ex:"Flat shoes are more comfortable for walking."},
+{w:"boots",p:"noun",m:"Shoes that cover the ankle or leg",ar:"بوت",ex:"She wears leather boots in winter."}
+];
+const accessoriesVocab=[
+{w:"coat",p:"noun",m:"A long outer garment for cold weather",ar:"معطف",ex:"Wear your coat — it's freezing outside!"},
+{w:"scarf",p:"noun",m:"Cloth worn around the neck for warmth",ar:"وشاح",ex:"She wrapped a scarf around her neck."},
+{w:"hat",p:"noun",m:"A covering worn on the head",ar:"قبعة",ex:"He always wears a hat in winter."},
+{w:"mittens",p:"noun",m:"Warm hand covers for cold weather",ar:"قفازات",ex:"The children wore mittens to play in the snow."},
+{w:"jacket",p:"noun",m:"A short coat",ar:"جاكيت",ex:"Bring a light jacket for the evening."},
+{w:"sandals",p:"noun",m:"Open shoes for warm weather",ar:"صندل",ex:"I wear sandals to the beach."},
+{w:"pajamas",p:"noun",m:"Clothes worn for sleeping (always plural)",ar:"بيجاما",ex:"I put on my pajamas before bed."},
+{w:"accessories",p:"noun",m:"Extra items like bags, belts, hats, jewelry",ar:"إكسسوارات",ex:"She loves buying accessories for her outfits."}
+];
+const vocabExData=[
+{q:"I need a new pair of ______ for running.",opts:["sneakers","scarf","suit"],ans:0},
+{q:"She wore a beautiful ______ to the wedding.",opts:["shorts","dress","socks"],ans:1},
+{q:"It's very cold! Put on your ______ and hat.",opts:["sandals","coat","t-shirt"],ans:1},
+{q:"He always wears a ______ and tie to work.",opts:["pajamas","suit","shorts"],ans:1},
+{q:"In summer, I like to wear ______ and a t-shirt.",opts:["boots","jeans","shorts"],ans:2},
+{q:"The ______ match her blouse perfectly.",opts:["skirt","hat","sneakers"],ans:0},
+{q:"Don't forget your ______ — the sun is strong!",opts:["mittens","scarf","hat"],ans:2},
+{q:"She wore ______ to the beach because they are comfortable.",opts:["boots","sandals","high heels"],ans:1}
+];
+const grammarEx=[
+{q:"What is the plural of 'dress'?",opts:["dresss","dresses","dressen"],ans:1},
+{q:"What is the plural of 'scarf'?",opts:["scarfs","scarfes","scarves"],ans:2},
+{q:"What is the plural of 'foot'?",opts:["foots","feet","feets"],ans:1},
+{q:"What is the plural of 'child'?",opts:["childs","childrens","children"],ans:2},
+{q:"Which word is always plural?",opts:["dress","hat","jeans"],ans:2},
+{q:"How do you count 'scissors'?",opts:["one scissors","a pair of scissors","two scissors"],ans:1},
+{q:"The plural of 'accessory' is ______.",opts:["accessorys","accessories","accessoryes"],ans:1},
+{q:"'Clothing' is ______.",opts:["countable","uncountable","always plural"],ans:1},
+{q:"Which is correct?",opts:["two pair of pants","two pairs of pants","two pants"],ans:1},
+{q:"The plural of 'shirt' is ______.",opts:["shirtes","shirts","shirties"],ans:1},
+{q:"Which word does NOT have a plural form?",opts:["sweater","luggage","boot"],ans:1},
+{q:"The plural of 'watch' is ______.",opts:["watchs","watches","watchies"],ans:1},
+{q:"Which sentence is correct?",opts:["I bought a jeans","I bought a pair of jeans","I bought jeans pair"],ans:1},
+{q:"The plural of 'baby' is ______.",opts:["babys","babyes","babies"],ans:2}
+];
+const recapEx=[
+{q:"I ______ buy a new jacket this weekend.",opts:["will","going to","am"],ans:0},
+{q:"She is ______ wear her new dress tonight.",opts:["will","going to","want"],ans:1},
+{q:"He enjoys ______ new shoes.",opts:["buy","buying","to buy"],ans:1},
+{q:"They decided ______ matching outfits.",opts:["wear","wearing","to wear"],ans:2},
+{q:"Do you have ______ warm jackets?",opts:["some","any","much"],ans:1},
+{q:"I bought ______ new accessories.",opts:["some","any","much"],ans:0},
+{q:"______ shoes over there are nice!",opts:["This","Those","That"],ans:1},
+{q:"______ scarf looks warm.",opts:["This","These","Those"],ans:0},
+{q:"I ______ trying on clothes when the shop closed.",opts:["was","were","am"],ans:0},
+{q:"While she ______ shopping, it started to rain.",opts:["was","were","is"],ans:0},
+{q:"These shoes are ______ small for me.",opts:["very","too","much"],ans:1},
+{q:"This dress is ______ beautiful!",opts:["very","too","real"],ans:0},
+{q:"I ______ find a new coat before winter.",opts:["need to","need","needs to"],ans:0},
+{q:"She ______ buy new boots for the trip.",opts:["wants to","want to","wants"],ans:0},
+{q:"You ______ wear that old shirt to the interview.",opts:["should","shouldn't","don't have to"],ans:1},
+{q:"Everyone ______ wear a uniform at this school.",opts:["have to","has to","should"],ans:1},
+{q:"What a ______ outfit she is wearing!",opts:["stylish","stylishly","styled"],ans:0},
+{q:"What ______ comfortable shoes these are!",opts:["a","an","—"],ans:2},
+{q:"______ wear jeans to the formal dinner!",opts:["Don't","Not","Doesn't"],ans:0},
+{q:"______ forget your scarf — it's cold!",opts:["Don't","Not","Doesn't"],ans:0}
+];
+const listen1Data=[
+{q:"What does Carl usually wear?",opts:["A suit","Jeans and a t-shirt","Shorts"],ans:1},
+{q:"What does Emma like to wear for work?",opts:["Casual clothes","A blouse and skirt","Jeans"],ans:1},
+{q:"What do they both agree is important?",opts:["Following trends","Being comfortable","Wearing designer brands"],ans:1},
+{q:"What does Carl think about fashion?",opts:["He loves it","He doesn't care much","He follows every trend"],ans:1},
+{q:"What does Emma wear on weekends?",opts:["Formal clothes","Comfortable casual clothes","High heels"],ans:1}
+];
+const listen2TF=[
+{q:"Abigail wears the same clothes for every event.",a:false},
+{q:"She wears a dress and high heels for formal parties.",a:true},
+{q:"For casual outings, she prefers jeans and sneakers.",a:true},
+{q:"Abigail doesn't like accessories.",a:false}
+];
+const listen2Data=[
+{q:"What does Abigail wear for a job interview?",opts:["Jeans and a t-shirt","A suit or smart outfit","Shorts and sandals"],ans:1},
+{q:"What does she wear to a friend's birthday party?",opts:["A nice dress or stylish outfit","Work clothes","Pajamas"],ans:0},
+{q:"How does Abigail feel about choosing clothes?",opts:["She finds it boring","She enjoys matching outfits to occasions","She doesn't care"],ans:1},
+{q:"What is her advice for choosing an outfit?",opts:["Always wear formal clothes","Think about the occasion and be comfortable","Follow every fashion trend"],ans:1}
+];
+const readingQ=[
+{q:"What do people usually wear to work?",opts:["Pajamas","Casual shorts","A suit or formal clothes"],ans:2},
+{q:"What clothes are good for cold weather?",opts:["Sandals and shorts","Coat, scarf, and boots","T-shirt and jeans"],ans:1},
+{q:"What does 'fit like a glove' mean in the text?",opts:["Too tight","Fits perfectly","Made of leather"],ans:1},
+{q:"Why is it important to try clothes on?",opts:["To check the color","Different sizes may fit differently","To show friends"],ans:1},
+{q:"What do some people prefer over following fashion?",opts:["Being comfortable","Being expensive","Being different"],ans:0}
+];
+const quizData=[
+{q:"A formal set of jacket and trousers = ?",opts:["jeans","suit","sweater"],ans:1,cat:"Vocab"},
+{q:"Shoes with tall heels = ?",opts:["sneakers","boots","high heels"],ans:2,cat:"Vocab"},
+{q:"Clothes worn for sleeping = ?",opts:["pajamas","shorts","dress"],ans:0,cat:"Vocab"},
+{q:"Extra items like bags, belts, jewelry = ?",opts:["accessories","outfits","occasions"],ans:0,cat:"Vocab"},
+{q:"The plural of 'dress' is ______.",opts:["dresss","dresses","dressen"],ans:1,cat:"Grammar"},
+{q:"The plural of 'scarf' is ______.",opts:["scarfs","scarfes","scarves"],ans:2,cat:"Grammar"},
+{q:"Which word is always plural?",opts:["hat","coat","scissors"],ans:2,cat:"Grammar"},
+{q:"How do you count 'pants'?",opts:["one pants","a pair of pants","two pants"],ans:1,cat:"Grammar"},
+{q:"'Luggage' is ______.",opts:["countable","always plural","uncountable"],ans:2,cat:"Grammar"},
+{q:"The plural of 'baby' is ______.",opts:["babys","babies","babyes"],ans:1,cat:"Grammar"},
+{q:"What does Carl usually wear?",opts:["A suit","Jeans and a t-shirt","Shorts"],ans:1,cat:"Listening"},
+{q:"What does Abigail wear for interviews?",opts:["Jeans","A smart outfit","Pajamas"],ans:1,cat:"Listening"},
+{q:"What do people usually wear to work?",opts:["Pajamas","Casual shorts","Formal clothes"],ans:2,cat:"Reading"},
+{q:"What clothes are good for cold weather?",opts:["Sandals","Coat, scarf, boots","T-shirt"],ans:1,cat:"Reading"},
+{q:"'dressed to the nines' means ______.",opts:["wearing old clothes","wearing very fancy clothes","wearing nine items"],ans:1,cat:"Idioms"},
+{q:"'fit like a glove' means ______.",opts:["too tight","fits perfectly","made of leather"],ans:1,cat:"Idioms"},
+{q:"'roll up your sleeves' means ______.",opts:["fold your shirt","get ready to work hard","feel cold"],ans:1,cat:"Idioms"},
+{q:"'walk a mile in someone's shoes' means ______.",opts:["borrow shoes","try to understand their situation","go for a walk"],ans:1,cat:"Idioms"},
+{q:"Which is correct?",opts:["two pair of jeans","two pairs of jeans","two jean"],ans:1,cat:"Grammar"},
+{q:"A casual shirt with short sleeves = ?",opts:["blouse","t-shirt","tie"],ans:1,cat:"Vocab"}
+];
+const memeWrong=[{e:'\u{1F605}',t:'Fashion faux pas!'},{e:'\u{1F926}',t:'Oops! Wrong outfit!'},{e:'\u{1F62C}',t:'Almost! Try again!'},{e:'\u{1F648}',t:'That answer needs ironing!'},{e:'\u{1F480}',t:'Wardrobe malfunction!'},{e:'\u{1F62D}',t:'So close! Review!'},{e:'\u{1FAE0}',t:'Not quite the right fit!'},{e:'\u{1F921}',t:'Clown outfit detected!'},{e:'\u{1F635}',t:'Confused? Check above!'},{e:'\u{1F9A5}',t:'Slow fashion answer!'}];
+const memeRight=[{e:'\u{1F389}',t:'YESSS! Fashion star!'},{e:'\u{1F31F}',t:'Dressed for success!'},{e:'\u{1F525}',t:"You're on FIRE!"},{e:'\u{1F4AA}',t:'Fashion genius!'},{e:'\u{1F3C6}',t:'Runway champion!'},{e:'\u{2728}',t:'Absolutely fabulous!'},{e:'\u{1F680}',t:'Dressed to the nines!'},{e:'\u{1F451}',t:'Fashion royalty!'}];
+let quizScore=0,quizAnswered=0;
+
+function buildVocabCards(data,cid){const c=document.getElementById(cid);if(!c)return;data.forEach(v=>{const d=document.createElement('div');d.className='vocab-card';d.onclick=e=>{if(e.target.classList.contains('tts-btn'))return;d.classList.toggle('flipped');updateSB()};const sw=v.w.replace(/'/g,"\\'");d.innerHTML='<div class="vocab-inner"><div class="vocab-front"><div class="word">'+v.w+' <button class="tts-btn" onclick="event.stopPropagation();speak(\''+sw+'\',this)">\u{1F50A}</button></div><div class="pos">'+v.p+'</div><div class="hint">Tap to flip</div></div><div class="vocab-back"><div class="meaning">'+v.m+'</div><div class="arabic">'+v.ar+'</div><div class="example">"'+v.ex+'"</div></div></div>';c.appendChild(d)})}
+function buildVocabEx(){const c=document.getElementById('vocab-ex-rows');vocabExData.forEach((ex,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='vq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+ex.q+'</div>'+ex.opts.map((o,j)=>'<button class="quiz-option" onclick="checkVocabQ('+i+','+j+')">'+o+'</button>').join('');c.appendChild(d)})}
+function checkVocabQ(qi,oi){const d=document.getElementById('vq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);oi===vocabExData[qi].ans?b[oi].classList.add('correct'):(b[oi].classList.add('wrong'),b[vocabExData[qi].ans].classList.add('correct'))}
+function checkVocabEx(){let s=0;vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);if(d.querySelector('.correct')&&!d.querySelector('.wrong'))s++});const r=document.getElementById('vocab-result');r.innerHTML=(s===vocabExData.length?'Perfect! ':'Good effort! ')+s+'/'+vocabExData.length;r.style.color=s>=6?'var(--green)':'var(--red)'}
+function retryVocabEx(){vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false})});document.getElementById('vocab-result').innerHTML=''}
+function buildMCQ(data,containerId,prefix){const c=document.getElementById(containerId);data.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id=prefix+'-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkMCQ(\''+prefix+'\','+i+','+j+')">'+o+'</button>').join('')+'<div class="mcq-feedback" id="'+prefix+'fb-'+i+'"></div>';c.appendChild(d)})}
+function checkMCQ(prefix,qi,oi){const dataMap={'l1q':listen1Data,'l2q':listen2Data,'rq':readingQ};const data=dataMap[prefix];const d=document.getElementById(prefix+'-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const fb=document.getElementById(prefix+'fb-'+qi);if(oi===data[qi].ans){b[oi].classList.add('correct');fb.innerHTML='Correct!';fb.style.background='var(--green-light)';fb.style.color='var(--green)'}else{b[oi].classList.add('wrong');b[data[qi].ans].classList.add('correct');fb.innerHTML='Correct: <strong>'+data[qi].opts[data[qi].ans]+'</strong>';fb.style.background='var(--red-light)';fb.style.color='var(--red)';d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500)}fb.classList.add('show')}
+function buildTF(data,containerId,prefix){const c=document.getElementById(containerId);data.forEach((item,i)=>{const d=document.createElement('div');d.className='fill-row';d.id=prefix+'-'+i;d.setAttribute('data-answered','false');d.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+item.q+'</span><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--green);color:#fff;margin-left:auto" onclick="checkTFG(\''+prefix+'\','+i+',true)">True</button><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--red);color:#fff" onclick="checkTFG(\''+prefix+'\','+i+',false)">False</button><span class="result" id="'+prefix+'r-'+i+'"></span>';c.appendChild(d)})}
+function checkTFG(prefix,i,a){const dataMap={'l2tf':listen2TF};const data=dataMap[prefix];const r=document.getElementById(prefix+'-'+i);if(r.getAttribute('data-answered')==='true')return;r.setAttribute('data-answered','true');const res=document.getElementById(prefix+'r-'+i);if(a===data[i].a){res.textContent='Correct';res.style.color='var(--green)';r.style.borderColor='var(--green)';r.style.background='var(--green-light)'}else{res.textContent='Wrong: '+(data[i].a?'True':'False');res.style.color='var(--red)';r.style.borderColor='var(--red)';r.style.background='var(--red-light)';r.classList.add('shake');setTimeout(()=>r.classList.remove('shake'),500)}}
+function buildRecap(){const c=document.getElementById('recap-exercises');if(!c)return;recapEx.forEach((ex,i)=>{const row=document.createElement('div');row.className='fill-row';row.id='rex-'+i;row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('______','<select id="rsel-'+i+'"><option value="">—</option>'+ex.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>')+'</span><span class="result" id="rres-'+i+'"></span>';c.appendChild(row)})}
+function checkRecap(){let n=0;recapEx.forEach((ex,i)=>{const s=document.getElementById('rsel-'+i),r=document.getElementById('rres-'+i),row=document.getElementById('rex-'+i);if(s.value===ex.opts[ex.ans]){n++;r.textContent='Correct';r.style.color='var(--green)';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}else{r.textContent='Wrong';r.style.color='var(--red)';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}});document.getElementById('recap-score').textContent=n+'/'+recapEx.length}
+function retryRecap(){recapEx.forEach((e,i)=>{document.getElementById('rsel-'+i).value='';document.getElementById('rres-'+i).textContent='';const r=document.getElementById('rex-'+i);r.style.borderColor='var(--border)';r.style.background=''});document.getElementById('recap-score').textContent=''}
+function buildGrammar(){const c=document.getElementById('grammar-exercises');grammarEx.forEach((ex,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='gq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+ex.q+'</div>'+ex.opts.map((o,j)=>'<button class="quiz-option" onclick="checkGrammarQ('+i+','+j+')">'+o+'</button>').join('');c.appendChild(d)})}
+function checkGrammarQ(qi,oi){const d=document.getElementById('gq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);oi===grammarEx[qi].ans?b[oi].classList.add('correct'):(b[oi].classList.add('wrong'),b[grammarEx[qi].ans].classList.add('correct'))}
+function checkGrammar(){let n=0;grammarEx.forEach((e,i)=>{const d=document.getElementById('gq-'+i);if(d.querySelector('.correct')&&!d.querySelector('.wrong'))n++});document.getElementById('grammar-score').textContent=n+'/'+grammarEx.length;document.getElementById('sb-grammar').textContent=n+'/'+grammarEx.length}
+function retryGrammar(){grammarEx.forEach((e,i)=>{const d=document.getElementById('gq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false})});document.getElementById('grammar-score').textContent=''}
+function toggleRole(id){document.getElementById(id+'-convo').classList.toggle('show')}
+function buildQuiz(){const c=document.getElementById('quiz-container');quizData.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='qq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+' — '+q.cat+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkQuizQ('+i+','+j+')">'+o+'</button>').join('')+'<div class="quiz-meme" id="qm-'+i+'"></div>';c.appendChild(d)})}
+function checkQuizQ(qi,oi){const d=document.getElementById('qq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');quizAnswered++;const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const mm=document.getElementById('qm-'+qi);if(oi===quizData[qi].ans){b[oi].classList.add('correct');quizScore++;const m=memeRight[Math.floor(Math.random()*memeRight.length)];mm.className='quiz-meme meme-correct show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;createConfetti(d)}else{b[oi].classList.add('wrong');b[quizData[qi].ans].classList.add('correct');const m=memeWrong[Math.floor(Math.random()*memeWrong.length)];mm.className='quiz-meme meme-wrong show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500)}document.getElementById('sb-quiz').textContent=quizScore+'/'+quizData.length}
+function createConfetti(p){const colors=['#e8a838','#f472b6','#60a5fa','#2d9d78','#e74c3c','#a78bfa'];for(let i=0;i<10;i++){const c=document.createElement('div');c.className='confetti-piece';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.left=Math.random()*100+'%';c.style.top='-10px';c.style.animationDelay=Math.random()*0.3+'s';p.style.position='relative';p.appendChild(c);setTimeout(()=>c.remove(),2000)}}
+function showQuizScore(){const r=document.getElementById('quiz-final');r.classList.remove('hidden');const pct=Math.round(quizScore/quizData.length*100);let msg='',col='';if(pct>=90){msg="Fashion MASTER!";col='var(--green)'}else if(pct>=70){msg='Great style!';col='var(--accent)'}else if(pct>=50){msg='Good effort!';col='var(--blue)'}else{msg='Review needed!';col='var(--red)'}r.innerHTML='<div style="font-family:Fredoka,sans-serif;font-size:2.5rem;font-weight:700;color:'+col+'">'+quizScore+'/'+quizData.length+'</div><div style="font-size:1.1rem;margin-top:6px">'+pct+'% — '+msg+'</div>';r.style.borderColor=col}
+function retryQuiz(){quizScore=0;quizAnswered=0;document.getElementById('sb-quiz').textContent='0/'+quizData.length;document.getElementById('quiz-final').classList.add('hidden');quizData.forEach((q,i)=>{const d=document.getElementById('qq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false});const m=document.getElementById('qm-'+i);m.className='quiz-meme';m.innerHTML=''})}
+function startTimer(btn){btn.disabled=true;let t=60;const d=document.getElementById('timer-display');const iv=setInterval(()=>{t--;d.textContent=t+'s';d.style.color=t<=10?'var(--red)':'var(--accent)';if(t<=0){clearInterval(iv);d.textContent='Time is up!';d.style.color='var(--red)';btn.disabled=false}},1000)}
+function updateEmailWC(){const w=document.getElementById('email-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('email-wc').textContent=w;updateSB()}
+function updateWritingWC(){const w=document.getElementById('writing-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('writing-wc').textContent=w;updateSB()}
+function updateEmailCheck(){const ch=document.querySelectorAll('#email-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('email-check-result');r.innerHTML=n===ch.length?'All checked!':n+'/'+ch.length;r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+function updateWritingCheck(){const ch=document.querySelectorAll('#writing-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('writing-check-result');r.innerHTML=n===ch.length?'All checked!':n+'/'+ch.length;r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+function saveNotes(){try{localStorage.setItem('s11_classNotes',document.getElementById('classNotes').value);localStorage.setItem('s11_difficultWords',document.getElementById('difficultWords').value);localStorage.setItem('s11_teacherQuestions',document.getElementById('teacherQuestions').value)}catch(e){}}
+function loadNotes(){try{document.getElementById('classNotes').value=localStorage.getItem('s11_classNotes')||'';document.getElementById('difficultWords').value=localStorage.getItem('s11_difficultWords')||'';document.getElementById('teacherQuestions').value=localStorage.getItem('s11_teacherQuestions')||''}catch(e){}}
+function updateTracker(){const ch=document.querySelectorAll('#progressChecks input');let n=0;const s={};ch.forEach(c=>{if(c.checked)n++;s[c.dataset.sec]=c.checked});const pct=Math.round(n/ch.length*100);document.getElementById('trackerFill').style.width=pct+'%';document.getElementById('trackerText').textContent=n+' of '+ch.length+' completed';try{localStorage.setItem('s11_tracker',JSON.stringify(s))}catch(e){}}
+function loadTracker(){try{const s=JSON.parse(localStorage.getItem('s11_tracker')||'{}');document.querySelectorAll('#progressChecks input').forEach(c=>{if(s[c.dataset.sec])c.checked=true});updateTracker()}catch(e){}}
+function updateSB(){document.getElementById('sb-cards').textContent=document.querySelectorAll('.vocab-card.flipped').length;const ew=parseInt(document.getElementById('email-wc')?.textContent||0);const ww=parseInt(document.getElementById('writing-wc')?.textContent||0);document.getElementById('sb-words').textContent=ew+ww}
+window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;if(h>0){const p=Math.min(scrollY/h*100,100);document.getElementById('progress-fill').style.width=p+'%';document.getElementById('progress-pct').textContent=Math.round(p)+'%'}});
+const slideState={grammar:{current:0,total:0},vocab:{current:0,total:0}};
+function initSlideshow(n){const t=document.getElementById(n+'Track');if(!t)return;const sl=t.querySelectorAll('.slide');slideState[n].total=sl.length;const dc=document.getElementById(n+'Dots');dc.innerHTML='';for(let i=0;i<sl.length;i++){const d=document.createElement('span');d.className='slide-dot'+(i===0?' active':'');d.onclick=()=>{slideState[n].current=i;updateSlide(n)};dc.appendChild(d)}updateSlide(n)}
+function slideNav(n,dir){const s=slideState[n];s.current=Math.max(0,Math.min(s.total-1,s.current+dir));updateSlide(n)}
+function updateSlide(n){const s=slideState[n];document.getElementById(n+'Track').style.transform='translateX(-'+s.current*100+'%)';document.getElementById(n+'Counter').textContent=(s.current+1)+' / '+s.total;document.getElementById(n+'Prev').disabled=s.current===0;document.getElementById(n+'Next').disabled=s.current===s.total-1;document.getElementById(n+'Dots').querySelectorAll('.slide-dot').forEach((d,i)=>d.classList.toggle('active',i===s.current))}
+function buildSlides(){const vt=document.getElementById('vocabTrack');for(let i=1;i<=14;i++){const s=document.createElement('div');s.className='slide';s.innerHTML='<img src="https://lh3.googleusercontent.com/d/'+driveMap_The_Wardrobe_Guide_page[String(i).padStart(4,'0')]+'" alt="Vocab Slide '+i+'" loading="lazy" style="max-width:100%;max-height:500px;border-radius:8px">';vt.appendChild(s)}const gt=document.getElementById('grammarTrack');for(let i=1;i<=14;i++){const s=document.createElement('div');s.className='slide';s.innerHTML='<img src="https://lh3.googleusercontent.com/d/'+driveMap_The_Plural_Lookbook_page[String(i).padStart(4,'0')]+'" alt="Grammar Slide '+i+'" loading="lazy" style="max-width:100%;max-height:500px;border-radius:8px">';gt.appendChild(s)}}
+document.addEventListener('DOMContentLoaded',()=>{buildSlides();buildRecap();buildVocabCards(everydayVocab,'vg-everyday');buildVocabCards(formalVocab,'vg-formal');buildVocabCards(accessoriesVocab,'vg-accessories');buildVocabEx();buildMCQ(listen1Data,'listen1-mcq','l1q');buildTF(listen2TF,'listen2-tf','l2tf');buildMCQ(listen2Data,'listen2-mcq','l2q');buildGrammar();buildMCQ(readingQ,'reading-questions','rq');buildQuiz();initSlideshow('grammar');initSlideshow('vocab');loadNotes();loadTracker()});
+</script>
+</body>
+</html>

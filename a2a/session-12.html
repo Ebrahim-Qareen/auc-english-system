@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 12 - Describing Clothes | AUC English A2A</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+:root{--bg:#fdf6ee;--card:#fff;--card-alt:#fefcf7;--accent:#e8a838;--accent-light:rgba(232,168,56,0.12);--green:#2d9d78;--green-light:#e6f7f1;--orange:#e8862a;--orange-light:#fff3e6;--red:#d94f4f;--red-light:#ffeaea;--pink:#c45ba1;--pink-light:#fce8f4;--blue:#5b6abf;--blue-light:#e8eaff;--yellow:#f0c929;--yellow-light:#fef9e7;--text:#2d3142;--text-dim:#6b7280;--border:#e5e2db;--shadow:0 2px 12px rgba(0,0,0,0.06);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}h1,h2,h3{font-family:'Fredoka',sans-serif}
+.hero{background:linear-gradient(135deg,#e8a838 0%,#c45ba1 40%,#5b6abf 100%);padding:50px 24px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.08)}.hero-emoji{font-size:3rem;margin-bottom:8px}.hero h1{font-size:2.2rem;font-weight:700;margin-bottom:4px}.hero .sub{opacity:0.9;font-size:1rem}.badge-row{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap}.badge{background:rgba(255,255,255,0.18);padding:4px 14px;border-radius:20px;font-size:0.78rem;font-weight:600}
+.method-banner{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin:20px auto 0;max-width:860px;box-shadow:var(--shadow)}.method-steps{display:flex;justify-content:center;align-items:center;gap:4px;flex-wrap:wrap;margin-top:10px}.method-step{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:10px;font-size:0.82rem;font-weight:600;white-space:nowrap}.method-arrow{color:var(--text-dim);font-size:1rem}
+.nav{position:sticky;top:0;z-index:100;background:rgba(253,246,238,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}.nav-inner{max-width:900px;margin:0 auto;display:flex;overflow-x:auto;gap:2px;padding:8px 16px;-webkit-overflow-scrolling:touch}.nav-inner::-webkit-scrollbar{height:4px}.nav-inner::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}.nav a{color:var(--text-dim);text-decoration:none;font-size:0.8rem;font-weight:500;white-space:nowrap;padding:6px 12px;border-radius:8px;transition:all 0.2s}.nav a:hover{color:var(--accent);background:var(--accent-light)}
+.container{max-width:860px;margin:0 auto;padding:0 16px}.section{margin-top:40px;scroll-margin-top:60px}.section-label{display:inline-flex;align-items:center;gap:8px;font-family:'Fredoka',sans-serif;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;padding:4px 14px;border-radius:20px;margin-bottom:10px}.section h2{font-size:1.5rem;font-weight:700;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;box-shadow:var(--shadow)}.card h3{font-size:1.1rem;margin-bottom:10px}
+.progress-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin-top:16px;box-shadow:var(--shadow)}.progress-label{font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.95rem;margin-bottom:8px;display:flex;justify-content:space-between}.progress-bar{height:12px;background:#e8e6e0;border-radius:6px;overflow:hidden}.progress-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--green));transition:width 0.6s ease;width:0%}
+.recap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-bottom:20px}.recap-chip{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;box-shadow:var(--shadow);transition:transform 0.2s}.recap-chip:hover{transform:translateY(-2px)}.recap-chip .num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px}.recap-chip .topic{font-weight:700;font-size:0.9rem;margin:4px 0 2px}.recap-chip .detail{font-size:0.78rem;color:var(--text-dim)}.recap-current{border-color:var(--accent);background:var(--accent-light)}
+.fill-row{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:14px;margin:8px 0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.fill-row select{padding:6px 10px;border-radius:8px;border:1.5px solid var(--border);font-size:0.85rem;font-family:inherit}.fill-row .result{font-size:0.85rem;font-weight:600;margin-left:auto}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}.vocab-card{perspective:800px;height:190px;cursor:pointer}.vocab-inner{position:relative;width:100%;height:100%;transition:transform 0.5s;transform-style:preserve-3d}.vocab-card.flipped .vocab-inner{transform:rotateY(180deg)}.vocab-front,.vocab-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow)}.vocab-front{background:var(--card)}.vocab-front .word{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:700;color:var(--accent)}.vocab-front .pos{font-size:0.72rem;color:var(--text-dim);margin-top:2px}.vocab-front .hint{font-size:0.7rem;color:var(--pink);margin-top:8px;font-weight:500}.vocab-back{background:linear-gradient(135deg,var(--accent-light),#fef3c7);transform:rotateY(180deg)}.vocab-back .meaning{font-weight:600;font-size:0.9rem;margin-bottom:4px}.vocab-back .arabic{font-size:0.82rem;color:var(--pink);margin-bottom:4px}.vocab-back .example{font-size:0.8rem;color:var(--text-dim);font-style:italic}
+.tts-btn{background:none;border:none;cursor:pointer;font-size:1.1rem;padding:2px 4px;border-radius:6px;transition:all 0.2s;vertical-align:middle}.tts-btn:hover{background:var(--accent-light);transform:scale(1.15)}.tts-btn.playing{animation:pulse 0.8s infinite}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+.grammar-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;margin:12px 0;border:1px solid var(--border)}.grammar-table th{background:var(--accent);color:#fff;padding:10px 14px;font-weight:600;font-size:0.85rem;text-align:center}.grammar-table td{padding:10px 14px;text-align:center;font-size:0.88rem;border-bottom:1px solid var(--border)}.grammar-table tr:last-child td{border-bottom:0}.grammar-table tr:nth-child(even) td{background:#faf9f6}.demo-word{display:inline-block;background:var(--accent-light);color:var(--accent);font-weight:700;padding:2px 10px;border-radius:6px;font-size:0.85rem}
+.quiz-q{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}.quiz-q .q-num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}.quiz-q .q-text{font-weight:600;font-size:0.93rem;margin-bottom:12px}.quiz-option{display:block;width:100%;text-align:left;padding:10px 14px;margin-bottom:6px;background:#faf9f6;border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:0.86rem;transition:all 0.2s;font-family:'Inter',sans-serif}.quiz-option:hover:not(:disabled){border-color:var(--accent);background:var(--accent-light)}.quiz-option.correct{border-color:var(--green);background:var(--green-light);color:var(--green);font-weight:600}.quiz-option.wrong{border-color:var(--red);background:var(--red-light);color:var(--red)}.quiz-option:disabled{cursor:default}
+.btn{display:inline-block;padding:8px 20px;border:none;border-radius:10px;font-weight:600;font-size:0.88rem;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
+.writing-area{width:100%;min-height:140px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe;transition:border-color 0.2s}.writing-area:focus{outline:none;border-color:var(--accent)}.word-count{font-size:0.78rem;color:var(--text-dim);margin-top:6px;text-align:right}
+.challenge-box{background:linear-gradient(135deg,#fef9e7,#fff3e6);border:2px dashed var(--accent);border-radius:var(--radius);padding:22px;text-align:center;margin:14px 0}.challenge-box h3{font-family:'Fredoka',sans-serif;color:var(--accent)}
+.tip-box{background:var(--green-light);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:12px 16px;margin:10px 0;font-size:0.85rem}.tip-box strong{color:var(--green)}
+.checklist label{display:flex;align-items:flex-start;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}.checklist input[type=checkbox]{margin-top:4px;accent-color:var(--green);width:16px;height:16px}
+.cheat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.cheat-cell{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:var(--shadow)}.cheat-cell h4{font-family:'Fredoka',sans-serif;font-size:0.9rem;margin-bottom:6px}
+.expression-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:12px}.expression-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;box-shadow:var(--shadow);transition:transform 0.2s}.expression-card:hover{transform:translateY(-2px)}.expression-card .phrase{font-family:'Fredoka',sans-serif;font-size:0.95rem;font-weight:600;color:var(--accent)}.expression-card .ex-meaning{font-size:0.82rem;color:var(--text-dim);margin-top:3px}
+.role-card{background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow);cursor:pointer;transition:all 0.3s}.role-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.1)}.role-card h4{font-family:'Fredoka',sans-serif;font-size:1.05rem;margin-bottom:8px}.role-card .role-points{list-style:none;padding:0}.role-card .role-points li{font-size:0.85rem;padding:3px 0;padding-left:18px;position:relative}.role-card .role-points li::before{content:'\2022';position:absolute;left:4px;color:var(--green);font-weight:700}.role-convo{display:none;background:#faf9f6;border-radius:12px;padding:16px;margin-top:12px;font-size:0.86rem;line-height:1.9}.role-convo.show{display:block}
+.mcq-feedback{display:none;padding:8px 14px;border-radius:8px;margin-top:8px;font-size:0.85rem;font-weight:600}.mcq-feedback.show{display:block}
+.quiz-meme{display:none;padding:12px;border-radius:10px;margin-top:8px;text-align:center;font-weight:700;font-size:0.95rem}.quiz-meme.show{display:block;animation:fadeIn 0.3s}.meme-correct{background:var(--green-light);color:var(--green)}.meme-wrong{background:var(--red-light);color:var(--red)}.meme-emoji{font-size:1.8rem;display:block;margin-bottom:4px}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}.shake{animation:shake 0.4s}
+.confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confetti-fall 1.5s ease-out forwards;pointer-events:none}@keyframes confetti-fall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(200px) rotate(720deg);opacity:0}}
+.score-banner{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);padding:8px 16px;display:flex;justify-content:center;align-items:center;gap:18px;box-shadow:0 -2px 10px rgba(0,0,0,0.06);z-index:99;font-family:'Fredoka',sans-serif}.score-item{text-align:center}.score-item .label{font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}.score-item .val{font-size:1.1rem;font-weight:700}
+.pb-80{padding-bottom:80px}.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}.text-center{text-align:center}.hidden{display:none}
+.session-nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:16px 0}.session-nav a{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:10px;font-size:0.8rem;font-weight:600;text-decoration:none;border:2px solid var(--border);color:var(--text-dim);transition:all 0.2s}.session-nav a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}.session-nav a.active{border-color:var(--accent);background:var(--accent);color:#fff}.session-nav a.disabled{opacity:0.4;pointer-events:none}
+.notes-area{width:100%;min-height:100px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe}.notes-area:focus{outline:none;border-color:var(--accent)}
+.section-check{display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}.section-check input{accent-color:var(--green);width:16px;height:16px}
+.slideshow{position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:14px 0}.slide-viewport{overflow:hidden}.slide-track{display:flex;transition:transform 0.4s ease}.slide{min-width:100%;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;text-align:center;background:var(--card)}.slide img{display:block;object-fit:contain;width:100%;height:auto}.slide-controls{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid var(--border);background:#faf9f6}.slide-btn{background:var(--accent);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-family:'Fredoka',sans-serif}.slide-btn:hover{background:#cf9430;transform:scale(1.1)}.slide-btn:disabled{background:var(--border);cursor:default;transform:none}.slide-counter{font-family:'Fredoka',sans-serif;font-size:0.85rem;color:var(--text-dim)}.slide-dots{display:flex;gap:6px;justify-content:center}.slide-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all 0.3s;cursor:pointer}.slide-dot.active{background:var(--accent);transform:scale(1.3)}
+.assessment-box{background:linear-gradient(135deg,#fef3c7,#fce8f4);border:3px solid var(--accent);border-radius:var(--radius);padding:28px;margin:20px 0;box-shadow:0 4px 20px rgba(232,168,56,0.2)}.assessment-box h3{font-family:'Fredoka',sans-serif;color:var(--accent);font-size:1.3rem;margin-bottom:12px}
+@media(max-width:600px){.cheat-grid{grid-template-columns:1fr}.vocab-grid{grid-template-columns:1fr}.recap-grid{grid-template-columns:1fr 1fr}.expression-grid{grid-template-columns:1fr}.slide{padding:10px}}
+</style>
+</head>
+<body class="pb-80">
+
+<div class="hero">
+  <div class="hero-emoji">&#x1F3A8;</div>
+  <h1>Session 12: Describing Clothes</h1>
+  <p class="sub">Adjective Order &amp; Final Assessment!</p>
+  <div class="badge-row">
+    <span class="badge">&#x1F4DA; OSASCOMP</span>
+    <span class="badge">&#x1F3A8; Patterns &amp; Materials</span>
+    <span class="badge">&#x1F6CD; Shopping</span>
+    <span class="badge">&#x1F3AF; Final Assessment</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="session-nav" style="margin-top:16px">
+    <a href="session-1.html">S1</a><a href="session-2.html">S2</a><a href="session-3.html">S3</a><a href="session-4.html">S4</a><a href="session-5.html">S5</a><a href="session-6.html">S6</a><a href="session-7.html">S7</a><a href="session-8.html">S8</a><a href="session-9.html">S9</a><a href="session-10.html">S10</a><a href="session-11.html">S11</a><a class="active">S12</a>
+  </div>
+
+  <div class="method-banner">
+    <div style="font-family:'Fredoka',sans-serif;font-weight:600;text-align:center">&#x1F3AF; Study Method</div>
+    <div class="method-steps">
+      <span class="method-step" style="background:var(--yellow-light);color:#b8860b">&#x1F501; Recap</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--blue-light);color:var(--blue)">&#x1F3A7; Listen</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--accent-light);color:var(--accent)">&#x1F4DA; Vocab</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--pink-light);color:var(--pink)">&#x1F4D6; Read</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--orange-light);color:var(--orange)">&#x1F5E3; Speak</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Quiz</span>
+    </div>
+  </div>
+
+  <nav class="nav" style="margin-top:16px;border-radius:var(--radius);border:1px solid var(--border)">
+    <div class="nav-inner">
+      <a href="#progress">Progress</a><a href="#recap">Recap</a><a href="#listen">Listen</a><a href="#vocab">Vocab</a><a href="#idioms">Idioms</a><a href="#grammar">Grammar</a><a href="#reading">Reading</a><a href="#speaking">Speaking</a><a href="#roleplay">Roleplay</a><a href="#assessment">Assessment</a><a href="#email">Email</a><a href="#writing">Writing</a><a href="#quiz">Quiz</a><a href="#summary">Summary</a><a href="#notes">Notes</a>
+    </div>
+  </nav>
+
+  <!-- PROGRESS -->
+  <div class="section" id="progress">
+    <div class="progress-wrap"><div class="progress-label"><span>&#x1F4C8; Overall Progress</span><span id="progress-pct">0%</span></div><div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div></div>
+  </div>
+
+  <!-- RECAP -->
+  <div class="section" id="recap">
+    <span class="section-label" style="background:var(--yellow-light);color:#b8860b">&#x1F501; Review</span>
+    <h2>Grammar Recap: Sessions 1&ndash;11</h2>
+    <div class="recap-grid">
+      <div class="recap-chip"><div class="num">S1</div><div class="topic">will / going to</div><div class="detail">Future</div></div>
+      <div class="recap-chip"><div class="num">S2</div><div class="topic">-ing / to+inf</div><div class="detail">Verbs</div></div>
+      <div class="recap-chip"><div class="num">S3</div><div class="topic">some / any</div><div class="detail">Quantities</div></div>
+      <div class="recap-chip"><div class="num">S4</div><div class="topic">this / that</div><div class="detail">Demonstratives</div></div>
+      <div class="recap-chip"><div class="num">S5</div><div class="topic">Past cont.</div><div class="detail">Past events</div></div>
+      <div class="recap-chip"><div class="num">S6</div><div class="topic">very / too</div><div class="detail">Intensifiers</div></div>
+      <div class="recap-chip"><div class="num">S7</div><div class="topic">need to/want to</div><div class="detail">Needs</div></div>
+      <div class="recap-chip"><div class="num">S8</div><div class="topic">should/have to</div><div class="detail">Advice</div></div>
+      <div class="recap-chip"><div class="num">S9</div><div class="topic">What a+Noun!</div><div class="detail">Exclamations</div></div>
+      <div class="recap-chip"><div class="num">S10</div><div class="topic">Don&#39;t+verb</div><div class="detail">Neg. Imper.</div></div>
+      <div class="recap-chip"><div class="num">S11</div><div class="topic">Plurals</div><div class="detail">Noun forms</div></div>
+      <div class="recap-chip recap-current"><div class="num">S12</div><div class="topic">Adj. Order</div><div class="detail">This session</div></div>
+    </div>
+    <div class="card">
+      <h3>&#x270F; Fill-in Recap Quiz (S1&ndash;S11)</h3>
+      <div id="recap-exercises"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--accent);color:#fff" onclick="checkRecap()">Check</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryRecap()">Retry</button>
+        <span id="recap-score" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LISTEN -->
+  <div class="section" id="listen">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F3A7; Listen</span>
+    <h2>Listening Activities</h2>
+    <div class="card">
+      <h3>&#x1F399; NLM Overview Video</h3>
+      <iframe src="https://drive.google.com/file/d/15cBT6ig5LWM68N3mi6GzKOXRoG10K1ZU/preview" style="width:100%;height:400px;border:0;border-radius:12px" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="card">
+      <h3>&#x1F3A7; Deep Dive: The Secret Hierarchy of Adjectives</h3>
+      <iframe src="https://drive.google.com/file/d/1JuXFZUx_-1NXVdPK9jvXumvL15rvAQtW/preview" style="width:100%;height:80px;border:0;border-radius:12px"></iframe>
+    </div>
+    <div class="card">
+      <h3>&#x23F1; Quick Review: Hidden Rules for Describing Clothes</h3>
+      <iframe src="https://drive.google.com/file/d/1wl7eAainZ9IWE-etMR5X_vCQ6lNmmJT1/preview" style="width:100%;height:80px;border:0;border-radius:12px"></iframe>
+    </div>
+    <div class="card">
+      <h3>&#x1F3A7; Listening 1: Describing Clothes (YouTube)</h3>
+      <iframe src="https://drive.google.com/file/d/1bx4WW6S_eJhJHY73EmHge9raGiBK0Ltk/preview" style="width:100%;height:400px;border:0;border-radius:12px" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      
+    </div>
+    <div class="card">
+      <h3>&#x1F3A7; Listening 2: Shopping Conversation</h3>
+      <audio controls preload="none" style="width:100%;display:block;border-radius:12px"><source src="https://scemoodle.aucegypt.edu/pluginfile.php/3170085/mod_hvp/content/171800/audios/files-6829a8ebcc233.mp3" type="audio/mpeg"></audio>
+      <h4 style="margin:16px 0 8px;font-family:'Fredoka',sans-serif">True or False</h4>
+      <div id="listen2-tf"></div>
+      <h4 style="margin:16px 0 8px;font-family:'Fredoka',sans-serif">Multiple Choice</h4>
+      <div id="listen2-mcq"></div>
+    </div>
+  </div>
+
+  <!-- VOCAB -->
+  <div class="section" id="vocab">
+    <span class="section-label" style="background:var(--accent-light);color:var(--accent)">&#x1F4DA; Vocabulary</span>
+    <h2>Patterns, Materials &amp; Descriptions</h2>
+    <div class="slideshow">
+      <h3 style="padding:16px 16px 0;font-family:'Fredoka',sans-serif">&#x1F4CA; Vocabulary Slides</h3>
+      <div class="slide-viewport"><div class="slide-track" id="vocabTrack"></div></div>
+      <div class="slide-controls">
+        <button class="slide-btn" id="vocabPrev" onclick="slideNav('vocab',-1)">&larr;</button>
+        <div><span class="slide-counter" id="vocabCounter">1 / 1</span><div class="slide-dots" id="vocabDots"></div></div>
+        <button class="slide-btn" id="vocabNext" onclick="slideNav('vocab',1)">&rarr;</button>
+      </div>
+    </div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">&#x1F3A8; Patterns</h3>
+    <div class="vocab-grid" id="vg-patterns"></div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">&#x1F9F5; Materials</h3>
+    <div class="vocab-grid" id="vg-materials"></div>
+    <h3 style="margin:20px 0 10px;font-family:'Fredoka',sans-serif">&#x1F4CF; Fit &amp; Style</h3>
+    <div class="vocab-grid" id="vg-fit"></div>
+    <div class="card mt-20">
+      <h3>&#x270F; Vocabulary Exercise</h3>
+      <div id="vocab-ex-rows"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--accent);color:#fff" onclick="checkVocabEx()">Check</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryVocabEx()">Retry</button>
+        <span id="vocab-result" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- IDIOMS -->
+  <div class="section" id="idioms">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink)">&#x1F4AC; Idioms</span>
+    <h2>Shopping &amp; Fashion Idioms</h2>
+    <div class="expression-grid">
+      <div class="expression-card"><div class="phrase">shop till you drop</div><div class="ex-meaning">Shop for a very long time until you are tired</div></div>
+      <div class="expression-card"><div class="phrase">dress down</div><div class="ex-meaning">Wear casual, informal clothes</div></div>
+      <div class="expression-card"><div class="phrase">cut from the same cloth</div><div class="ex-meaning">Very similar in character</div></div>
+      <div class="expression-card"><div class="phrase">a fashion victim</div><div class="ex-meaning">Someone who follows every trend, even bad ones</div></div>
+      <div class="expression-card"><div class="phrase">have a trick up your sleeve</div><div class="ex-meaning">Have a secret plan or surprise</div></div>
+      <div class="expression-card"><div class="phrase">put on your thinking cap</div><div class="ex-meaning">Think carefully about something</div></div>
+      <div class="expression-card"><div class="phrase">knock someone&#39;s socks off</div><div class="ex-meaning">Impress someone very much</div></div>
+    </div>
+  </div>
+
+  <!-- GRAMMAR -->
+  <div class="section" id="grammar">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span>
+    <h2>Adjective Order (OSASCOMP)</h2>
+    <div class="slideshow">
+      <h3 style="padding:16px 16px 0;font-family:'Fredoka',sans-serif">&#x1F4CA; Grammar Slides</h3>
+      <div class="slide-viewport"><div class="slide-track" id="grammarTrack"></div></div>
+      <div class="slide-controls">
+        <button class="slide-btn" id="grammarPrev" onclick="slideNav('grammar',-1)">&larr;</button>
+        <div><span class="slide-counter" id="grammarCounter">1 / 1</span><div class="slide-dots" id="grammarDots"></div></div>
+        <button class="slide-btn" id="grammarNext" onclick="slideNav('grammar',1)">&rarr;</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>&#x1F4CB; OSASCOMP Rule</h3>
+      <p style="font-size:0.88rem;margin-bottom:12px">When using multiple adjectives, follow this order:</p>
+      <table class="grammar-table">
+        <tr><th>Letter</th><th>Category</th><th>Examples</th></tr>
+        <tr><td><span class="demo-word">O</span></td><td>Opinion</td><td>beautiful, ugly, nice, lovely</td></tr>
+        <tr><td><span class="demo-word">S</span></td><td>Size</td><td>big, small, long, short, tiny</td></tr>
+        <tr><td><span class="demo-word">A</span></td><td>Age/Shape</td><td>new, old, round, square</td></tr>
+        <tr><td><span class="demo-word">S</span></td><td>Shape</td><td>round, square, rectangular</td></tr>
+        <tr><td><span class="demo-word">C</span></td><td>Color</td><td>red, blue, green, black</td></tr>
+        <tr><td><span class="demo-word">O</span></td><td>Origin</td><td>Italian, Egyptian, French</td></tr>
+        <tr><td><span class="demo-word">M</span></td><td>Material</td><td>cotton, leather, silk, wool</td></tr>
+        <tr><td><span class="demo-word">P</span></td><td>Purpose</td><td>running (shoes), wedding (dress)</td></tr>
+      </table>
+      <div class="tip-box"><strong>Example:</strong> &ldquo;a <em>beautiful</em> (O) <em>long</em> (S) <em>red</em> (C) <em>Italian</em> (O) <em>silk</em> (M) <em>evening</em> (P) dress&rdquo;</div>
+    </div>
+    <div class="card">
+      <h3>&#x270F; Grammar Exercises</h3>
+      <div id="grammar-exercises"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button class="btn" style="background:var(--green);color:#fff" onclick="checkGrammar()">Check</button>
+        <button class="btn" style="background:#eee;color:var(--text)" onclick="retryGrammar()">Retry</button>
+        <span id="grammar-score" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- READING -->
+  <div class="section" id="reading">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink)">&#x1F4D6; Reading</span>
+    <h2>Shopping for Clothes</h2>
+    <div class="card" style="line-height:1.9;font-size:0.9rem">
+      <p>Sarah and Emma went shopping at the mall. Sarah wanted to buy a <strong>new dress</strong> for a party. She found a <strong>beautiful long red silk dress</strong>. &ldquo;This is gorgeous!&rdquo; she said.</p>
+      <p style="margin-top:10px">Emma was looking for something more <strong>casual</strong>. She picked up a <strong>nice short-sleeved cotton t-shirt</strong> with a <strong>floral pattern</strong>. &ldquo;I love the colors!&rdquo; she said.</p>
+      <p style="margin-top:10px">Then they went to the shoe section. Sarah tried on some <strong>elegant black leather high heels</strong>. Emma chose <strong>comfortable white cotton sneakers</strong>. &ldquo;These are perfect for walking!&rdquo; Emma said.</p>
+      <p style="margin-top:10px">Before leaving, they stopped at the accessories section. Sarah bought a <strong>small round gold necklace</strong>, and Emma found a <strong>big striped wool scarf</strong>. They both agreed: shopping is more fun with a friend!</p>
+    </div>
+    <div class="card">
+      <h3>&#x270F; True or False</h3>
+      <div id="reading-tf"></div>
+    </div>
+    <div class="card">
+      <h3>&#x270F; Adjective Fill-in</h3>
+      <div id="reading-mcq"></div>
+    </div>
+  </div>
+
+  <!-- SPEAKING -->
+  <div class="section" id="speaking">
+    <span class="section-label" style="background:var(--orange-light);color:var(--orange)">&#x1F5E3; Speaking</span>
+    <h2>Speaking Practice</h2>
+    <div class="challenge-box">
+      <h3>&#x23F1; 1-Minute Challenge</h3>
+      <p style="margin-top:8px;font-size:0.88rem">Describe your favorite outfit using OSASCOMP adjective order. Include pattern, material, and color!</p>
+      <p style="font-size:0.82rem;color:var(--text-dim);margin-top:6px">Example: &ldquo;My favorite outfit is a beautiful long blue cotton dress with a floral pattern...&rdquo;</p>
+      <div style="margin-top:14px"><button class="btn" style="background:var(--accent);color:#fff;padding:10px 24px;font-size:1rem" onclick="startTimer(this)">&#x25B6; Start Timer</button><span id="timer-display" style="font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;color:var(--accent);margin-left:16px">60s</span></div>
+    </div>
+  </div>
+
+  <!-- ROLEPLAY -->
+  <div class="section" id="roleplay">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F3AD; Roleplay</span>
+    <h2>Roleplay Scenarios</h2>
+    <div class="role-card" onclick="toggleRole('rp1')">
+      <h4>&#x1F6CD; Scenario 1: At the Clothes Shop</h4>
+      <ul class="role-points"><li>Ask about sizes, colors, and materials</li><li>Describe what you want using adjective order</li><li>Give compliments to your friend</li></ul>
+      <div class="role-convo" id="rp1-convo"><p><strong>You:</strong> I&#39;m looking for a nice long-sleeved cotton shirt. Do you have one in blue?</p><p><strong>Shop:</strong> Yes! We have a beautiful new blue cotton one. What size?</p><p><strong>You:</strong> Medium, please. And my friend needs a pair of elegant black leather shoes.</p><p><strong>Shop:</strong> These Italian leather shoes just arrived!</p><p><strong>Friend:</strong> Wow, those are gorgeous! They&#39;ll knock everyone&#39;s socks off!</p></div>
+    </div>
+    <div class="role-card" onclick="toggleRole('rp2')">
+      <h4>&#x1F457; Scenario 2: Giving Compliments</h4>
+      <ul class="role-points"><li>Compliment your friend&#39;s outfit</li><li>Use adjective order correctly</li><li>Use fashion idioms</li></ul>
+      <div class="role-convo" id="rp2-convo"><p><strong>You:</strong> Wow! That&#39;s a gorgeous short red silk dress! You look amazing!</p><p><strong>Friend:</strong> Thank you! I bought it at the new mall. It was expensive but it fits like a glove!</p><p><strong>You:</strong> You&#39;re dressed to the nines! And those elegant small gold earrings are perfect!</p><p><strong>Friend:</strong> You look great too! I love your big striped wool scarf!</p></div>
+    </div>
+  </div>
+
+  <!-- ASSESSMENT -->
+  <div class="section" id="assessment">
+    <span class="section-label" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Assessment</span>
+    <h2>Final Assessment: Dialogue (25 points)</h2>
+    <div class="assessment-box">
+      <h3>&#x1F3AD; Dialogue Assessment</h3>
+      <p style="font-size:0.9rem;margin-bottom:12px">With a partner, create and perform a <strong>dialogue</strong> about shopping for clothes or describing an outfit for a special occasion.</p>
+      <div style="background:var(--card);border-radius:12px;padding:16px;margin:12px 0">
+        <h4 style="font-family:'Fredoka',sans-serif;margin-bottom:8px">Requirements:</h4>
+        <div class="checklist" id="assess-checklist">
+          <label><input type="checkbox"> Use at least 8 clothing vocabulary words</label>
+          <label><input type="checkbox"> Use correct adjective order (OSASCOMP) at least 3 times</label>
+          <label><input type="checkbox"> Use at least 2 fashion idioms</label>
+          <label><input type="checkbox"> Use plural nouns correctly</label>
+          <label><input type="checkbox"> Give and respond to compliments</label>
+          <label><input type="checkbox"> Include patterns, colors, and materials</label>
+          <label><input type="checkbox"> Dialogue is at least 10 exchanges long</label>
+          <label><input type="checkbox"> Clear pronunciation and natural flow</label>
+        </div>
+      </div>
+      <div style="background:var(--card);border-radius:12px;padding:16px;margin:12px 0">
+        <h4 style="font-family:'Fredoka',sans-serif;margin-bottom:8px">Scoring (25 points):</h4>
+        <table class="grammar-table" style="margin:0">
+          <tr><th>Criteria</th><th>Points</th></tr>
+          <tr><td>Vocabulary range and accuracy</td><td>7</td></tr>
+          <tr><td>Grammar (adjective order, plurals)</td><td>6</td></tr>
+          <tr><td>Idiom usage</td><td>4</td></tr>
+          <tr><td>Fluency and pronunciation</td><td>4</td></tr>
+          <tr><td>Content and creativity</td><td>4</td></tr>
+        </table>
+      </div>
+      <h4 style="font-family:'Fredoka',sans-serif;margin:12px 0 8px">&#x270F; Practice your dialogue here:</h4>
+      <textarea class="writing-area" id="dialogue-area" style="min-height:200px" placeholder="Person A: Hi! I need to buy a new outfit for the graduation party.&#10;Person B: Let's go to the new mall! What are you looking for?&#10;Person A: I want a beautiful long..." oninput="updateDialogueWC()"></textarea>
+      <div class="word-count">Words: <span id="dialogue-wc">0</span></div>
+    </div>
+  </div>
+
+  <!-- EMAIL -->
+  <div class="section" id="email">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F4E7; Email</span>
+    <h2>Email Writing</h2>
+    <div class="card">
+      <h3>&#x270F; Write an Email</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Write an email to a friend describing a shopping trip. Describe the clothes you bought using adjective order and mention patterns, colors, and materials.</p>
+      <textarea class="writing-area" id="email-area" placeholder="Dear [name],&#10;&#10;I had the best shopping trip yesterday! Let me tell you about the clothes I bought..." oninput="updateEmailWC()"></textarea>
+      <div class="word-count">Words: <span id="email-wc">0</span></div>
+      <div class="checklist mt-12" id="email-checklist">
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Greeting</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Describes 3+ items with adjective order</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Mentions patterns and materials</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Uses at least 1 idiom</label>
+        <label><input type="checkbox" onchange="updateEmailCheck()"> Sign-off</label>
+      </div>
+      <span id="email-check-result" style="font-size:0.85rem;font-weight:600;margin-top:8px;display:block"></span>
+    </div>
+  </div>
+
+  <!-- WRITING -->
+  <div class="section" id="writing">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x270F; Writing</span>
+    <h2>Writing Practice</h2>
+    <div class="card">
+      <h3>&#x1F4DD; My Dream Outfit</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:12px">Describe your dream outfit for a special occasion. Use OSASCOMP adjective order, patterns, materials, and colors.</p>
+      <textarea class="writing-area" id="writing-area" placeholder="For my dream outfit, I would choose..." oninput="updateWritingWC()"></textarea>
+      <div class="word-count">Words: <span id="writing-wc">0</span></div>
+      <div class="checklist mt-12" id="writing-checklist">
+        <label><input type="checkbox" onchange="updateWritingCheck()"> OSASCOMP order used 3+ times</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> Patterns described</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> Materials mentioned</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> Colors included</label>
+        <label><input type="checkbox" onchange="updateWritingCheck()"> 80+ words</label>
+      </div>
+      <span id="writing-check-result" style="font-size:0.85rem;font-weight:600;margin-top:8px;display:block"></span>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section" id="quiz">
+    <span class="section-label" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Quiz</span>
+    <h2>Session 12 Quiz (20 Questions)</h2>
+    <div id="quiz-container"></div>
+    <div style="margin-top:20px;text-align:center">
+      <button class="btn" style="background:var(--accent);color:#fff;padding:12px 30px;font-size:1rem" onclick="showQuizScore()">Show My Score</button>
+      <button class="btn" style="background:#eee;color:var(--text);padding:12px 30px;font-size:1rem;margin-left:10px" onclick="retryQuiz()">Retry Quiz</button>
+      <a href="kahoot-session12.html" style="display:inline-block;margin-left:10px;padding:12px 30px;background:var(--red);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;font-size:1rem">Kahoot! &#x1F3AE;</a>
+    </div>
+    <div class="card mt-16 hidden" id="quiz-final" style="text-align:center;border:2px solid var(--border)"></div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section" id="summary">
+    <span class="section-label" style="background:var(--accent-light);color:var(--accent)">&#x1F4CB; Cheat Sheet</span>
+    <h2>Quick Reference</h2>
+    <div class="cheat-grid">
+      <div class="cheat-cell"><h4>&#x1F4DA; OSASCOMP</h4><p style="font-size:0.82rem"><strong>O</strong>pinion &rarr; <strong>S</strong>ize &rarr; <strong>A</strong>ge &rarr; <strong>S</strong>hape &rarr; <strong>C</strong>olor &rarr; <strong>O</strong>rigin &rarr; <strong>M</strong>aterial &rarr; <strong>P</strong>urpose<br><em>&ldquo;a beautiful small new round red Italian leather handbag&rdquo;</em></p></div>
+      <div class="cheat-cell"><h4>&#x1F3A8; Patterns</h4><p style="font-size:0.82rem">striped, polka-dot, checked/plaid, floral, plain, patterned</p></div>
+      <div class="cheat-cell"><h4>&#x1F9F5; Materials</h4><p style="font-size:0.82rem">cotton, leather, denim, silk, wool, polyester, linen</p></div>
+      <div class="cheat-cell"><h4>&#x274C; Common Mistakes</h4><p style="font-size:0.82rem">&#x2717; &ldquo;a red big bag&rdquo; &rarr; &#x2713; &ldquo;a big red bag&rdquo;<br>&#x2717; &ldquo;a cotton blue shirt&rdquo; &rarr; &#x2713; &ldquo;a blue cotton shirt&rdquo;</p></div>
+    </div>
+    <div class="card mt-16" style="background:linear-gradient(135deg,var(--green-light),var(--yellow-light));text-align:center;padding:30px">
+      <h3 style="font-family:'Fredoka',sans-serif;color:var(--green);font-size:1.5rem">&#x1F389; Congratulations!</h3>
+      <p style="font-size:1rem;margin-top:8px">You have completed all 12 sessions of AUC English A2A!</p>
+      <p style="font-size:0.88rem;color:var(--text-dim);margin-top:6px">Review any sessions you need, practice your dialogue for the final assessment, and keep improving your English!</p>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="section" id="notes">
+    <span class="section-label" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Notes</span>
+    <h2>My Notes</h2>
+    <div class="card"><h3>&#x1F4D3; Class Notes</h3><textarea class="notes-area" id="classNotes" placeholder="Write notes during class..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x1F4D6; Difficult Words</h3><textarea class="notes-area" id="difficultWords" style="min-height:80px" placeholder="Words you need to review..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x2753; Questions for Teacher</h3><textarea class="notes-area" id="teacherQuestions" style="min-height:80px" placeholder="Write questions for your teacher..." oninput="saveNotes()"></textarea></div>
+  </div>
+
+  <!-- TRACKER -->
+  <div class="section" id="tracker">
+    <h2>&#x2705; Progress Tracker</h2>
+    <div class="card"><h3>Check off completed sections:</h3><div id="progressChecks">
+      <label class="section-check"><input type="checkbox" data-sec="listen" onchange="updateTracker()"> &#x1F3A7; Listened to audio &amp; watched videos</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocab" onchange="updateTracker()"> &#x1F4DA; Studied vocabulary flashcards</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocabex" onchange="updateTracker()"> &#x270F; Completed vocabulary exercise</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammar" onchange="updateTracker()"> &#x1F4DD; Understood grammar rules</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammarex" onchange="updateTracker()"> &#x1F4DD; Completed grammar exercises</label>
+      <label class="section-check"><input type="checkbox" data-sec="read" onchange="updateTracker()"> &#x1F4D6; Read passage &amp; answered questions</label>
+      <label class="section-check"><input type="checkbox" data-sec="speak" onchange="updateTracker()"> &#x1F5E3; Did speaking challenge</label>
+      <label class="section-check"><input type="checkbox" data-sec="roleplay" onchange="updateTracker()"> &#x1F3AD; Practiced roleplay</label>
+      <label class="section-check"><input type="checkbox" data-sec="assess" onchange="updateTracker()"> &#x1F3AF; Prepared dialogue assessment</label>
+      <label class="section-check"><input type="checkbox" data-sec="email" onchange="updateTracker()"> &#x1F4E7; Wrote email</label>
+      <label class="section-check"><input type="checkbox" data-sec="write" onchange="updateTracker()"> &#x270F; Completed writing task</label>
+      <label class="section-check"><input type="checkbox" data-sec="quiz" onchange="updateTracker()"> &#x1F3AF; Finished quiz</label>
+      <label class="section-check"><input type="checkbox" data-sec="review" onchange="updateTracker()"> &#x1F4CB; Reviewed cheat sheet</label>
+    </div><div style="margin-top:14px"><div style="background:#e8e6e0;border-radius:8px;height:12px;overflow:hidden"><div id="trackerFill" style="height:100%;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--green));width:0%;transition:width 0.5s"></div></div><p style="font-size:0.82rem;color:var(--text-dim);margin-top:6px;text-align:center" id="trackerText">0 of 13 completed</p></div></div>
+  </div>
+
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:30px 0 20px">
+    <a href="session-11.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--blue);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">&#x2B05; Session 11</a>
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--accent);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">&#x1F3E0; Home</a>
+  </div>
+  <div style="text-align:center;padding:10px 20px 20px;color:var(--text-dim);font-size:0.78rem"><p>AUC English A2A &bull; Session 12: Describing Clothes &bull; Final Session!</p></div>
+</div>
+
+<div class="score-banner">
+  <div class="score-item"><div class="label">Cards</div><div class="val" id="sb-cards" style="color:var(--accent)">0</div></div>
+  <div class="score-item"><div class="label">Grammar</div><div class="val" id="sb-grammar" style="color:var(--green)">0</div></div>
+  <div class="score-item"><div class="label">Quiz</div><div class="val" id="sb-quiz" style="color:var(--red)">0/20</div></div>
+  <div class="score-item"><div class="label">Written</div><div class="val" id="sb-words" style="color:var(--orange)">0</div></div>
+</div>
+
+<script>
+const driveMap_The_Grammar_Lookbook_page={"0001":"1mgdGAY93qOcz-VGh7eCddpPTmKpt5Mh0","0002":"18MVIZmaBKiIWwHwvPjqEGRpjBqUyGXeF","0003":"1NJ7pEUL_2XUtvwOVrlGs3ycssld0u7zC","0004":"1tt-wtsm1uJhCMThQpVWpTXH9q0vgB8tB","0005":"1uF7uYFgtDB5CdaRbtGLlC2UMNxbkPOdT","0006":"1WZzE-46lvJcm11C86ftoA5ClGnAwqb0a","0007":"1KuSetpktij_WwSPg235nmNSyw93D5Kth","0008":"1QfpbRibLm9ev3SFJM-MTS9NJi--0wUSu","0009":"1myue7PgzB55As7O7-5I5FqH4dRBu9tDJ","0010":"11J0whmTbdoWQvnMD-PWOItUYMlMagEIQ","0011":"1l4Rk9JAJTLSsFruPvHSmHma3ITthPgr9","0012":"129LxmGQlOVjyz_vt0QJvBx7kBLA9ZyMm"};
+const driveMap_The_Fashion_Lookbook_page={"0001":"1xkCtZW8TWRpkEkEPDD5TMH9xttqMpWcu","0002":"1iGSAfk6nmsMfNx-D0XTJEcaB4Z9hbQUs","0003":"1lD_wS2hislsYU8tv-JyWR7y7-Rozer25","0004":"1QDOWWRuIHxiV_eLRbHR6QAawsZ63x-_h","0005":"113Lo0RceX-bJbQuNjhjRjyg_b3TGoLX5","0006":"1kEpGf4WgXKb1XPOIxTpSyuKnvzzTSGze","0007":"1ELK0xdS3I6dSfcO_bbwAsSFmmPFDto8B","0008":"1c0omeFcGMyyiE0bHOk7a5SIyqGT0ZtRx","0009":"1ICRf9QfO6dmmKVYe4_jAPLCk6xsQl_30","0010":"13V-oQYDeDWE1GpUXopGrrlnMW0F7Vnq1","0011":"1R9lM3Zvso15i5y4s4GM9dAPr9tv6FNU_","0012":"14c6cKF-K3-07zcCV6_g-CBJseGUBLXoq","0013":"1hi7cjeoShfRCpHWJDHkeRxwM0lwkbVaQ"};
+
+function speak(w,b){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=0.85;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;if(b){b.classList.add('playing');u.onend=()=>b.classList.remove('playing')}speechSynthesis.speak(u)}
+if('speechSynthesis' in window)speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
+
+const patternsVocab=[
+{w:"striped",p:"adj",m:"Having lines of color",ar:"مخطط",ex:"He wore a blue and white striped shirt."},
+{w:"polka-dot",p:"adj",m:"Having a pattern of round dots",ar:"منقط",ex:"She bought a cute polka-dot dress."},
+{w:"checked",p:"adj",m:"Having a pattern of squares",ar:"مربعات",ex:"The checked scarf looked warm and stylish."},
+{w:"floral",p:"adj",m:"Having a flower pattern",ar:"منقوش بالزهور",ex:"The floral dress was perfect for spring."},
+{w:"plain",p:"adj",m:"Having no pattern, one solid color",ar:"سادة",ex:"I prefer plain t-shirts without any pattern."},
+{w:"patterned",p:"adj",m:"Having a design or pattern",ar:"منقوش",ex:"The patterned skirt was very eye-catching."}
+];
+const materialsVocab=[
+{w:"cotton",p:"noun",m:"A soft natural fabric",ar:"قطن",ex:"Cotton shirts are comfortable in summer."},
+{w:"leather",p:"noun",m:"Material made from animal skin",ar:"جلد",ex:"She bought elegant black leather boots."},
+{w:"denim",p:"noun",m:"Strong cotton fabric used for jeans",ar:"دنيم",ex:"Denim jackets never go out of style."},
+{w:"silk",p:"noun",m:"A smooth, shiny luxury fabric",ar:"حرير",ex:"The beautiful red silk dress was expensive."},
+{w:"wool",p:"noun",m:"Warm fabric from sheep",ar:"صوف",ex:"Wool scarves keep you warm in winter."},
+{w:"linen",p:"noun",m:"A light natural fabric",ar:"كتان",ex:"Linen clothes are perfect for hot weather."}
+];
+const fitVocab=[
+{w:"tight",p:"adj",m:"Fitting very closely to the body",ar:"ضيق",ex:"These jeans are too tight. I need a bigger size."},
+{w:"loose",p:"adj",m:"Not fitting closely, baggy",ar:"واسع",ex:"I prefer loose clothes for comfort."},
+{w:"long-sleeved",p:"adj",m:"Having sleeves that cover the arms",ar:"كم طويل",ex:"Wear a long-sleeved shirt for the interview."},
+{w:"short-sleeved",p:"adj",m:"Having short sleeves",ar:"كم قصير",ex:"Short-sleeved shirts are good for summer."},
+{w:"elegant",p:"adj",m:"Stylish and attractive in appearance",ar:"أنيق",ex:"She looked elegant in her new dress."},
+{w:"fashionable",p:"adj",m:"Following current fashion trends",ar:"عصري",ex:"Striped shirts are very fashionable this year."}
+];
+const vocabExData=[
+{q:"A shirt with lines of color is ______.",opts:["plain","striped","floral"],ans:1},
+{q:"Material made from animal skin is ______.",opts:["cotton","silk","leather"],ans:2},
+{q:"A pattern of round dots is called ______.",opts:["checked","polka-dot","striped"],ans:1},
+{q:"Clothes that fit very closely are ______.",opts:["loose","tight","plain"],ans:1},
+{q:"A soft natural fabric for summer is ______.",opts:["cotton","leather","wool"],ans:0},
+{q:"A smooth luxury fabric is ______.",opts:["denim","silk","linen"],ans:1},
+{q:"A pattern of flowers is called ______.",opts:["striped","checked","floral"],ans:2},
+{q:"Warm fabric from sheep is ______.",opts:["cotton","wool","silk"],ans:1}
+];
+const grammarEx=[
+{q:"Which order is correct?",opts:["a red big bag","a big red bag","a bag big red"],ans:1},
+{q:"Which order is correct?",opts:["a cotton blue shirt","a blue cotton shirt","a shirt blue cotton"],ans:1},
+{q:"Which order is correct?",opts:["beautiful long silk dress","long beautiful silk dress","silk beautiful long dress"],ans:0},
+{q:"Which is correct?",opts:["old Italian leather shoes","Italian old leather shoes","leather old Italian shoes"],ans:0},
+{q:"Which is correct?",opts:["a small round gold necklace","a gold small round necklace","a round small gold necklace"],ans:0},
+{q:"In OSASCOMP, what comes first?",opts:["Size","Opinion","Color"],ans:1},
+{q:"In OSASCOMP, Material comes ______ Color.",opts:["before","after","with"],ans:1},
+{q:"Which describes the correct OSASCOMP order?",opts:["Color, Size, Opinion","Opinion, Size, Color","Size, Color, Opinion"],ans:1},
+{q:"'a ______ new ______ cotton t-shirt' — fill the gaps.",opts:["nice, white","white, nice","cotton, nice"],ans:0},
+{q:"Which is correct?",opts:["elegant black leather high heels","black elegant leather high heels","leather black elegant high heels"],ans:0}
+];
+const recapEx=[
+{q:"I ______ go shopping this weekend.",opts:["will","going to","am"],ans:0},
+{q:"She is ______ buy that beautiful silk dress.",opts:["will","going to","want"],ans:1},
+{q:"He enjoys ______ to the mall with friends.",opts:["go","going","to go"],ans:1},
+{q:"They decided ______ matching outfits for the party.",opts:["wear","wearing","to wear"],ans:2},
+{q:"Do you have ______ silk scarves in stock?",opts:["some","any","much"],ans:1},
+{q:"I found ______ amazing deals at the sale.",opts:["some","any","much"],ans:0},
+{q:"______ leather jacket over there looks expensive.",opts:["This","That","Those"],ans:1},
+{q:"______ shoes in the window are on sale.",opts:["This","These","Those"],ans:2},
+{q:"I ______ trying on clothes when the shop closed.",opts:["was","were","am"],ans:0},
+{q:"While they ______ looking at dresses, it started raining.",opts:["was","were","is"],ans:1},
+{q:"This dress is ______ tight. I need a larger size.",opts:["very","too","much"],ans:1},
+{q:"Her outfit is ______ beautiful!",opts:["very","too","real"],ans:0},
+{q:"I ______ buy a new coat before winter.",opts:["need to","need","needs to"],ans:0},
+{q:"She ______ try on those red shoes.",opts:["wants to","want to","wants"],ans:0},
+{q:"You ______ wear white to a muddy festival.",opts:["should","shouldn't","don't have to"],ans:1},
+{q:"Students ______ wear uniforms at this school.",opts:["have to","has to","should"],ans:0},
+{q:"What a ______ dress she is wearing!",opts:["gorgeous","gorgeously","gorge"],ans:0},
+{q:"What ______ stylish outfit!",opts:["a","an","the"],ans:0},
+{q:"______ wear those shoes — they are broken!",opts:["Don't","Not","Doesn't"],ans:0},
+{q:"The plural of 'scarf' is ______.",opts:["scarfs","scarves","scarfes"],ans:1},
+{q:"Which word is always plural?",opts:["dress","scarf","scissors"],ans:2},
+{q:"'Clothing' is ______.",opts:["countable","uncountable","always plural"],ans:1}
+];
+const listen2TF=[
+{q:"The customer is looking for a dress for a wedding.",a:true},
+{q:"The shop assistant suggests a polka-dot dress.",a:false},
+{q:"The customer tries on a medium size.",a:true},
+{q:"The customer buys shoes at the same shop.",a:true},
+{q:"The customer doesn't like any of the dresses.",a:false}
+];
+const listen2Data=[
+{q:"What color dress does the customer want?",opts:["Red","Blue","Black"],ans:0},
+{q:"What material is the dress made of?",opts:["Cotton","Silk","Wool"],ans:1},
+{q:"How does the dress fit?",opts:["Too loose","Too tight","Perfectly"],ans:2},
+{q:"What pattern does the scarf have?",opts:["Floral","Striped","Plain"],ans:1},
+{q:"What does the customer say about the shoes?",opts:["Too expensive","Very comfortable","Wrong color"],ans:1},
+{q:"The shop assistant gives a ______ on the total price.",opts:["discount","bag","receipt"],ans:0},
+{q:"What is the customer's opinion about the dress?",opts:["It's ugly","It's gorgeous","It's boring"],ans:1},
+{q:"What compliment does the assistant give?",opts:["Nice hair","It suits you perfectly","Good choice of bag"],ans:1}
+];
+const readingTF=[
+{q:"Sarah wanted to buy a new shirt for a party.",a:false},
+{q:"Emma chose a floral pattern t-shirt.",a:true},
+{q:"Sarah tried on leather high heels.",a:true},
+{q:"Emma bought a striped wool scarf.",a:false},
+{q:"Both friends enjoyed shopping together.",a:true}
+];
+const readingMCQ=[
+{q:"Sarah found a 'beautiful long red silk dress.' What is the correct adjective order here?",opts:["Opinion-Size-Color-Material","Size-Opinion-Material-Color","Color-Size-Material-Opinion"],ans:0},
+{q:"Emma chose 'comfortable white cotton sneakers.' The order is:",opts:["Opinion-Color-Material","Color-Material-Opinion","Material-Opinion-Color"],ans:0},
+{q:"Sarah bought a 'small round gold necklace.' The order is:",opts:["Size-Shape-Material","Shape-Size-Material","Material-Size-Shape"],ans:0},
+{q:"Which adjective describes Emma's t-shirt pattern?",opts:["Striped","Floral","Checked"],ans:1},
+{q:"What material were Sarah's high heels?",opts:["Cotton","Silk","Leather"],ans:2},
+{q:"Fill in: 'a ______ long red silk dress'",opts:["beautiful","red","silk"],ans:0},
+{q:"Fill in: 'comfortable ______ cotton sneakers'",opts:["small","white","old"],ans:1},
+{q:"Fill in: 'a big striped ______ scarf'",opts:["wool","small","red"],ans:0}
+];
+const quizData=[
+{q:"A pattern of lines = ?",opts:["floral","striped","checked"],ans:1,cat:"Vocab"},
+{q:"Material made from animal skin = ?",opts:["cotton","silk","leather"],ans:2,cat:"Vocab"},
+{q:"A smooth luxury fabric = ?",opts:["denim","silk","wool"],ans:1,cat:"Vocab"},
+{q:"Clothes that fit closely = ?",opts:["loose","plain","tight"],ans:2,cat:"Vocab"},
+{q:"Having no pattern = ?",opts:["plain","floral","striped"],ans:0,cat:"Vocab"},
+{q:"Which OSASCOMP order is correct?",opts:["a red big bag","a big red bag","a bag red big"],ans:1,cat:"Grammar"},
+{q:"Which is correct?",opts:["a cotton blue shirt","a blue cotton shirt","a shirt cotton blue"],ans:1,cat:"Grammar"},
+{q:"In OSASCOMP, Opinion comes ______.",opts:["last","first","after color"],ans:1,cat:"Grammar"},
+{q:"Which is correct?",opts:["elegant black Italian leather","Italian elegant black leather","leather black Italian elegant"],ans:0,cat:"Grammar"},
+{q:"Material comes ______ Color in OSASCOMP.",opts:["before","after","same"],ans:1,cat:"Grammar"},
+{q:"What pattern is Emma's t-shirt in the reading?",opts:["Striped","Floral","Checked"],ans:1,cat:"Reading"},
+{q:"What material were Sarah's high heels?",opts:["Cotton","Leather","Silk"],ans:1,cat:"Reading"},
+{q:"What color dress does the customer want (Listening 2)?",opts:["Red","Blue","Black"],ans:0,cat:"Listening"},
+{q:"How does the dress fit?",opts:["Too loose","Too tight","Perfectly"],ans:2,cat:"Listening"},
+{q:"'shop till you drop' means ______.",opts:["fall while shopping","shop until very tired","drop items"],ans:1,cat:"Idioms"},
+{q:"'dress down' means ______.",opts:["wear casual clothes","feel sad","take off clothes"],ans:0,cat:"Idioms"},
+{q:"'knock someone's socks off' means ______.",opts:["hurt someone","impress very much","remove socks"],ans:1,cat:"Idioms"},
+{q:"'a fashion victim' is someone who ______.",opts:["hates fashion","follows every trend blindly","designs clothes"],ans:1,cat:"Idioms"},
+{q:"'put on your thinking cap' means ______.",opts:["wear a hat","think carefully","go shopping"],ans:1,cat:"Idioms"},
+{q:"'cut from the same cloth' means ______.",opts:["very similar","different","wearing same clothes"],ans:0,cat:"Idioms"}
+];
+const memeWrong=[{e:'\u{1F605}',t:'Fashion faux pas!'},{e:'\u{1F926}',t:'Oops! Wrong outfit!'},{e:'\u{1F62C}',t:'Almost! Try again!'},{e:'\u{1F648}',t:'That answer needs ironing!'},{e:'\u{1F480}',t:'Wardrobe malfunction!'},{e:'\u{1F62D}',t:'So close!'},{e:'\u{1FAE0}',t:'Not the right fit!'},{e:'\u{1F921}',t:'Fashion foul!'},{e:'\u{1F635}',t:'Check again!'},{e:'\u{1F9A5}',t:'Slow fashion!'}];
+const memeRight=[{e:'\u{1F389}',t:'FASHION STAR!'},{e:'\u{1F31F}',t:'Dressed for success!'},{e:'\u{1F525}',t:"FIRE outfit answer!"},{e:'\u{1F4AA}',t:'Style genius!'},{e:'\u{1F3C6}',t:'Champion!'},{e:'\u{2728}',t:'Fabulous!'},{e:'\u{1F680}',t:'Runway ready!'},{e:'\u{1F451}',t:'Fashion royalty!'}];
+let quizScore=0,quizAnswered=0;
+
+function buildVocabCards(data,cid){const c=document.getElementById(cid);if(!c)return;data.forEach(v=>{const d=document.createElement('div');d.className='vocab-card';d.onclick=e=>{if(e.target.classList.contains('tts-btn'))return;d.classList.toggle('flipped');updateSB()};const sw=v.w.replace(/'/g,"\\'").replace(/-/g,' ');d.innerHTML='<div class="vocab-inner"><div class="vocab-front"><div class="word">'+v.w+' <button class="tts-btn" onclick="event.stopPropagation();speak(\''+sw+'\',this)">\u{1F50A}</button></div><div class="pos">'+v.p+'</div><div class="hint">Tap to flip</div></div><div class="vocab-back"><div class="meaning">'+v.m+'</div><div class="arabic">'+v.ar+'</div><div class="example">"'+v.ex+'"</div></div></div>';c.appendChild(d)})}
+function buildVocabEx(){const c=document.getElementById('vocab-ex-rows');vocabExData.forEach((ex,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='vq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+ex.q+'</div>'+ex.opts.map((o,j)=>'<button class="quiz-option" onclick="checkVocabQ('+i+','+j+')">'+o+'</button>').join('');c.appendChild(d)})}
+function checkVocabQ(qi,oi){const d=document.getElementById('vq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);oi===vocabExData[qi].ans?b[oi].classList.add('correct'):(b[oi].classList.add('wrong'),b[vocabExData[qi].ans].classList.add('correct'))}
+function checkVocabEx(){let s=0;vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);if(d.querySelector('.correct')&&!d.querySelector('.wrong'))s++});const r=document.getElementById('vocab-result');r.innerHTML=(s===vocabExData.length?'Perfect! ':'Good effort! ')+s+'/'+vocabExData.length;r.style.color=s>=6?'var(--green)':'var(--red)'}
+function retryVocabEx(){vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false})});document.getElementById('vocab-result').innerHTML=''}
+function buildMCQ(data,containerId,prefix){const c=document.getElementById(containerId);data.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id=prefix+'-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkMCQ(\''+prefix+'\','+i+','+j+')">'+o+'</button>').join('')+'<div class="mcq-feedback" id="'+prefix+'fb-'+i+'"></div>';c.appendChild(d)})}
+function checkMCQ(prefix,qi,oi){const dataMap={'l2q':listen2Data,'rq':readingMCQ};const data=dataMap[prefix];const d=document.getElementById(prefix+'-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const fb=document.getElementById(prefix+'fb-'+qi);if(oi===data[qi].ans){b[oi].classList.add('correct');fb.innerHTML='Correct!';fb.style.background='var(--green-light)';fb.style.color='var(--green)'}else{b[oi].classList.add('wrong');b[data[qi].ans].classList.add('correct');fb.innerHTML='Correct: <strong>'+data[qi].opts[data[qi].ans]+'</strong>';fb.style.background='var(--red-light)';fb.style.color='var(--red)';d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500)}fb.classList.add('show')}
+function buildTF(data,containerId,prefix){const c=document.getElementById(containerId);data.forEach((item,i)=>{const d=document.createElement('div');d.className='fill-row';d.id=prefix+'-'+i;d.setAttribute('data-answered','false');d.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+item.q+'</span><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--green);color:#fff;margin-left:auto" onclick="checkTFG(\''+prefix+'\','+i+',true)">True</button><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--red);color:#fff" onclick="checkTFG(\''+prefix+'\','+i+',false)">False</button><span class="result" id="'+prefix+'r-'+i+'"></span>';c.appendChild(d)})}
+function checkTFG(prefix,i,a){const dataMap={'l2tf':listen2TF,'rtf':readingTF};const data=dataMap[prefix];const r=document.getElementById(prefix+'-'+i);if(r.getAttribute('data-answered')==='true')return;r.setAttribute('data-answered','true');const res=document.getElementById(prefix+'r-'+i);if(a===data[i].a){res.textContent='Correct';res.style.color='var(--green)';r.style.borderColor='var(--green)';r.style.background='var(--green-light)'}else{res.textContent='Wrong: '+(data[i].a?'True':'False');res.style.color='var(--red)';r.style.borderColor='var(--red)';r.style.background='var(--red-light)';r.classList.add('shake');setTimeout(()=>r.classList.remove('shake'),500)}}
+function buildRecap(){const c=document.getElementById('recap-exercises');if(!c)return;recapEx.forEach((ex,i)=>{const row=document.createElement('div');row.className='fill-row';row.id='rex-'+i;row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('______','<select id="rsel-'+i+'"><option value="">—</option>'+ex.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>')+'</span><span class="result" id="rres-'+i+'"></span>';c.appendChild(row)})}
+function checkRecap(){let n=0;recapEx.forEach((ex,i)=>{const s=document.getElementById('rsel-'+i),r=document.getElementById('rres-'+i),row=document.getElementById('rex-'+i);if(s.value===ex.opts[ex.ans]){n++;r.textContent='Correct';r.style.color='var(--green)';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}else{r.textContent='Wrong';r.style.color='var(--red)';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}});document.getElementById('recap-score').textContent=n+'/'+recapEx.length}
+function retryRecap(){recapEx.forEach((e,i)=>{document.getElementById('rsel-'+i).value='';document.getElementById('rres-'+i).textContent='';const r=document.getElementById('rex-'+i);r.style.borderColor='var(--border)';r.style.background=''});document.getElementById('recap-score').textContent=''}
+function buildGrammar(){const c=document.getElementById('grammar-exercises');grammarEx.forEach((ex,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='gq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+ex.q+'</div>'+ex.opts.map((o,j)=>'<button class="quiz-option" onclick="checkGrammarQ('+i+','+j+')">'+o+'</button>').join('');c.appendChild(d)})}
+function checkGrammarQ(qi,oi){const d=document.getElementById('gq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);oi===grammarEx[qi].ans?b[oi].classList.add('correct'):(b[oi].classList.add('wrong'),b[grammarEx[qi].ans].classList.add('correct'))}
+function checkGrammar(){let n=0;grammarEx.forEach((e,i)=>{const d=document.getElementById('gq-'+i);if(d.querySelector('.correct')&&!d.querySelector('.wrong'))n++});document.getElementById('grammar-score').textContent=n+'/'+grammarEx.length;document.getElementById('sb-grammar').textContent=n+'/'+grammarEx.length}
+function retryGrammar(){grammarEx.forEach((e,i)=>{const d=document.getElementById('gq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false})});document.getElementById('grammar-score').textContent=''}
+function toggleRole(id){document.getElementById(id+'-convo').classList.toggle('show')}
+function buildQuiz(){const c=document.getElementById('quiz-container');quizData.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='qq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+' — '+q.cat+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkQuizQ('+i+','+j+')">'+o+'</button>').join('')+'<div class="quiz-meme" id="qm-'+i+'"></div>';c.appendChild(d)})}
+function checkQuizQ(qi,oi){const d=document.getElementById('qq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');quizAnswered++;const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const mm=document.getElementById('qm-'+qi);if(oi===quizData[qi].ans){b[oi].classList.add('correct');quizScore++;const m=memeRight[Math.floor(Math.random()*memeRight.length)];mm.className='quiz-meme meme-correct show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;createConfetti(d)}else{b[oi].classList.add('wrong');b[quizData[qi].ans].classList.add('correct');const m=memeWrong[Math.floor(Math.random()*memeWrong.length)];mm.className='quiz-meme meme-wrong show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500)}document.getElementById('sb-quiz').textContent=quizScore+'/'+quizData.length}
+function createConfetti(p){const colors=['#e8a838','#f472b6','#60a5fa','#2d9d78','#e74c3c','#a78bfa'];for(let i=0;i<10;i++){const c=document.createElement('div');c.className='confetti-piece';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.left=Math.random()*100+'%';c.style.top='-10px';c.style.animationDelay=Math.random()*0.3+'s';p.style.position='relative';p.appendChild(c);setTimeout(()=>c.remove(),2000)}}
+function showQuizScore(){const r=document.getElementById('quiz-final');r.classList.remove('hidden');const pct=Math.round(quizScore/quizData.length*100);let msg='',col='';if(pct>=90){msg="FASHION MASTER!";col='var(--green)'}else if(pct>=70){msg='Great style!';col='var(--accent)'}else if(pct>=50){msg='Good effort!';col='var(--blue)'}else{msg='Review needed!';col='var(--red)'}r.innerHTML='<div style="font-family:Fredoka,sans-serif;font-size:2.5rem;font-weight:700;color:'+col+'">'+quizScore+'/'+quizData.length+'</div><div style="font-size:1.1rem;margin-top:6px">'+pct+'% — '+msg+'</div>';r.style.borderColor=col}
+function retryQuiz(){quizScore=0;quizAnswered=0;document.getElementById('sb-quiz').textContent='0/'+quizData.length;document.getElementById('quiz-final').classList.add('hidden');quizData.forEach((q,i)=>{const d=document.getElementById('qq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false});const m=document.getElementById('qm-'+i);m.className='quiz-meme';m.innerHTML=''})}
+function startTimer(btn){btn.disabled=true;let t=60;const d=document.getElementById('timer-display');const iv=setInterval(()=>{t--;d.textContent=t+'s';d.style.color=t<=10?'var(--red)':'var(--accent)';if(t<=0){clearInterval(iv);d.textContent='Time is up!';d.style.color='var(--red)';btn.disabled=false}},1000)}
+function updateDialogueWC(){const w=document.getElementById('dialogue-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('dialogue-wc').textContent=w;updateSB()}
+function updateEmailWC(){const w=document.getElementById('email-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('email-wc').textContent=w;updateSB()}
+function updateWritingWC(){const w=document.getElementById('writing-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('writing-wc').textContent=w;updateSB()}
+function updateEmailCheck(){const ch=document.querySelectorAll('#email-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('email-check-result');r.innerHTML=n===ch.length?'All checked!':n+'/'+ch.length;r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+function updateWritingCheck(){const ch=document.querySelectorAll('#writing-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('writing-check-result');r.innerHTML=n===ch.length?'All checked!':n+'/'+ch.length;r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+function saveNotes(){try{localStorage.setItem('s12_classNotes',document.getElementById('classNotes').value);localStorage.setItem('s12_difficultWords',document.getElementById('difficultWords').value);localStorage.setItem('s12_teacherQuestions',document.getElementById('teacherQuestions').value)}catch(e){}}
+function loadNotes(){try{document.getElementById('classNotes').value=localStorage.getItem('s12_classNotes')||'';document.getElementById('difficultWords').value=localStorage.getItem('s12_difficultWords')||'';document.getElementById('teacherQuestions').value=localStorage.getItem('s12_teacherQuestions')||''}catch(e){}}
+function updateTracker(){const ch=document.querySelectorAll('#progressChecks input');let n=0;const s={};ch.forEach(c=>{if(c.checked)n++;s[c.dataset.sec]=c.checked});const pct=Math.round(n/ch.length*100);document.getElementById('trackerFill').style.width=pct+'%';document.getElementById('trackerText').textContent=n+' of '+ch.length+' completed';try{localStorage.setItem('s12_tracker',JSON.stringify(s))}catch(e){}}
+function loadTracker(){try{const s=JSON.parse(localStorage.getItem('s12_tracker')||'{}');document.querySelectorAll('#progressChecks input').forEach(c=>{if(s[c.dataset.sec])c.checked=true});updateTracker()}catch(e){}}
+function updateSB(){document.getElementById('sb-cards').textContent=document.querySelectorAll('.vocab-card.flipped').length;const ew=parseInt(document.getElementById('email-wc')?.textContent||0);const ww=parseInt(document.getElementById('writing-wc')?.textContent||0);const dw=parseInt(document.getElementById('dialogue-wc')?.textContent||0);document.getElementById('sb-words').textContent=ew+ww+dw}
+window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;if(h>0){const p=Math.min(scrollY/h*100,100);document.getElementById('progress-fill').style.width=p+'%';document.getElementById('progress-pct').textContent=Math.round(p)+'%'}});
+const slideState={grammar:{current:0,total:0},vocab:{current:0,total:0}};
+function initSlideshow(n){const t=document.getElementById(n+'Track');if(!t)return;const sl=t.querySelectorAll('.slide');slideState[n].total=sl.length;const dc=document.getElementById(n+'Dots');dc.innerHTML='';for(let i=0;i<sl.length;i++){const d=document.createElement('span');d.className='slide-dot'+(i===0?' active':'');d.onclick=()=>{slideState[n].current=i;updateSlide(n)};dc.appendChild(d)}updateSlide(n)}
+function slideNav(n,dir){const s=slideState[n];s.current=Math.max(0,Math.min(s.total-1,s.current+dir));updateSlide(n)}
+function updateSlide(n){const s=slideState[n];document.getElementById(n+'Track').style.transform='translateX(-'+s.current*100+'%)';document.getElementById(n+'Counter').textContent=(s.current+1)+' / '+s.total;document.getElementById(n+'Prev').disabled=s.current===0;document.getElementById(n+'Next').disabled=s.current===s.total-1;document.getElementById(n+'Dots').querySelectorAll('.slide-dot').forEach((d,i)=>d.classList.toggle('active',i===s.current))}
+function buildSlides(){const vt=document.getElementById('vocabTrack');for(let i=1;i<=13;i++){const s=document.createElement('div');s.className='slide';s.innerHTML='<img src="https://lh3.googleusercontent.com/d/'+driveMap_The_Fashion_Lookbook_page[String(i).padStart(4,'0')]+'" alt="Vocab Slide '+i+'" loading="lazy" style="max-width:100%;max-height:500px;border-radius:8px">';vt.appendChild(s)}const gt=document.getElementById('grammarTrack');for(let i=1;i<=12;i++){const s=document.createElement('div');s.className='slide';s.innerHTML='<img src="https://lh3.googleusercontent.com/d/'+driveMap_The_Grammar_Lookbook_page[String(i).padStart(4,'0')]+'" alt="Grammar Slide '+i+'" loading="lazy" style="max-width:100%;max-height:500px;border-radius:8px">';gt.appendChild(s)}}
+document.addEventListener('DOMContentLoaded',()=>{buildSlides();buildRecap();buildVocabCards(patternsVocab,'vg-patterns');buildVocabCards(materialsVocab,'vg-materials');buildVocabCards(fitVocab,'vg-fit');buildVocabEx();buildTF(listen2TF,'listen2-tf','l2tf');buildMCQ(listen2Data,'listen2-mcq','l2q');buildGrammar();buildTF(readingTF,'reading-tf','rtf');buildMCQ(readingMCQ,'reading-mcq','rq');buildQuiz();initSlideshow('grammar');initSlideshow('vocab');loadNotes();loadTracker()});
+</script>
+</body>
+</html>

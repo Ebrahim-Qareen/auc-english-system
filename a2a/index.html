@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AUC English A2A — Study System</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--bg:#0f0f1a;--card:#1a1a2e;--border:#2a2a4a;--accent:#a78bfa;--accent-light:rgba(167,139,250,0.12);--pink:#f472b6;--green:#34d399;--blue:#60a5fa;--orange:#fb923c;--text:#e2e8f0;--text-dim:#94a3b8;--shadow:0 4px 15px rgba(0,0,0,0.3)}
+  body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:20px}
+  .container{max-width:800px;margin:0 auto}
+  .hero{text-align:center;padding:50px 20px 40px;background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);border-radius:24px;margin-bottom:30px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(167,139,250,0.08)}
+  .hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;border-radius:50%;background:rgba(244,114,182,0.06)}
+  .hero h1{font-family:'Fredoka',sans-serif;font-size:2.4rem;font-weight:700;margin-bottom:8px;background:linear-gradient(135deg,#a78bfa,#f472b6,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .hero p{color:var(--text-dim);font-size:1rem;margin-bottom:6px}
+  .hero .badge{display:inline-block;background:rgba(255,255,255,0.15);padding:6px 18px;border-radius:20px;font-size:0.82rem;font-weight:600;margin-top:12px;color:var(--accent)}
+  .progress-overview{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 24px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .progress-overview .label{font-family:'Fredoka',sans-serif;font-size:0.9rem;color:var(--accent);white-space:nowrap}
+  .progress-bar-wrap{flex:1;min-width:200px}
+  .progress-bar{height:10px;background:#2a2a4a;border-radius:5px;overflow:hidden}
+  .progress-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--accent),var(--pink));width:83%}
+  .progress-text{font-size:0.78rem;color:var(--text-dim);margin-top:4px;text-align:right}
+  .game-banner{background:linear-gradient(135deg,#e21b3c20,#1368ce20,#d89e0020,#26890c20);border:2px solid #e21b3c40;border-radius:18px;padding:22px 24px;margin-bottom:24px;text-decoration:none;display:flex;align-items:center;gap:18px;color:var(--text);transition:all 0.3s;cursor:pointer}
+  .game-banner:hover{transform:translateY(-3px);border-color:#e21b3c80;box-shadow:0 8px 25px rgba(226,27,60,0.15)}
+  .game-icon{font-size:2.5rem;min-width:50px;text-align:center}
+  .game-info h2{font-family:'Fredoka',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:4px;background:linear-gradient(90deg,#e21b3c,#1368ce,#d89e00,#26890c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .game-info p{font-size:0.85rem;color:var(--text-dim)}
+  .game-info .game-tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+  .game-tag{font-size:0.68rem;padding:3px 10px;border-radius:12px;font-weight:700}
+  .game-tag-red{background:rgba(226,27,60,0.15);color:#f87171}
+  .game-tag-blue{background:rgba(19,104,206,0.15);color:#60a5fa}
+  .game-tag-green{background:rgba(38,137,12,0.15);color:#34d399}
+  .session-grid{display:grid;gap:16px}
+  .session-card{background:var(--card);border:2px solid var(--border);border-radius:18px;padding:24px 22px;text-decoration:none;color:var(--text);transition:all 0.3s;display:flex;align-items:center;gap:18px;position:relative;overflow:hidden}
+  .session-card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 8px 30px rgba(167,139,250,0.2)}
+  .session-card.current{border-color:var(--green);box-shadow:0 0 20px rgba(52,211,153,0.15)}
+  .session-card.current::after{content:'CURRENT';position:absolute;top:12px;right:14px;font-size:0.6rem;font-weight:700;color:var(--green);background:rgba(52,211,153,0.12);padding:2px 8px;border-radius:6px;letter-spacing:1px}
+  .session-num{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;color:var(--accent);min-width:44px;text-align:center}
+  .session-info h2{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:600;margin-bottom:3px}
+  .session-info .topic{font-size:0.82rem;color:var(--text-dim)}
+  .session-info .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+  .tag{font-size:0.68rem;padding:3px 10px;border-radius:12px;font-weight:600}
+  .tag-grammar{background:rgba(167,139,250,0.15);color:var(--accent)}
+  .tag-vocab{background:rgba(244,114,182,0.15);color:var(--pink)}
+  .tag-assess{background:rgba(52,211,153,0.15);color:var(--green)}
+  .tag-listen{background:rgba(96,165,250,0.15);color:var(--blue)}
+  .tag-idiom{background:rgba(251,191,36,0.15);color:#fbbf24}
+  .section-divider{text-align:center;margin:28px 0 16px;position:relative}
+  .section-divider::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border)}
+  .section-divider span{position:relative;background:var(--bg);padding:0 16px;font-family:'Fredoka',sans-serif;font-size:0.85rem;color:var(--text-dim);font-weight:600}
+  .message-card{background:linear-gradient(135deg,rgba(52,211,153,0.08),rgba(96,165,250,0.08));border:1px solid rgba(52,211,153,0.2);border-radius:16px;padding:20px 24px;margin-bottom:24px;text-align:center}
+  .message-card p{font-size:0.95rem;color:var(--text);line-height:1.7}
+  .message-card .sig{font-size:0.8rem;color:var(--text-dim);margin-top:8px}
+  .structure{text-align:center;margin-bottom:24px;padding:14px;background:var(--card);border-radius:14px;border:1px solid var(--border)}
+  .structure h3{font-family:'Fredoka',sans-serif;font-size:0.9rem;color:var(--accent);margin-bottom:8px}
+  .steps{display:flex;justify-content:center;flex-wrap:wrap;gap:6px}
+  .step{font-size:0.72rem;padding:4px 12px;border-radius:10px;background:var(--accent-light);color:var(--accent);font-weight:600}
+  .footer{text-align:center;margin-top:36px;padding:20px;color:var(--text-dim);font-size:0.78rem}
+  .footer a{color:var(--accent);text-decoration:none}
+  @media(max-width:600px){.hero h1{font-size:1.7rem}.session-card{padding:18px 14px;gap:12px}.session-num{font-size:1.4rem;min-width:38px}.game-banner{padding:16px;gap:12px}.game-icon{font-size:2rem;min-width:40px}.progress-overview{flex-direction:column;gap:8px}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div style="text-align:center;margin-bottom:18px"><a href="../index.html" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:10px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.82rem;background:rgba(148,163,184,0.12);color:#94a3b8;border:1px solid rgba(148,163,184,0.2)">&#x2190; All Levels</a></div>
+<div class="hero">
+  <h1>AUC English A2A</h1>
+  <p>Interactive Study System</p>
+  <p style="font-size:0.85rem;color:var(--text-dim)">Listen &bull; Read &bull; Speak &bull; Write &bull; Test &bull; Play</p>
+  <div class="badge">A2 Level &bull; 12 Sessions &bull; 200+ Quiz Questions</div>
+</div>
+<div class="message-card">
+  <p>Hey A2A family! I built this study system for all of us because we deserve something better than scattered files and confusing Moodle pages. Everything is organized, interactive, and designed to actually help us learn. Each session has audio, flashcards, grammar, quizzes, and practice — all in one place. Let's make this course easier together!</p>
+  <div class="sig">Made with love by a fellow A2A student</div>
+</div>
+<div class="progress-overview">
+  <div class="label">Course Progress</div>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+    <div class="progress-text">12 of 12 sessions — Course Complete!</div>
+  </div>
+</div>
+<a href="kahoot-game.html" class="game-banner">
+  <div class="game-icon">&#127918;</div>
+  <div class="game-info">
+    <h2>Quiz Challenge — Kahoot Style!</h2>
+    <p>Test your English with timed questions, compete with classmates on the leaderboard</p>
+    <div class="game-tags">
+      <span class="game-tag game-tag-red">120+ Questions</span>
+      <span class="game-tag game-tag-blue">Leaderboard</span>
+      <span class="game-tag game-tag-green">All Sessions</span>
+    </div>
+  </div>
+</a>
+<div class="structure">
+  <h3>Each Session Follows This Structure</h3>
+  <div class="steps">
+    <span class="step">Recap</span>
+    <span class="step">1. Listen</span>
+    <span class="step">2. Vocabulary</span>
+    <span class="step">3. Grammar</span>
+    <span class="step">4. Read</span>
+    <span class="step">5. Speak</span>
+    <span class="step">6. Roleplay</span>
+    <span class="step">7. Email</span>
+    <span class="step">8. Write</span>
+    <span class="step">9. Quiz</span>
+    <span class="step">Summary</span>
+    <span class="step">Cheat Sheet</span>
+  </div>
+</div>
+<div class="session-grid">
+  <div class="session-card" style="cursor:default">
+    <div class="session-num">1</div>
+    <div class="session-info">
+      <h2><a href="session-1.html" style="color:inherit;text-decoration:none">Birthdays</a></h2>
+      <div class="topic">Talk about birthdays, months, celebrations & future plans</div>
+      <div class="tags">
+        <span class="tag tag-grammar">will / won't</span>
+        <span class="tag tag-grammar">going to</span>
+        <span class="tag tag-vocab">Birthday words</span>
+        <span class="tag tag-vocab">celebrate, invitation, candles</span>
+        <span class="tag tag-idiom">Idioms: make a wish, blow out</span>
+        <span class="tag tag-listen">3 Audio + Video</span>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="session-1.html" style="font-size:0.75rem;color:var(--green);font-weight:700;text-decoration:none;background:rgba(52,211,153,0.12);padding:4px 12px;border-radius:8px">📖 Study Session</a>
+        <a href="kahoot-session1.html" style="font-size:0.75rem;color:#e21b3c;font-weight:700;text-decoration:none;background:rgba(226,27,60,0.1);padding:4px 12px;border-radius:8px">🎮 Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+  <div class="session-card" style="cursor:default">
+    <div class="session-num">2</div>
+    <div class="session-info">
+      <h2><a href="session-2.html" style="color:inherit;text-decoration:none">Birthday Parties</a></h2>
+      <div class="topic">Plan parties, offer & accept help, party activities</div>
+      <div class="tags">
+        <span class="tag tag-grammar">-ing form</span>
+        <span class="tag tag-vocab">Party planning</span>
+        <span class="tag tag-vocab">decorate, organize, guest</span>
+        <span class="tag tag-idiom">Idioms: have a blast, throw a party</span>
+        <span class="tag tag-listen">2 Audio + Video</span>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="session-2.html" style="font-size:0.75rem;color:var(--green);font-weight:700;text-decoration:none;background:rgba(52,211,153,0.12);padding:4px 12px;border-radius:8px">📖 Study Session</a>
+        <a href="kahoot-session2.html" style="font-size:0.75rem;color:#e21b3c;font-weight:700;text-decoration:none;background:rgba(226,27,60,0.1);padding:4px 12px;border-radius:8px">🎮 Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+  <div class="session-card" style="cursor:default">
+    <div class="session-num">3</div>
+    <div class="session-info">
+      <h2><a href="session-3.html" style="color:inherit;text-decoration:none">Street Food</a></h2>
+      <div class="topic">Order food, describe taste, talk about quantities</div>
+      <div class="tags">
+        <span class="tag tag-grammar">some / any</span>
+        <span class="tag tag-vocab">Food & adjectives</span>
+        <span class="tag tag-vocab">spicy, crispy, portion, ingredients</span>
+        <span class="tag tag-idiom">Idioms: grab a bite, mouth-watering</span>
+        <span class="tag tag-listen">2 Audio + Video</span>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="session-3.html" style="font-size:0.75rem;color:var(--green);font-weight:700;text-decoration:none;background:rgba(52,211,153,0.12);padding:4px 12px;border-radius:8px">📖 Study Session</a>
+        <a href="kahoot-session3.html" style="font-size:0.75rem;color:#e21b3c;font-weight:700;text-decoration:none;background:rgba(226,27,60,0.1);padding:4px 12px;border-radius:8px">🎮 Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+  <div class="session-card" style="cursor:default">
+    <div class="session-num">4</div>
+    <div class="session-info">
+      <h2><a href="session-4.html" style="color:inherit;text-decoration:none">Friendship</a></h2>
+      <div class="topic">Describe friends, talk about qualities & relationships</div>
+      <div class="tags">
+        <span class="tag tag-grammar">this / that / these / those</span>
+        <span class="tag tag-vocab">Personality traits</span>
+        <span class="tag tag-vocab">loyal, honest, generous, reliable</span>
+        <span class="tag tag-idiom">Idioms: get along with, count on</span>
+        <span class="tag tag-assess">Writing Assessment</span>
+        <span class="tag tag-listen">3 Audio + Video</span>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="session-4.html" style="font-size:0.75rem;color:var(--green);font-weight:700;text-decoration:none;background:rgba(52,211,153,0.12);padding:4px 12px;border-radius:8px">📖 Study Session</a>
+        <a href="kahoot-session4.html" style="font-size:0.75rem;color:#e21b3c;font-weight:700;text-decoration:none;background:rgba(226,27,60,0.1);padding:4px 12px;border-radius:8px">🎮 Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+  <div class="session-card" style="cursor:default">
+    <div class="session-num">5</div>
+    <div class="session-info">
+      <h2><a href="session-5.html" style="color:inherit;text-decoration:none">Friends on Social Media</a></h2>
+      <div class="topic">Social media friendships, online safety, reconnecting with friends</div>
+      <div class="tags">
+        <span class="tag tag-grammar">past continuous + past simple</span>
+        <span class="tag tag-vocab">Social media words</span>
+        <span class="tag tag-vocab">follower, post, share, block</span>
+        <span class="tag tag-idiom">Idioms: catch up with, lose touch</span>
+        <span class="tag tag-listen">3 Audio + Video</span>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="session-5.html" style="font-size:0.75rem;color:var(--green);font-weight:700;text-decoration:none;background:rgba(52,211,153,0.12);padding:4px 12px;border-radius:8px">📖 Study Session</a>
+        <a href="kahoot-session5.html" style="font-size:0.75rem;color:#e21b3c;font-weight:700;text-decoration:none;background:rgba(226,27,60,0.1);padding:4px 12px;border-radius:8px">🎮 Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+  <div class="section-divider"><span>Feelings Unit (Sessions 6-7)</span></div>
+  <div class="session-card" style="cursor:default">
+    <div class="session-num">6</div>
+    <div class="session-info">
+      <h2><a href="session-6.html" style="color:inherit;text-decoration:none">Feelings — Positive Emotions</a></h2>
+      <div class="topic">Express happiness, positive feelings & cultural emotions</div>
+      <div class="tags">
+        <span class="tag tag-grammar">very / really / too</span>
+        <span class="tag tag-vocab">Positive feelings</span>
+        <span class="tag tag-vocab">excited, grateful, proud, relieved</span>
+        <span class="tag tag-idiom">Idioms: over the moon, on cloud nine</span>
+        <span class="tag tag-listen">2 Audio + Video</span>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="session-6.html" style="font-size:0.75rem;color:var(--green);font-weight:700;text-decoration:none;background:rgba(52,211,153,0.12);padding:4px 12px;border-radius:8px">📖 Study Session</a>
+        <a href="kahoot-session6.html" style="font-size:0.75rem;color:#e21b3c;font-weight:700;text-decoration:none;background:rgba(226,27,60,0.1);padding:4px 12px;border-radius:8px">🎮 Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+  <div class="session-card" style="cursor:default">
+    <div class="session-num">7</div>
+    <div class="session-info">
+      <h2><a href="session-7.html" style="color:inherit;text-decoration:none">Feelings — Negative Emotions</a></h2>
+      <div class="topic">Handle negative feelings, needs vs wants, automatic thoughts</div>
+      <div class="tags">
+        <span class="tag tag-grammar">need to / want to</span>
+        <span class="tag tag-vocab">Negative feelings</span>
+        <span class="tag tag-vocab">anxious, frustrated, lonely</span>
+        <span class="tag tag-idiom">Idioms: feel down, fed up with</span>
+        <span class="tag tag-assess">Monologue Assessment</span>
+        <span class="tag tag-listen">3 Audio + Video</span>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="session-7.html" style="font-size:0.75rem;color:var(--green);font-weight:700;text-decoration:none;background:rgba(52,211,153,0.12);padding:4px 12px;border-radius:8px">📖 Study Session</a>
+        <a href="kahoot-session7.html" style="font-size:0.75rem;color:#e21b3c;font-weight:700;text-decoration:none;background:rgba(226,27,60,0.1);padding:4px 12px;border-radius:8px">🎮 Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+  <div class="section-divider"><span>Money Unit (Session 8)</span></div>
+  <div class="session-card" style="cursor:default">
+    <div class="session-num">8</div>
+    <div class="session-info">
+      <h2><a href="session-8.html" style="color:inherit;text-decoration:none">Money &amp; Budgeting</a></h2>
+      <div class="topic">Spend smart, save smart — money vocab, advice vs obligation</div>
+      <div class="tags">
+        <span class="tag tag-grammar">should / have to</span>
+        <span class="tag tag-vocab">Money vocabulary</span>
+        <span class="tag tag-vocab">savings, budget, debt, loan</span>
+        <span class="tag tag-idiom">Idioms: save up for, break the bank</span>
+        <span class="tag tag-listen">3 Audio + Video</span>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="session-8.html" style="font-size:0.75rem;color:var(--green);font-weight:700;text-decoration:none;background:rgba(52,211,153,0.12);padding:4px 12px;border-radius:8px">📖 Study Session</a>
+        <a href="kahoot-session8.html" style="font-size:0.75rem;color:#e21b3c;font-weight:700;text-decoration:none;background:rgba(226,27,60,0.1);padding:4px 12px;border-radius:8px">🎮 Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"><span>Deserted Island Unit (Sessions 9-10)</span></div>
+  <div class="session-card" style="cursor:default">
+    <div class="session-num">9</div>
+    <div class="session-info">
+      <h2><a href="session-9.html" style="color:inherit;text-decoration:none">Deserted Island</a></h2>
+      <div class="topic">Survival stories, Robinson Crusoe, and exclamations</div>
+      <div class="tags">
+        <span class="tag tag-grammar">What a + Noun Phrase</span>
+        <span class="tag tag-vocab">Survival vocabulary</span>
+        <span class="tag tag-vocab">castaway, shelter, rescue, shipwreck</span>
+        <span class="tag tag-idiom">Idioms: in the same boat, sink or swim</span>
+        <span class="tag tag-listen">2 Audio</span>
+        <span class="tag tag-assess">Assessment: Independent Writing (25pts)</span>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="session-9.html" style="font-size:0.75rem;color:var(--green);font-weight:700;text-decoration:none;background:rgba(52,211,153,0.12);padding:4px 12px;border-radius:8px">&#x1F4D6; Study Session</a>
+        <a href="kahoot-session9.html" style="font-size:0.75rem;color:#e21b3c;font-weight:700;text-decoration:none;background:rgba(226,27,60,0.1);padding:4px 12px;border-radius:8px">&#x1F3AE; Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+  <div class="session-card" style="cursor:default">
+    <div class="session-num">10</div>
+    <div class="session-info">
+      <h2><a href="session-10.html" style="color:inherit;text-decoration:none">Deserted Island Part 2</a></h2>
+      <div class="topic">Survival rules, negative imperatives, Hollywood survival movies</div>
+      <div class="tags">
+        <span class="tag tag-grammar">Don't + verb (Negative Imperative)</span>
+        <span class="tag tag-vocab">Survival vocabulary</span>
+        <span class="tag tag-vocab">captain, shelter, signal, rescue</span>
+        <span class="tag tag-idiom">Idioms: learn the ropes, out of the woods</span>
+        <span class="tag tag-listen">3 Audio</span>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="session-10.html" style="font-size:0.75rem;color:var(--green);font-weight:700;text-decoration:none;background:rgba(52,211,153,0.12);padding:4px 12px;border-radius:8px">&#x1F4D6; Study Session</a>
+        <a href="kahoot-session10.html" style="font-size:0.75rem;color:#e21b3c;font-weight:700;text-decoration:none;background:rgba(226,27,60,0.1);padding:4px 12px;border-radius:8px">&#x1F3AE; Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+  <div class="section-divider"><span>Clothing Unit (Sessions 11-12)</span></div>
+  <div class="session-card" style="cursor:default">
+    <div class="session-num">11</div>
+    <div class="session-info">
+      <h2><a href="session-11.html" style="color:inherit;text-decoration:none">Clothes &amp; Fashion</a></h2>
+      <div class="topic">Clothing vocabulary, what to wear for different occasions</div>
+      <div class="tags">
+        <span class="tag tag-grammar">Plural Nouns</span>
+        <span class="tag tag-vocab">Clothing vocabulary</span>
+        <span class="tag tag-vocab">suit, dress, sneakers, scarf, boots</span>
+        <span class="tag tag-idiom">Idioms: dressed to the nines, fit like a glove</span>
+        <span class="tag tag-listen">2 Audio + Video</span>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="session-11.html" style="font-size:0.75rem;color:var(--green);font-weight:700;text-decoration:none;background:rgba(52,211,153,0.12);padding:4px 12px;border-radius:8px">&#x1F4D6; Study Session</a>
+        <a href="kahoot-session11.html" style="font-size:0.75rem;color:#e21b3c;font-weight:700;text-decoration:none;background:rgba(226,27,60,0.1);padding:4px 12px;border-radius:8px">&#x1F3AE; Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+  <div class="session-card current" style="cursor:default">
+    <div class="session-num">12</div>
+    <div class="session-info">
+      <h2><a href="session-12.html" style="color:inherit;text-decoration:none">Describing Clothes</a></h2>
+      <div class="topic">Patterns, materials, adjective order, fashion compliments</div>
+      <div class="tags">
+        <span class="tag tag-grammar">Adjective Order</span>
+        <span class="tag tag-vocab">Describing clothes</span>
+        <span class="tag tag-vocab">striped, floral, cotton, leather, denim</span>
+        <span class="tag tag-idiom">Idioms: shop till you drop, knock someone's socks off</span>
+        <span class="tag tag-assess">Final Assessment: Dialogue (25pts)</span>
+        <span class="tag tag-listen">1 Audio + Video</span>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="session-12.html" style="font-size:0.75rem;color:var(--green);font-weight:700;text-decoration:none;background:rgba(52,211,153,0.12);padding:4px 12px;border-radius:8px">&#x1F4D6; Study Session</a>
+        <a href="kahoot-session12.html" style="font-size:0.75rem;color:#e21b3c;font-weight:700;text-decoration:none;background:rgba(226,27,60,0.1);padding:4px 12px;border-radius:8px">&#x1F3AE; Play Kahoot!</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <p>AUC English A2A Course &bull; Built with care for learning</p>
+</div>
+</div>
+</body>
+</html>

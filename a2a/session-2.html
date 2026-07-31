@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 2 - Birthday Parties | AUC English A2A</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+:root{--bg:#fdf6ee;--card:#fff;--card-alt:#fefcf7;--accent:#e8a838;--accent-light:rgba(232,168,56,0.12);--green:#2d9d78;--green-light:#e6f7f1;--orange:#e8862a;--orange-light:#fff3e6;--red:#d94f4f;--red-light:#ffeaea;--pink:#c45ba1;--pink-light:#fce8f4;--blue:#5b6abf;--blue-light:#e8eaff;--yellow:#f0c929;--yellow-light:#fef9e7;--text:#2d3142;--text-dim:#6b7280;--border:#e5e2db;--shadow:0 2px 12px rgba(0,0,0,0.06);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+h1,h2,h3{font-family:'Fredoka',sans-serif}
+.hero{background:linear-gradient(135deg,#ff6b6b 0%,#ee5a24 40%,#f0932b 100%);padding:50px 24px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.08)}
+.hero-emoji{font-size:3rem;margin-bottom:8px}
+.hero h1{font-size:2.2rem;font-weight:700;margin-bottom:4px}
+.hero .sub{opacity:0.9;font-size:1rem}
+.badge-row{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.badge{background:rgba(255,255,255,0.18);padding:4px 14px;border-radius:20px;font-size:0.78rem;font-weight:600}
+.method-banner{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin:20px auto 0;max-width:860px;box-shadow:var(--shadow)}
+.method-steps{display:flex;justify-content:center;align-items:center;gap:4px;flex-wrap:wrap;margin-top:10px}
+.method-step{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:10px;font-size:0.82rem;font-weight:600;white-space:nowrap}
+.method-arrow{color:var(--text-dim);font-size:1rem}
+.nav{position:sticky;top:0;z-index:100;background:rgba(253,246,238,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;overflow-x:auto;gap:2px;padding:8px 16px;-webkit-overflow-scrolling:touch}
+.nav-inner::-webkit-scrollbar{height:4px}
+.nav-inner::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+.nav a{color:var(--text-dim);text-decoration:none;font-size:0.8rem;font-weight:500;white-space:nowrap;padding:6px 12px;border-radius:8px;transition:all 0.2s}
+.nav a:hover{color:var(--accent);background:var(--accent-light)}
+.container{max-width:860px;margin:0 auto;padding:0 16px}
+.section{margin-top:40px;scroll-margin-top:60px}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-family:'Fredoka',sans-serif;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+.section h2{font-size:1.5rem;font-weight:700;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card h3{font-size:1.1rem;margin-bottom:10px}
+.progress-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin-top:16px;box-shadow:var(--shadow)}
+.progress-label{font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.95rem;margin-bottom:8px;display:flex;justify-content:space-between}
+.progress-bar{height:12px;background:#e8e6e0;border-radius:6px;overflow:hidden}
+.progress-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--green));transition:width 0.6s ease;width:0%}
+.recap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.recap-chip{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;box-shadow:var(--shadow);transition:transform 0.2s}
+.recap-chip:hover{transform:translateY(-2px)}
+.recap-chip .num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px}
+.recap-chip .topic{font-weight:700;font-size:0.95rem;margin:4px 0 2px}
+.recap-chip .detail{font-size:0.78rem;color:var(--text-dim)}
+.recap-current{border-color:var(--accent);background:var(--accent-light)}
+.fill-row{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:14px;margin:8px 0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fill-row select{padding:6px 10px;border-radius:8px;border:1.5px solid var(--border);font-size:0.85rem;font-family:inherit}
+.fill-row .result{font-size:0.85rem;font-weight:600;margin-left:auto}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.vocab-card{perspective:800px;height:190px;cursor:pointer}
+.vocab-inner{position:relative;width:100%;height:100%;transition:transform 0.5s;transform-style:preserve-3d}
+.vocab-card.flipped .vocab-inner{transform:rotateY(180deg)}
+.vocab-front,.vocab-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow)}
+.vocab-front{background:var(--card)}
+.vocab-front .word{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:700;color:var(--accent)}
+.vocab-front .pos{font-size:0.72rem;color:var(--text-dim);margin-top:2px}
+.vocab-front .hint{font-size:0.7rem;color:var(--pink);margin-top:8px;font-weight:500}
+.vocab-back{background:linear-gradient(135deg,var(--accent-light),#fef3c7);transform:rotateY(180deg)}
+.vocab-back .meaning{font-weight:600;font-size:0.9rem;margin-bottom:4px}
+.vocab-back .arabic{font-size:0.82rem;color:var(--pink);margin-bottom:4px}
+.vocab-back .example{font-size:0.8rem;color:var(--text-dim);font-style:italic}
+.vocab-back .collocation{font-size:0.75rem;color:var(--blue);margin-top:4px;font-weight:600}
+.tts-btn{background:none;border:none;cursor:pointer;font-size:1.1rem;padding:2px 4px;border-radius:6px;transition:all 0.2s;vertical-align:middle}
+.tts-btn:hover{background:var(--accent-light);transform:scale(1.15)}
+.tts-btn.playing{animation:pulse 0.8s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+.grammar-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;margin:12px 0;border:1px solid var(--border)}
+.grammar-table th{background:var(--accent);color:#fff;padding:10px 14px;font-weight:600;font-size:0.85rem;text-align:center}
+.grammar-table td{padding:10px 14px;text-align:center;font-size:0.88rem;border-bottom:1px solid var(--border)}
+.grammar-table tr:last-child td{border-bottom:0}
+.grammar-table tr:nth-child(even) td{background:#faf9f6}
+.demo-word{display:inline-block;background:var(--accent-light);color:var(--accent);font-weight:700;padding:2px 10px;border-radius:6px;font-size:0.85rem}
+.audio-card{background:linear-gradient(135deg,#fef9e7,#fff3e6);border:1px solid #f0dcc0;border-radius:var(--radius);padding:18px;margin-bottom:14px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.audio-icon{font-size:2rem}
+.audio-info h4{font-family:'Fredoka',sans-serif;font-size:0.95rem}
+.audio-info p{font-size:0.8rem;color:var(--text-dim)}
+.subtitle-toggle{margin-top:8px;width:100%}
+.subtitle-toggle summary{cursor:pointer;font-size:0.82rem;font-weight:600;color:var(--accent);padding:6px 0;user-select:none}
+.subtitle-text{background:#faf9f6;border-radius:10px;padding:14px 16px;margin-top:6px;font-size:0.82rem;line-height:1.9;color:var(--text);max-height:300px;overflow-y:auto}
+.quiz-q{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}
+.quiz-q .q-num{font-family:'Fredoka',sans-serif;font-size:0.72rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.quiz-q .q-text{font-weight:600;font-size:0.93rem;margin-bottom:12px}
+.quiz-option{display:block;width:100%;text-align:left;padding:10px 14px;margin-bottom:6px;background:#faf9f6;border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:0.86rem;transition:all 0.2s;font-family:'Inter',sans-serif}
+.quiz-option:hover:not(:disabled){border-color:var(--accent);background:var(--accent-light)}
+.quiz-option.correct{border-color:var(--green);background:var(--green-light);color:var(--green);font-weight:600}
+.quiz-option.wrong{border-color:var(--red);background:var(--red-light);color:var(--red)}
+.quiz-option:disabled{cursor:default}
+.btn{display:inline-block;padding:8px 20px;border:none;border-radius:10px;font-weight:600;font-size:0.88rem;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
+.btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{background:#cf9430}
+.btn-green{background:var(--green);color:#fff}.btn-green:hover{background:#248a68}
+.btn-outline{background:transparent;border:2px solid var(--accent);color:var(--accent)}.btn-outline:hover{background:var(--accent-light)}
+.writing-area{width:100%;min-height:140px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe;transition:border-color 0.2s}
+.writing-area:focus{outline:none;border-color:var(--accent)}
+.word-count{font-size:0.78rem;color:var(--text-dim);margin-top:6px;text-align:right}
+.challenge-box{background:linear-gradient(135deg,#fef9e7,#fff3e6);border:2px dashed var(--accent);border-radius:var(--radius);padding:22px;text-align:center;margin:14px 0}
+.challenge-box h3{font-family:'Fredoka',sans-serif;color:var(--accent)}
+.tip-box{background:var(--green-light);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:12px 16px;margin:10px 0;font-size:0.85rem}
+.tip-box strong{color:var(--green)}
+.checklist label{display:flex;align-items:flex-start;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}
+.checklist input[type=checkbox]{margin-top:4px;accent-color:var(--green);width:16px;height:16px}
+.cheat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cheat-cell{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+.cheat-cell h4{font-family:'Fredoka',sans-serif;font-size:0.9rem;margin-bottom:6px}
+.email-frame{background:#fff;border:1px solid #d0d0d0;border-radius:10px;overflow:hidden;margin:12px 0}
+.email-header{background:#f0f0f0;padding:10px 16px;border-bottom:1px solid #d0d0d0;font-size:0.82rem}
+.email-body{padding:16px;font-size:0.88rem;line-height:1.8}
+.expression-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:12px}
+.expression-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;box-shadow:var(--shadow);transition:transform 0.2s}
+.expression-card:hover{transform:translateY(-2px)}
+.expression-card .phrase{font-family:'Fredoka',sans-serif;font-size:0.95rem;font-weight:600;color:var(--accent)}
+.expression-card .ex-meaning{font-size:0.82rem;color:var(--text-dim);margin-top:3px}
+.role-card{background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow);cursor:pointer;transition:all 0.3s}
+.role-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.1)}
+.role-card h4{font-family:'Fredoka',sans-serif;font-size:1.05rem;margin-bottom:8px}
+.role-card .role-points{list-style:none;padding:0}
+.role-card .role-points li{font-size:0.85rem;padding:3px 0;padding-left:18px;position:relative}
+.role-card .role-points li::before{content:'\2022';position:absolute;left:4px;color:var(--green);font-weight:700}
+.role-convo{display:none;background:#faf9f6;border-radius:12px;padding:16px;margin-top:12px;font-size:0.86rem;line-height:1.9}
+.role-convo.show{display:block}
+.highlight{background:transparent;transition:background 0.5s;border-radius:4px;padding:0 2px}
+.highlight.active{background:#fef08a}
+.mcq-feedback{display:none;padding:8px 14px;border-radius:8px;margin-top:8px;font-size:0.85rem;font-weight:600}
+.mcq-feedback.show{display:block}
+.quiz-meme{display:none;padding:12px;border-radius:10px;margin-top:8px;text-align:center;font-weight:700;font-size:0.95rem}
+.quiz-meme.show{display:block;animation:fadeIn 0.3s}
+.meme-correct{background:var(--green-light);color:var(--green)}
+.meme-wrong{background:var(--red-light);color:var(--red)}
+.meme-emoji{font-size:1.8rem;display:block;margin-bottom:4px}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.shake{animation:shake 0.4s}
+.confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confetti-fall 1.5s ease-out forwards;pointer-events:none}
+@keyframes confetti-fall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(200px) rotate(720deg);opacity:0}}
+.score-banner{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);padding:8px 16px;display:flex;justify-content:center;align-items:center;gap:18px;box-shadow:0 -2px 10px rgba(0,0,0,0.06);z-index:99;font-family:'Fredoka',sans-serif}
+.score-item{text-align:center}
+.score-item .label{font-size:0.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}
+.score-item .val{font-size:1.1rem;font-weight:700}
+.pb-80{padding-bottom:80px}
+.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}
+.text-center{text-align:center}
+.hidden{display:none}
+.session-nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.session-nav a{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:10px;font-size:0.8rem;font-weight:600;text-decoration:none;border:2px solid var(--border);color:var(--text-dim);transition:all 0.2s}
+.session-nav a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.session-nav a.active{border-color:var(--accent);background:var(--accent);color:#fff}
+.session-nav a.disabled{opacity:0.4;pointer-events:none}
+.notes-area{width:100%;min-height:100px;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;background:#fefefe}
+.notes-area:focus{outline:none;border-color:var(--accent)}
+.section-check{display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer;font-size:0.88rem}
+.section-check input{accent-color:var(--green);width:16px;height:16px}
+.slideshow{position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:14px 0}
+.slide-viewport{overflow:hidden}
+.slide-track{display:flex;transition:transform 0.4s ease}
+.slide{min-width:100%;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;text-align:center;background:var(--card)}
+.slide img{display:block;object-fit:contain;width:100%;height:auto}
+.slide-controls{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid var(--border);background:#faf9f6}
+.slide-btn{background:var(--accent);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-family:'Fredoka',sans-serif}
+.slide-btn:hover{background:#cf9430;transform:scale(1.1)}
+.slide-btn:disabled{background:var(--border);cursor:default;transform:none}
+.slide-counter{font-family:'Fredoka',sans-serif;font-size:0.85rem;color:var(--text-dim)}
+.slide-dots{display:flex;gap:6px;justify-content:center}
+.slide-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all 0.3s;cursor:pointer}
+.slide-dot.active{background:var(--accent);transform:scale(1.3)}
+@media(max-width:600px){.cheat-grid{grid-template-columns:1fr}.vocab-grid{grid-template-columns:1fr}.recap-grid{grid-template-columns:1fr 1fr}.expression-grid{grid-template-columns:1fr}.slide{padding:10px}}
+</style>
+</head>
+<body class="pb-80">
+
+<div class="hero">
+  <div class="hero-emoji">&#x1F389;</div>
+  <h1>Session 2: Birthday Parties</h1>
+  <p class="sub">Plan parties, offer help &amp; use the -ing form like a pro!</p>
+  <div class="badge-row">
+    <span class="badge">&#x1F4DA; A2 Level</span>
+    <span class="badge">&#x1F3AF; -ing form + offer/refuse</span>
+    <span class="badge">&#x1F382; Party Planning</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="session-nav" style="margin-top:16px">
+    <a href="session-1.html">&#x1F382; S1</a>
+    <a href="#" class="active">&#x1F389; S2</a>
+    <a href="session-3.html">&#x1F35C; S3</a>
+    <a href="#" class="disabled">S4</a>
+    <a href="#" class="disabled">S5</a>
+    <a href="session-6.html">&#x1F60A; S6</a>
+    <a href="#" class="disabled">S7</a>
+    <a href="#" class="disabled">S8</a>
+    <a href="#" class="disabled">S9</a>
+    <a href="#" class="disabled">S10</a>
+    <a href="#" class="disabled">S11</a>
+    <a href="#" class="disabled">S12</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="method-banner">
+    <div style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem;text-align:center">&#x1F9EA; Scientifically proven learning sequence</div>
+    <div class="method-steps">
+      <span class="method-step" style="background:var(--blue-light);color:var(--blue)">&#x1F519; Recap</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--pink-light);color:var(--pink)">&#x1F3A7; Listen</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--accent-light);color:var(--accent)">&#x1F4D6; Vocab</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--green-light);color:var(--green)">&#x1F4DD; Grammar</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--orange-light);color:var(--orange)">&#x1F4D6; Read</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--pink-light);color:var(--pink)">&#x1F5E3; Speak</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--blue-light);color:var(--blue)">&#x1F3AD; Role</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--yellow-light);color:var(--orange)">&#x1F4E7; Email</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--green-light);color:var(--green)">&#x270F; Write</span><span class="method-arrow">&rarr;</span>
+      <span class="method-step" style="background:var(--red-light);color:var(--red)">&#x1F3AF; Quiz</span>
+    </div>
+  </div>
+</div>
+
+<nav class="nav"><div class="nav-inner">
+  <a href="#recap">Recap</a><a href="#listen">1. Listen</a><a href="#vocab">2. Vocab</a><a href="#grammar">3. Grammar</a><a href="#reading">4. Read</a><a href="#speaking">5. Speak</a><a href="#roleplay">6. Roleplay</a><a href="#email">7. Email</a><a href="#writing">8. Write</a><a href="#quiz">9. Quiz</a><a href="#summary">Summary</a><a href="#cheat">Cheat Sheet</a>
+</div></nav>
+
+<div class="container">
+
+  <div class="progress-wrap">
+    <div class="progress-label"><span>Your Session Progress</span><span id="progress-pct">0%</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+
+  <!-- ===== RECAP ===== -->
+  <div class="section" id="recap">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F519; Quick Recap</span>
+    <h2>&#x1F504; Recap &amp; Apply &mdash; Session 1 Grammar</h2>
+    <div class="recap-grid">
+      <div class="recap-chip"><div class="num">Session 1</div><div class="topic">&#x1F382; Birthdays</div><div class="detail">'will' for plans</div></div>
+      <div class="recap-chip recap-current"><div class="num">Now!</div><div class="topic">&#x1F389; Parties</div><div class="detail">-ing form + offer/refuse</div></div>
+    </div>
+    <div class="card" style="border-left:4px solid var(--blue)">
+      <p style="font-size:0.88rem">You learned <strong>'will'</strong> for future plans in Session 1. Now apply it to party planning!</p>
+      <div style="margin-top:10px;font-size:0.82rem;color:var(--text-dim)"><strong>S1:</strong> "I <em>will</em> celebrate my birthday with friends." / "She <em>won't</em> come to the party."</div>
+    </div>
+    <div class="card" style="border-left:4px solid var(--green)">
+      <h3>&#x1F9EA; Apply S1 Grammar to Parties</h3>
+      <p style="font-size:0.82rem;color:var(--text-dim);margin-bottom:10px">Use 'will' with party vocabulary:</p>
+      <div id="recap-exercises"></div>
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" style="background:var(--green);color:#fff" onclick="checkRecap()">Check</button>
+        <button class="btn" style="background:var(--blue);color:#fff" onclick="retryRecap()">Retry</button>
+        <span id="recap-score" style="font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:700;margin-left:auto"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== LISTEN ===== -->
+  <div class="section" id="listen">
+    <span class="section-label" style="background:var(--pink-light);color:var(--pink)">Phase 1 &mdash; Input</span>
+    <h2>&#x1F3A7; Step 1: Listen First</h2>
+    <p style="color:var(--text-dim);margin-bottom:12px;font-size:0.88rem">Listen to the pronunciation and rhythm first. Don't read yet.</p>
+
+    <div class="card" style="background:linear-gradient(135deg,#fef9e7,#fff3e6);border:1px solid rgba(232,168,56,0.2)">
+      <h3>&#x1F3AC; Birthday Party Planning &mdash; Video Lesson</h3>
+      <p style="font-size:0.88rem;color:var(--text-dim);margin-bottom:8px">Watch this fun video about planning the perfect birthday party in English!</p>
+      <video controls preload="metadata" style="width:100%;display:block;border-radius:12px"><source src="media/session-2/Birthday_Party_Planning.mp4" type="video/mp4"></video>
+    </div>
+
+    <div class="audio-card">
+      <div class="audio-icon">&#x1F3A7;</div>
+      <div class="audio-info" style="flex:1"><h4>Deep Dive: Party Planning English</h4><p>Full audio lesson &mdash; vocabulary, grammar &amp; Egyptian party culture</p></div>
+      <audio controls preload="none" style="width:100%;max-width:500px;margin-top:4px"><source src="media/session-2/Essential_English_for_Planning_Birthday_Parties.m4a" type="audio/mp4"></audio>
+    </div>
+
+    <div class="audio-card" style="background:linear-gradient(135deg,#e8eaff,#f0f0ff);border-color:#d0d3f0">
+      <div class="audio-icon">&#x1F4DE;</div>
+      <div class="audio-info" style="flex:1"><h4>Quick Review: Plan the Perfect Party</h4><p>5-minute overview &mdash; key words, grammar rule &amp; top mistake</p></div>
+      <audio controls preload="none" style="width:100%;max-width:500px;margin-top:4px"><source src="media/session-2/Plan_the_perfect_party_in_English.m4a" type="audio/mp4"></audio>
+    </div>
+
+    <div class="audio-card">
+      <div class="audio-icon">&#x1F399;</div>
+      <div class="audio-info" style="flex:1"><h4>Listening 1: My Birthday Plan</h4><p>A conversation about choosing birthday activities</p></div>
+      <audio controls preload="none" style="width:100%;max-width:500px;margin-top:4px"><source src="https://scemoodle.aucegypt.edu/pluginfile.php/3170025/mod_hvp/content/171743/audios/files-6a2008356aaf7.mp3" type="audio/mpeg"></audio>
+      <details class="subtitle-toggle"><summary>Show Transcript</summary><div class="subtitle-text"><strong>A:</strong> You're late!<br><strong>B:</strong> What time is it?<br><strong>A:</strong> Two minutes after six.<br><strong>B:</strong> I'm not late. Two minutes is not late.<br><strong>A:</strong> Yes, it is. It's two minutes late.<br><strong>B:</strong> Oh, look, it's five to six. I'm early!<br><strong>A:</strong> So, for your birthday on Saturday, there's a great French movie at the Avalon.<br><strong>B:</strong> There's a baseball game on Saturday night.<br><strong>A:</strong> Or there's a play at the Art Center at 8 p.m. It's called Life is a Dream.<br><strong>B:</strong> The Tigers are playing the Giants. You know, baseball.<br><strong>A:</strong> Oh, look, there's a Mozart concert on Saturday. Would you like to go?<br><strong>B:</strong> What time?<br><strong>A:</strong> Half past seven.<br><strong>B:</strong> The ball game's at seven.<br><strong>A:</strong> Oh, wow, there's also a talk by the writer Ellen Lee at the University.<br><strong>B:</strong> On Saturday night.<br><strong>A:</strong> Is your birthday on Saturday?<br><strong>B:</strong> No, it's YOUR birthday!<br><strong>A:</strong> Would you like to go to a baseball game for your birthday?<br><strong>B:</strong> A baseball game? That sounds great!</div></details>
+    </div>
+
+    <div class="card"><h3>&#x2753; Listening 1 &mdash; Comprehension</h3><div id="listen1-questions"></div></div>
+
+    <div class="audio-card">
+      <div class="audio-icon">&#x1F399;</div>
+      <div class="audio-info" style="flex:1"><h4>Listening 2: Planning a Party</h4><p>Tom, Lucy &amp; Sarah plan a party together</p></div>
+      <audio controls preload="none" style="width:100%;max-width:500px;margin-top:4px"><source src="https://scemoodle.aucegypt.edu/pluginfile.php/3170026/mod_hvp/content/171744/audios/files-681cf52494420.mp3" type="audio/mpeg"></audio>
+      <details class="subtitle-toggle"><summary>Show Transcript</summary><div class="subtitle-text"><strong>Tom:</strong> Hey, Lucy! I'm planning a party for Saturday. Can you help me with the decorations?<br><strong>Lucy:</strong> Oh, I'd love to help! What do you need me to do?<br><strong>Tom:</strong> Can you bring some balloons and streamers? I think they'll make the place look great.<br><strong>Lucy:</strong> Sure, I can bring balloons! Do you want me to get some colorful ones?<br><strong>Tom:</strong> Yes, please! And can you help me put them up at 4 p.m. on Saturday?<br><strong>Lucy:</strong> Of course, I'll be there. What about food? Do you need any help with that?<br><strong>Tom:</strong> I think I can handle the food. But thanks for asking!<br><strong>Lucy:</strong> No problem! Let me know if you need anything else.<br><strong>Sarah:</strong> Hi, everyone! I heard you're planning a party. Can I help with anything?<br><strong>Tom:</strong> Hi, Sarah! Well, we need some music. Can you bring a Bluetooth speaker?<br><strong>Sarah:</strong> Sure! I'll bring it. I can also help with setting up the drinks.<br><strong>Tom:</strong> That would be awesome. But I think I already have enough drinks. Thanks for offering!<br><strong>Sarah:</strong> No problem! Let me know if you need anything else. I'm happy to help.<br><strong>Tom:</strong> Thanks, everyone. I'm excited about the party!</div></details>
+    </div>
+
+    <div class="card"><h3>&#x2705; Listening 2 &mdash; True or False?</h3><div id="tf-questions"></div></div>
+  </div>
+
+  <!-- ===== VOCAB ===== -->
+  <div class="section" id="vocab">
+    <span class="section-label" style="background:var(--accent-light);color:var(--accent)">Phase 2 &mdash; Learn</span>
+    <h2>&#x1F4D6; Step 2: Vocabulary &mdash; Party Planning</h2>
+    <h3 style="margin:0 0 8px">&#x1F4CA; Vocabulary Slides</h3>
+    <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:6px">Browse all vocabulary slides with meanings, Arabic, and examples:</p>
+    <div class="slideshow" id="vocabSlides"><div class="slide-viewport"><div class="slide-track" id="vocabTrack"></div></div><div class="slide-controls"><button class="slide-btn" onclick="slideNav('vocab',-1)" id="vocabPrev" disabled>&#x2B05;</button><div><div class="slide-dots" id="vocabDots"></div><div class="slide-counter" id="vocabCounter">1 / 15</div></div><button class="slide-btn" onclick="slideNav('vocab',1)" id="vocabNext">&#x27A1;</button></div></div>
+    <h3 style="margin:20px 0 8px">&#x1F0CF; Flashcards &mdash; Party Words</h3>
+    <p style="color:var(--text-dim);margin-bottom:4px;font-size:0.88rem">Click to flip. Press &#x1F50A; to hear.</p>
+    <div class="vocab-grid" id="vg-party"></div>
+    <h3 style="margin:20px 0 8px">&#x1F0CF; Flashcards &mdash; Helping Words</h3>
+    <div class="vocab-grid" id="vg-help"></div>
+    <h3 style="margin:20px 0 8px">&#x1F0CF; Flashcards &mdash; Action Words (-ing)</h3>
+    <div class="vocab-grid" id="vg-action"></div>
+    <h3 style="margin:20px 0 10px">&#x1F525; Party Idioms</h3>
+    <div class="expression-grid" id="idiom-grid"></div>
+    <h3 style="margin:20px 0 10px">&#x270F; Vocabulary Exercise</h3>
+    <div class="card"><div id="vocab-ex-rows"></div><div class="text-center mt-12"><button class="btn btn-accent" onclick="checkVocabEx()">Check &#x2714;</button><button class="btn btn-outline" onclick="retryVocabEx()" style="margin-left:8px">Retry &#x1F504;</button></div><div id="vocab-result" class="mt-8 text-center" style="font-family:'Fredoka',sans-serif;font-size:1rem"></div></div>
+  </div>
+
+  <!-- ===== IDIOMS ===== -->
+  <div class="section" id="idioms">
+    <span class="section-label" style="background:rgba(251,191,36,0.15);color:#f59e0b">&#x1F4AC; Idioms</span>
+    <h2>Party &amp; Celebration Idioms</h2>
+    <p style="color:var(--text-dim);margin-bottom:18px">Common English idioms about parties and having fun. Each includes meaning, example, and Arabic hint.</p>
+    <div style="display:grid;gap:14px">
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F389; Throw a party</h3>
+        <p><strong>Meaning:</strong> Organize and host a party</p>
+        <p><strong>Example:</strong> "Let's <em>throw a party</em> for Ahmed's graduation!"</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> نعمل حفلة</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F57A; The life of the party</h3>
+        <p><strong>Meaning:</strong> The most fun and energetic person at a party</p>
+        <p><strong>Example:</strong> "Omar is always <em>the life of the party</em> — everyone loves him!"</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> روح الحفلة</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F388; Have a whale of a time</h3>
+        <p><strong>Meaning:</strong> Have an extremely enjoyable time</p>
+        <p><strong>Example:</strong> "The kids <em>had a whale of a time</em> at the birthday party."</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> انبسطنا أوي</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F3B6; Get the party started</h3>
+        <p><strong>Meaning:</strong> Begin the fun and excitement</p>
+        <p><strong>Example:</strong> "The DJ is here — let's <em>get the party started</em>!"</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> نبدأ الحفلة</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F37E; Pop the champagne</h3>
+        <p><strong>Meaning:</strong> Celebrate a special moment or achievement</p>
+        <p><strong>Example:</strong> "She got the job! Time to <em>pop the champagne</em>!"</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> نحتفل بالمناسبة</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F3C3; Party pooper</h3>
+        <p><strong>Meaning:</strong> Someone who ruins the fun</p>
+        <p><strong>Example:</strong> "Don't be a <em>party pooper</em> — come dance with us!"</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> اللي بيبوظ الجو</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f59e0b">
+        <h3 style="color:#f59e0b;margin-bottom:4px">&#x1F3B5; Bring the house down</h3>
+        <p><strong>Meaning:</strong> Make everyone laugh, cheer, or react very strongly</p>
+        <p><strong>Example:</strong> "The singer <em>brought the house down</em> with her amazing performance!"</p>
+        <p style="color:var(--text-dim);font-size:0.85rem"><strong>Arabic:</strong> قلب الدنيا (من الحماس)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== GRAMMAR ===== -->
+  <div class="section" id="grammar">
+    <h2>&#x1F4DD; Step 3: Grammar &mdash; The -ing Form &amp; Offering Help</h2>
+    <h3 style="margin:0 0 8px">&#x1F4CA; Grammar Slides</h3>
+    <div class="slideshow" id="grammarSlides"><div class="slide-viewport"><div class="slide-track" id="grammarTrack"></div></div><div class="slide-controls"><button class="slide-btn" onclick="slideNav('grammar',-1)" id="grammarPrev" disabled>&#x2B05;</button><div><div class="slide-dots" id="grammarDots"></div><div class="slide-counter" id="grammarCounter">1 / 12</div></div><button class="slide-btn" onclick="slideNav('grammar',1)" id="grammarNext">&#x27A1;</button></div></div>
+
+    <div class="card"><h3>&#x1F511; The Golden Rule</h3><p style="font-size:0.88rem">After a preposition (<strong>by, at, for, with, of, in</strong>) the verb ALWAYS gets <strong>-ing</strong>.</p><p style="font-size:0.88rem;margin-top:6px"><strong>Structure:</strong> preposition + <span class="demo-word">verb-ing</span></p></div>
+
+    <div class="card" style="border-left:4px solid var(--green)"><h3 style="color:var(--green)">&#x1F7E2; Preposition + -ing Examples</h3><div style="margin-top:8px;font-size:0.88rem;line-height:2"><p>&#x2705; I can help <strong>by</strong> <span class="demo-word">bringing</span> the drinks.</p><p>&#x2705; She is good <strong>at</strong> <span class="demo-word">organizing</span> parties.</p><p>&#x2705; Thank you <strong>for</strong> <span class="demo-word">helping</span> with the decorations!</p><p>&#x2705; Can I help <strong>with</strong> <span class="demo-word">decorating</span> the place?</p><p>&#x2705; I will take care <strong>of</strong> <span class="demo-word">buying</span> the cake.</p></div></div>
+
+    <div class="card" style="border-left:4px solid var(--blue)"><h3 style="color:var(--blue)">&#x1F4AC; Offering, Accepting &amp; Refusing Help</h3><table class="grammar-table"><tr><th>Offer</th><th>Accept</th><th>Refuse (politely)</th></tr><tr><td>Can I help with...?</td><td>Yes, please!</td><td>Thanks, but I've got it covered.</td></tr><tr><td>Would you like me to...?</td><td>That would be great!</td><td>I think I can manage, but thanks!</td></tr><tr><td>I'd be happy to...</td><td>I'd love some help!</td><td>That's kind of you, but I'm fine.</td></tr></table></div>
+
+    <div class="card" style="background:var(--red-light);border:3px solid var(--red)"><h3 style="color:var(--red);font-size:1.2rem;text-align:center">&#x26A0; THE BIG MISTAKE</h3><p style="font-size:0.95rem;text-align:center;margin-top:8px"><strong>offer/refuse + to + base verb</strong> (NOT -ing!)</p><div style="display:flex;gap:14px;margin-top:14px;flex-wrap:wrap;justify-content:center"><div style="background:#fff;border:2px solid var(--red);border-radius:12px;padding:14px;flex:1;min-width:200px;text-align:center"><p style="font-size:0.95rem;font-weight:700;color:var(--red)">&#x274C; WRONG</p><p style="font-size:0.9rem;margin-top:6px">"I offered <strong>helping</strong> you."</p><p style="font-size:0.9rem;margin-top:4px">"He refuses <strong>coming</strong>."</p></div><div style="background:#fff;border:2px solid var(--green);border-radius:12px;padding:14px;flex:1;min-width:200px;text-align:center"><p style="font-size:0.95rem;font-weight:700;color:var(--green)">&#x2705; CORRECT</p><p style="font-size:0.9rem;margin-top:6px">"I offered <strong>to help</strong> you."</p><p style="font-size:0.9rem;margin-top:4px">"He refuses <strong>to come</strong>."</p></div></div><p style="text-align:center;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;color:var(--red);font-size:1.1rem">Remember: offer/refuse are REBELS &mdash; they use TO!</p></div>
+
+    <div class="card"><h3>&#x270F; Practice: Fill in the Blank</h3><div id="grammar-exercises"></div><div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-accent" onclick="checkGrammar()">Check &#x2714;</button><button class="btn btn-outline" onclick="retryGrammar()">Retry &#x1F504;</button><span id="grammar-score" style="font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:700;margin-left:auto"></span></div></div>
+  </div>
+
+  <!-- ===== READING ===== -->
+  <div class="section" id="reading">
+    <h2>&#x1F4D6; Step 4: Read &amp; Understand</h2>
+    <div class="card"><h3>&#x1F31F; Emma's Party Plan</h3><div style="background:#faf9f6;padding:14px;border-radius:10px;font-size:0.86rem;line-height:2" id="readingPassage"><span class="highlight" data-q="q1">Emma will have a party at her house next weekend.</span> She will begin by planning the menu and choosing the decorations. She will make a list of everything she will need, like food, drinks, and music.<br><br><span class="highlight" data-q="q2">Emma will start by preparing sandwiches and pizza for her friends. She will also bake a big chocolate cake.</span> <span class="highlight" data-q="q1b">For drinks, she will focus on buying orange juice, soda, and water.</span> <span class="highlight" data-q="q4">She will decorate the living room by hanging balloons and putting up a colorful banner.</span><br><br><span class="highlight" data-q="q3">Emma will send invitations to her friends on Friday. She will ask them to come at 6 p.m.,</span> and <span class="highlight" data-q="q5">to help by bringing their favorite games to play together.</span> Emma hopes the party will be fun for everyone.</div><div class="tip-box mt-8"><strong>Did you notice?</strong> The passage uses many -ing forms: planning, choosing, preparing, buying, hanging, bringing! These are all verbs after prepositions.</div></div>
+    <div class="card"><h3>&#x2753; Reading Comprehension</h3><p style="font-size:0.82rem;color:var(--text-dim);margin-bottom:10px">Wrong answers highlight the relevant passage section!</p><div id="reading-questions"></div><div id="readingMistakes" class="hidden mt-16"><div class="card" style="background:var(--red-light);border:2px solid var(--red)"><h3 style="color:var(--red)">&#x1F4CB; Mistake Tracker</h3><div id="mistakesList"></div></div></div></div>
+  </div>
+
+  <!-- ===== SPEAKING ===== -->
+  <div class="section" id="speaking">
+    <span class="section-label" style="background:var(--orange-light);color:var(--orange)">Phase 3 &mdash; Output</span>
+    <h2>&#x1F5E3; Step 5: Speaking Practice</h2>
+    <div class="card"><h3>&#x1F3A4; 1-Minute Challenge</h3><p style="font-size:0.88rem;margin-bottom:8px">Set a timer. Speak for 60 seconds without stopping:</p><div class="challenge-box"><h3>"Describe the best party you've ever been to. What happened? What did you eat? Who was there?"</h3><p style="font-size:0.82rem;color:var(--text-dim);margin-top:6px">Use: 3+ party words + -ing form + offer/accept phrases</p></div></div>
+    <div class="card"><h3>&#x1F6E1; Rescue Phrases</h3><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:var(--accent-light);padding:5px 12px;border-radius:20px;font-size:0.82rem;font-weight:500">"Let me think about that..."</span><span style="background:var(--green-light);padding:5px 12px;border-radius:20px;font-size:0.82rem;font-weight:500">"What I mean is..."</span><span style="background:var(--orange-light);padding:5px 12px;border-radius:20px;font-size:0.82rem;font-weight:500">"For example..."</span><span style="background:var(--pink-light);padding:5px 12px;border-radius:20px;font-size:0.82rem;font-weight:500">"Another thing is..."</span><span style="background:var(--blue-light);padding:5px 12px;border-radius:20px;font-size:0.82rem;font-weight:500">"I also want to say..."</span></div></div>
+    <div class="card"><h3>&#x1F4AC; Pronunciation Tips</h3><div style="font-size:0.88rem;line-height:2"><p><strong>invitation</strong> &mdash; in-vi-TAY-shun <button class="tts-btn" onclick="speak('invitation',this)">&#x1F50A;</button></p><p><strong>celebrate</strong> &mdash; SEL-eh-brayt <button class="tts-btn" onclick="speak('celebrate',this)">&#x1F50A;</button></p><p><strong>appreciate</strong> &mdash; ah-PREE-shee-ayt <button class="tts-btn" onclick="speak('appreciate',this)">&#x1F50A;</button></p><p><strong>decoration</strong> &mdash; dek-oh-RAY-shun <button class="tts-btn" onclick="speak('decoration',this)">&#x1F50A;</button></p><p><strong>organize</strong> &mdash; OR-gah-nyz <button class="tts-btn" onclick="speak('organize',this)">&#x1F50A;</button></p></div></div>
+  </div>
+
+  <!-- ===== ROLEPLAY ===== -->
+  <div class="section" id="roleplay">
+    <h2>&#x1F3AD; Step 6: Roleplay &mdash; Party Planning Team</h2>
+    <p style="color:var(--text-dim);margin-bottom:14px;font-size:0.88rem">Click each role to see example conversation. Practice with a partner!</p>
+    <div class="role-card" style="border-color:var(--accent)" onclick="toggleRole('planner')"><h4 style="color:var(--accent)">&#x1F382; Role 1: The Party Planner</h4><p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:6px">You are planning a big birthday party for Saturday.</p><ul class="role-points"><li>You need help with decorations, food, music, and drinks</li><li>Accept some offers and politely refuse others</li><li>Use: "Yes, please!" / "Thanks, but I've got it covered."</li></ul><div class="role-convo" id="planner-convo"><strong>You:</strong> Hey everyone! I'm planning a birthday party for Saturday. There's so much to do!<br><strong>Friend:</strong> Can I help with the decorations?<br><strong>You:</strong> <span class="demo-word">Yes, please!</span> Can you bring some balloons and streamers?<br><strong>Friend:</strong> Sure! Would you like me to bring food too?<br><strong>You:</strong> <span class="demo-word">Thanks, but I've got it covered.</span> I'm preparing sandwiches and pizza.</div></div>
+    <div class="role-card" style="border-color:var(--green)" onclick="toggleRole('helper')"><h4 style="color:var(--green)">&#x1F64B; Role 2: The Eager Helper</h4><p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:6px">You want to help your friend with their party.</p><ul class="role-points"><li>Offer to help with at least 3 different things</li><li>Use -ing form: "I'm good at decorating..."</li><li>Accept polite refusals gracefully</li></ul><div class="role-convo" id="helper-convo"><strong>You:</strong> I heard you're planning a party! <span class="demo-word">Can I help with</span> anything?<br><strong>Planner:</strong> Yes! Can you help with the music?<br><strong>You:</strong> Sure! <span class="demo-word">I'm good at</span> making playlists. I can also help <span class="demo-word">by bringing</span> my Bluetooth speaker.</div></div>
+    <div class="role-card" style="border-color:var(--pink)" onclick="toggleRole('food')"><h4 style="color:var(--pink)">&#x1F355; Role 3: The Food Expert</h4><p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:6px">You are great at cooking and baking.</p><ul class="role-points"><li>Offer to help with food and drinks</li><li>Use: "I can help by preparing..."</li><li>Ask what food the planner needs</li></ul><div class="role-convo" id="food-convo"><strong>You:</strong> I'm really good at baking! <span class="demo-word">Can I help by</span> making the birthday cake?<br><strong>Planner:</strong> Yes, please! That would be amazing!<br><strong>You:</strong> I can also help <span class="demo-word">with preparing</span> some snacks. What do you need?</div></div>
+    <div class="role-card" style="border-color:var(--blue)" onclick="toggleRole('refuser')"><h4 style="color:var(--blue)">&#x1F60A; Role 4: The Polite Refuser</h4><p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:6px">You are organized and prefer to do most things yourself.</p><ul class="role-points"><li>Politely refuse some offers while accepting others</li><li>Use: "That's kind of you, but..." / "I think I can manage!"</li></ul><div class="role-convo" id="refuser-convo"><strong>Friend:</strong> Would you like me to organize the music?<br><strong>You:</strong> <span class="demo-word">That's kind of you, but</span> I already made a playlist.<br><strong>Friend:</strong> How about the decorations?<br><strong>You:</strong> Actually, yes! <span class="demo-word">I'd love some help with</span> hanging the balloons.</div></div>
+  </div>
+
+  <!-- ===== EMAIL ===== -->
+  <div class="section" id="email">
+    <h2>&#x1F4E7; Step 7: Email Writing</h2>
+    <div class="card"><h3>Email Task</h3><p style="font-size:0.88rem">Your friend sent you this message. Write a reply (50-60 words) accepting some help and politely refusing other help.</p></div>
+    <div class="card"><h3>&#x1F4E9; Friend's Email</h3><div class="email-frame"><div class="email-header"><strong>Subject:</strong> Your party this weekend!</div><div class="email-body"><p>Hi!</p><p style="margin-top:8px">I heard you're planning a birthday party this weekend. That sounds amazing! I'd love to help. Just let me know what you need, and I'll be there. &#x1F60A;</p></div></div></div>
+    <div class="card"><h3>&#x1F4A1; Model Reply</h3><div class="email-frame"><div class="email-header"><strong>Subject:</strong> Re: Your party this weekend!</div><div class="email-body"><p>Hi Nour!</p><p style="margin-top:8px">Thanks for <strong>offering to help</strong>! I'm so excited about the party. I need help with decorations &mdash; can you bring some balloons and streamers? I could also use help with <strong>setting up</strong> the music.</p><p style="margin-top:8px">Thanks again! &#x1F60A;</p><p style="margin-top:8px">Best,<br>Amira</p></div></div></div>
+    <div class="card"><h3>&#x2705; Email Checklist</h3><div class="checklist" id="email-checklist"><label><input type="checkbox" onchange="updateEmailCheck()"> Has greeting (Hi/Dear + name)</label><label><input type="checkbox" onchange="updateEmailCheck()"> Thanks the friend for offering</label><label><input type="checkbox" onchange="updateEmailCheck()"> Accepts help with at least one thing</label><label><input type="checkbox" onchange="updateEmailCheck()"> Politely refuses something</label><label><input type="checkbox" onchange="updateEmailCheck()"> Uses -ing form correctly</label><label><input type="checkbox" onchange="updateEmailCheck()"> Has closing + sign-off</label><label><input type="checkbox" onchange="updateEmailCheck()"> 50-60 words</label></div><div id="email-check-result" class="mt-8" style="font-family:'Fredoka',sans-serif;font-size:0.9rem"></div></div>
+    <div class="card"><h3>&#x270F; Write Your Reply</h3><textarea class="writing-area" id="email-area" placeholder="Hi [name],&#10;&#10;Thanks for offering to help! I need help with...&#10;&#10;I can manage the... by myself, but thanks!&#10;&#10;See you at the party!&#10;[your name]" oninput="updateEmailWC()"></textarea><div class="word-count">Words: <span id="email-wc">0</span> / 50-60</div></div>
+  </div>
+
+  <!-- ===== WRITING ===== -->
+  <div class="section" id="writing">
+    <h2>&#x270F; Step 8: Writing &mdash; My Dream Party</h2>
+    <div class="card"><h3>&#x1F4A1; Writing Task</h3><p style="font-size:0.88rem">Write about your dream party (50-60 words). Where? What food? What activities? Who? What help?</p><div style="background:linear-gradient(135deg,#fef9e7,#fff3e6);padding:18px;border-radius:12px;border:2px solid #f0dcc0;font-size:0.9rem;line-height:1.9;margin-top:12px"><p><em>Model:</em></p><p>I will have my birthday party at home next Saturday. I will prepare pizza and sandwiches, and my friend will help <strong>by baking</strong> a chocolate cake. For drinks, I will buy soda and juice. My sister is good <strong>at decorating</strong>, so she will hang balloons and streamers. We will play music and dance!</p></div></div>
+    <div class="card"><h3>&#x270F; Write Your Paragraph</h3><textarea class="writing-area" id="writing-area" placeholder="I will have my birthday party at...&#10;&#10;My friend will help by...&#10;&#10;I'm good at..." oninput="updateWritingWC()"></textarea><div class="word-count">Words: <span id="writing-wc">0</span> / 50-60</div></div>
+    <div class="card"><h3>&#x2705; Writing Checklist</h3><div class="checklist" id="writing-checklist"><label><input type="checkbox" onchange="updateWritingCheck()"> Describes where the party will be</label><label><input type="checkbox" onchange="updateWritingCheck()"> Mentions food and drinks</label><label><input type="checkbox" onchange="updateWritingCheck()"> Uses -ing form after prepositions (2+)</label><label><input type="checkbox" onchange="updateWritingCheck()"> Uses 'will' for future plans</label><label><input type="checkbox" onchange="updateWritingCheck()"> 50-60 words</label></div><div id="writing-check-result" class="mt-8" style="font-family:'Fredoka',sans-serif;font-size:0.9rem"></div></div>
+  </div>
+
+  <!-- ===== QUIZ ===== -->
+  <div class="section" id="quiz">
+    <span class="section-label" style="background:var(--red-light);color:var(--red)">Phase 4 &mdash; Test</span>
+    <h2>&#x1F3AF; Step 9: Final Quiz</h2>
+    <p style="color:var(--text-dim);margin-bottom:14px;font-size:0.88rem">18 questions. Get ready for memes if you answer wrong! &#x1F609;</p>
+    <div id="quiz-container"></div>
+    <div class="text-center mt-20">
+      <button class="btn btn-green" onclick="showQuizScore()" style="padding:10px 28px;font-size:0.95rem">Show My Score &#x1F3C6;</button>
+      <button class="btn btn-outline" onclick="retryQuiz()" style="margin-left:10px;padding:10px 28px;font-size:0.95rem">Retry &#x1F504;</button>
+      <a href="kahoot-session2.html" style="display:inline-block;margin-left:10px;padding:10px 28px;background:var(--red);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;font-size:0.88rem">Kahoot! &#x1F3AE;</a>
+    </div>
+    <div id="quiz-final" class="hidden mt-16 text-center card" style="border-width:2px"></div>
+  </div>
+
+  <!-- ===== SUMMARY ===== -->
+  <div class="section" id="summary">
+    <span class="section-label" style="background:var(--yellow-light);color:var(--orange)">&#x1F4CA; Summary</span>
+    <h2>Everything You Learned Today</h2>
+    <div class="card"><h3>&#x1F4D6; Vocabulary Summary</h3><table class="grammar-table"><tr><th>Word</th><th>Meaning</th><th>Arabic</th><th>Pattern</th></tr><tr><td>host</td><td>Person who organizes</td><td>&#x0627;&#x0644;&#x0645;&#x0646;&#x0638;&#x0645;</td><td>host a party</td></tr><tr><td>guest</td><td>Person who comes</td><td>&#x0636;&#x064A;&#x0641;</td><td>invite a guest</td></tr><tr><td>celebrate</td><td>Do something special</td><td>&#x064A;&#x062D;&#x062A;&#x0641;&#x0644;</td><td>celebrate a birthday</td></tr><tr><td>offer</td><td>Say you'll help</td><td>&#x064A;&#x0639;&#x0631;&#x0636;</td><td>offer TO help</td></tr><tr><td>accept</td><td>Say yes</td><td>&#x064A;&#x0642;&#x0628;&#x0644;</td><td>accept help</td></tr><tr><td>refuse</td><td>Say no politely</td><td>&#x064A;&#x0631;&#x0641;&#x0636;</td><td>refuse TO come</td></tr><tr><td>invitation</td><td>Request to come</td><td>&#x062F;&#x0639;&#x0648;&#x0629;</td><td>send an invitation</td></tr><tr><td>balloon</td><td>Air-filled decoration</td><td>&#x0628;&#x0627;&#x0644;&#x0648;&#x0646;&#x0629;</td><td>blow up balloons</td></tr><tr><td>decorate</td><td>Make a place nice</td><td>&#x064A;&#x0632;&#x064A;&#x0651;&#x0646;</td><td>decorate the room</td></tr><tr><td>arrange</td><td>Put in order</td><td>&#x064A;&#x0631;&#x062A;&#x0628;</td><td>arranging decorations</td></tr></table></div>
+    <div class="card"><h3>&#x1F4DD; Grammar Rules</h3><table class="grammar-table"><tr><th>Pattern</th><th>Rule</th><th>Example</th></tr><tr><td>preposition + verb</td><td>Always add -ing</td><td>help <strong>by bringing</strong></td></tr><tr><td>offer / refuse + verb</td><td>Use to + base verb</td><td>offered <strong>to help</strong></td></tr></table></div>
+  </div>
+
+  <!-- ===== CHEAT SHEET ===== -->
+  <div class="section" id="cheat">
+    <span class="section-label" style="background:var(--yellow-light);color:var(--orange)">&#x1F4CB; Reference</span>
+    <h2>Cheat Sheet</h2>
+    <div class="cheat-grid">
+      <div class="cheat-cell"><h4 style="color:var(--green)">&#x1F7E2; Preposition + -ing</h4><p style="font-size:0.82rem">by/at/for/with/of/in + verb-ING<br>help <strong>by bringing</strong><br>good <strong>at organizing</strong><br>thank you <strong>for helping</strong></p></div>
+      <div class="cheat-cell"><h4 style="color:var(--red)">&#x1F534; The Rebel Rule</h4><p style="font-size:0.82rem">offer + <strong>to + base verb</strong><br>refuse + <strong>to + base verb</strong><br>&#x274C; offered helping<br>&#x2705; offered <strong>to help</strong></p></div>
+      <div class="cheat-cell"><h4 style="color:var(--accent)">&#x1F389; Party Words</h4><p style="font-size:0.82rem">host, guest, invitation<br>balloon, streamer, banner<br>decorate, celebrate, snack<br>playlist, party hat</p></div>
+      <div class="cheat-cell"><h4 style="color:var(--pink)">&#x1F5E3; Help Phrases</h4><p style="font-size:0.82rem">"Can I help with...?"<br>"Would you like me to...?"<br>"Yes, please!"<br>"Thanks, but I've got it covered."</p></div>
+    </div>
+    <h3 style="margin:20px 0 10px">Session 1 Recap</h3>
+    <div class="cheat-grid">
+      <div class="cheat-cell"><h4 style="color:var(--blue)">&#x1F382; S1: Birthdays</h4><p style="font-size:0.82rem">invite, surprise, candle, gift, wrap<br>'will' for plans<br>"I will..." / "She won't..."</p></div>
+      <div class="cheat-cell"><h4 style="color:var(--orange)">&#x1F4A1; Quick Tip</h4><p style="font-size:0.82rem">See a preposition? Add -ING!<br>See offer/refuse? Use TO!<br>That's all you need! &#x1F389;</p></div>
+    </div>
+  </div>
+
+  <!-- ===== NOTES ===== -->
+  <div class="section" id="notes">
+    <h2>&#x1F4D3; My Session Notes</h2>
+    <div class="card"><h3>&#x1F4DD; Class Notes</h3><textarea class="notes-area" id="classNotes" placeholder="Type your notes here..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x1F4D5; Difficult Words</h3><textarea class="notes-area" id="difficultWords" style="min-height:80px" placeholder="e.g., appreciate &mdash; I keep forgetting..." oninput="saveNotes()"></textarea></div>
+    <div class="card"><h3>&#x2753; Questions for Teacher</h3><textarea class="notes-area" id="teacherQuestions" style="min-height:80px" placeholder="Write questions for your teacher..." oninput="saveNotes()"></textarea></div>
+  </div>
+
+  <!-- ===== PROGRESS TRACKER ===== -->
+  <div class="section" id="tracker">
+    <h2>&#x2705; Progress Tracker</h2>
+    <div class="card"><h3>Check off completed sections:</h3><div id="progressChecks">
+      <label class="section-check"><input type="checkbox" data-sec="listen" onchange="updateTracker()"> &#x1F3A7; Listened to audio &amp; watched video</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocab" onchange="updateTracker()"> &#x1F4DA; Studied vocabulary flashcards</label>
+      <label class="section-check"><input type="checkbox" data-sec="vocabex" onchange="updateTracker()"> &#x270F; Completed vocabulary exercise</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammar" onchange="updateTracker()"> &#x1F4DD; Understood grammar rules</label>
+      <label class="section-check"><input type="checkbox" data-sec="grammarex" onchange="updateTracker()"> &#x1F4DD; Completed grammar exercises</label>
+      <label class="section-check"><input type="checkbox" data-sec="read" onchange="updateTracker()"> &#x1F4D6; Read passage &amp; answered questions</label>
+      <label class="section-check"><input type="checkbox" data-sec="speak" onchange="updateTracker()"> &#x1F5E3; Did speaking challenge</label>
+      <label class="section-check"><input type="checkbox" data-sec="roleplay" onchange="updateTracker()"> &#x1F3AD; Practiced roleplay</label>
+      <label class="section-check"><input type="checkbox" data-sec="email" onchange="updateTracker()"> &#x1F4E7; Wrote email</label>
+      <label class="section-check"><input type="checkbox" data-sec="write" onchange="updateTracker()"> &#x270F; Completed writing task</label>
+      <label class="section-check"><input type="checkbox" data-sec="quiz" onchange="updateTracker()"> &#x1F3AF; Finished quiz</label>
+      <label class="section-check"><input type="checkbox" data-sec="kahoot" onchange="updateTracker()"> &#x1F3AE; Played Kahoot</label>
+    </div><div style="margin-top:14px"><div style="background:#e8e6e0;border-radius:8px;height:12px;overflow:hidden"><div id="trackerFill" style="height:100%;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--green));width:0%;transition:width 0.5s"></div></div><p style="font-size:0.82rem;color:var(--text-dim);margin-top:6px;text-align:center" id="trackerText">0 of 12 completed</p></div></div>
+  </div>
+
+  <!-- ===== NEXT SESSION ===== -->
+  <div class="section">
+    <span class="section-label" style="background:var(--blue-light);color:var(--blue)">&#x1F52E; Coming Next</span>
+    <h2>Session 3: Street Food Adventures</h2>
+    <div class="card" style="background:linear-gradient(135deg,var(--green-light),var(--blue-light))"><h4 style="font-family:'Fredoka',sans-serif;color:var(--blue);margin-bottom:6px">What's Coming</h4><p style="font-size:0.88rem"><strong>Vocabulary:</strong> delicious, crispy, spicy, bland, tender</p><p style="font-size:0.88rem"><strong>Grammar:</strong> some/any, how much/many, countable vs uncountable</p><p style="font-size:0.88rem;margin-top:6px;color:var(--text-dim)"><em>"What's your favorite Egyptian street food?"</em></p></div>
+  </div>
+
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:30px 0 20px">
+    <a href="session-1.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--blue);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">&#x2B05; Session 1</a>
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--accent);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">&#x1F3E0; Home</a>
+    <a href="session-3.html" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--green);color:#fff;border-radius:14px;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:0.9rem">Session 3 &#x27A1;</a>
+  </div>
+  <div style="text-align:center;padding:10px 20px 20px;color:var(--text-dim);font-size:0.78rem"><p>AUC English A2A &bull; Session 2: Birthday Parties</p></div>
+</div>
+
+<div class="score-banner">
+  <div class="score-item"><div class="label">Cards</div><div class="val" id="sb-cards" style="color:var(--accent)">0</div></div>
+  <div class="score-item"><div class="label">Grammar</div><div class="val" id="sb-grammar" style="color:var(--green)">0</div></div>
+  <div class="score-item"><div class="label">Quiz</div><div class="val" id="sb-quiz" style="color:var(--red)">0/18</div></div>
+  <div class="score-item"><div class="label">Written</div><div class="val" id="sb-words" style="color:var(--orange)">0</div></div>
+</div>
+
+<script>
+function speak(w,b){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=0.85;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;if(b){b.classList.add('playing');u.onend=()=>b.classList.remove('playing')}speechSynthesis.speak(u)}
+if('speechSynthesis' in window)speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
+
+const partyVocab=[{w:"host",p:"noun",m:"the person who organizes a party",ar:"الشخص اللي بينظم الحفلة",ex:"She is the host of the party.",col:"host a party"},{w:"guest",p:"noun",m:"a person who comes to a party",ar:"ضيف",ex:"We invited 20 guests.",col:"party guest"},{w:"invitation",p:"noun",m:"a request asking someone to come",ar:"دعوة",ex:"I sent the invitations on Friday.",col:"send an invitation"},{w:"celebrate",p:"verb",m:"do something special for a happy event",ar:"يحتفل",ex:"Let's celebrate your birthday!",col:"celebrate a birthday"},{w:"decorate",p:"verb",m:"make a place look nice",ar:"يزيّن",ex:"We will decorate the room.",col:"decorate the room"},{w:"decoration",p:"noun",m:"things used to make a place look nice",ar:"زينة / ديكور",ex:"The decorations look beautiful!",col:"party decorations"},{w:"balloon",p:"noun",m:"a colorful air-filled party item",ar:"بالونة",ex:"Can you bring some balloons?",col:"blow up balloons"},{w:"streamer",p:"noun",m:"long strip of colored paper",ar:"شريط زينة",ex:"We hung streamers from the ceiling.",col:"colorful streamers"},{w:"banner",p:"noun",m:"a large sign with a message",ar:"لافتة",ex:"We put up a Happy Birthday banner.",col:"birthday banner"},{w:"snack",p:"noun",m:"small food eaten between meals",ar:"سناك / وجبة خفيفة",ex:"We bought chips and snacks.",col:"party snacks"},{w:"playlist",p:"noun",m:"a list of songs to play",ar:"قائمة أغاني",ex:"I made a great playlist!",col:"make a playlist"},{w:"party hat",p:"noun",m:"a fun hat worn at parties",ar:"طاقية حفلة",ex:"Everyone wore party hats.",col:"wear a party hat"}];
+const helpVocab=[{w:"offer",p:"verb",m:"say you are willing to do something",ar:"يعرض المساعدة",ex:"I offered to help with the food.",col:"offer to help"},{w:"accept",p:"verb",m:"say yes to an offer",ar:"يقبل",ex:"She accepted my help happily.",col:"accept help"},{w:"refuse",p:"verb",m:"say no politely",ar:"يرفض بأدب",ex:"He refused to let me pay.",col:"refuse politely"},{w:"manage",p:"verb",m:"be able to do something alone",ar:"يقدر يتصرف لوحده",ex:"I can manage, but thanks!",col:"I can manage"},{w:"appreciate",p:"verb",m:"feel thankful for something",ar:"يقدّر",ex:"I really appreciate your help!",col:"I appreciate it"},{w:"handle",p:"verb",m:"deal with or take care of",ar:"يتعامل مع / يتولى",ex:"I can handle the food.",col:"handle it"}];
+const actionVocab=[{w:"arranging",p:"verb (-ing)",m:"putting things in order",ar:"ترتيب",ex:"Can I help with arranging?",col:"arranging decorations"},{w:"preparing",p:"verb (-ing)",m:"making food or things ready",ar:"تحضير",ex:"She is preparing sandwiches.",col:"preparing food"},{w:"hanging",p:"verb (-ing)",m:"putting something on a wall",ar:"تعليق",ex:"Help with hanging balloons.",col:"hanging decorations"},{w:"blowing up",p:"phrasal (-ing)",m:"filling with air",ar:"نفخ",ex:"Good at blowing up balloons.",col:"blowing up balloons"},{w:"organizing",p:"verb (-ing)",m:"planning and arranging",ar:"تنظيم",ex:"I'm good at organizing!",col:"organizing a party"},{w:"borrowing",p:"verb (-ing)",m:"taking to use and return",ar:"استعارة",ex:"Help by borrowing chairs.",col:"borrowing items"},{w:"setting up",p:"phrasal (-ing)",m:"preparing things in place",ar:"تجهيز",ex:"Help with setting up drinks.",col:"setting up the room"}];
+
+const idioms=[{p:"Life of the party 🎉",m:"A very fun, social person"},{p:"Social butterfly 🦋",m:"Loves talking to everyone"},{p:"Let your hair down 💃",m:"Relax and enjoy yourself"},{p:"Wallflower 🌼",m:"A shy person who sits alone"},{p:"Party pooper 👎",m:"Someone who ruins the fun"},{p:"Crash a party 🚨",m:"Come without being invited"},{p:"A whale of a time 🐋",m:"Have a really great time"},{p:"Large it up 🕺",m:"Enjoy by dancing and having fun"}];
+
+const vocabExData=[{q:"What do you usually do at a party?",opts:["Go to sleep","Talk to friends","Do some work"],ans:1},{q:"What do you call the person who organizes a party?",opts:["Guest","Waiter","Host"],ans:2},{q:"What is a 'balloon'?",opts:["A party game","A type of food","A party decoration"],ans:2},{q:"What is a 'guest'?",opts:["Someone who comes to a party","Someone who organizes","Someone who cleans"],ans:0},{q:"What is a common thing to bring to a party?",opts:["A book","A gift","A pencil"],ans:1},{q:"What do people usually eat at parties?",opts:["Bread and eggs","Soup and salad","Cake and snacks"],ans:2},{q:"What is a 'party hat'?",opts:["A gift","An accessory for your head","A plate"],ans:1},{q:"What do you do when you arrive at a party?",opts:["Leave","Go to bed","Say hello to people"],ans:2},{q:"What is a 'birthday cake'?",opts:["A cake for a wedding","A cake for a celebration","A cake for breakfast"],ans:1}];
+
+const grammarEx=[{q:'Can I help with ______ the decorations?',opts:['arrange','arranging','arranged'],ans:1},{q:"I'm good at ______ the playlist.",opts:['creating','create','created'],ans:0},{q:"I'm good at ______ balloons.",opts:['organizing','blowing up','to blow up'],ans:1},{q:'I can ______ by making invitations.',opts:['help','helping','helped'],ans:0},{q:'I can help by ______ some chips.',opts:['bring','to bring','bringing'],ans:2},{q:'Can I help with ______ the drinks?',opts:['bringing','bring','brought'],ans:0},{q:"I'd be happy to help with ______.",opts:['hanging','hang','hung'],ans:0},{q:'Would you like me to ______ the favors?',opts:['organize','organizing','organized'],ans:0},{q:"I'm great at ______ fun activities.",opts:['plan','planning','planned'],ans:1},{q:'I offered to help with ______ them.',opts:['sending','send','to send'],ans:0},{q:"I'll help by ______ some chairs.",opts:['borrow','to borrow','borrowing'],ans:2},{q:"I'm good at ______ it myself.",opts:['choosing','choose','chose'],ans:0}];
+
+const recapEx=[{q:'I ______ help you with the party.',opts:['will','am','do'],ans:0},{q:'______ you bring snacks to the party?',opts:['Do','Will','Are'],ans:1},{q:'She ______ not come. She is busy.',opts:['will','does','is'],ans:0},{q:'What time ______ the party start?',opts:['does','will','is'],ans:1},{q:'We ______ celebrate with cake!',opts:['will','are','do'],ans:0}];
+
+const listen1Data=[{q:"What time does the woman say it is?",opts:["Two minutes after six","Five to six","Half past six"],ans:0},{q:"How does the man accept the baseball offer?",opts:["What time is it?","That sounds great!","I'm early."],ans:1},{q:"What movie is suggested?",opts:["A comedy show","A musical","A French movie at the Avalon"],ans:2},{q:"What time is the baseball game?",opts:["Eight o'clock","Seven o'clock","Nine o'clock"],ans:1},{q:"What is the play called?",opts:["Dream of Life","Tigers vs. Giants","Life is a Dream"],ans:2},{q:"Who is giving a talk at the university?",opts:["A famous actor","A movie director","A famous writer"],ans:2},{q:"What does the man think about baseball?",opts:["Great idea","Wants to stay home","Prefers the movie"],ans:0}];
+
+const tfData=[{q:"Tom is planning a party for Sunday.",a:false},{q:"Lucy offers to bring colorful balloons.",a:true},{q:"Sarah offers to bring food.",a:false},{q:"Tom asks Lucy to help set up drinks.",a:false},{q:"Sarah refuses to help with the party.",a:false},{q:"Tom is excited about the party.",a:true},{q:"Lucy will help at 4 p.m. on Saturday.",a:true}];
+
+const readingQ=[{q:"What drinks does Emma plan to offer?",opts:["Milk and tea","Orange juice, soda, and water","Juice and milk"],ans:1,hl:"q1b"},{q:"Which dessert is Emma preparing?",opts:["A chocolate cake","A big chocolate","A vanilla cake"],ans:0,hl:"q2"},{q:"What time will the party start?",opts:["5 p.m.","6 p.m.","7 p.m."],ans:1,hl:"q3"},{q:"How will Emma decorate?",opts:["Flowers on the table","Painting the walls","Hanging balloons and streamers"],ans:2,hl:"q4"},{q:"Emma asks friends to bring games to:",opts:["Do activities they enjoy","Have some rest","Provide extra snacks"],ans:0,hl:"q5"}];
+const readingMistakes=[];
+
+const quizData=[{q:"What do you usually do at a party?",opts:["Go to sleep","Talk to friends","Do work"],ans:1,cat:"Vocab"},{q:"What is a 'guest'?",opts:["Someone who organizes","Someone who comes","Someone who cleans"],ans:1,cat:"Vocab"},{q:"What is a 'balloon'?",opts:["A game","A food","A decoration"],ans:2,cat:"Vocab"},{q:"'I can help ______ bringing the food.'",opts:["by","at","for"],ans:0,cat:"Grammar"},{q:"'She is good ______ organizing parties.'",opts:["by","at","for"],ans:1,cat:"Grammar"},{q:"'Thank you ______ helping me!'",opts:["by","at","for"],ans:2,cat:"Grammar"},{q:"How do you politely offer help?",opts:["Can I help with the decorations?","I will do the decorations.","You should do the decorations."],ans:0,cat:"Grammar"},{q:"How do you politely refuse help?",opts:["No! Go away!","Thanks, but I've got it covered.","I don't want your help."],ans:1,cat:"Grammar"},{q:"'I offered to ______ you.'",opts:["helping","help","helped"],ans:1,cat:"Grammar"},{q:"'He refuses to ______ to the party.'",opts:["coming","come","came"],ans:1,cat:"Grammar"},{q:"In the listening, what time is it?",opts:["Two minutes after six","Five to six","Half past six"],ans:0,cat:"Listening"},{q:"What movie was suggested?",opts:["A comedy","A musical","A French movie at the Avalon"],ans:2,cat:"Listening"},{q:"What does the man choose?",opts:["The Mozart concert","The baseball game","The French movie"],ans:1,cat:"Listening"},{q:"What dessert is Emma preparing?",opts:["A chocolate cake","A vanilla cake","A big chocolate"],ans:0,cat:"Reading"},{q:"What time does Emma's party start?",opts:["5 p.m.","6 p.m.","7 p.m."],ans:1,cat:"Reading"},{q:"How will Emma decorate?",opts:["Flowers on table","Painting walls","Hanging balloons and streamers"],ans:2,cat:"Reading"},{q:"What does 'wallflower' mean?",opts:["A decoration","A shy person who sits alone","A flower type"],ans:1,cat:"Idioms"},{q:"What does 'crash a party' mean?",opts:["Break things","Come uninvited","Leave early"],ans:1,cat:"Idioms"}];
+const memeWrong=[{e:'😅',t:'Oops! Even Einstein made mistakes!'},{e:'🤦',t:'Nice try! But not quite!'},{e:'😬',t:'Almost! Give it another shot!'},{e:'🙈',t:'The answer said no thank you!'},{e:'💀',t:'Your brain needs more chai! ☕'},{e:'😭',t:'So close yet so far!'},{e:'🫠',t:'That answer melted away...'},{e:'🤡',t:'Clown answer detected!'},{e:'😵',t:'Confused? Review above!'},{e:'🦥',t:'Slow down and think again!'}];
+const memeRight=[{e:'🎉',t:'YESSS! You nailed it!'},{e:'🌟',t:'Star student right here!'},{e:'🔥',t:"You're on FIRE!"},{e:'💪',t:'Big brain energy!'},{e:'🏆',t:'Champion move!'},{e:'✨',t:'Absolutely brilliant!'},{e:'🚀',t:'Rocket scientist level!'},{e:'👑',t:'Crown this genius!'}];
+let quizScore=0,quizAnswered=0;
+
+function buildVocabCards(data,cid){const c=document.getElementById(cid);if(!c)return;data.forEach(v=>{const d=document.createElement('div');d.className='vocab-card';d.onclick=e=>{if(e.target.classList.contains('tts-btn'))return;d.classList.toggle('flipped');updateSB()};const sw=v.w.replace(/'/g,"\\'");d.innerHTML='<div class="vocab-inner"><div class="vocab-front"><div class="word">'+v.w+' <button class="tts-btn" onclick="event.stopPropagation();speak(\''+sw+'\',this)">🔊</button></div><div class="pos">'+v.p+'</div><div class="hint">Tap to flip</div></div><div class="vocab-back"><div class="meaning">'+v.m+'</div><div class="arabic">'+v.ar+'</div><div class="example">"'+v.ex+'"</div><div class="collocation">'+v.col+'</div></div></div>';c.appendChild(d)})}
+function buildIdioms(){const g=document.getElementById('idiom-grid');idioms.forEach(id=>{const d=document.createElement('div');d.className='expression-card';d.innerHTML='<div class="phrase">'+id.p+'</div><div class="ex-meaning">'+id.m+'</div>';g.appendChild(d)})}
+
+function buildVocabEx(){const c=document.getElementById('vocab-ex-rows');vocabExData.forEach((ex,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='vq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+ex.q+'</div>'+ex.opts.map((o,j)=>'<button class="quiz-option" onclick="checkVocabQ('+i+','+j+')">'+o+'</button>').join('');c.appendChild(d)})}
+function checkVocabQ(qi,oi){const d=document.getElementById('vq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);oi===vocabExData[qi].ans?b[oi].classList.add('correct'):(b[oi].classList.add('wrong'),b[vocabExData[qi].ans].classList.add('correct'))}
+function checkVocabEx(){let s=0;vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);if(d.querySelector('.correct')&&!d.querySelector('.wrong'))s++});const r=document.getElementById('vocab-result');r.innerHTML=(s===vocabExData.length?'🌟 Perfect! ':'💪 ')+s+'/'+vocabExData.length;r.style.color=s>=7?'var(--green)':'var(--red)'}
+function retryVocabEx(){vocabExData.forEach((e,i)=>{const d=document.getElementById('vq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false})});document.getElementById('vocab-result').innerHTML=''}
+
+function buildListen1(){const c=document.getElementById('listen1-questions');listen1Data.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='l1q-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkL1('+i+','+j+')">'+o+'</button>').join('')+'<div class="mcq-feedback" id="l1fb-'+i+'"></div>';c.appendChild(d)})}
+function checkL1(qi,oi){const d=document.getElementById('l1q-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const fb=document.getElementById('l1fb-'+qi);if(oi===listen1Data[qi].ans){b[oi].classList.add('correct');fb.innerHTML='✅ Correct!';fb.style.background='var(--green-light)';fb.style.color='var(--green)'}else{b[oi].classList.add('wrong');b[listen1Data[qi].ans].classList.add('correct');fb.innerHTML='❌ Correct: <strong>'+listen1Data[qi].opts[listen1Data[qi].ans]+'</strong>';fb.style.background='var(--red-light)';fb.style.color='var(--red)';d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500)}fb.classList.add('show')}
+
+function buildTF(){const c=document.getElementById('tf-questions');tfData.forEach((item,i)=>{const d=document.createElement('div');d.className='fill-row';d.id='tf-'+i;d.setAttribute('data-answered','false');d.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+item.q+'</span><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--green);color:#fff;margin-left:auto" onclick="checkTF('+i+',true)">True</button><button class="btn" style="padding:4px 14px;font-size:0.82rem;background:var(--red);color:#fff" onclick="checkTF('+i+',false)">False</button><span class="result" id="tfr-'+i+'"></span>';c.appendChild(d)})}
+function checkTF(i,a){const r=document.getElementById('tf-'+i);if(r.getAttribute('data-answered')==='true')return;r.setAttribute('data-answered','true');const res=document.getElementById('tfr-'+i);if(a===tfData[i].a){res.textContent='✅';r.style.borderColor='var(--green)';r.style.background='var(--green-light)'}else{res.textContent='❌ '+(tfData[i].a?'True':'False');r.style.borderColor='var(--red)';r.style.background='var(--red-light)';r.classList.add('shake');setTimeout(()=>r.classList.remove('shake'),500)}}
+
+function buildRecap(){const c=document.getElementById('recap-exercises');if(!c)return;recapEx.forEach((ex,i)=>{const row=document.createElement('div');row.className='fill-row';row.id='rex-'+i;row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('______','<select id="rsel-'+i+'"><option value="">&mdash;</option>'+ex.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>')+'</span><span class="result" id="rres-'+i+'"></span>';c.appendChild(row)})}
+function checkRecap(){let n=0;recapEx.forEach((ex,i)=>{const s=document.getElementById('rsel-'+i),r=document.getElementById('rres-'+i),row=document.getElementById('rex-'+i);if(s.value===ex.opts[ex.ans]){n++;r.textContent='✅';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}else{r.textContent='❌';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}});document.getElementById('recap-score').textContent=n+'/'+recapEx.length}
+function retryRecap(){recapEx.forEach((e,i)=>{document.getElementById('rsel-'+i).value='';document.getElementById('rres-'+i).textContent='';const r=document.getElementById('rex-'+i);r.style.borderColor='var(--border)';r.style.background=''});document.getElementById('recap-score').textContent=''}
+
+function buildGrammar(){const c=document.getElementById('grammar-exercises');grammarEx.forEach((ex,i)=>{const row=document.createElement('div');row.className='fill-row';row.id='gex-'+i;row.innerHTML='<span style="font-size:0.85rem;flex:1">'+(i+1)+'. '+ex.q.replace('______','<select id="gsel-'+i+'"><option value="">&mdash;</option>'+ex.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>')+'</span><span class="result" id="gres-'+i+'"></span>';c.appendChild(row)})}
+function checkGrammar(){let n=0;grammarEx.forEach((ex,i)=>{const s=document.getElementById('gsel-'+i),r=document.getElementById('gres-'+i),row=document.getElementById('gex-'+i);if(s.value===ex.opts[ex.ans]){n++;r.textContent='✅';row.style.borderColor='var(--green)';row.style.background='var(--green-light)'}else{r.textContent='❌';row.style.borderColor='var(--red)';row.style.background='var(--red-light)'}});document.getElementById('grammar-score').textContent=n+'/'+grammarEx.length;document.getElementById('sb-grammar').textContent=n+'/'+grammarEx.length}
+function retryGrammar(){grammarEx.forEach((e,i)=>{document.getElementById('gsel-'+i).value='';document.getElementById('gres-'+i).textContent='';const r=document.getElementById('gex-'+i);r.style.borderColor='var(--border)';r.style.background=''});document.getElementById('grammar-score').textContent=''}
+
+function buildReading(){const c=document.getElementById('reading-questions');readingQ.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='rq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkReadingQ('+i+','+j+')">'+o+'</button>').join('')+'<div class="mcq-feedback" id="rfb-'+i+'"></div>';c.appendChild(d)})}
+function checkReadingQ(qi,oi){const d=document.getElementById('rq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const fb=document.getElementById('rfb-'+qi);const hl=document.querySelector('.highlight[data-q="'+readingQ[qi].hl+'"]');if(oi===readingQ[qi].ans){b[oi].classList.add('correct');fb.innerHTML='✅ Correct!';fb.style.background='var(--green-light)';fb.style.color='var(--green)'}else{b[oi].classList.add('wrong');b[readingQ[qi].ans].classList.add('correct');fb.innerHTML='❌ Correct: <strong>'+readingQ[qi].opts[readingQ[qi].ans]+'</strong>';fb.style.background='var(--red-light)';fb.style.color='var(--red)';d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500);if(hl)hl.classList.add('active');readingMistakes.push({q:readingQ[qi].q,c:readingQ[qi].opts[readingQ[qi].ans]});updateMistakes()}fb.classList.add('show')}
+function updateMistakes(){if(!readingMistakes.length)return;document.getElementById('readingMistakes').classList.remove('hidden');const l=document.getElementById('mistakesList');l.innerHTML='';readingMistakes.forEach((m,i)=>{l.innerHTML+='<div style="padding:8px 0;border-bottom:1px solid rgba(217,79,79,0.2);font-size:0.85rem"><strong>Q'+(i+1)+':</strong> '+m.q+'<br><span style="color:var(--green)">✅ '+m.c+'</span></div>'})}
+
+function toggleRole(id){document.getElementById(id+'-convo').classList.toggle('show')}
+
+function buildQuiz(){const c=document.getElementById('quiz-container');quizData.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-q';d.id='qq-'+i;d.setAttribute('data-answered','false');d.innerHTML='<div class="q-num">Q'+(i+1)+' — '+q.cat+'</div><div class="q-text">'+q.q+'</div>'+q.opts.map((o,j)=>'<button class="quiz-option" onclick="checkQuizQ('+i+','+j+')">'+o+'</button>').join('')+'<div class="quiz-meme" id="qm-'+i+'"></div>';c.appendChild(d)})}
+function checkQuizQ(qi,oi){const d=document.getElementById('qq-'+qi);if(d.getAttribute('data-answered')==='true')return;d.setAttribute('data-answered','true');quizAnswered++;const b=d.querySelectorAll('.quiz-option');b.forEach(x=>x.disabled=true);const mm=document.getElementById('qm-'+qi);if(oi===quizData[qi].ans){b[oi].classList.add('correct');quizScore++;const m=memeRight[Math.floor(Math.random()*memeRight.length)];mm.className='quiz-meme meme-correct show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;createConfetti(d)}else{b[oi].classList.add('wrong');b[quizData[qi].ans].classList.add('correct');const m=memeWrong[Math.floor(Math.random()*memeWrong.length)];mm.className='quiz-meme meme-wrong show';mm.innerHTML='<span class="meme-emoji">'+m.e+'</span>'+m.t;d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),500)}document.getElementById('sb-quiz').textContent=quizScore+'/'+quizData.length}
+function createConfetti(p){const colors=['#e8a838','#f472b6','#60a5fa','#2d9d78','#e74c3c','#a78bfa'];for(let i=0;i<10;i++){const c=document.createElement('div');c.className='confetti-piece';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.left=Math.random()*100+'%';c.style.top='-10px';c.style.animationDelay=Math.random()*0.3+'s';p.style.position='relative';p.appendChild(c);setTimeout(()=>c.remove(),2000)}}
+function showQuizScore(){const r=document.getElementById('quiz-final');r.classList.remove('hidden');const pct=Math.round(quizScore/quizData.length*100);let msg='',col='';if(pct>=90){msg="🌟 You're a STAR!";col='var(--green)'}else if(pct>=70){msg='💪 Great job!';col='var(--accent)'}else if(pct>=50){msg='📚 Good effort! Review!';col='var(--blue)'}else{msg="🤗 Don't worry! Try again!";col='var(--red)'}r.innerHTML='<div style="font-family:Fredoka,sans-serif;font-size:2.5rem;font-weight:700;color:'+col+'">'+quizScore+'/'+quizData.length+'</div><div style="font-size:1.1rem;margin-top:6px">'+pct+'% — '+msg+'</div>';r.style.borderColor=col}
+function retryQuiz(){quizScore=0;quizAnswered=0;document.getElementById('sb-quiz').textContent='0/'+quizData.length;document.getElementById('quiz-final').classList.add('hidden');quizData.forEach((q,i)=>{const d=document.getElementById('qq-'+i);d.setAttribute('data-answered','false');d.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong');b.disabled=false});const m=document.getElementById('qm-'+i);m.className='quiz-meme';m.innerHTML=''})}
+
+function updateEmailWC(){const w=document.getElementById('email-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('email-wc').textContent=w;updateSB()}
+function updateWritingWC(){const w=document.getElementById('writing-area').value.trim().split(/\s+/).filter(w=>w).length;document.getElementById('writing-wc').textContent=w;updateSB()}
+function updateEmailCheck(){const ch=document.querySelectorAll('#email-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('email-check-result');r.innerHTML=n===ch.length?'✅ All checked! Great email!':n+'/'+ch.length+' checked';r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+function updateWritingCheck(){const ch=document.querySelectorAll('#writing-checklist input');let n=0;ch.forEach(c=>{if(c.checked)n++});const r=document.getElementById('writing-check-result');r.innerHTML=n===ch.length?'✅ All checked!':n+'/'+ch.length+' checked';r.style.color=n===ch.length?'var(--green)':'var(--text-dim)'}
+
+function saveNotes(){try{localStorage.setItem('s2_classNotes',document.getElementById('classNotes').value);localStorage.setItem('s2_difficultWords',document.getElementById('difficultWords').value);localStorage.setItem('s2_teacherQuestions',document.getElementById('teacherQuestions').value)}catch(e){}}
+function loadNotes(){try{document.getElementById('classNotes').value=localStorage.getItem('s2_classNotes')||'';document.getElementById('difficultWords').value=localStorage.getItem('s2_difficultWords')||'';document.getElementById('teacherQuestions').value=localStorage.getItem('s2_teacherQuestions')||''}catch(e){}}
+
+function updateTracker(){const ch=document.querySelectorAll('#progressChecks input');let n=0;const s={};ch.forEach(c=>{if(c.checked)n++;s[c.dataset.sec]=c.checked});const pct=Math.round(n/ch.length*100);document.getElementById('trackerFill').style.width=pct+'%';document.getElementById('trackerText').textContent=n+' of '+ch.length+' completed';try{localStorage.setItem('s2_tracker',JSON.stringify(s))}catch(e){}}
+function loadTracker(){try{const s=JSON.parse(localStorage.getItem('s2_tracker')||'{}');document.querySelectorAll('#progressChecks input').forEach(c=>{if(s[c.dataset.sec])c.checked=true});updateTracker()}catch(e){}}
+
+function updateSB(){document.getElementById('sb-cards').textContent=document.querySelectorAll('.vocab-card.flipped').length;const ew=parseInt(document.getElementById('email-wc')?.textContent||0);const ww=parseInt(document.getElementById('writing-wc')?.textContent||0);document.getElementById('sb-words').textContent=ew+ww}
+
+window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;if(h>0){const p=Math.min(scrollY/h*100,100);document.getElementById('progress-fill').style.width=p+'%';document.getElementById('progress-pct').textContent=Math.round(p)+'%'}});
+
+const slideState={grammar:{current:0,total:0},vocab:{current:0,total:0}};
+function initSlideshow(n){const t=document.getElementById(n+'Track');if(!t)return;const sl=t.querySelectorAll('.slide');slideState[n].total=sl.length;const dc=document.getElementById(n+'Dots');dc.innerHTML='';for(let i=0;i<sl.length;i++){const d=document.createElement('span');d.className='slide-dot'+(i===0?' active':'');d.onclick=()=>{slideState[n].current=i;updateSlide(n)};dc.appendChild(d)}updateSlide(n)}
+function slideNav(n,dir){const s=slideState[n];s.current=Math.max(0,Math.min(s.total-1,s.current+dir));updateSlide(n)}
+function updateSlide(n){const s=slideState[n];document.getElementById(n+'Track').style.transform='translateX(-'+s.current*100+'%)';document.getElementById(n+'Counter').textContent=(s.current+1)+' / '+s.total;document.getElementById(n+'Prev').disabled=s.current===0;document.getElementById(n+'Next').disabled=s.current===s.total-1;document.getElementById(n+'Dots').querySelectorAll('.slide-dot').forEach((d,i)=>d.classList.toggle('active',i===s.current))}
+
+function buildSlides(){const vt=document.getElementById('vocabTrack');for(let i=1;i<=15;i++){const s=document.createElement('div');s.className='slide';s.innerHTML='<img src="media/session-2/AUC_Party_Planning_English_page-'+String(i).padStart(4,'0')+'.jpg" alt="Vocab Slide '+i+'" loading="lazy" style="max-width:100%;max-height:500px;border-radius:8px">';vt.appendChild(s)}const gt=document.getElementById('grammarTrack');for(let i=1;i<=12;i++){const s=document.createElement('div');s.className='slide';s.innerHTML='<img src="media/session-2/VIP_Grammar_Party_page-'+String(i).padStart(4,'0')+'.jpg" alt="Grammar Slide '+i+'" loading="lazy" style="max-width:100%;max-height:500px;border-radius:8px">';gt.appendChild(s)}}
+
+document.addEventListener('DOMContentLoaded',()=>{buildSlides();buildRecap();buildVocabCards(partyVocab,'vg-party');buildVocabCards(helpVocab,'vg-help');buildVocabCards(actionVocab,'vg-action');buildIdioms();buildVocabEx();buildListen1();buildTF();buildGrammar();buildReading();buildQuiz();initSlideshow('grammar');initSlideshow('vocab');loadNotes();loadTracker()});
+</script>
+</body>
+</html>
